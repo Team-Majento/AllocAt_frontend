@@ -14,6 +14,15 @@ import { ResourceFormComponent } from './resource/resource-form/resource-form.co
 import { AddCompanyComponent } from './company/add-company/add-company.component';
 import {HttpClientModule} from "@angular/common/http";
 import { AddResourceComponent } from './resource/add-resource/add-resource.component';
+import { UpdateCompanyComponent } from './company/update-company/update-company.component';
+import { ResourceRequestFormComponent } from './resourceRequest/resource-request-form/resource-request-form.component';
+import { AddResourceRequestComponent } from './resourceRequest/add-resource-request/add-resource-request.component';
+import { UpdateResourceRequestComponent } from './resourceRequest/update-resource-request/update-resource-request.component';
+import { UpdateResourceComponent } from './resource/update-resource/update-resource.component';
+import { UserFormComponent } from './user/user-form/user-form.component';
+import { AddUsermComponent } from './user/add-userm/add-userm.component';
+import { AddUserComponent } from './user/add-user/add-user.component';
+import { UpdateUserComponent } from './user/update-user/update-user.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +35,16 @@ import { AddResourceComponent } from './resource/add-resource/add-resource.compo
     CompanyFormComponent,
     ResourceFormComponent,
     AddCompanyComponent,
-    AddResourceComponent
+    AddResourceComponent,
+    UpdateCompanyComponent,
+    ResourceRequestFormComponent,
+    AddResourceRequestComponent,
+    UpdateResourceRequestComponent,
+    UpdateResourceComponent,
+    UserFormComponent,
+    AddUsermComponent,
+    AddUserComponent,
+    UpdateUserComponent
   ],
     imports: [
         BrowserModule,

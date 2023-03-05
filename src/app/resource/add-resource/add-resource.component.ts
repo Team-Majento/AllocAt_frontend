@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {Resource} from "../../../models/resource";
 
 @Component({
   selector: 'app-add-resource',
@@ -6,5 +7,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-resource.component.scss']
 })
 export class AddResourceComponent {
+  resource= {} as Resource
 
 }

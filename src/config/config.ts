@@ -5,7 +5,8 @@ export const Config = {
   endpoints: {
     backendApi: 'http://localhost:8082',
     prefix: {
-      company :"companies"
+      company :"companies",
+      resource:"resource"
     }
   },
 };
