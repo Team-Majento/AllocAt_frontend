@@ -20,7 +20,6 @@ import { AddResourceRequestComponent } from './resourceRequest/add-resource-requ
 import { UpdateResourceRequestComponent } from './resourceRequest/update-resource-request/update-resource-request.component';
 import { UpdateResourceComponent } from './resource/update-resource/update-resource.component';
 import { UserFormComponent } from './user/user-form/user-form.component';
-import { AddUsermComponent } from './user/add-userm/add-userm.component';
 import { AddUserComponent } from './user/add-user/add-user.component';
 import { UpdateUserComponent } from './user/update-user/update-user.component';
 
@@ -42,7 +41,6 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
     UpdateResourceRequestComponent,
     UpdateResourceComponent,
     UserFormComponent,
-    AddUsermComponent,
     AddUserComponent,
     UpdateUserComponent
   ],
