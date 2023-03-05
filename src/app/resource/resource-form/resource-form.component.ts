@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-resource-form',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./resource-form.component.scss']
 })
 export class ResourceFormComponent {
-
+ @Input()
+  formTitle = "Form"
 }
+
