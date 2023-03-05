@@ -13,6 +13,7 @@ import { CompanyFormComponent } from './company/company-form/company-form.compon
 import { ResourceFormComponent } from './resource/resource-form/resource-form.component';
 import { AddCompanyComponent } from './company/add-company/add-company.component';
 import {HttpClientModule} from "@angular/common/http";
+import { AddResourceComponent } from './resource/add-resource/add-resource.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {HttpClientModule} from "@angular/common/http";
     SidebarComponent,
     CompanyFormComponent,
     ResourceFormComponent,
-    AddCompanyComponent
+    AddCompanyComponent,
+    AddResourceComponent
   ],
     imports: [
         BrowserModule,
