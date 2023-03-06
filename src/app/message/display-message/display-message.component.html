@@ -1,0 +1,6 @@
+<div>
+  <p class="alert"
+     [class.alert-danger] = "data.isError"
+     [class.alert-success] = "!data.isError"
+  >{{ data.message }}</p>
+</div>

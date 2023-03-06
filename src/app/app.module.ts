@@ -22,6 +22,10 @@ import { UpdateResourceComponent } from './resource/update-resource/update-resou
 import { UserFormComponent } from './user/user-form/user-form.component';
 import { AddUserComponent } from './user/add-user/add-user.component';
 import { UpdateUserComponent } from './user/update-user/update-user.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MessageComponent } from './message/message.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DisplayMessageComponent } from './message/display-message/display-message.component';
 
 @NgModule({
   declarations: [
@@ -42,13 +46,18 @@ import { UpdateUserComponent } from './user/update-user/update-user.component';
     UpdateResourceComponent,
     UserFormComponent,
     AddUserComponent,
-    UpdateUserComponent
+    UpdateUserComponent,
+    MessageComponent,
+    DisplayMessageComponent
   ],
     imports: [
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-      HttpClientModule
+      HttpClientModule,
+      BrowserAnimationsModule,
+      MatDialogModule
+
     ],
   providers: [],
   bootstrap: [AppComponent]

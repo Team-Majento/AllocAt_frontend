@@ -1,1 +1,113 @@
-<p>resource-request-form works!</p>
+
+<section class="p-5 main-con">
+<!--  <h3 class="text-center mb-4 mt-1  text-capitalize">{{formTitle}}</h3>-->
+  <div class="bg-light">
+    <form #InputForm="ngForm">
+      <!--      {{resource|json}}-->
+      <!--      "activeStatus": true,-->
+
+
+
+      <div class="row">
+        <div class="col-12 col-lg-6 p-5 con__sub-01">
+          <div class="mb-4">
+            <label class="mb-2" for="user-name">User Name  user resource req</label>
+            <input class="form-control" id="user-name" name="user-name" type="text" >
+          </div>
+          <div class="mb-4">
+            <label class="mb-2" for="password">Password</label>
+            <input class="form-control" id="password" name="password" type="password" >
+          </div>
+
+          <div class="mb-4">
+            <label class="mb-2" for="user-id">User ID</label>
+            <input class="form-control" id="user-id" name="user-id" type="text" required>
+          </div>
+          <div class="mb-4">
+            <label class="mb-2" for="user-type">User Type</label>
+            <input class="form-control" id="user-type" name="user-type" type="number" required>
+          </div>
+
+          <div class="mb-4">
+            <label class="mb-2" for="first-name">First Name</label>
+            <input class="form-control" id="first-name" name="first-name" type="text" >
+          </div>
+          <div class="mb-4">
+            <label class="mb-2" for="middle-name">Middle Name</label>
+            <input class="form-control" id="middle-name" name="middle-name" type="text" >
+          </div>
+          <div class="mb-4">
+            <label class="mb-2" for="last-name">Last Name</label>
+            <input class="form-control" id="last-name" name="last-name" type="text" >
+          </div>
+
+          <div class="mb-4">
+            <label class="mb-2" for="email">Email</label>
+            <input class="form-control" id="email" name="email" type="email"  >
+          </div>
+
+        </div>
+
+
+        <div class="col-12 col-lg-6 p-5 con__sub-02">
+
+          <div class="mb-4">
+            <label class="mb-2" for="address">Address</label>
+            <input class="form-control" id="address" name="address" type="text"  >
+          </div>
+
+          <div class="mb-4">
+            <label class="mb-2" for="manager-eid">Managers Employee ID</label>
+            <input class="form-control" id="manager-eid" name="manager-eid" type="number" >
+          </div>
+
+          <div class="mb-4">
+            <label class="mb-2" for="contact-no">Contact Number</label>
+            <input class="form-control" id="contact-no" name="contact-no" type="number" >
+          </div>
+
+
+          <div class="form-check mb-2">
+            <input class="form-check-input" type="radio" name="gender" id="gender-m" value="M">
+            <label class="form-check-label" for="gender-m">
+              Male
+            </label>
+          </div>
+
+          <div class="form-check mb-4">
+            <input class="form-check-input" type="radio" name="gender" id="gender-f" value="F">
+            <label class="form-check-label" for="gender-f">
+              Female
+            </label>
+          </div>
+
+          <div class="form-check mb-3">
+            <input class="form-check-input" type="checkbox" value="true" name="active-status" id="active-status" checked >
+            <label class="form-check-label" for="active-status">
+              Active Status
+            </label>
+          </div>
+
+          <div class="mb-4">
+            <label for="formFile" class="form-label">Default file input example</label>
+            <input class="form-control" type="file" id="formFile">
+          </div>
+
+          <div class="mb-3">
+            <label class="mb-2" for="img-url">Image URL</label>
+            <input class="form-control" id="img-url" name="img-url" type="text">
+          </div>
+
+          <div class="d-flex gap-3 justify-content-end align-items-center">
+            <!--            <button class="btn btn-primary"  (click)="addResource()">Submit</button>-->
+            <button class="btn btn-primary">Cancel</button>
+          </div>
+
+        </div>
+
+
+      </div>
+    </form>
+  </div>
+</section>
+
