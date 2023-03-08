@@ -1,31 +1,31 @@
 
-<section class="p-5 main-con">
-  <h3 class="text-center mb-4 mt-1  text-capitalize">{{formTitle}}</h3>
-  <div class="bg-light">
+<section class="p-3 main-con">
+  <h3 class="text-center mb-2 mt-1  text-capitalize">{{formTitle}}</h3>
+  <div style="background-color: #BAD7E9">
     <form #InputForm="ngForm">
-      {{resource|json}}
+<!--      {{resource|json}}-->
       <div class="row">
         <div class="col-12 col-lg-6 p-5 con__sub-01">
-          <div class="mb-4">
+          <div class="mb-3">
             <label class="mb-2" for="resource-id">Resource ID</label>
             <input class="form-control" id="resource-id" name="resource-id" type="text" >
           </div>
-          <div class="mb-4">
+          <div class="mb-3">
             <label class="mb-2" for="company-name">Company Name</label>
             <input class="form-control" id="company-name" name="company-name" type="text" required>
           </div>
 
-          <div class="mb-4">
+          <div class="mb-3">
             <label class="mb-2" for="resource-desc">Description</label>
             <textarea class="form-control" name="resource-desc"  id="resource-desc" rows="8"  [(ngModel)]="resource.description"></textarea>
           </div>
 
-          <div class="mb-4">
+          <div class="mb-3">
             <label class="mb-2" for="floor">Floor</label>
             <input class="form-control" id="floor" name="floor" type="number"  [(ngModel)]="resource.floor">
           </div>
 
-          <div class="mb-4">
+          <div class="mb-3">
             <label class="mb-2" for="building-id">Building ID</label>
             <input class="form-control" id="building-id" name="building-id" type="text" [(ngModel)]="resource.buildingId">
           </div>
@@ -34,42 +34,42 @@
         </div>
         <div class="col-12 col-lg-6 p-5 con__sub-02">
 
-          <div class="mb-4">
+          <div class="mb-3">
             <label class="mb-2" for="rateCard-id">Rate Card ID</label>
             <input class="form-control" id="rateCard-id" name="rateCard-id" type="number" [(ngModel)]="resource.rateCardId" >
           </div>
 
-          <div class="mb-4">
+          <div class="mb-3">
             <label class="mb-2" for="resource-type">Resource Type</label>
             <input class="form-control" id="resource-type" name="resource-type" type="number" [(ngModel)]="resource.resourceType">
           </div>
 
-          <div class="mb-4">
+          <div class="mb-3">
             <label class="mb-2" for="max-capacity">Maximum Capacity</label>
             <input class="form-control" id="max-capacity" name="max-capacity" type="number" [(ngModel)]="resource.maximumCapacity" >
           </div>
 
 
-          <div class="form-check mb-3">
+          <div class="form-check mb-2">
             <input class="form-check-input" type="checkbox" value="true" name="active-status" id="active-status" checked  [(ngModel)]="resource.activeStatus">
             <label class="form-check-label" for="active-status">
               Active Status
             </label>
           </div>
 
-          <div class="form-check mb-4">
+          <div class="form-check mb-3">
             <input class="form-check-input" type="checkbox" value="true" name="availability" id="availability" checked [(ngModel)]="resource.availability">
             <label class="form-check-label" for="availability">
               Availability
             </label>
           </div>
 
-          <div class="mb-4">
+          <div class="mb-3">
             <label for="formFile" class="form-label">Default file input example</label>
             <input class="form-control" type="file" id="formFile">
           </div>
 
-          <div class="mb-3">
+          <div class="mb-2">
             <label class="mb-2" for="img-url">Image URL</label>
             <input class="form-control" id="img-url" name="img-url" type="text" [(ngModel)]="resource.imgUrl">
           </div>
