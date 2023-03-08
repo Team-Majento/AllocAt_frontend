@@ -1,37 +1,93 @@
-<p>login works!</p>
-<div class="container">
-  <form >
-    <div class="mb-3">
-      <label for="name" class="form-label"  >Username:</label>
-      <input type="text" class="form-control" name="name" id="name" placeholder="Username"  [(ngModel)]="userName" #name="ngModel" required>
-    </div>
-    <div *ngIf="name.invalid && (name.dirty || name.touched)"
-         class="alert alert-danger">
+<div style="background-color: #BAD7E9 ;width: 50vw ;" class="ms-5 mt-5 p-5">
+  <form #InputForm="ngForm">
+    <div class="row">
 
-      <div *ngIf="name.errors?.['required']">
-        Name is required.
+      <div class="mb-3">
+        <label for="name" class="form-label"  >Username:</label>
+        <input type="text" class="form-control" name="name" id="name" placeholder="Username"  [(ngModel)]="user.userName" #name="ngModel" required>
+      </div>
+      <div *ngIf="name.invalid && (name.dirty || name.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="name.errors?.['required']">
+          Name is required.
+        </div>
+
+      </div>
+
+      <div class="mb-3">
+        <label for="pass" class="form-label">Password:</label>
+        <!--      <input type="text" class="form-control" name="name" id="name" placeholder="Username"  [(ngModel)]="userName" #name="ngModel" required>-->
+        <input type="password"  class="form-control" name="pass" id="pass" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required>
+      </div>
+
+      <div *ngIf="password.invalid && (password.dirty || password.touched)"
+           class="alert alert-danger">
+
+        <div *ngIf="password.errors?.['required']">
+          Password is required.
+        </div>
+
+      </div>
+
+      <div class="d-flex gap-3 justify-content-end align-items-center">
+        <button class="btn btn-primary"  (click)="login()">Submit</button>
+        <button class="btn btn-primary" [routerLink]="['/']">Cancel</button>
       </div>
 
     </div>
-
-    <div class="mb-3">
-      <label for="pass" class="form-label">Password:</label>
-<!--      <input type="text" class="form-control" name="name" id="name" placeholder="Username"  [(ngModel)]="userName" #name="ngModel" required>-->
-      <input type="password"  class="form-control" name="pass" id="pass" placeholder="Password" [(ngModel)]="loginPassword" #password="ngModel" required>
-    </div>
-
-    <div *ngIf="password.invalid && (password.dirty || password.touched)"
-         class="alert alert-danger">
-
-      <div *ngIf="password.errors?.['required']">
-        Password is required.
-      </div>
-
-    </div>
-
-
   </form>
-
-  
-
 </div>
+
+{{user|json}}
+
+
+
+
+
+
+
+
+
+
+<!--<div class="container">-->
+<!--  <form >-->
+<!--    <div class="mb-3">-->
+<!--      <label for="name" class="form-label"  >Username:</label>-->
+<!--      <input type="text" class="form-control" name="name" id="name" placeholder="Username"  [(ngModel)]="userName" #name="ngModel" required>-->
+<!--    </div>-->
+<!--    <div *ngIf="name.invalid && (name.dirty || name.touched)"-->
+<!--         class="alert alert-danger">-->
+
+<!--      <div *ngIf="name.errors?.['required']">-->
+<!--        Name is required.-->
+<!--      </div>-->
+
+<!--    </div>-->
+
+<!--    <div class="mb-3">-->
+<!--      <label for="pass" class="form-label">Password:</label>-->
+<!--&lt;!&ndash;      <input type="text" class="form-control" name="name" id="name" placeholder="Username"  [(ngModel)]="userName" #name="ngModel" required>&ndash;&gt;-->
+<!--      <input type="password"  class="form-control" name="pass" id="pass" placeholder="Password" [(ngModel)]="loginPassword" #password="ngModel" required>-->
+<!--    </div>-->
+
+<!--    <div *ngIf="password.invalid && (password.dirty || password.touched)"-->
+<!--         class="alert alert-danger">-->
+
+<!--      <div *ngIf="password.errors?.['required']">-->
+<!--        Password is required.-->
+<!--      </div>-->
+
+<!--    </div>-->
+
+<!--    <div class="d-flex gap-3 justify-content-end align-items-center">-->
+<!--      <button class="btn btn-primary"  (click)="login()">Submit</button>-->
+<!--      <button class="btn btn-primary" [routerLink]="['/']">Cancel</button>-->
+<!--    </div>-->
+
+
+<!--  </form>-->
+
+
+
+<!--</div>-->
