@@ -17,7 +17,8 @@ const routes: Routes = [
   {  path:"resource-request",component :AddResourceRequestComponent},
   {  path:"lay",component :LayoutComponent},
 
-  // {  path:"",component :LayoutComponent,children:[ {  path:"company",component :AddCompanyComponent }]},
+   {  path:"lay",component :LayoutComponent,children:[ {  path:"company",component :AddCompanyComponent }]},
+  {  path:"lay",component :LayoutComponent,children:[ {  path:"resource",component :AddResourceComponent }]},
 ];
 
 @NgModule({

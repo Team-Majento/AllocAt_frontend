@@ -1,1 +1,52 @@
-<p>sidebar works!</p>
+
+<div class="side-nav-content ">
+  <ul class="nav-list" [ngClass]="{'nav-list-open':sideNavStatus}">
+    <li class="nav-list-item" >
+
+      <div  class="icon me-1 "><fa-icon [icon]="icon2" class=" ms-3 "></fa-icon></div>
+      <span><a href="#">Dashboard</a></span>
+
+    </li>
+
+    <li class="nav-list-item" >
+       <div class="icon  me-1 ">
+         <fa-icon [icon]="icon3" class="ms-3"></fa-icon>
+       </div>
+
+      <span>
+          <a href="#">Add</a>
+        </span>
+    </li>
+
+    <li class="nav-list-item" >
+      <div class="icon  me-1 ">
+        <fa-icon [icon]="icon4" class="ms-3"></fa-icon>
+      </div>
+
+      <span>
+          <a href="#">View</a>
+        </span>
+    </li>
+    <li class="nav-list-item" >
+    <div class="icon  ms-1">
+      <fa-icon [icon]="icon5" class=" ms-3"></fa-icon>
+    </div>
+
+      <span>
+          <a href="#">Generate Report</a>
+        </span>
+    </li>
+
+    <li class="nav-list-item" >
+    <div class="icon  me-1 ">
+      <fa-icon [icon]="icon6" class="ms-3"></fa-icon>
+    </div>
+
+      <span>
+          <a href="#">Review-Rating</a>
+        </span>
+    </li>
+
+  </ul>
+
+</div>

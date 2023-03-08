@@ -26,6 +26,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MessageComponent } from './message/message.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DisplayMessageComponent } from './message/display-message/display-message.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { DisplayMessageComponent } from './message/display-message/display-messa
         FormsModule,
       HttpClientModule,
       BrowserAnimationsModule,
-      MatDialogModule
+      MatDialogModule,
+      FontAwesomeModule
 
     ],
   providers: [],
