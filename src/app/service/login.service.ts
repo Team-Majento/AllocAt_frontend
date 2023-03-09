@@ -15,7 +15,8 @@ export class LoginService {
   login(user:UserLogin) : Observable<boolean>{
     console.log(user.userName);
     console.log(user.password);
-    return  this.httpClient.post<boolean>(`${Config.endpoints.backendApi}/users/${user.userName}/${user.password}`,user)
+    // @ts-ignore
+    return  this.httpClient.get<boolean>(`${Config.endpoints.backendApi}/users/${user.userName}/${user.password}`,user)
   }
 
 }
