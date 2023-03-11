@@ -9,20 +9,50 @@ import {AddResourceRequestComponent} from "./resourceRequest/add-resource-reques
 import {LayoutComponent} from "./layout/layout.component";
 
 const routes: Routes = [
-  {  path:"",component :HomeComponent },
-  {  path:"login",component :LoginComponent },
+  //{  path:"",component :HomeComponent },
+  {
+    path:"",
+    component : LayoutComponent,
+    children:[
+      {
+        path:"",
+        component :HomeComponent
+      },
+      {
+        path:"add",
+        // component :AddCompanyComponent
+        children:[
+          {
+            path:"",
+           component :AddCompanyComponent,  //--addComponent
+          }  ,
+          {
+            path:"company",
+            component :AddCompanyComponent,
+          }  ,
+        ]
+      },
+      {
+        path:"resource",
+        component :AddResourceComponent
+      }
+
+      ]
+  },
+
+  {path:"login",component :LoginComponent },
   {  path:"company",component :AddCompanyComponent },
   {  path:"resource",component :AddResourceComponent },
   {  path:"user",component :AddUserComponent },
   {  path:"resource-request",component :AddResourceRequestComponent},
-  {  path:"lay",component :LayoutComponent},
+  //{  path:"lay",component :LayoutComponent},
 
    {  path:"lay",component :LayoutComponent,children:[ {  path:"company",component :AddCompanyComponent }]},
   {  path:"lay",component :LayoutComponent,children:[ {  path:"resource",component :AddResourceComponent }]},
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes,{useHash:false})],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

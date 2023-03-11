@@ -3,7 +3,7 @@ export const Config = {
     imagePath: 'assets/images/',
   },
   endpoints: {
-    backendApi: 'http://localhost:8082',
+    backendApi: 'http://localhost:4200',
     prefix: {
       company :"companies",
       resource:"resource"

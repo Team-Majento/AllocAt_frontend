@@ -5,6 +5,8 @@ import {SubSink} from "subsink";
 import {DisplayMessageService} from "../service/display-message.service";
 import {LoginService} from "../service/login.service";
 import {UserLogin} from "../../models/userLogin";
+import {Router} from "@angular/router";
+
 
 @Component({
   selector: 'app-login',
@@ -19,22 +21,24 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
   user={} as UserLogin;
   private subSink=new SubSink();
 
-  constructor(private loginService: LoginService,private messageService:DisplayMessageService) {
+  constructor(private loginService: LoginService,private messageService:DisplayMessageService,private router:Router) {
     super();
   }
 
   login(){
     if (this.isFormValid(this.inputForm)) {
       this.subSink.add(
-        this.loginService.login(this.user).subscribe(
-          (compileResults) => {
-            console.log(compileResults);
+        this.loginService.login(this.user).subscribe({
+          next: (compileResults) => {console.log(compileResults);
             this.messageService.showSucessMessage("login-Sucess");
-          }
-          , error => {
-            console.log("error--",error);
+            this.router.navigateByUrl(this.router.createUrlTree([""]))
+          },
+          error: (e) =>{
+            console.log("error--",e);
             this.messageService.showErrorMessage("login failed");
-          }),
+          },
+          // complete: () => console.info('complete')
+        })
       );
     }
   }

@@ -12,6 +12,7 @@ export class CompanyService {
   constructor(private httpClient: HttpClient) {}
 
   addCompany(company:Company) : Observable<number>{
+    console.log(this.apiUrl);
     return  this.httpClient.post<number>(this.apiUrl,company)
   }
 
