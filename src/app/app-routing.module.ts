@@ -7,13 +7,17 @@ import {AddResourceComponent} from "./resource/add-resource/add-resource.compone
 import {AddUserComponent} from "./user/add-user/add-user.component";
 import {AddResourceRequestComponent} from "./resourceRequest/add-resource-request/add-resource-request.component";
 import {LayoutComponent} from "./layout/layout.component";
-import {AddMenuComponent} from "./add-menu/add-menu.component";
-import {DashboardMenuComponent} from "./dashboard-menu/dashboard-menu.component";
+import {AddMenuComponent} from "./menu/add-menu/add-menu.component";
+import {DashboardMenuComponent} from "./menu/dashboard-menu/dashboard-menu.component";
+import {ViewMenuComponent} from "./menu/view-menu/view-menu.component";
+import {ReportMenuComponent} from "./menu/report-menu/report-menu.component";
 
 const routes: Routes = [
-  {  path:"home",component :HomeComponent },
+  {  path:"",component :HomeComponent },
+  {path: "login", component: LoginComponent},
+
   {
-    path: "",
+    path: "dashboard",
     component: LayoutComponent,
     children: [
       {
@@ -31,8 +35,51 @@ const routes: Routes = [
             path: "company",
             component: AddCompanyComponent,
           },
+          {
+            path: "resource",
+            component: AddResourceComponent,
+          },
+          {
+            path: "user",
+            component: AddUserComponent,
+          },
         ]
       },
+      {
+        path: "view",
+        children: [
+          {
+            path: "",
+            component: ViewMenuComponent,
+          },
+          {
+            path: "company",
+            component: AddCompanyComponent,
+          },
+        ]
+      },
+
+      {
+        path: "reports",
+        children: [
+          {
+            path: "",
+            component: ReportMenuComponent,
+          },
+          {
+            path: "company",
+            component: AddCompanyComponent,
+          },
+        ]
+      },
+
+
+
+
+
+
+
+
       {
         path: "resource",
         component: AddResourceComponent
@@ -41,7 +88,7 @@ const routes: Routes = [
     ]
   },
 
-  {path: "login", component: LoginComponent},
+
   {path: "company", component: AddCompanyComponent},
   {path: "resource", component: AddResourceComponent},
   {path: "user", component: AddUserComponent},

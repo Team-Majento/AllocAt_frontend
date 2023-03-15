@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class ViewMenuComponent {
 
+  openRequestListView() {
+
+  }
+
+  openCompanyView() {
+
+  }
+
+  openResourceView() {
+
+  }
 }

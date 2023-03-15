@@ -27,9 +27,10 @@ import { MessageComponent } from './message/message.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { DisplayMessageComponent } from './message/display-message/display-message.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { AddMenuComponent } from './add-menu/add-menu.component';
-import { DashboardMenuComponent } from './dashboard-menu/dashboard-menu.component';
-import { ViewMenuComponent } from './view-menu/view-menu.component';
+import { AddMenuComponent } from './menu/add-menu/add-menu.component';
+import { DashboardMenuComponent } from './menu/dashboard-menu/dashboard-menu.component';
+import { ViewMenuComponent } from './menu/view-menu/view-menu.component';
+import { ReportMenuComponent } from './menu/report-menu/report-menu.component';
 
 @NgModule({
   declarations: [
@@ -55,7 +56,8 @@ import { ViewMenuComponent } from './view-menu/view-menu.component';
     DisplayMessageComponent,
     AddMenuComponent,
     DashboardMenuComponent,
-    ViewMenuComponent
+    ViewMenuComponent,
+    ReportMenuComponent
   ],
     imports: [
         BrowserModule,
