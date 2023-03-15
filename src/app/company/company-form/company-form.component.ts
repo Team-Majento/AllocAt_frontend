@@ -39,7 +39,7 @@ export class CompanyFormComponent extends FormControlUtil implements OnInit,OnDe
         }
       , error => {
         console.log("error--",error);
-          this.messageService.showErrorMessage(error.error);
+          this.messageService.showErrorMessage("error");
       }),
     );
     }

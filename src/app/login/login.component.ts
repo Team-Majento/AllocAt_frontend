@@ -27,18 +27,32 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
 
   login(){
     if (this.isFormValid(this.inputForm)) {
+    //   this.subSink.add(
+    //     this.loginService.login(this.user).subscribe({
+    //       next: (compileResults) => {
+    //         console.log(compileResults);
+    //         this.messageService.showSucessMessage("login-Sucess");
+    //         this.router.navigateByUrl(this.router.createUrlTree([""]))
+    //       },
+    //       error: (e) =>{
+    //         console.log("error-",e);
+    //         this.messageService.showErrorMessage("login failed");
+    //       }
+    //     })
+    //   );
+    // }
       this.subSink.add(
-        this.loginService.login(this.user).subscribe({
-          next: (compileResults) => {console.log(compileResults);
+        this.loginService.login(this.user).subscribe(
+          (compileResults) => {
+            console.log("abc")
+            console.log(compileResults);
             this.messageService.showSucessMessage("login-Sucess");
             this.router.navigateByUrl(this.router.createUrlTree([""]))
-          },
-          error: (e) =>{
-            console.log("error--",e);
-            this.messageService.showErrorMessage("login failed");
-          },
-          // complete: () => console.info('complete')
-        })
+          }
+          , error => {
+            console.log("error--");
+            this.messageService.showErrorMessage("error-login failed");
+          }),
       );
     }
   }
@@ -48,6 +62,7 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
   }
 
   ngOnInit(): void {
+    this.messageService.showSucessMessage("loss");
   }
 
 }

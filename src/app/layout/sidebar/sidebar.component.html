@@ -2,10 +2,8 @@
 <div class="side-nav-content ">
   <ul class="nav-list" [ngClass]="{'nav-list-open':sideNavStatus}">
     <li class="nav-list-item" >
-
       <div  class="icon me-1 "><fa-icon [icon]="icon2" class=" ms-3 "></fa-icon></div>
-      <span><a href="#">Dashboard</a></span>
-
+      <span><a [routerLink]="['']">Dashboard</a></span>
     </li>
 
     <li class="nav-list-item" >
@@ -14,7 +12,7 @@
        </div>
 
       <span>
-          <a [routerLink]="['add/company']" >Add</a>
+          <a [routerLink]="['add']" >Add</a>
         </span>
     </li>
 
@@ -24,7 +22,7 @@
       </div>
 
       <span>
-          <a href="#">View</a>
+          <a [routerLink]="['view']">View</a>
         </span>
     </li>
     <li class="nav-list-item" >
@@ -33,7 +31,7 @@
     </div>
 
       <span>
-          <a href="#">Generate Report</a>
+          <a [routerLink]="['reports']">Generate Report</a>
         </span>
     </li>
 
