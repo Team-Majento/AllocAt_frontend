@@ -13,6 +13,8 @@ import {ViewMenuComponent} from "./menu/view-menu/view-menu.component";
 import {ReportMenuComponent} from "./menu/report-menu/report-menu.component";
 import {ViewCompanyListComponent} from "./company/view-company-list/view-company-list.component";
 import {ViewResourceListComponent} from "./resource/view-resource-list/view-resource-list.component";
+import {UserProfileComponent} from "./user/user-profile/user-profile.component";
+import {UpdateUserComponent} from "./user/update-user/update-user.component";
 
 const routes: Routes = [
   {  path:"",component :HomeComponent },
@@ -79,6 +81,11 @@ const routes: Routes = [
         ]
       },
 
+
+      {path: "user-profile", component: UserProfileComponent},
+
+
+      {path: "update-user", component:  UpdateUserComponent},
 
 
 
