@@ -31,6 +31,8 @@ import { AddMenuComponent } from './menu/add-menu/add-menu.component';
 import { DashboardMenuComponent } from './menu/dashboard-menu/dashboard-menu.component';
 import { ViewMenuComponent } from './menu/view-menu/view-menu.component';
 import { ReportMenuComponent } from './menu/report-menu/report-menu.component';
+import { ViewCompanyListComponent } from './company/view-company-list/view-company-list.component';
+import { ViewResourceListComponent } from './resource/view-resource-list/view-resource-list.component';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,9 @@ import { ReportMenuComponent } from './menu/report-menu/report-menu.component';
     AddMenuComponent,
     DashboardMenuComponent,
     ViewMenuComponent,
-    ReportMenuComponent
+    ReportMenuComponent,
+    ViewCompanyListComponent,
+    ViewResourceListComponent
   ],
     imports: [
         BrowserModule,
