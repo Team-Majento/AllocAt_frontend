@@ -19,6 +19,7 @@
 }
 
 .nav-list-item{
+  cursor: pointer;
   display: flex;
   align-items: center;
   height: 50px;
@@ -26,6 +27,7 @@
 
 
 .nav-list-item i {
+
   font-size: 20px;
   height: 25px;
   width: 25px;
