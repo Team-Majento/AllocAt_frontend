@@ -16,4 +16,5 @@ export class CompanyService {
     return  this.httpClient.post<number>(this.apiUrl,company)
   }
 
+
 }

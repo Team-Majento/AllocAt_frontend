@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Resource} from "../../../models/resource";
 import {ResourceService} from "../../service/resource.service";
@@ -15,6 +15,7 @@ export class ResourceFormComponent  extends FormControlUtil implements OnInit{
 
   @Input()
   resource = {} as Resource
+
   @ViewChild('InputForm')
   inputForm!: NgForm;
 constructor(private resourceService:ResourceService) {
