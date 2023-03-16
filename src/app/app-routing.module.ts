@@ -11,6 +11,8 @@ import {AddMenuComponent} from "./menu/add-menu/add-menu.component";
 import {DashboardMenuComponent} from "./menu/dashboard-menu/dashboard-menu.component";
 import {ViewMenuComponent} from "./menu/view-menu/view-menu.component";
 import {ReportMenuComponent} from "./menu/report-menu/report-menu.component";
+import {ViewCompanyListComponent} from "./company/view-company-list/view-company-list.component";
+import {ViewResourceListComponent} from "./resource/view-resource-list/view-resource-list.component";
 
 const routes: Routes = [
   {  path:"",component :HomeComponent },
@@ -53,8 +55,12 @@ const routes: Routes = [
             component: ViewMenuComponent,
           },
           {
-            path: "company",
-            component: AddCompanyComponent,
+            path: "companies",
+            component: ViewCompanyListComponent,
+          },
+          {
+            path: "resources",
+            component: ViewResourceListComponent,
           },
         ]
       },
