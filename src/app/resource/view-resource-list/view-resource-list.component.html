@@ -1,141 +1,20 @@
-
-{{resourceList|json}}
-
-
-
 <div class="container">
-
+<!--{{resourceList|json}}-->
   <div class="row g-3">
-    <div class="col-lg-3 col-6 ">
-
-      <div class="card h-100">
-        <img  alt="" src="assets/img/1.jpeg">
+    <div class="col-lg-3 col-6 " *ngFor="let resource of resourceList">
+      <div class="card h-100" >
+        <img  alt="" src="{{resource['imgUrl']}}">
         <div class="card-body">
-          <h5 class="card-title">316545HU</h5>
+          <h5 class="card-title">Resource ID: {{resource.id}} </h5>
           <p class="card-text">
-            Type: <br>
-            Company: <br>
-            Capacity: <br>
+
+            Type:{{resource["resourceType"]}}  <br>
+            Company:{{resource["company"]}} <br>
+            Capacity: {{resource["maximumCapacity"]}}<br>
           </p>
         </div>
       </div>
     </div>
-
-<!--    <div class="col-lg-3 col-6 g-3">-->
-
-<!--      <div class="card h-100">-->
-<!--        <img alt="" src="assets/img/2.jpeg">-->
-<!--        <div class="card-body">-->
-<!--          <h5 class="card-title">316545HU</h5>-->
-<!--          <p class="card-text">-->
-<!--            Type: <br>-->
-<!--            Company: <br>-->
-<!--            Capacity: <br>-->
-<!--          </p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-
-<!--    <div class="col-lg-3 col-6">-->
-
-<!--      <div class="card h-100">-->
-<!--        <img alt="" src="assets/img/3.jpeg">-->
-<!--        <div class="card-body">-->
-<!--          <h5 class="card-title">316545HU</h5>-->
-<!--          <p class="card-text">-->
-<!--            Type: <br>-->
-<!--            Company: <br>-->
-<!--            Capacity: <br>-->
-<!--          </p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-
-<!--    <div class="col-lg-3 col-6">-->
-
-<!--      <div class="card h-100">-->
-<!--        <img alt="" src="assets/img/3.jpeg">-->
-<!--        <div class="card-body">-->
-<!--          <h5 class="card-title">316545HU</h5>-->
-<!--          <p class="card-text">-->
-<!--            Type: <br>-->
-<!--            Company: <br>-->
-<!--            Capacity: <br>-->
-<!--          </p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-
-<!--    <div class="col-lg-3 col-6 ">-->
-
-<!--      <div class="card h-100">-->
-<!--        <img  alt="" src="assets/img/1.jpeg">-->
-<!--        <div class="card-body">-->
-<!--          <h5 class="card-title">316545HU</h5>-->
-<!--          <p class="card-text">-->
-<!--            Type: <br>-->
-<!--            Company: <br>-->
-<!--            Capacity: <br>-->
-<!--          </p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>  <div class="col-lg-3 col-6 ">-->
-
-<!--    <div class="card h-100">-->
-<!--      <img  alt="" src="assets/img/1.jpeg">-->
-<!--      <div class="card-body">-->
-<!--        <h5 class="card-title">316545HU</h5>-->
-<!--        <p class="card-text">-->
-<!--          Type: <br>-->
-<!--          Company: <br>-->
-<!--          Capacity: <br>-->
-<!--        </p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>  <div class="col-lg-3 col-6 ">-->
-
-<!--    <div class="card h-100">-->
-<!--      <img  alt="" src="assets/img/1.jpeg">-->
-<!--      <div class="card-body">-->
-<!--        <h5 class="card-title">316545HU</h5>-->
-<!--        <p class="card-text">-->
-<!--          Type: <br>-->
-<!--          Company: <br>-->
-<!--          Capacity: <br>-->
-<!--        </p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>  <div class="col-lg-3 col-6 ">-->
-
-<!--    <div class="card h-100">-->
-<!--      <img  alt="" src="assets/img/1.jpeg">-->
-<!--      <div class="card-body">-->
-<!--        <h5 class="card-title">316545HU</h5>-->
-<!--        <p class="card-text">-->
-<!--          Type: <br>-->
-<!--          Company: <br>-->
-<!--          Capacity: <br>-->
-<!--        </p>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-
-<!--    <div class="col-lg-3 col-6 ">-->
-
-<!--      <div class="card h-100">-->
-<!--        <img  alt="" src="assets/img/1.jpeg">-->
-<!--        <div class="card-body">-->
-<!--          <h5 class="card-title">316545HU</h5>-->
-<!--          <p class="card-text">-->
-<!--            Type: <br>-->
-<!--            Company: <br>-->
-<!--            Capacity: <br>-->
-<!--          </p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
 
 
   </div>

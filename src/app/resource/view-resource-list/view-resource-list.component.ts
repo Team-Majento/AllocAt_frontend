@@ -9,16 +9,17 @@ import {ResourceService} from "../../service/resource.service";
 })
 export class ViewResourceListComponent implements OnInit {
   @Output()
-  resourceList: object ={}
+  resourceList:any={};
   constructor(private resourceService:ResourceService) {
   }
 
   getAllResources() {
       this.resourceService.getAllResources().subscribe(
         (compileResults) => {
-          console.log("*****");
-          console.log(compileResults);
-          this.resourceList=compileResults;
+          // @ts-ignore
+          const content = compileResults['content'];
+          console.log(content);
+          this.resourceList=content;
         }
         , error => {
           console.log(error)

@@ -9,7 +9,7 @@ import {Resource} from "../../models/resource";
 })
 export class ResourceService {
   private apiUrl:string=`${Config.endpoints.backendApi}/${Config.endpoints.prefix.company}/(**)/${Config.endpoints.prefix.resource}`;
-  private apiUrl2:string=`${Config.endpoints.backendApi}/companies/resources-page?page=0&size=10`;
+  private apiUrl2:string=`${Config.endpoints.backendApi}/companies/resources-page?page=0&size=20`;
   constructor(private httpClient: HttpClient) {}
 
   addResource(resource:Resource) : Observable<number>{
