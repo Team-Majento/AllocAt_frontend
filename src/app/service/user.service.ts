@@ -6,10 +6,18 @@ import { Injectable } from '@angular/core';
 })
 export class UserService {
 
+  currentUserName:string="";
+
   constructor(private http:HttpClient) { }
 
-  public getUserByUserId(userId:any){
+  public getUserByUserName(userName:string){
+    return this.http.get("http://localhost:8082/users/getuser/"+userName);
+  }
 
-    return this.http.get("http://localhost:8082/users/"+userId);
+  setCurrentUserName(data:string){
+        this.currentUserName=data;
+  }
+  getCurrentUserName(){
+        return this.currentUserName;
   }
 }

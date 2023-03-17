@@ -6,6 +6,7 @@ import {DisplayMessageService} from "../service/display-message.service";
 import {LoginService} from "../service/login.service";
 import {UserLogin} from "../../models/userLogin";
 import {Router} from "@angular/router";
+import {UserService} from "../service/user.service";
 
 
 @Component({
@@ -21,11 +22,14 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
   user={} as UserLogin;
   private subSink=new SubSink();
 
-  constructor(private loginService: LoginService,private messageService:DisplayMessageService,private router:Router) {
+  currentUserName:string="";
+
+  constructor(private loginService: LoginService,private messageService:DisplayMessageService,private router:Router,private userService:UserService) {
     super();
   }
 
   login(){
+
     if (this.isFormValid(this.inputForm)) {
     //   this.subSink.add(
     //     this.loginService.login(this.user).subscribe({
@@ -44,8 +48,22 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
       this.subSink.add(
         this.loginService.login(this.user).subscribe(
           (compileResults) => {
+
+            // saving current user password to local storage
+
+            localStorage.clear();
+            this.currentUserName=this.user.userName;
+            this.userService.setCurrentUserName(this.currentUserName);
+            localStorage.setItem("user-name",this.currentUserName);
+
+            //
+
+
             console.log("abc")
             console.log(compileResults);
+
+
+
             this.messageService.showSucessMessage("login-Sucess");
             this.router.navigateByUrl(this.router.createUrlTree(["dashboard"]))
           }
@@ -58,6 +76,7 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
   }
 
   ngOnDestroy(): void {
+
     this.subSink.unsubscribe();
   }
 
