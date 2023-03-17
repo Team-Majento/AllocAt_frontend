@@ -8,12 +8,15 @@ import {Resource} from "../../models/resource";
   providedIn: 'root'
 })
 export class ResourceService {
-  private apiUrl:string=`${Config.endpoints.backendApi}/${Config.endpoints.prefix.company}/(**)/${Config.endpoints.prefix.resource}`;
+  private apiUrl1!:string;
   private apiUrl2:string=`${Config.endpoints.backendApi}/companies/resources-page?page=0&size=20`;
   constructor(private httpClient: HttpClient) {}
 
   addResource(resource:Resource) : Observable<number>{
-    return  this.httpClient.post<number>(this.apiUrl,resource)
+    this.apiUrl1 = `${Config.endpoints.backendApi}/${Config.endpoints.prefix.company}/${resource.companyId}/${Config.endpoints.prefix.resource}`;
+    // @ts-ignore
+    delete resource.companyId;
+    return  this.httpClient.post<number>(this.apiUrl1,resource)
   }
 
   getAllResources(){

@@ -3,17 +3,35 @@
   <h3 class="text-center mb-2 mt-1  text-capitalize">{{formTitle}}</h3>
   <div style="background-color: #BAD7E9">
     <form #InputForm="ngForm">
-<!--      {{resource|json}}-->
+     {{resource|json}}
+
       <div class="row">
         <div class="col-12 col-lg-6 p-5 con__sub-01">
           <div class="mb-3">
             <label class="mb-2" for="resource-id">Resource ID</label>
             <input class="form-control" id="resource-id" name="resource-id" type="text" >
           </div>
-          <div class="mb-3">
-            <label class="mb-2" for="company-name">Company Name</label>
-            <input class="form-control" id="company-name" name="company-name" type="text" required>
+<!--          <div class="mb-3">-->
+<!--            <label class="mb-2" for="company-name">Company Name</label>-->
+<!--            <input class="form-control" id="company-name" name="company-name" type="text" required>-->
+<!--          </div>-->
+          <hr>
+          <div>
+            <label for="company-select">Select Company:</label>
+            <select id="company-select" [(ngModel)]="resource.companyId" name="company" (ngModelChange)="onCompanySelectionChange($event)"  >
+              <option *ngFor="let company of companies" [value]="company.id">{{ company.name }}</option>
+            </select>
           </div>
+
+<!--          -->
+<!--          -->
+<!--          <div>-->
+<!--            <label for="company-select">Company Name:</label>-->
+<!--            <select id="company-select" name="company" [(ngModel)]="selectedCompany">-->
+<!--              <option *ngFor="let company of companies" [value]="company">{{ company }}</option>-->
+<!--            </select>-->
+<!--          </div>-->
+          <hr>
 
           <div class="mb-3">
             <label class="mb-2" for="resource-desc">Description</label>

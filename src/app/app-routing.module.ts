@@ -15,11 +15,12 @@ import {ViewCompanyListComponent} from "./company/view-company-list/view-company
 import {ViewResourceListComponent} from "./resource/view-resource-list/view-resource-list.component";
 import {UserProfileComponent} from "./user/user-profile/user-profile.component";
 import {UpdateUserComponent} from "./user/update-user/update-user.component";
+import {ResourceProfileComponent} from "./resource/resource-profile/resource-profile.component";
 
 const routes: Routes = [
   {  path:"",component :HomeComponent },
   {path: "login", component: LoginComponent},
-
+  {path: "resource-profile", component: ResourceProfileComponent},
   {
     path: "dashboard",
     component: LayoutComponent,
@@ -33,7 +34,7 @@ const routes: Routes = [
         children: [
           {
             path: "",
-            component: AddMenuComponent,  //--addComponent
+            component: AddMenuComponent,
           },
           {
             path: "company",

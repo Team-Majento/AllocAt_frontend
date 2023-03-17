@@ -3,6 +3,8 @@ import {NgForm} from "@angular/forms";
 import {Resource} from "../../../models/resource";
 import {ResourceService} from "../../service/resource.service";
 import {FormControlUtil} from "../../../utility/form-control-util";
+import {CompanyService} from "../../service/company.service";
+import {Company} from "../../../models/company";
 
 @Component({
   selector: 'app-resource-form',
@@ -18,7 +20,10 @@ export class ResourceFormComponent  extends FormControlUtil implements OnInit{
 
   @ViewChild('InputForm')
   inputForm!: NgForm;
-constructor(private resourceService:ResourceService) {
+
+  companies!: any[];
+
+constructor(private resourceService:ResourceService,private companyService: CompanyService) {
   super();
 }
 
@@ -35,8 +40,22 @@ constructor(private resourceService:ResourceService) {
   }
 
   ngOnInit(): void {
-  this.resource.description='hbhahagvgacgacgaccag';
+    this.companyService.getCompanyNames().subscribe(
+
+      companies => {
+        this.companies = companies;
+        this.resource.companyId= this.companies[0].id; // set default selection
+      },
+      error => console.error(error)
+    );
   }
+
+
+  onCompanySelectionChange(selectedCompany: any): void {
+    // Update the selected company object based on the selected company ID
+    console.log("Selected company:", selectedCompany);
+    this.resource.companyId=selectedCompany;
+}
 
 }
 

@@ -34,6 +34,7 @@ import { ReportMenuComponent } from './menu/report-menu/report-menu.component';
 import { ViewCompanyListComponent } from './company/view-company-list/view-company-list.component';
 import { ViewResourceListComponent } from './resource/view-resource-list/view-resource-list.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
+import { ResourceProfileComponent } from './resource/resource-profile/resource-profile.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { UserProfileComponent } from './user/user-profile/user-profile.component
     ReportMenuComponent,
     ViewCompanyListComponent,
     ViewResourceListComponent,
-    UserProfileComponent
+    UserProfileComponent,
+    ResourceProfileComponent
   ],
     imports: [
         BrowserModule,

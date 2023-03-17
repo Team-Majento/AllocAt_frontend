@@ -9,6 +9,7 @@ export interface Resource{
   maximumCapacity:number;
   rateCardId:number;
   resourceType: number;
+  companyId:number;
 
 
 }
