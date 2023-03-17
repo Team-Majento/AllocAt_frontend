@@ -63,7 +63,18 @@ const routes: Routes = [
           },
           {
             path: "resources",
-            component: ViewResourceListComponent,
+            children:[
+              {
+                path:"",
+                component: ViewResourceListComponent,
+              },
+              {
+                path: "detail",
+                component: ResourceProfileComponent,
+              },
+
+            ]
+
           },
         ]
       },

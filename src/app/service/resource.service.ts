@@ -1,15 +1,25 @@
-import { Injectable } from '@angular/core';
+import {EventEmitter, Injectable} from '@angular/core';
 import {Config} from "../../config/config";
 import {HttpClient} from "@angular/common/http";
-import {Observable} from "rxjs";
+import {BehaviorSubject, Observable} from "rxjs";
 import {Resource} from "../../models/resource";
 
 @Injectable({
   providedIn: 'root'
 })
 export class ResourceService {
+
+  private selectedResourceSubject = new BehaviorSubject<number|null>(null);
+  selectedResource$ = this.selectedResourceSubject.asObservable();
+
   private apiUrl1!:string;
   private apiUrl2:string=`${Config.endpoints.backendApi}/companies/resources-page?page=0&size=20`;
+
+  private apiUrl3!:string;
+
+
+
+
   constructor(private httpClient: HttpClient) {}
 
   addResource(resource:Resource) : Observable<number>{
@@ -22,5 +32,17 @@ export class ResourceService {
   getAllResources(){
     return  this.httpClient.get<object>(this.apiUrl2);
   }
+
+  getResourceById(resourceId:number){
+
+    this.apiUrl3=`${Config.endpoints.backendApi}/companies/resource/${resourceId}`
+    return  this.httpClient.get<object>(this.apiUrl3);
+  }
+
+  setSelectedResource(resourceId: number) {
+    this.selectedResourceSubject.next(resourceId);
+  }
+
+
 
 }

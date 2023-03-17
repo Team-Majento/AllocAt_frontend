@@ -1,5 +1,7 @@
 import {Component, OnInit, Output} from '@angular/core';
 import {ResourceService} from "../../service/resource.service";
+import {Resource} from "../../../models/resource";
+import {Router} from "@angular/router";
 
 
 @Component({
@@ -10,7 +12,9 @@ import {ResourceService} from "../../service/resource.service";
 export class ViewResourceListComponent implements OnInit {
   @Output()
   resourceList:any={};
-  constructor(private resourceService:ResourceService) {
+
+  selectedResource!:Resource;
+  constructor(private resourceService:ResourceService,private router:Router) {
   }
 
   getAllResources() {
@@ -32,4 +36,18 @@ export class ViewResourceListComponent implements OnInit {
   }
 
 
+  displayResourceDetails(id:number) {
+      // this.resourceService.getResourceById(id).subscribe(
+      //   (resource) => {
+      //     console.log(resource);
+      //     this.selectedResource=<Resource>resource;
+      //   }
+      //   ,(error) => {
+      //     console.log(error)
+      //   });
+    this.resourceService.setSelectedResource(id);
+    this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/resources/detail`]));
+
+
+  }
 }
