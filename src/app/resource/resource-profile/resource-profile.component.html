@@ -1,36 +1,87 @@
 
-<div class="container  bg-light">
+<!--<div class="container  bg-light">-->
 
-  <p>{{selectedResourceId}}</p>
+<!--  <p>{{selectedResourceId}}</p>-->
 
-  <div class="row ">
-    <h3 class="col-12">Resource Profile</h3>
+<!--  <div class="row ">-->
+<!--    <h3 class="col-12">Resource Profile</h3>-->
+<!--  </div>-->
+
+<!--  <div class="row">-->
+<!--    <div class="col-lg-6 bg-danger ">-->
+<!--      <img src="{{selectedResource.imgUrl}}" alt="resource_img">-->
+
+<!--    </div>-->
+
+<!--    <div class="col-lg-6 bg-warning">-->
+<!--      <span>Resource ID:{{selectedResourceId}}</span> <br>-->
+<!--      <span>Company Name:{{selectedResource.companyId}}</span> <br>-->
+<!--      <span>Resource Type:{{selectedResource.resourceType}}</span> <br>-->
+<!--      <span>RateCard ID:{{selectedResource.rateCardId}}</span> <br>-->
+<!--      <span>Active Status:{{selectedResource.activeStatus}}</span> <br>-->
+<!--      <span>Is Available:{{selectedResource.availability}}</span> <br>-->
+<!--      <span>Maximum Capacity:{{selectedResource.maximumCapacity}}</span> <br>-->
+<!--      <span>Maximum Capacity:{{selectedResource.maximumCapacity}}</span> <br> <br>-->
+<!--      <span>Description:</span> <br>-->
+<!--      <p>{{selectedResource.description}}</p><br>-->
+<!--      <span>Review & Rating7:</span> <br>-->
+
+<!--    </div>-->
+
+
+<!--  </div>-->
+
+
+<!--</div>-->
+
+<div class="container mt-5 bg-light">
+  <div class="row">
+    <div class="col-12">
+<!--     {{ selectedResourceId }}-->
+    </div>
   </div>
 
   <div class="row">
-    <div class="col-lg-6 bg-danger ">
-      <img src="{{selectedResource.imgUrl}}" alt="">
-
+    <div class="col-lg-6">
+      <img src="{{ selectedResource.imgUrl }}" alt="resource_img" class="img-fluid">
     </div>
 
-    <div class="col-lg-6 bg-warning">
-      <span>Resource ID:{{selectedResourceId}}</span> <br>
-      <span>Company Name:{{selectedResource.companyId}}</span> <br>
-      <span>Resource Type:{{selectedResource.resourceType}}</span> <br>
-      <span>RateCard ID:{{selectedResource.rateCardId}}</span> <br>
-      <span>Active Status:{{selectedResource.activeStatus}}</span> <br>
-      <span>Is Available:{{selectedResource.availability}}</span> <br>
-      <span>Maximum Capacity:{{selectedResource.maximumCapacity}}</span> <br>
-      <span>Maximum Capacity:{{selectedResource.maximumCapacity}}</span> <br> <br>
-      <span>Description:</span> <br>
-      <p>{{selectedResource.description}}</p><br>
-      <span>Review & Rating:</span> <br>
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-12 mb-3 mt-3">
+          <h4>Resource Details</h4>
+        </div>
+      </div>
 
+      <div class="row">
+        <div class="col-6">
+          <p>Resource ID:</p>
+          <p>Company Name:</p>
+          <p>Resource Type:</p>
+          <p>RateCard ID:</p>
+          <p>Active Status:</p>
+          <p>Is Available:</p>
+          <p>Maximum Capacity:</p>
+          <p>Description:</p>
+          <p>Review & Rating:</p>
+        </div>
+
+        <div class="col-6">
+          <p>{{ selectedResourceId }}</p>
+          <p>{{ selectedResource.companyId }}</p>
+          <p>{{ selectedResource.resourceType }}</p>
+          <p>{{ selectedResource.rateCardId }}</p>
+          <p>{{ selectedResource.activeStatus }}</p>
+          <p>{{ selectedResource.availability }}</p>
+          <p>{{ selectedResource.maximumCapacity }}</p>
+          <p>{{ selectedResource.description }}</p>
+          <p></p>
+        </div>
+      </div>
     </div>
-
-
   </div>
-
-
 </div>
+
+
+
 
