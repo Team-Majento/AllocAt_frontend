@@ -11,7 +11,7 @@ import {Router} from "@angular/router";
 })
 export class ViewResourceListComponent implements OnInit {
   @Output()
-  resourceList:any={};
+  resourceList:any=[]; //***
 
   selectedResource!:Resource;
   constructor(private resourceService:ResourceService,private router:Router) {
@@ -46,7 +46,7 @@ export class ViewResourceListComponent implements OnInit {
       //     console.log(error)
       //   });
     this.resourceService.setSelectedResource(id);
-    this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/resources/detail`]));
+    this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/resources/${id}`]));
 
 
   }

@@ -35,6 +35,7 @@ import { ViewCompanyListComponent } from './company/view-company-list/view-compa
 import { ViewResourceListComponent } from './resource/view-resource-list/view-resource-list.component';
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { ResourceProfileComponent } from './resource/resource-profile/resource-profile.component';
+import { ReviewRatingFormComponent } from './review-rating/review-rating-form/review-rating-form.component';
 
 @NgModule({
   declarations: [
@@ -65,7 +66,8 @@ import { ResourceProfileComponent } from './resource/resource-profile/resource-p
     ViewCompanyListComponent,
     ViewResourceListComponent,
     UserProfileComponent,
-    ResourceProfileComponent
+    ResourceProfileComponent,
+    ReviewRatingFormComponent
   ],
     imports: [
         BrowserModule,

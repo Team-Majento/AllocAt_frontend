@@ -16,6 +16,7 @@ import {ViewResourceListComponent} from "./resource/view-resource-list/view-reso
 import {UserProfileComponent} from "./user/user-profile/user-profile.component";
 import {UpdateUserComponent} from "./user/update-user/update-user.component";
 import {ResourceProfileComponent} from "./resource/resource-profile/resource-profile.component";
+import {ReviewRatingFormComponent} from "./review-rating/review-rating-form/review-rating-form.component";
 
 const routes: Routes = [
   {  path:"",component :HomeComponent },
@@ -69,7 +70,7 @@ const routes: Routes = [
                 component: ViewResourceListComponent,
               },
               {
-                path: "detail",
+                path: ":resourceId",
                 component: ResourceProfileComponent,
               },
 
@@ -93,17 +94,16 @@ const routes: Routes = [
         ]
       },
 
+      {
+        path: "review-rating",
+        component:ReviewRatingFormComponent,
+      },
+
 
       {path: "user-profile", component: UserProfileComponent},
 
 
       {path: "update-user", component:  UpdateUserComponent},
-
-
-
-
-
-
 
       {
         path: "resource",
@@ -116,6 +116,7 @@ const routes: Routes = [
 
   {path: "company", component: AddCompanyComponent},
   {path: "resource", component: AddResourceComponent},
+  {path: "review-rating", component: ReviewRatingFormComponent},
   {path: "user", component: AddUserComponent},
   {path: "resource-request", component: AddResourceRequestComponent},
   //{  path:"lay",component :LayoutComponent},

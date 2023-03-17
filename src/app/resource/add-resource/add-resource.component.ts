@@ -7,6 +7,5 @@ import {Resource} from "../../../models/resource";
   styleUrls: ['./add-resource.component.scss']
 })
 export class AddResourceComponent {
-  resource= {} as Resource
 
 }

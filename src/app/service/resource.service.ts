@@ -33,7 +33,7 @@ export class ResourceService {
     return  this.httpClient.get<object>(this.apiUrl2);
   }
 
-  getResourceById(resourceId:number){
+  getResourceById(resourceId:string){
 
     this.apiUrl3=`${Config.endpoints.backendApi}/companies/resource/${resourceId}`
     return  this.httpClient.get<object>(this.apiUrl3);
