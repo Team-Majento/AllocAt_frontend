@@ -14,6 +14,14 @@ export class UserService {
     return this.http.get("http://localhost:8082/users/getuser/"+userName);
   }
 
+  public ChangeUserPassword(currentUserName_: string, confirmPassword: string){
+   //not completed(back end put api should be implimented to update password using username)
+    //return this.http.put("http://localhost:8082/users/getuser/"+userName+"/"+confirmPassword);
+  }
+
+
+
+
   setCurrentUserName(data:string){
         this.currentUserName=data;
   }

@@ -3,13 +3,14 @@ import {NgForm} from "@angular/forms";
 import {UserLogin} from "../../../models/userLogin";
 import {ChangePassword} from "../../../models/changePassword";
 import {UserService} from "../../service/user.service";
+import {FormControlUtil} from "../../../utility/form-control-util";
 
 @Component({
   selector: 'app-change-password',
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.scss']
 })
-export class ChangePasswordComponent implements OnInit,AfterViewInit{
+export class ChangePasswordComponent extends FormControlUtil implements OnInit{
   @ViewChild('InputForm')
   inputForm!: NgForm;
 
@@ -18,30 +19,40 @@ export class ChangePasswordComponent implements OnInit,AfterViewInit{
 
   userByUserName!:any;
   currentUserPassword="";
+  intervalSub!:any;
 
   constructor(private service:UserService) {
+    super();
   }
 
-  ngOnInit(): void {
 
-  }
 
-  ngAfterViewInit(): void {
-    let currentUserName_ = localStorage.getItem("user-name");
-    let resp=this.service.getUserByUserName(currentUserName_+"");
-    resp.subscribe((data)=>this.userByUserName=data);
-
-  }
 
 
 
   submit(InputForm:any){
-    this.currentUserPassword=this.userByUserName.password;
-    console.log(this.currentUserPassword);
-    console.log(this.user.currentPassword);
 
+    if (this.isFormValid(this.inputForm)) {
+        let currentUserName_ = localStorage.getItem("user-name")+"";
+        this.service.ChangeUserPassword(currentUserName_,this.user.confirmPassword);
+        console.log(this.currentUserPassword);
+        console.log(this.user.currentPassword);
+
+    }
+
+  }
+  ngOnInit(): void {
+    this.intervalSub=setInterval(()=>{
+      let currentUserName_ = localStorage.getItem("user-name");
+      let resp=this.service.getUserByUserName(currentUserName_+"");
+      resp.subscribe((data)=>this.userByUserName=data);
+      this.currentUserPassword=this.userByUserName.password;
+
+
+    },1000)
 
 
   }
+
 
 }
