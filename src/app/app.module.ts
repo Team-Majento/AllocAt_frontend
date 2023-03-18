@@ -36,6 +36,7 @@ import { ViewResourceListComponent } from './resource/view-resource-list/view-re
 import { UserProfileComponent } from './user/user-profile/user-profile.component';
 import { ResourceProfileComponent } from './resource/resource-profile/resource-profile.component';
 import { ReviewRatingFormComponent } from './review-rating/review-rating-form/review-rating-form.component';
+import {MatIconModule} from "@angular/material/icon";
 
 @NgModule({
   declarations: [
@@ -73,10 +74,11 @@ import { ReviewRatingFormComponent } from './review-rating/review-rating-form/re
         BrowserModule,
         AppRoutingModule,
         FormsModule,
-      HttpClientModule,
-      BrowserAnimationsModule,
-      MatDialogModule,
-      FontAwesomeModule
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatDialogModule,
+        FontAwesomeModule,
+        MatIconModule
 
     ],
   providers: [],
