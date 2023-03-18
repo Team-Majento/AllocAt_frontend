@@ -16,7 +16,7 @@ export class UserProfileComponent implements OnInit {
 
 
   currentUserName:string="";
-  constructor(private service: UserService,private dialogRef:MatDialog,private userService:UserService){}
+  constructor(private service: UserService,private dialogRef:MatDialog){}
 
 
 
@@ -27,7 +27,7 @@ export class UserProfileComponent implements OnInit {
       resp.subscribe((data)=>this.userByUserName=data);
     }
     else{
-      this.currentUserName=this.userService.getCurrentUserName();
+      this.currentUserName=this.service.getCurrentUserName();
       let resp=this.service.getUserByUserName(this.currentUserName);
       resp.subscribe((data)=>this.userByUserName=data);
     }
