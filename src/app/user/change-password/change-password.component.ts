@@ -1,7 +1,7 @@
 import {Component, Input, OnInit, ViewChild,AfterViewInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {UserLogin} from "../../../models/userLogin";
-import {ChangePssword} from "../../../models/changePssword";
+import {ChangePassword} from "../../../models/changePassword";
 import {UserService} from "../../service/user.service";
 
 @Component({
@@ -14,7 +14,7 @@ export class ChangePasswordComponent implements OnInit,AfterViewInit{
   inputForm!: NgForm;
 
   @Input()
-  user={} as ChangePssword;
+  user={} as ChangePassword;
 
   userByUserName!:any;
   currentUserPassword="";
