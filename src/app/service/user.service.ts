@@ -1,5 +1,7 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import {Injectable, Input} from '@angular/core';
+import {UserRequest} from "../../models/userRequest";
+import {ChangePassword} from "../../models/changePassword";
 
 @Injectable({
   providedIn: 'root'
@@ -8,15 +10,38 @@ export class UserService {
 
   currentUserName:string="";
 
+  userRequest={} as UserRequest;
+
+
+
   constructor(private http:HttpClient) { }
 
   public getUserByUserName(userName:string){
     return this.http.get("http://localhost:8082/users/getuser/"+userName);
   }
 
-  public ChangeUserPassword(currentUserName_: string, confirmPassword: string){
-   //not completed(back end put api should be implimented to update password using username)
-    //return this.http.put("http://localhost:8082/users/getuser/"+userName+"/"+confirmPassword);
+  public ChangeUserPassword(user:any,password:String){
+      this.userRequest.userId=user.userId;
+      this.userRequest.firstName=user.firstName;
+      this.userRequest.middleName=user.middleName;
+      this.userRequest.lastName=user.lastName;
+      this.userRequest.userName=user.userName;
+      this.userRequest.password=password;
+      this.userRequest.email=user.email;
+      this.userRequest.contactNo=user.contactNo;
+      this.userRequest.address=user.address;
+      this.userRequest.gender=user.gender;
+    this.userRequest.imageURL=user.imageURL;
+    this.userRequest.userType=user.userType;
+    this.userRequest.managersEIDL=user.managersEIDL;
+    this.userRequest.activeStatus=user.activeStatus;
+
+      return this.http.put<any>("http://localhost:8082/users/update/"+this.userRequest.userId,this.userRequest)
+        .subscribe(data=>{
+          console.log(data);
+        });
+
+
   }
 
 
