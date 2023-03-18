@@ -1,7 +1,7 @@
 <div style="background-color: #BAD7E9 ;width: 50vw ;" class="ms-5 mt-5 p-5">
   <form #InputForm="ngForm">
     <div class="row">
-
+     {{user|json}}
       <div class="mb-3">
         <label for="name" class="form-label"  >Username:</label>
         <input type="text" class="form-control" name="name" id="name" placeholder="Username"  [(ngModel)]="user.userName" #name="ngModel" required>
