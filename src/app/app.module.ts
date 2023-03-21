@@ -38,6 +38,9 @@ import { ResourceProfileComponent } from './resource/resource-profile/resource-p
 import { ReviewRatingFormComponent } from './review-rating/review-rating-form/review-rating-form.component';
 import {MatIconModule} from "@angular/material/icon";
 import {ChangePasswordComponent} from "./user/change-password/change-password.component";
+import { BookingRequestFormComponent } from './bookingRequest/booking-request-form/booking-request-form.component';
+import { AddBookingRequestComponent } from './bookingRequest/add-booking-request/add-booking-request.component';
+import { UpdateBookingRequestComponent } from './bookingRequest/update-booking-request/update-booking-request.component';
 
 @NgModule({
   declarations: [
@@ -70,7 +73,10 @@ import {ChangePasswordComponent} from "./user/change-password/change-password.co
     UserProfileComponent,
     ResourceProfileComponent,
     ReviewRatingFormComponent,
-    ChangePasswordComponent
+    ChangePasswordComponent,
+    BookingRequestFormComponent,
+    AddBookingRequestComponent,
+    UpdateBookingRequestComponent
   ],
     imports: [
         BrowserModule,
