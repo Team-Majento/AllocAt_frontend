@@ -5,7 +5,6 @@ import {HomeComponent} from './home/home.component'
 import {AddCompanyComponent} from "./company/add-company/add-company.component";
 import {AddResourceComponent} from "./resource/add-resource/add-resource.component";
 import {AddUserComponent} from "./user/add-user/add-user.component";
-import {AddResourceRequestComponent} from "./resourceRequest/add-resource-request/add-resource-request.component";
 import {LayoutComponent} from "./layout/layout.component";
 import {AddMenuComponent} from "./menu/add-menu/add-menu.component";
 import {DashboardMenuComponent} from "./menu/dashboard-menu/dashboard-menu.component";
@@ -118,7 +117,6 @@ const routes: Routes = [
   {path: "resource", component: AddResourceComponent},
   {path: "review-rating", component: ReviewRatingFormComponent},
   {path: "user", component: AddUserComponent},
-  {path: "resource-request", component: AddResourceRequestComponent},
   //{  path:"lay",component :LayoutComponent},
 
  // {path: "lay", component: LayoutComponent, children: [{path: "company", component: AddCompanyComponent}]},
