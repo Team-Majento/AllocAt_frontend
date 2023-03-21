@@ -16,6 +16,7 @@ import {UserProfileComponent} from "./user/user-profile/user-profile.component";
 import {UpdateUserComponent} from "./user/update-user/update-user.component";
 import {ResourceProfileComponent} from "./resource/resource-profile/resource-profile.component";
 import {ReviewRatingFormComponent} from "./review-rating/review-rating-form/review-rating-form.component";
+import {AddBookingRequestComponent} from "./bookingRequest/add-booking-request/add-booking-request.component";
 
 const routes: Routes = [
   {  path:"",component :HomeComponent },
@@ -118,7 +119,7 @@ const routes: Routes = [
   {path: "review-rating", component: ReviewRatingFormComponent},
   {path: "user", component: AddUserComponent},
   //{  path:"lay",component :LayoutComponent},
-
+  {path:"booking-request",component:AddBookingRequestComponent}
  // {path: "lay", component: LayoutComponent, children: [{path: "company", component: AddCompanyComponent}]},
   //{path: "lay", component: LayoutComponent, children: [{path: "resource", component: AddResourceComponent}]},
 ];

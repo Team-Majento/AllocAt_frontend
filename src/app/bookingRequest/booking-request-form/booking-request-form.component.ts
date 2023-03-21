@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-booking-request-form',
@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./booking-request-form.component.scss']
 })
 export class BookingRequestFormComponent {
-
+  @Input()
+  formTitle = "Form"
 }
