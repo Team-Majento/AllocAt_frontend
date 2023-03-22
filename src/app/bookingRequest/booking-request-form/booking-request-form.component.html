@@ -16,6 +16,26 @@
               <input class="form-control mb-3" id="resource-id" name="resource-id" type="text"  >
             </div>
           </div>
+
+
+<!--          from here  *********      -->
+          <mat-form-field>
+            <input matInput
+                   name="selected_time_A"
+                   [(ngModel)]="selectedTime"
+                   [ngxMatTimepicker]="pickerA"
+                   placeholder="4:00 PM"
+                   readonly />
+            <mat-icon matSuffix
+                      (click)="pickerA.open()">
+              watch_later
+            </mat-icon>
+          </mat-form-field>
+          <ngx-mat-timepicker #pickerA></ngx-mat-timepicker>
+
+<!--          to here ***      -->
+
+
         </div>
 
 

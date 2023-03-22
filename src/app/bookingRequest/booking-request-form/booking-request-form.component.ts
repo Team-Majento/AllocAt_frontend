@@ -8,4 +8,5 @@ import {Component, Input} from '@angular/core';
 export class BookingRequestFormComponent {
   @Input()
   formTitle = "Form"
+  selectedTime: any;
 }
