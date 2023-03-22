@@ -54,7 +54,7 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
             localStorage.clear();
             this.currentUserName=this.user.userName;
             this.userService.setCurrentUserName(this.currentUserName);
-            localStorage.setItem("user-name",this.currentUserName);
+            localStorage.setItem("_username_",this.currentUserName);
 
             //
 

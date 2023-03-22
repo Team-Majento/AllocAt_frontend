@@ -48,7 +48,7 @@ export class ChangePasswordComponent extends FormControlUtil implements OnInit{
     //   this.currentUserPassword=this.userByUserName.password;
     // },1000)
     //
-    let currentUserName_ = localStorage.getItem("user-name");
+    let currentUserName_ = localStorage.getItem("_username_");
     let resp=this.service.getUserByUserName(currentUserName_+"");
     resp.subscribe((data)=>this.userByUserName=data);
     setTimeout(()=>{

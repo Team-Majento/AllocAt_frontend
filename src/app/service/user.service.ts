@@ -2,6 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import {Injectable, Input} from '@angular/core';
 import {UserRequest} from "../../models/userRequest";
 import {ChangePassword} from "../../models/changePassword";
+import {Resource} from "../../models/resource";
+import {Observable} from "rxjs";
+import {Config} from "../../config/config";
 
 @Injectable({
   providedIn: 'root'
@@ -18,6 +21,11 @@ export class UserService {
 
   public getUserByUserName(userName:string){
     return this.http.get("http://localhost:8082/users/getuser/"+userName);
+  }
+
+  addUser(user:UserRequest) : Observable<number>{
+    // @ts-ignore
+    return  this.http.post<number>("http://localhost:8082/users",user)
   }
 
   public ChangeUserPassword(user:any,password:String){
