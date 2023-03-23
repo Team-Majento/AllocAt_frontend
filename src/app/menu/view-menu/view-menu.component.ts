@@ -12,11 +12,11 @@ export class ViewMenuComponent {
   }
 
   openRequestListView() {
-
+    this.router.navigateByUrl(this.router.createUrlTree(["dashboard/view/booking-requests"]));
   }
 
   openCompanyView() {
-
+    this.router.navigateByUrl(this.router.createUrlTree(["dashboard/view/companies"]));
   }
 
   openResourceView() {

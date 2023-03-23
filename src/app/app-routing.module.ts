@@ -18,6 +18,9 @@ import {ResourceProfileComponent} from "./resource/resource-profile/resource-pro
 import {ReviewRatingFormComponent} from "./review-rating/review-rating-form/review-rating-form.component";
 import {AddBookingRequestComponent} from "./bookingRequest/add-booking-request/add-booking-request.component";
 import {UpdateResourceComponent} from "./resource/update-resource/update-resource.component";
+import {
+  ViewBookingRequestListComponent
+} from "./bookingRequest/view-booking-request-list/view-booking-request-list.component";
 
 const routes: Routes = [
   {  path:"",component :HomeComponent },
@@ -57,6 +60,10 @@ const routes: Routes = [
           {
             path: "",
             component: ViewMenuComponent,
+          },
+          {
+            path: "booking-requests",
+            component: ViewBookingRequestListComponent,
           },
           {
             path: "companies",
