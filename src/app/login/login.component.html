@@ -1,93 +1,60 @@
-<div style="background-color: #BAD7E9 ;width: 50vw ;" class="ms-5 mt-5 p-5">
-  <form #InputForm="ngForm">
-    <div class="row">
-     {{user|json}}
-      <div class="mb-3">
-        <label for="name" class="form-label"  >Username:</label>
-        <input type="text" class="form-control" name="name" id="name" placeholder="Username"  [(ngModel)]="user.userName" #name="ngModel" required>
-      </div>
-      <div *ngIf="name.invalid && (name.dirty || name.touched)"
-           class="alert alert-danger">
-
-        <div *ngIf="name.errors?.['required']">
-          Name is required.
-        </div>
-
-      </div>
-
-      <div class="mb-3">
-        <label for="pass" class="form-label">Password:</label>
-        <!--      <input type="text" class="form-control" name="name" id="name" placeholder="Username"  [(ngModel)]="userName" #name="ngModel" required>-->
-        <input type="password"  class="form-control" name="pass" id="pass" placeholder="Password" [(ngModel)]="user.password" #password="ngModel" required>
-      </div>
-
-      <div *ngIf="password.invalid && (password.dirty || password.touched)"
-           class="alert alert-danger">
-
-        <div *ngIf="password.errors?.['required']">
-          Password is required.
-        </div>
-
-      </div>
-
-      <div class="d-flex gap-3 justify-content-end align-items-center">
-        <button class="btn btn-primary"  (click)="login()">Submit</button>
-        <button class="btn btn-primary" [routerLink]="['/']">Cancel</button>
-      </div>
-
+<body>
+<div class="container-body">
+  <div class="container">
+    <div class="side">
+      <img src="assets/img/login.png"> <br>
+      <h4>New to Alloq-@ ?</h4>
+      <p>Enter your personal details<br>and start journey with us!</p>
     </div>
-  </form>
+
+    <mat-card>
+      <mat-card-content>
+        <div class="header">
+          <h2><b>Welcome Back!</b></h2>
+        </div>
+
+        <form #InputForm="ngForm">
+          {{user|json}}
+
+          <div class="input">
+            <mat-form-field  class="full-width"  appearance="outline">
+              <mat-label>Username or Email</mat-label>
+              <input matInput name="name" id="name" [(ngModel)]="user.userName" #name="ngModel" required/>
+            </mat-form-field>&nbsp;
+          </div>
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
+            <div *ngIf="name.errors?.['required']">
+              Name is required.
+            </div>
+          </div>
+
+          <div class="input">
+            <mat-form-field class="full-width" appearance="outline">
+              <mat-label>Password</mat-label>
+              <input  name="pass" id="pass" matInput [type]=" 'hide' ? 'password' : 'test' " [(ngModel)]="user.password" #password="ngModel" required/>
+            </mat-form-field>
+          </div>
+          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+            <div *ngIf="password.errors?.['required']">
+              Password is required.
+            </div>
+          </div>
+
+          <mat-checkbox color="primary">
+            Remember me
+          </mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
+          <a style="text-decoration: none;cursor: pointer; ">Forgot password?</a>
+
+          <button mat-button class="login-button" (click)="login()">
+            <p>Log In</p>
+          </button>
+
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
 </div>
 
-{{user|json}}
 
-
-
-
-
-
-
-
-
-
-<!--<div class="container">-->
-<!--  <form >-->
-<!--    <div class="mb-3">-->
-<!--      <label for="name" class="form-label"  >Username:</label>-->
-<!--      <input type="text" class="form-control" name="name" id="name" placeholder="Username"  [(ngModel)]="userName" #name="ngModel" required>-->
-<!--    </div>-->
-<!--    <div *ngIf="name.invalid && (name.dirty || name.touched)"-->
-<!--         class="alert alert-danger">-->
-
-<!--      <div *ngIf="name.errors?.['required']">-->
-<!--        Name is required.-->
-<!--      </div>-->
-
-<!--    </div>-->
-
-<!--    <div class="mb-3">-->
-<!--      <label for="pass" class="form-label">Password:</label>-->
-<!--&lt;!&ndash;      <input type="text" class="form-control" name="name" id="name" placeholder="Username"  [(ngModel)]="userName" #name="ngModel" required>&ndash;&gt;-->
-<!--      <input type="password"  class="form-control" name="pass" id="pass" placeholder="Password" [(ngModel)]="loginPassword" #password="ngModel" required>-->
-<!--    </div>-->
-
-<!--    <div *ngIf="password.invalid && (password.dirty || password.touched)"-->
-<!--         class="alert alert-danger">-->
-
-<!--      <div *ngIf="password.errors?.['required']">-->
-<!--        Password is required.-->
-<!--      </div>-->
-
-<!--    </div>-->
-
-<!--    <div class="d-flex gap-3 justify-content-end align-items-center">-->
-<!--      <button class="btn btn-primary"  (click)="login()">Submit</button>-->
-<!--      <button class="btn btn-primary" [routerLink]="['/']">Cancel</button>-->
-<!--    </div>-->
-
-
-<!--  </form>-->
-
-
-
-<!--</div>-->
+</body>

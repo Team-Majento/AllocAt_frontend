@@ -38,6 +38,11 @@ import {ChangePasswordComponent} from "./user/change-password/change-password.co
 import { BookingRequestFormComponent } from './bookingRequest/booking-request-form/booking-request-form.component';
 import { AddBookingRequestComponent } from './bookingRequest/add-booking-request/add-booking-request.component';
 import { UpdateBookingRequestComponent } from './bookingRequest/update-booking-request/update-booking-request.component';
+import {MatCheckboxModule} from "@angular/material/checkbox";
+import {MatInputModule} from "@angular/material/input";
+import {MatCardModule} from "@angular/material/card";
+import {MatSelectModule} from "@angular/material/select";
+import {MatRadioModule} from "@angular/material/radio";
 
 @NgModule({
   declarations: [
@@ -72,17 +77,22 @@ import { UpdateBookingRequestComponent } from './bookingRequest/update-booking-r
     AddBookingRequestComponent,
     UpdateBookingRequestComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatDialogModule,
-        FontAwesomeModule,
-        MatIconModule
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    FontAwesomeModule,
+    MatIconModule,
+    MatCheckboxModule,
+    MatInputModule,
+    MatCardModule,
+    MatSelectModule,
+    MatRadioModule
 
-    ],
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })

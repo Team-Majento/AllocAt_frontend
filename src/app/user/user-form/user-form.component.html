@@ -1,113 +1,144 @@
-
-<section class="p-2 main-con">
-  <h3 class="text-center mb-3 mt-1  text-capitalize">{{formTitle}}</h3>
-  <div class="bg-light">
-    <form #InputForm="ngForm">
-<!--      {{resource|json}}-->
-<!--      "activeStatus": true,-->
-
-
-
+<div class="content  mat-elevation-z4" style="background-color: #050858;" >
+  <h2 style="color:#fff;font-size: 32px;">Add User</h2>
+  <div class="content2 mat-elevation-z4" style="background-color: #C3E5F9;  " >
+    <div class="form-body" style="margin-top: 20px; margin-left: 25px;">
       <div class="row">
-        <div class="col-12 col-lg-6 p-4 con__sub-01">
-          <div class="mb-4">
-            <label class="mb-2" for="user-name">User Name</label>
-            <input class="form-control" id="user-name" name="user-name" type="text"  [(ngModel)]="user.userName" >
-          </div>
-          <div class="mb-4">
-            <label class="mb-2" for="password">Password</label>
-            <input class="form-control" id="password" name="password" type="password"  [(ngModel)]="user.password" >
+        <div class="column">
+          <div style="font-size: 16px">
+            <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
+              <mat-label>UserId</mat-label>
+              <input matInput class="field" required/>
+            </mat-form-field>&nbsp;
+
+            <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
+              <mat-label>E-mail</mat-label>
+              <input matInput class="field" formController="email" required/>
+            </mat-form-field>
+
+            <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
+              <mat-label>First Name</mat-label>
+              <input matInput class="field" required/>
+            </mat-form-field>&nbsp;
+
+            <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
+              <mat-label>Contact Number</mat-label>
+              <input matInput class="field" required/>
+            </mat-form-field>
+
+
+            <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
+              <mat-label>Middle Name</mat-label>
+              <input matInput class="field" required/>
+            </mat-form-field>&nbsp;
+
+            <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
+              <mat-label>Last Name</mat-label>
+              <input matInput class="field" required/>
+            </mat-form-field>&nbsp;
+
+            <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
+              <mat-label>Contact Number</mat-label>
+              <input matInput class="field" required/>
+            </mat-form-field>&nbsp;
+
+            <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
+              <mat-label>User Name</mat-label>
+              <input matInput class="field" required/>
+            </mat-form-field>
+
+            <mat-form-field  class="justifier"  appearance="outline">
+              <mat-label>Password</mat-label>
+              <input matInput class="field"  matInput [type]=" 'hide' ? 'password' : 'test' " required/>
+            </mat-form-field>&nbsp;
+
+
+            <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
+              <mat-label>Role</mat-label>
+              <input matInput class="field" required/>
+            </mat-form-field>
+
+            <div class="add">
+              <mat-form-field  class="add" floatlabel="auto" appearance="outline">
+                <mat-label>Address Line1</mat-label>
+                <input matInput class="field" required/>
+              </mat-form-field>
+
+              <mat-form-field  class="add" floatlabel="auto" appearance="outline">
+                <mat-label>Address Line2</mat-label>
+                <input matInput class="field" required/>
+              </mat-form-field>
+            </div>
+
+
+            <mat-form-field class="justifier" floatlabel="auto" appearance="outline">
+              <mat-label>Select District</mat-label>
+              <mat-select>
+                <mat-option value="ampara">Ampara</mat-option>
+                <mat-option value="anuradhapura">Anuradhapura</mat-option>
+                <mat-option value="badulla">Badulla</mat-option>
+                <mat-option value="batticaloa">Batticaloa</mat-option>
+                <mat-option value="galle">Galle</mat-option>
+                <mat-option value="colombo">Colombo</mat-option>
+                <mat-option value="gampaha">Gampaha</mat-option>
+                <mat-option value="hambantota">Hambantota</mat-option>
+                <mat-option value="jaffna">Jaffna</mat-option>
+                <mat-option value="kalutara">Kalutara</mat-option>
+                <mat-option value="kandy">Kandy</mat-option>
+                <mat-option value="kegalle">Kegalle</mat-option>
+                <mat-option value="kilinochchi">Kilinochchi</mat-option>
+                <mat-option value="kurunegala">Kurunegala</mat-option>
+                <mat-option value="mannar">Mannar</mat-option>
+                <mat-option value="matale">Matale</mat-option>
+                <mat-option value="monaragala">Monaragala</mat-option>
+                <mat-option value="mullaitivu">Mullaitivu</mat-option>
+                <mat-option value="nuwara Eliya">Nuwara Eliya</mat-option>
+                <mat-option value="polonnaruwa">Polonnaruwa</mat-option>
+                <mat-option value="puttalam">Puttalam</mat-option>
+                <mat-option value="ratnapura">Ratnapura</mat-option>
+                <mat-option value="trincomalee">Trincomalee</mat-option>
+                <mat-option value="vavuniya">Vavuniya</mat-option>
+              </mat-select>
+            </mat-form-field>&nbsp;
+
+            <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
+              <mat-label>City</mat-label>
+              <input matInput class="field" required/>
+            </mat-form-field>
+
+
+            <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
+              <mat-label>Image</mat-label>
+              <input matInput class="field" required/>
+            </mat-form-field>
+            &nbsp;&nbsp;&nbsp;&nbsp;
+
+            <mat-radio-group>
+              <span style="color:#050858;">Gender</span>
+              <mat-radio-button value="Male" color="primary">Male</mat-radio-button>
+              <mat-radio-button value="Female" color="primary">Female</mat-radio-button>
+
+            </mat-radio-group>
           </div>
 
-          <div class="mb-4">
-            <label class="mb-2" for="user-id">User ID</label>
-            <input class="form-control" id="user-id" name="user-id" type="text" required  [(ngModel)]="user.userId">
-          </div>
-          <div class="mb-4">
-            <label class="mb-2" for="user-type">User Type</label>
-            <input class="form-control" id="user-type" name="user-type" type="number" required [(ngModel)]="user.userType">
-          </div>
-
-          <div class="mb-4">
-            <label class="mb-2" for="first-name">First Name</label>
-            <input class="form-control" id="first-name" name="first-name" type="text" [(ngModel)]="user.firstName">
-          </div>
-          <div class="mb-4">
-            <label class="mb-2" for="middle-name">Middle Name</label>
-            <input class="form-control" id="middle-name" name="middle-name" type="text" [(ngModel)]="user.middleName" >
-          </div>
-          <div class="mb-4">
-            <label class="mb-2" for="last-name">Last Name</label>
-            <input class="form-control" id="last-name" name="last-name" type="text" [(ngModel)]="user.lastName">
-          </div>
-
-          <div class="mb-4">
-            <label class="mb-2" for="email">Email</label>
-            <input class="form-control" id="email" name="email" type="email"  [(ngModel)]="user.email" >
-          </div>
-
+          <table border="0" class="tbl">
+            <tr>
+              <td style="text-align: center;">
+                <button mat-button class="button">
+                  <p>Submit </p>
+                </button>
+                <button mat-button class="button">
+                  <p>Cancel </p>
+                </button>
+              </td>
+              <td style="text-align: right;">
+                <img class="image" src="assets/img/add user .png" style="height:145px; width: 175px; margin-right: 50px;">
+              </td>
+            </tr>
+          </table>
         </div>
-
-
-        <div class="col-12 col-lg-6 p-5 con__sub-02">
-
-          <div class="mb-4">
-            <label class="mb-2" for="address">Address</label>
-            <input class="form-control" id="address" name="address" type="text" [(ngModel)]="user.address"  >
-          </div>
-
-          <div class="mb-4">
-            <label class="mb-2" for="manager-eid">Managers Employee ID</label>
-            <input class="form-control" id="manager-eid" name="manager-eid" type="number"[(ngModel)]="user.managersEIDL" >
-          </div>
-
-          <div class="mb-4">
-            <label class="mb-2" for="contact-no">Contact Number</label>
-            <input class="form-control" id="contact-no" name="contact-no" type="number" [(ngModel)]="user.contactNo">
-          </div>
-
-
-          <div class="form-check mb-2">
-            <input class="form-check-input" type="radio" name="gender" id="gender-m" value="M" [(ngModel)]="user.gender">
-            <label class="form-check-label" for="gender-m">
-              Male
-            </label>
-          </div>
-
-          <div class="form-check mb-4">
-            <input class="form-check-input" type="radio" name="gender" id="gender-f" value="F" [(ngModel)]="user.gender">
-            <label class="form-check-label" for="gender-f">
-              Female
-            </label>
-          </div>
-
-          <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" value="true" name="active-status" id="active-status" [(ngModel)]="user.activeStatus" >
-            <label class="form-check-label" for="active-status">
-              Active Status
-            </label>
-          </div>
-
-          <div class="mb-4">
-            <label for="formFile" class="form-label">Default file input example</label>
-            <input class="form-control" type="file" id="formFile">
-          </div>
-
-          <div class="mb-3">
-            <label class="mb-2" for="img-url">Image URL</label>
-            <input class="form-control" id="img-url" name="img-url" type="text" [(ngModel)]="user.imageURL">
-          </div>
-
-          <div class="d-flex gap-3 justify-content-end align-items-center">
-              <button class="btn btn-primary"  (click)="addUser()">Submit</button>
-            <button class="btn btn-primary">Cancel</button>
-          </div>
-
-        </div>
-
-
       </div>
-    </form>
+    </div>
   </div>
-</section>
+</div>
+
 
