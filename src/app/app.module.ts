@@ -43,8 +43,10 @@ import {MatInputModule} from "@angular/material/input";
 import {MatCardModule} from "@angular/material/card";
 import {MatSelectModule} from "@angular/material/select";
 import {MatRadioModule} from "@angular/material/radio";
-import {NgxMatTimepickerModule} from "ngx-mat-timepicker";
-
+ import {NgxMatTimepickerModule} from "ngx-mat-timepicker";
+import {MatDatepickerModule} from "@angular/material/datepicker";
+import {MatNativeDateModule} from '@angular/material/core';
+import {ReactiveFormsModule} from '@angular/forms';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,23 +80,26 @@ import {NgxMatTimepickerModule} from "ngx-mat-timepicker";
     AddBookingRequestComponent,
     UpdateBookingRequestComponent
   ],
-    imports: [
-        BrowserModule,
-        AppRoutingModule,
-        FormsModule,
-        HttpClientModule,
-        BrowserAnimationsModule,
-        MatDialogModule,
-        FontAwesomeModule,
-        MatIconModule,
-        MatCheckboxModule,
-        MatInputModule,
-        MatCardModule,
-        MatSelectModule,
-        MatRadioModule,
-        NgxMatTimepickerModule
-
-    ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    FormsModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatDialogModule,
+    FontAwesomeModule,
+    MatIconModule,
+    MatCardModule,
+    MatCheckboxModule,
+    MatInputModule,
+    //MatInputModule,
+    MatDatepickerModule,
+    MatRadioModule,
+    NgxMatTimepickerModule,
+    MatSelectModule,
+    MatNativeDateModule,
+    ReactiveFormsModule
+  ],
   providers: [],
   bootstrap: [AppComponent]
 })
