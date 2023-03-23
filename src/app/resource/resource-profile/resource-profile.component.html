@@ -34,11 +34,10 @@
 
 <!--</div>-->
 
-
+<!--{{selectedResource|json}}-->
 <div class="container mt-5 bg-light"  *ngIf="selectedResource">
   <div class="row">
     <div class="col-12">
-<!--     {{ selectedResourceId }}-->
     </div>
   </div>
 
@@ -56,31 +55,38 @@
 
       <div class="row">
         <div class="col-6">
-          <p>Resource ID:</p>
-          <p>Company Name:</p>
-          <p>Resource Type:</p>
-          <p>RateCard ID:</p>
-          <p>Active Status:</p>
-          <p>Is Available:</p>
-          <p>Maximum Capacity:</p>
-          <p>Description:</p>
-          <p>Review & Rating:</p>
+<!--          <p>Resource ID:</p>-->
+<!--          <p>Company Name:</p>-->
+<!--          <p>Resource Type:</p>-->
+<!--          <p>RateCard ID:</p>-->
+<!--          <p>Active Status:</p>-->
+<!--          <p>Is Available:</p>-->
+<!--          <p>Maximum Capacity:</p>-->
+<!--          <p>Description:</p>-->
+<!--          <p>Review & Rating:</p>-->
         </div>
 
         <div class="col-6">
-          <p>{{ selectedResourceId }}</p>
-          <p>{{ selectedResource.companyId }}</p>
-          <p>{{ selectedResource.resourceType }}</p>
-          <p>{{ selectedResource.rateCardId }}</p>
-          <p>{{ selectedResource.activeStatus }}</p>
-          <p>{{ selectedResource.availability }}</p>
-          <p>{{ selectedResource.maximumCapacity }}</p>
-          <p>{{ selectedResource.description }}</p>
+          <p>resource id:{{selectedResource.id}} </p>
+          <p>company :{{ selectedResource.company}}</p>
+          <p>resource type :{{ selectedResource.resourceType }}</p>
+          <p>rate card id:{{ selectedResource.rateCardId }}</p>
+          <p>active status:{{ selectedResource.activeStatus }}</p>
+          <p>availability:{{ selectedResource.availability }}</p>
+          <p>maximum capacity:{{ selectedResource.maximumCapacity }}</p>
+          <p>desc:{{ selectedResource.description }}</p>
           <p></p>
         </div>
       </div>
     </div>
   </div>
+
+  <button class="btn btn-primary me-3 " (click)="addRequest()">Book</button>
+  <button class="btn btn-primary me-3" (click)="updateResource()">Update</button>
+  <button class="btn btn-primary me-3">Back</button>
+
+
+
 </div>
 
 

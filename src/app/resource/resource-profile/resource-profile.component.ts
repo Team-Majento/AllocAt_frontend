@@ -1,7 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {Resource} from "../../../models/resource";
 import {ResourceService} from "../../service/resource.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-resource-profile',
@@ -14,7 +14,7 @@ export class ResourceProfileComponent {
 
   resourceId!: string;
 
-  constructor(private resourceService: ResourceService, private route: ActivatedRoute) {
+  constructor(private resourceService: ResourceService, private route: ActivatedRoute,private router:Router) {
     route.params.subscribe(resourceId => {
       this.resourceId = resourceId["resourceId"];
       console.log(this.resourceId)
@@ -50,4 +50,11 @@ export class ResourceProfileComponent {
   //   });
   // }
 
+  addRequest() {
+    this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/resources/${this.resourceId}/booking-request`]))
+  }
+
+  updateResource() {
+    this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/resources/${this.resourceId}/update`]))
+  }
 }

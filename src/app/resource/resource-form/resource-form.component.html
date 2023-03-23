@@ -21,9 +21,14 @@
           <hr>
           <div>
             <label for="company-select">Select Company:</label>
-            <select id="company-select" [(ngModel)]="resource.companyId" name="company" (ngModelChange)="onCompanySelectionChange($event)"  >
+            <select id="company-select" [(ngModel)]="resource.companyId" #company="ngModel" name="company" (ngModelChange)="onCompanySelectionChange($event)"  >
               <option *ngFor="let company of companies" [value]="company.id">{{ company.name }}</option>
             </select>
+            <div *ngIf="company.invalid && (company.dirty || company.touched)" class="alert">
+              <div *ngIf="company.errors?.['required']">
+                Company is required.
+              </div>
+            </div>
           </div>
 
 <!--          -->
@@ -38,17 +43,22 @@
 
           <div class="mb-3">
             <label class="mb-2" for="resource-desc">Description</label>
-            <textarea class="form-control" name="resource-desc"  id="resource-desc" rows="8"  [(ngModel)]="resource.description"></textarea>
+            <textarea class="form-control" name="resource-desc"  id="resource-desc" rows="8"  [(ngModel)]="resource.description" #description="ngModel" required></textarea>
+            <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert">
+              <div *ngIf="description.errors?.['required']">
+                Description is required.
+              </div>
+            </div>
           </div>
 
           <div class="mb-3">
             <label class="mb-2" for="floor">Floor</label>
-            <input class="form-control" id="floor" name="floor" type="number"  [(ngModel)]="resource.floor">
+            <input class="form-control" id="floor" name="floor" type="number"  [(ngModel)]="resource.floor"  required>
           </div>
 
           <div class="mb-3">
             <label class="mb-2" for="building-id">Building ID</label>
-            <input class="form-control" id="building-id" name="building-id" type="text" [(ngModel)]="resource.buildingId">
+            <input class="form-control" id="building-id" name="building-id" type="text" [(ngModel)]="resource.buildingId"  required>
           </div>
 
 
@@ -57,29 +67,29 @@
 
           <div class="mb-3">
             <label class="mb-2" for="rateCard-id">Rate Card ID</label>
-            <input class="form-control" id="rateCard-id" name="rateCard-id" type="number" [(ngModel)]="resource.rateCardId" >
+            <input class="form-control" id="rateCard-id" name="rateCard-id" type="number" [(ngModel)]="resource.rateCardId"   required>
           </div>
 
           <div class="mb-3">
             <label class="mb-2" for="resource-type">Resource Type</label>
-            <input class="form-control" id="resource-type" name="resource-type" type="number" [(ngModel)]="resource.resourceType">
+            <input class="form-control" id="resource-type" name="resource-type" type="number" [(ngModel)]="resource.resourceType"  required>
           </div>
 
           <div class="mb-3">
             <label class="mb-2" for="max-capacity">Maximum Capacity</label>
-            <input class="form-control" id="max-capacity" name="max-capacity" type="number" [(ngModel)]="resource.maximumCapacity" >
+            <input class="form-control" id="max-capacity" name="max-capacity" type="number" [(ngModel)]="resource.maximumCapacity"  required>
           </div>
 
 
           <div class="form-check mb-2">
-            <input class="form-check-input" type="checkbox" value="true" name="active-status" id="active-status" checked  [(ngModel)]="resource.activeStatus">
+            <input class="form-check-input" type="checkbox" value="true" name="active-status" id="active-status" checked  [(ngModel)]="resource.activeStatus"  required>
             <label class="form-check-label" for="active-status">
               Active Status
             </label>
           </div>
 
           <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" value="true" name="availability" id="availability" checked [(ngModel)]="resource.availability">
+            <input class="form-check-input" type="checkbox" value="true" name="availability" id="availability" checked [(ngModel)]="resource.availability"  required>
             <label class="form-check-label" for="availability">
               Availability
             </label>
@@ -92,7 +102,7 @@
 
           <div class="mb-2">
             <label class="mb-2" for="img-url">Image URL</label>
-            <input class="form-control" id="img-url" name="img-url" type="text" [(ngModel)]="resource.imgUrl">
+            <input class="form-control" id="img-url" name="img-url" type="text" [(ngModel)]="resource.imgUrl"  required>
           </div>
 
           <div class="d-flex gap-3 justify-content-end align-items-center">

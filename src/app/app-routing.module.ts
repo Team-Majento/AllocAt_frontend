@@ -17,11 +17,11 @@ import {UpdateUserComponent} from "./user/update-user/update-user.component";
 import {ResourceProfileComponent} from "./resource/resource-profile/resource-profile.component";
 import {ReviewRatingFormComponent} from "./review-rating/review-rating-form/review-rating-form.component";
 import {AddBookingRequestComponent} from "./bookingRequest/add-booking-request/add-booking-request.component";
+import {UpdateResourceComponent} from "./resource/update-resource/update-resource.component";
 
 const routes: Routes = [
   {  path:"",component :HomeComponent },
   {path: "login", component: LoginComponent},
-  {path: "resource-profile", component: ResourceProfileComponent},
   {
     path: "dashboard",
     component: LayoutComponent,
@@ -73,6 +73,14 @@ const routes: Routes = [
                 path: ":resourceId",
                 component: ResourceProfileComponent,
               },
+              {
+                path: ":resourceId/booking-request",
+                component: AddBookingRequestComponent,
+              },
+              {
+                path: ":resourceId/update",
+                component:UpdateResourceComponent,
+              },
 
             ]
 
@@ -119,7 +127,7 @@ const routes: Routes = [
   {path: "review-rating", component: ReviewRatingFormComponent},
   {path: "user", component: AddUserComponent},
   //{  path:"lay",component :LayoutComponent},
-  {path:"booking-request",component:AddBookingRequestComponent}
+  // {path:"booking-request",component:AddBookingRequestComponent}
  // {path: "lay", component: LayoutComponent, children: [{path: "company", component: AddCompanyComponent}]},
   //{path: "lay", component: LayoutComponent, children: [{path: "resource", component: AddResourceComponent}]},
 ];

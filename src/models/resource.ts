@@ -1,5 +1,5 @@
 export interface Resource{
-
+  id:number;
   activeStatus:boolean;
   availability:boolean;
   buildingId: string;
@@ -10,6 +10,6 @@ export interface Resource{
   rateCardId:number;
   resourceType: number;
   companyId:number;
-
+  company:string;
 
 }
