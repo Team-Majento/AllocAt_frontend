@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {Resource} from "../../../models/resource";
+
 
 @Component({
   selector: 'app-add-resource',
