@@ -1,13 +1,46 @@
-<p>view-menu works!</p>
-<div class="box-grid">
-  <div class="box" (click)="openRequestListView()">
-    <p>View Request</p>
-  </div>
-  <div class="box" (click)="openCompanyView()">
-    <p>View Company</p>
-  </div>
-  <div class="box" (click)="openResourceView()">
-    <p>View Resource</p>
-  </div>
+<section class="mt-3">
+  <div class="container" >
+    <div class="row" style="margin-top: 150px;">
+      <div class="col-md-4 card" (click)="openRequestListView()">
+        <div class="card shadow-lg ">
+          <img src="assets/img/req.jpg" alt="" class="img-fluid">
+          <div class="card d-flex align-items-center ">
+            <div class="card-body text-center ">
+            <p class="h3">View Request</p>
+            </div>
 
-</div>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-4 card "(click)="openCompanyView()">
+        <div class="card shadow-lg">
+          <img src="assets/img/viewc.jpg" alt="" class="img-fluid">
+          <div class="card d-flex align-items-center">
+            <div class="card-body text-center">
+            <p class="h3">View Company</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-4 card"(click)="openResourceView()">
+        <div class="card shadow-lg" >
+          <img src="assets/img/viewr.jpg" alt="" class="img-fluid">
+          <div class="card d-flex align-items-center">
+            <div class="card-body text-center">
+            <p class="h3">View Resource</p>
+            </div>
+
+
+        </div>
+      </div>
+
+
+      </div>
+    </div>
+  </div>
+</section>
