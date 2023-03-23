@@ -1,49 +1,339 @@
-<div class="header">
+
+<!--<!doctype html>-->
+<!--<html lang="en">-->
+<!--<head>-->
+<!--  <meta charset="utf-8">-->
+<!--  <meta name="viewport" content="width=device-width, initial-scale=1">-->
+<!--  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css">-->
+<!--  <link href="https://cdn.jsdelivr.net/npm/remixicon@2.2.0/fonts/remixicon.css" rel="stylesheet">-->
+<!--  <link rel="stylesheet" href="style.css">-->
+<!--  <title>Alloq-@</title>-->
+<!--</head>-->
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg bg-white sticky-top">
   <div class="container">
-    <nav>
-      <a href="#" class="logo">ALLOC @</a>
-      <ul>
-        <li class="ps-5"><a href="#">Home</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
-      </ul>
-    </nav>
-  </div>
-</div>
-
-<div class="hero">
-  <div class="container text ms-5 rounded-4">
-    <h1 class="mt-4 ms-3">Allocate Your Resources</h1>
-    <p class="mt-4 ms-3">A web app to share resources across ABC Group of Companies</p>
-
-    <button class="btn btn-primary mb-4 ms-3" [routerLink]="['/login']">login page</button>
-
-  </div>
-</div>
-
-<div class="features">
-  <div class="container">
-    <h2>Features</h2>
-    <ul>
-      <li>Easy to use</li>
-      <li>Secure and private</li>
-      <li>Customizable user and project settings</li>
-      <li>Real-time resource tracking</li>
-    </ul>
-  </div>
-</div>
-<footer class="bg-dark">
-  <div class="container bg-dark">
-    <p>&copy; 2023 ALLOC@ | ABC Group of Companies</p>
-    <div class="footer-links">
-      <ul style="text-decoration: none">
-        <li><a href="#">Terms of Service</a></li>
-        <li><a href="#">Privacy Policy</a></li>
-        <li><a href="#">Contact Us</a></li>
+    <a class="navbar-brand" href="#">Alloq-@</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#about">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#services">Services</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="#contact">Contact Us</a>
+        </li>
       </ul>
     </div>
   </div>
+</nav>
+
+<!-- SECTION1 -->
+<section id="hero" class="min-vh-100 d-flex align-items-center text-center"  style="background-image:url(assets/img/image1.jpg) ">
+<!--  <img src="assets/img/image1.jpg" style="background-position: center;background-size: cover;">-->
+  <div class="container">
+
+    <div class="row">
+      <div class="col-12 box">
+        <h1 class="text-uppercase text-white fw-semibold display-1">Welcome to Alloq-@</h1>
+        <h5 class="text-white mt-3 mb-4">Book your meeting room today!</h5>
+        <div>
+          <a href="#" class="btn btn-brand" [routerLink]="['/login']">Login</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION2 -->
+<section id="about" class="section-padding">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <div class="section-title">
+          <h1 class="display-4 fw-semibold" style="color: black;">About Us</h1>
+          <div class="line"></div>
+          <p>Meeting room booking system that allows resource managers and employees to book meeting rooms and track their use</p>
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center align-items-center about">
+      <div class="col-lg-6">
+        <img src="assets/img/image2.jpg" style="box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.358);">
+      </div>
+      <div class="col-lg-5 ">
+        <p class="mt-4 mb-8" style="text-align: justify;">Welcome to Alloq-@, an innovative meeting room reservation and cost allocation system that streamlines the process of booking meeting rooms and allocating
+          costs. Our automated system eliminates the need for manual processes and reduces the risk of errors, allowing for a more efficient and cost-effective
+          approach to managing meeting rooms. With Alloq-@, you can easily book meeting rooms, manage your schedule, and allocate costs based on usage. Our
+          user-friendly interface and advanced features make it easy to use and customize to your specific needs. Whether you're a small business or a large
+          corporation, Alloq-@ can help you save time and money while improving your meeting room management process.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION3 -->
+<section id="services" class="section-padding border-top">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <div class="section-title">
+          <h1 class="display-4 fw-semibold" style="color: black;">Awesome Services</h1>
+          <div class="line"></div>
+          <p>The best meeting and conference room booking system with a number of unique functions for effective meeting management and optimization of company</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row g-4 text-center">
+      <div class="col-lg-4 col-sm-6">
+        <div class="service theme-shadow p-lg-5 p-4">
+          <div class="iconbox">
+            <i class="ri-stack-fill"></i>
+          </div>
+          <h5 class="mt-4 mb-3">Smart</h5>
+          <p>We are smart people (if you ask us), and we try to hire even smarter people. Our solutions are smart, helping our customers to spend time and
+            resources smarter. Smart, right?</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-sm-6">
+        <div class="service theme-shadow p-lg-5 p-4">
+          <div class="iconbox">
+            <i class="ri-stack-fill"></i>
+          </div>
+          <h5 class="mt-4 mb-3">Simple</h5>
+          <p>Smart does not imply complex, quite the opposite. We're easy-going people. Our solutions are simple to use and easy to understand. It is, however,
+            really hard to be simple. We've come a long way, don't you agree?</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-sm-6">
+        <div class="service theme-shadow p-lg-5 p-4">
+          <div class="iconbox">
+            <i class="ri-stack-fill"></i>
+          </div>
+          <h5 class="mt-4 mb-3">Reliable</h5>
+          <p>We honor our commitments and look out for each other. That may sound cheesy, but being a trustworthy supplier, colleague, workplace and friend is
+            something we value and take pride in.</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-sm-6">
+        <div class="service theme-shadow p-lg-5 p-4">
+          <div class="iconbox">
+            <i class="ri-stack-fill"></i>
+          </div>
+          <h5 class="mt-4 mb-3">Smart</h5>
+          <p>We are smart people (if you ask us), and we try to hire even smarter people. Our solutions are smart, helping our customers to spend time and
+            resources smarter. Smart, right?</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-sm-6">
+        <div class="service theme-shadow p-lg-5 p-4">
+          <div class="iconbox">
+            <i class="ri-stack-fill"></i>
+          </div>
+          <h5 class="mt-4 mb-3">Smart</h5>
+          <p>We are smart people (if you ask us), and we try to hire even smarter people. Our solutions are smart, helping our customers to spend time and
+            resources smarter. Smart, right?</p>
+        </div>
+      </div>
+
+      <div class="col-lg-4 col-sm-6">
+        <div class="service theme-shadow p-lg-5 p-4">
+          <div class="iconbox">
+            <i class="ri-stack-fill"></i>
+          </div>
+          <h5 class="mt-4 mb-3">Smart</h5>
+          <p>We are smart people (if you ask us), and we try to hire even smarter people. Our solutions are smart, helping our customers to spend time and
+            resources smarter. Smart, right?</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!--SECTION4-->
+<section id="contact" class="section-padding form">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <div class="section-title">
+          <h1 class="display-4 text-white fw-semibold">Get in touch</h1>
+          <div class="line bg-white"></div>
+          <p class="text-white">We will help you ! Fill the form for multiple answers !</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="row justify-content-center form1">
+      <div class="col-lg-8">
+        <form action="#" class="row g-3">
+          <div class="form-group col-lg-6">
+            <input type="text" class="form-control" placeholder="Enter your first name">
+          </div>
+          <div class="form-group col-lg-6">
+            <input type="text" class="form-control" placeholder="Enter your last name">
+          </div>
+          <div class="form-group col-lg-12">
+            <input type="email" class="form-control" placeholder="Enter email address">
+          </div>
+          <div class="form-group col-lg-12">
+            <input type="text" class="form-control" placeholder="Enter subject">
+          </div>
+          <div class="form-group col-lg-12">
+            <textarea name="message" rows="5" class="form-control" placeholder="Enter message"></textarea>
+          </div>
+          <div class="form-group col-lg-12 d-grid">
+            <button class="btn btn-brand">Send Message</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION5 -->
+<footer class="bg-dark">
+  <div class="footer-top">
+    <div class="container">
+      <div class="row gy-5">
+        <div class="col-lg-3 col-sm-6">
+          <a href="#">Alloq-@</a>
+          <div class="line"></div>
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium, corporis?</p>
+          <div>
+            <a href="#"><i class="ri-window-fill social-icons"></i></a>
+            <a href="#"><i class="ri-linkedin-fill social-icons"></i></a>
+            <a href="#"><i class="ri-facebook-fill social-icons"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+          <h5 class="mb-0 text-white">Services</h5>
+          <div class="line"></div>
+          <ul>
+            <li>Smart</li>
+            <li>Simple</li>
+            <li>Reliable</li>
+            <li>Book meeting rooms</li>
+            <li>Automatic cost allocation</li>
+            <li>Generate report</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+          <h5 class="mb-0 text-white">Links</h5>
+          <div class="line"></div>
+          <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact Us</a></li>
+
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+          <h5 class="mb-0 text-white">Contact</h5>
+          <div class="line"></div>
+          <p>No-7,<br>8th Lane,<br>Nawala Road,<br>Nawala,<br>Sri Lanka</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-auto">
+          <p class="mb-0">&copy;Copyright Alloq-@. All Right Reserved</p>
+        </div>
+        <div class="col-auto">
+          <p class="mb-0">Designed By Majento</p>
+        </div>
+      </div>
+    </div>
+  </div>
 </footer>
+</body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--<div class="header">-->
+<!--  <div class="container">-->
+<!--    <nav>-->
+<!--      <a href="#" class="logo">ALLOC @</a>-->
+<!--      <ul>-->
+<!--        <li class="ps-5"><a href="#">Home</a></li>-->
+<!--        <li><a href="#">About</a></li>-->
+<!--        <li><a href="#">Contact</a></li>-->
+<!--      </ul>-->
+<!--    </nav>-->
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="hero">-->
+<!--  <div class="container text ms-5 rounded-4">-->
+<!--    <h1 class="mt-4 ms-3">Allocate Your Resources</h1>-->
+<!--    <p class="mt-4 ms-3">A web app to share resources across ABC Group of Companies</p>-->
+
+<!--    <button class="btn btn-primary mb-4 ms-3" [routerLink]="['/login']">login page</button>-->
+
+<!--  </div>-->
+<!--</div>-->
+
+<!--<div class="features">-->
+<!--  <div class="container">-->
+<!--    <h2>Features</h2>-->
+<!--    <ul>-->
+<!--      <li>Easy to use</li>-->
+<!--      <li>Secure and private</li>-->
+<!--      <li>Customizable user and project settings</li>-->
+<!--      <li>Real-time resource tracking</li>-->
+<!--    </ul>-->
+<!--  </div>-->
+<!--</div>-->
+<!--<footer class="bg-dark">-->
+<!--  <div class="container bg-dark">-->
+<!--    <p>&copy; 2023 ALLOC@ | ABC Group of Companies</p>-->
+<!--    <div class="footer-links">-->
+<!--      <ul style="text-decoration: none">-->
+<!--        <li><a href="#">Terms of Service</a></li>-->
+<!--        <li><a href="#">Privacy Policy</a></li>-->
+<!--        <li><a href="#">Contact Us</a></li>-->
+<!--      </ul>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</footer>-->
 
 
 
