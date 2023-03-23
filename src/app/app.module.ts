@@ -47,6 +47,7 @@ import {MatRadioModule} from "@angular/material/radio";
 import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from '@angular/material/core';
 import {ReactiveFormsModule} from '@angular/forms';
+import { ViewBookingRequestListComponent } from './bookingRequest/view-booking-request-list/view-booking-request-list.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +79,8 @@ import {ReactiveFormsModule} from '@angular/forms';
     ChangePasswordComponent,
     BookingRequestFormComponent,
     AddBookingRequestComponent,
-    UpdateBookingRequestComponent
+    UpdateBookingRequestComponent,
+    ViewBookingRequestListComponent
   ],
   imports: [
     BrowserModule,
