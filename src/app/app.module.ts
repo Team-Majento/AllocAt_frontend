@@ -82,7 +82,7 @@ import { AcceptRejectBookingRequestComponent } from './resourceAllocation/accept
     AddBookingRequestComponent,
     UpdateBookingRequestComponent,
     ViewBookingRequestListComponent,
-  AcceptRejectBookingRequestComponent,
+    AcceptRejectBookingRequestComponent
   ],
   imports: [
     BrowserModule,
