@@ -13,4 +13,8 @@ export class AcceptRejectBookingRequestService {
   }
 
 
+  acceptBookingRequest(bookingRequestId:BigInt) {
+    console.log(bookingRequestId);
+    return this.http.post<object>("http://localhost:8082/resourceAllocaion/accept/"+bookingRequestId,null);
+  }
 }

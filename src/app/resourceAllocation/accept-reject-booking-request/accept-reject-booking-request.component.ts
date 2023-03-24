@@ -24,13 +24,34 @@ export class AcceptRejectBookingRequestComponent implements OnInit{
       (compileResults) => {
         // @ts-ignore
         const content = compileResults;
-        console.log(content+"ss");
+
         this.bookingRequestList=content;
+
+        this.bookingRequestList=this.bookingRequestList.filter(this.isPending);
+        console.log( this.bookingRequestList);
       }
       , error => {
         console.log(error)
       });
 
+  }
+
+  accept(bookingRequestId:BigInt) {
+    console.log(bookingRequestId);
+    this.acceptRejectBookingRequestService.acceptBookingRequest(bookingRequestId).subscribe(
+      (compileResults) => {
+        console.log(compileResults);
+      }
+      , error => {
+        console.log(error)
+      });
+    let index=this.bookingRequestList.findIndex((e:any)=>e.id===bookingRequestId);
+    this.bookingRequestList.splice(index,1);
+
+  }
+
+   isPending(element:any){
+        return element.status==="pending";
   }
 
 }

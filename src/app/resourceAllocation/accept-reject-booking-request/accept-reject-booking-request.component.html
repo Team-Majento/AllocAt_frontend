@@ -26,7 +26,7 @@
     <td>{{bookingRequest["startTime"]}}</td>
     <td>{{bookingRequest["endTime"]}}</td>
     <td>
-      <button type="button" class="btn btn-primary me-2">Accept</button>
+      <button type="button" class="btn btn-primary me-2"  (click)="accept(bookingRequest.id)">Accept</button>
       <button type="button" class="btn btn-dark">Reject</button>
     </td>
 
