@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
+import {UserService} from "../../service/user.service";
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
@@ -15,7 +16,13 @@ export class ToolbarComponent implements OnInit{
   navOpen=false;
   dropDownStatus=false;
 
+  currentUserName:any;
+
+  constructor(private userService:UserService) {
+  }
   ngOnInit(): void {
+    this.currentUserName=this.userService.getCurrentUserName();
+    console.log(this.currentUserName);
   }
 
   navBarOpen(){

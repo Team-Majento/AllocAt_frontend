@@ -115,7 +115,7 @@ const routes: Routes = [
       },
 
 
-      {path: "user-profile", component: UserProfileComponent},
+      {path: "user-profile/:userName", component: UserProfileComponent},
 
 
       {path: "update-user", component:  UpdateUserComponent},
