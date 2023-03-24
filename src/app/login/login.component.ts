@@ -62,7 +62,7 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
 
 
             this.messageService.showSucessMessage("login-Sucess");
-            this.router.navigateByUrl(this.router.createUrlTree(["dashboard"]))
+            this.router.navigateByUrl(this.router.createUrlTree(["dashboard/main"]))
           }
           , error => {
             console.log("error--");
