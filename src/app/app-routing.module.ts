@@ -30,8 +30,15 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: "",
-        component: DashboardMenuComponent
+        path: "main",
+        children: [
+          {
+            path: "",
+            component: DashboardMenuComponent,
+          },
+      ]
+
+
       },
       {
         path: "add",
