@@ -3,6 +3,7 @@ import {NgForm} from "@angular/forms";
 import {SubSink} from "subsink";
 import {BookingRequest} from "../../../models/bookingRequest";
 import {BookingRequestService} from "../../service/booking-request.service";
+import {MatDatepickerInputEvent} from "@angular/material/datepicker";
 
 @Component({
   selector: 'app-booking-request-form',
@@ -24,8 +25,8 @@ export class BookingRequestFormComponent {
 
   private subSink=new SubSink();
 
+
   constructor(private bookingReqService:BookingRequestService) {
-    this.bookingRequest.requiredDate =new Date();
   }
 
   addBookingRequest() {
@@ -33,4 +34,9 @@ export class BookingRequestFormComponent {
   }
 
 
+  dateChanged($event: MatDatepickerInputEvent<unknown, unknown | null>) {
+    // @ts-ignore
+    console.log(event.target.value);
+    console.log(this.bookingRequest.requiredDate);
+  }
 }
