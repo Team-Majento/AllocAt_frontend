@@ -1,0 +1,70 @@
+.table,th,td{
+  border-collapse: collapse;
+  border: 1px solid black;
+}
+
+// .table{
+//   width:90%;
+//   margin-left:80px;
+//   margin-top:20px;
+
+// }
+
+// tr:nth-child(even) {
+//   background-color: #dddddd;
+// }
+th{
+  // background-color: rgb(153, 210, 236);
+  height:25px;
+}
+button{
+  margin-right: 10px;
+}
+
+h2{
+  text-align: center;
+  margin-top: 10px;
+}
+
+tr:hover {
+  background-color: rgb(230, 235, 238);}
+
+
+
+@media (min-width: 1281px) {
+  .table{
+    width:90%;
+    margin: auto;
+
+  }
+
+
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+
+  .table{
+    width:90%;
+    margin: auto;
+
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+  .table{
+    width:60%;
+    margin: auto;
+
+  }
+
+}
+
+
+
+
+
+
+
+

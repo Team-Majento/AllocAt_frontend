@@ -1,0 +1,116 @@
+.card1
+{
+  height: 200px;
+  background-color: blueviolet;
+}
+
+.card2
+{
+  height: 200px;
+  background-color: rgb(22, 9, 34);
+}
+
+.card3
+{
+
+  height: 200px;
+  background-color: rgb(226, 128, 43);
+}
+
+
+.main-con{
+  background: #154c79;
+}
+h3{
+  color: black;
+  font-size: xx-large;
+  padding:10px;
+}
+
+
+.card-body1{
+  background-color: #4747a1;
+
+  color: white;
+  padding: 30px;
+  border-radius: 20px;
+
+}
+
+.card-body2{
+  background-color: #7da0fa;
+
+  color: white;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.card-body3{
+  background-color: #7978e9;
+
+  color: white;
+  padding: 30px;
+  border-radius: 20px;
+}
+
+.card-body4{
+    background-color: #f3797e;
+
+    color: white;
+    padding: 30px;
+    border-radius: 20px;
+  };
+
+.card{
+
+  border-radius: 20px;
+}
+.tablestyle{
+  margin-top: 20px;
+}
+
+
+
+
+
+
+
+@media (min-width: 1281px) {
+  .tablestyle{
+    width :700px;
+  }
+
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .tablestyle{
+    width :700px;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tablestyle{
+    width :500px;
+    height: 500px;
+  }
+
+}
+
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .tablestyle{
+    width :400px;
+    height: 500px;
+  }
+
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .tablestyle{
+    width :400px;
+    height: 500px;
+  }
+
+}
