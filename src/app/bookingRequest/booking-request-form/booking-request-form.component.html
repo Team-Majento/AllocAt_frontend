@@ -1,287 +1,160 @@
-
 <!--<div class="container-body" style="background-color: #ffd305">-->
-  <div class="container">
-   {{bookingRequest|json}}
+<div class="container">
+  <!--   {{bookingRequest|json}}-->
 
-    <div class="side"><img src="assets/img/workingLady.png" /> <br /></div>
-<mat-card>
-
-  <mat-card-content>
-    <div class="header">
-      <h2><b>Booking Request Form</b></h2>
-      <br />
-    </div>
-
-    <form #InputForm="ngForm">
-      <span style="color: #212529" class="ms-0">Resource ID: {{bookingRequest.resourceId}}</span>
-
-            <div class="input">
-              <mat-form-field class="full-width" appearance="outline">
-                <mat-label>Company Id*</mat-label>
-                <input
-                  matInput
-                  name="comId"
-                  id="comId"
-                  [(ngModel)]="bookingRequest.companyId"
-                  #comId="ngModel"
-                  required
-                />
-              </mat-form-field>
-            </div>
-      <div *ngIf="comId.invalid && (comId.dirty || comId.touched)" class="alert">
-                  <div *ngIf="comId.errors?.['required']">
-                    Company ID is required.
-                  </div>
-                </div>
-
-
-      <div class="input">
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>User Id*</mat-label>
-          <input
-            matInput
-            name="userid"
-            id="userid"
-            [(ngModel)]="bookingRequest.requesterUserId"
-            #uid="ngModel"
-            required
-          />
-        </mat-form-field>
+  <div class="side"><img src="assets/img/workingLady.png" /> <br /></div>
+  <mat-card>
+    <mat-card-content>
+      <div class="header">
+        <h2><b>Booking Request Form</b></h2>
+        <br />
       </div>
-      <div *ngIf="uid.invalid && (uid.dirty || uid.touched)" class="alert">-->
-                  <div *ngIf="uid.errors?.['required']">
-                    Requesters User  ID is required.
-                  </div>
-                </div>
 
+      <form #InputForm="ngForm">
+        <span style="color: #212529" class="ms-0"
+        >Resource ID: {{ bookingRequest.resourceId }}</span
+        >
 
-      <div class="input">
-        <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Manager's User Id*</mat-label>
-          <input
-            matInput
-            name="ManagerUserid"
-            id="ManagerUserid"
-            [(ngModel)]="bookingRequest.requestersManagersUserId"
-            #Muid="ngModel"
-            required
-          />
-        </mat-form-field>
-        <div *ngIf="Muid.invalid && (Muid.dirty || Muid.touched)" class="alert">
-          <div *ngIf="Muid.errors?.['required']">
-           Managers UserID is required.
+        <div class="input">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>User Id</mat-label>
+            <input
+              matInput
+              name="userid"
+              id="userid"
+              [(ngModel)]="bookingRequest.requesterUserId"
+              #uid="ngModel"
+              required
+            />
+
+          </mat-form-field>
+          <div
+            *ngIf="uid.invalid && (uid.dirty || uid.touched)"
+            class="alert"
+          >
+            <div *ngIf="uid.errors?.['required']">
+              User ID is required.
+            </div>
           </div>
         </div>
-      </div>
 
-<!--      <div class="input">-->
-<!--        <mat-form-field class="full-width" appearance="outline">-->
-<!--          <mat-label>Resource Id*</mat-label>-->
-<!--          <input-->
-<!--            matInput-->
-<!--            name="resourceid"-->
-<!--            id="resourceid"-->
-<!--            [(ngModel)]="bookingRequest.resourceId"-->
-<!--            #rid="ngModel"-->
-<!--            required />-->
-<!--        </mat-form-field>-->
-
-<!--        <div *ngIf="rid.invalid && (rid.dirty || rid.touched)" class="alert">-->
-<!--          <div *ngIf="rid.errors?.['required']">-->
-<!--            Resource ID is required.-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-
-      <div class="input">
-        <mat-form-field appearance="fill">
-          <mat-label>Choose a date</mat-label>
-          <!-- #docregion toggle -->
-          <input matInput [matDatepicker]="picker" name="date"  [(ngModel)]="bookingRequest.requiredDate" (dateChange)="updateDate()" >
-          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-          <mat-datepicker #picker></mat-datepicker>
-          <!-- #enddocregion toggle -->
-        </mat-form-field>
-      </div>
+        <div class="input">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Company Id</mat-label>
+            <input
+              matInput
+              name="comId"
+              id="comId"
+              [(ngModel)]="bookingRequest.companyId"
+              #comId="ngModel"
+              required
+            />
 
 
+          </mat-form-field>
+          <div
+            *ngIf="comId.invalid && (comId.dirty || comId.touched)"
+            class="alert"
+          >
+            <div *ngIf="comId.errors?.['required']">
+              Company ID is required.
+            </div>
+          </div>
+        </div>
 
-      <div class="input mt-1">
-        <!--          from here  *********      -->
-                  <mat-form-field>
-                    <input matInput
-                           name="selected_time_A"
-                           [format]="24"
-                           [(ngModel)]="bookingRequest.startTime"
-                           [ngxMatTimepicker]="pickerA"
-                           placeholder="08:00"
-                           readonly />
-                    <mat-icon matSuffix
-                              (click)="pickerA.open()">
-                      watch_later
-                    </mat-icon>
-                  </mat-form-field>
-                  <ngx-mat-timepicker #pickerA></ngx-mat-timepicker>
-
-
-      </div>
-
-      <div class="input mt-1">
-        <!--          from here  *********      -->
-        <mat-form-field>
-          <input matInput
-                 name="selected_time_B"
-                 [format]="24"
-                 [(ngModel)]="bookingRequest.endTime"
-                 [ngxMatTimepicker]="pickerB"
-                 placeholder="18:00"
-                 readonly />
-          <mat-icon matSuffix
-                    (click)="pickerB.open()">
-            watch_later
-          </mat-icon>
-        </mat-form-field>
-        <ngx-mat-timepicker #pickerB></ngx-mat-timepicker>
-
-      </div>
+        <div class="input">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Resource Manager's Id</mat-label>
+            <input
+              matInput
+              name="ManagerUserid"
+              id="ManagerUserid"
+              [(ngModel)]="bookingRequest.requestersManagersUserId"
+              #Muid="ngModel"
+              required
+            />
+          </mat-form-field>
+          <div
+            *ngIf="Muid.invalid && (Muid.dirty || Muid.touched)"
+            class="alert"
+          >
+            <div *ngIf="Muid.errors?.['required']">
+              Resource Manager's ID is required.
+            </div>
+          </div>
+        </div>
 
 
 
+        <div class="input">
+          <mat-form-field appearance="fill">
+            <mat-label>Choose a date</mat-label>
 
-      <div>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              name="date"
+              [(ngModel)]="bookingRequest.requiredDate"
+              (dateChange)="updateDate()"
+              [min]="minDate"
+            />
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
 
-        <button class="btn btn-primary" (click)="addBookingRequest()">Submit</button>
+          </mat-form-field>
+        </div>
 
-        <button class="btn btn-primary">Cancel</button>
+        <div class="input mt-1">
+          <mat-form-field>
+            <mat-label>Start time</mat-label>
+            <input
+              matInput
+              name="selected_time_A"
+              [format]="24"
+              [(ngModel)]="bookingRequest.startTime"
+              [ngxMatTimepicker]="pickerA"
+              [max]="max"
+              [min]="min"
+              readonly
+            />
+            <mat-icon matSuffix (click)="pickerA.open()">
+              watch_later
+            </mat-icon>
+          </mat-form-field>
+          <ngx-mat-timepicker #pickerA></ngx-mat-timepicker>
+        </div>
 
-      </div>
+        <div class="input mt-1">
+          <mat-form-field>
+            <mat-label>End time</mat-label>
+            <input
+              matInput
+              name="selected_time_B"
+              [format]="24"
+              [(ngModel)]="bookingRequest.endTime"
+              [ngxMatTimepicker]="pickerB"
+              [max]="max"
+              [min]="min"
+              readonly
+            />
+            <mat-icon matSuffix (click)="pickerB.open()">
+              watch_later
+            </mat-icon>
+          </mat-form-field>
+          <ngx-mat-timepicker #pickerB></ngx-mat-timepicker>
+        </div>
 
+        <div>
+          <button class="btn btn-primary" (click)="addBookingRequest()">
+            Submit
+          </button>
 
-
-    </form>
-
-  </mat-card-content>
-
-
-</mat-card>
-
-
-  </div>
-
-
-
-
-
-
-
-
-
-
-<!--abcd-->
-
-<!--<section class="p-3 main-con">-->
-<!--  <h3 class="text-center mb-4 mt-1  text-capitalize">{{formTitle}}</h3>-->
-<!--  <div style="background-color: #BAD7E9">-->
-<!--    <form #InputForm="ngForm">-->
-<!--      <div class="row">-->
-<!--        <div class="col-12 col-lg-6 p-5 con__sub-01">-->
-<!--          <div class="mb-4">-->
-<!--            <label class="mb-2" for="user-id">User ID</label>-->
-<!--            <input class="form-control" id="user-id" name="user-id" type="text"  required>-->
-<!--          </div>-->
-
-<!--          <div class="mb-4">-->
-<!--            <label class="mb-2" >Resource ID:</label>-->
-<!--            <div>-->
-<!--              <input class="form-control mb-3" id="resource-id" name="resource-id" type="text"  >-->
-<!--            </div>-->
-<!--          </div>-->
-
-
-<!--&lt;!&ndash;          from here  *********      &ndash;&gt;-->
-<!--          <mat-form-field>-->
-<!--            <input matInput-->
-<!--                   name="selected_time_A"-->
-<!--                   [(ngModel)]="selectedTime"-->
-<!--                   [ngxMatTimepicker]="pickerA"-->
-<!--                   placeholder="4:00 PM"-->
-<!--                   readonly />-->
-<!--            <mat-icon matSuffix-->
-<!--                      (click)="pickerA.open()">-->
-<!--              watch_later-->
-<!--            </mat-icon>-->
-<!--          </mat-form-field>-->
-<!--          <ngx-mat-timepicker #pickerA></ngx-mat-timepicker>-->
-
-<!--&lt;!&ndash;          to here ***      &ndash;&gt;-->
-
-
-<!--        </div>-->
-
-
-<!--        <div class="col-12 col-lg-6 p-5 con__sub-02">-->
-
-<!--          <div class="row">-->
-<!--            &lt;!&ndash;          <div class="col-lg-6">&ndash;&gt;-->
-<!--            &lt;!&ndash;            <div class="mb-4">&ndash;&gt;-->
-<!--            &lt;!&ndash;              <label class="mb-2" for="company-city">City</label>&ndash;&gt;-->
-<!--            &lt;!&ndash;              <input class="form-control" name="company-city" id="company-city" type="text">&ndash;&gt;-->
-<!--            &lt;!&ndash;            </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;          </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;          <div class="col-lg-6">&ndash;&gt;-->
-<!--            &lt;!&ndash;            <div class="mb-4">&ndash;&gt;-->
-<!--            &lt;!&ndash;              <label class="mb-2" for="company-province">Province</label>&ndash;&gt;-->
-<!--            &lt;!&ndash;              <input class="form-control" name="company-province" id="company-province" type="text">&ndash;&gt;-->
-<!--            &lt;!&ndash;            </div>&ndash;&gt;-->
-<!--            &lt;!&ndash;          </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;            <div class="col-lg-6">&ndash;&gt;-->
-<!--&lt;!&ndash;              <div class="mb-4">&ndash;&gt;-->
-<!--&lt;!&ndash;                <label class="mb-2" for="company-email">Email</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                <input class="form-control" name="company-email" id="company-email" type="email"   >&ndash;&gt;-->
-<!--&lt;!&ndash;              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;            <div class="col-lg-6">&ndash;&gt;-->
-<!--&lt;!&ndash;              <div class="mb-4">&ndash;&gt;-->
-<!--&lt;!&ndash;                <label class="mb-2" for="company-fax">fax</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                <input class="form-control" name="company-email" id="company-fax" type="email"   >&ndash;&gt;-->
-<!--&lt;!&ndash;              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;            <div class="col-lg-6">&ndash;&gt;-->
-<!--&lt;!&ndash;              <div class="mb-4">&ndash;&gt;-->
-<!--&lt;!&ndash;                <label class="mb-2" for="company-email">Contact No</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                <input class="form-control" name="company-Contact" id="company-Contact No" type="email"   >&ndash;&gt;-->
-<!--&lt;!&ndash;              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;            <div class="col-lg-6">&ndash;&gt;-->
-<!--&lt;!&ndash;              <div class="mb-4">&ndash;&gt;-->
-<!--&lt;!&ndash;                <label class="mb-2" for="company-mobile">Mobile No</label>&ndash;&gt;-->
-<!--&lt;!&ndash;                <input class="form-control" name="company-Contact" id="company-mobile" type="email"  >&ndash;&gt;-->
-<!--&lt;!&ndash;              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-
-<!--&lt;!&ndash;            <div class="col-lg-6">&ndash;&gt;-->
-<!--&lt;!&ndash;              <div class="mb-4">&ndash;&gt;-->
-<!--&lt;!&ndash;                <input type="checkbox" id="status" name="status" value="true" >&ndash;&gt;-->
-<!--&lt;!&ndash;                <label for="status">Active</label><br>&ndash;&gt;-->
-<!--&lt;!&ndash;              </div>&ndash;&gt;-->
-<!--&lt;!&ndash;            </div>&ndash;&gt;-->
-
-<!--          </div>-->
-
-<!--          <div class="d-flex gap-3 justify-content-end align-items-center">-->
-<!--            <button class="btn btn-primary" >Submit</button>-->
-<!--            <button class="btn btn-primary">Cancel</button>-->
-<!--          </div>-->
-<!--        </div>-->
-
-
-<!--      </div>-->
-<!--    </form>-->
-<!--  </div>-->
-<!--</section>-->
-
-
+          <button class="btn btn-primary">Cancel</button>
+        </div>
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -23,6 +23,9 @@ export class BookingRequestFormComponent  extends FormControlUtil {
   @Input()
   bookingRequest = {} as BookingRequest
   selectedResource!: Resource;
+  max="18:00"
+  min="09:00"
+  minDate = new Date();
 
 
   @ViewChild('InputForm')

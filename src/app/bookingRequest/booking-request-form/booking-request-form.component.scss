@@ -32,7 +32,7 @@
   margin-bottom: 10px;
   text-align:left;
   margin-top: -20px;
-  margin-left: 100px;
+  //margin-left: 100px;
 }
 
 
@@ -54,6 +54,7 @@ mat-card{
   justify-content: center;
   height: 600px;
   background-color: lightblue;
+  width:500px;
 }
 
 .header{
@@ -74,31 +75,19 @@ h2{
 button{
 padding: 5px;
   margin-left: 20px;
+  margin-top:0px;
 }
 
 .forminput{
   width:400px;
+
 }
 p{
   color: #fff;
 }
 
-.timers{
-  display:flex;
-  flex-direction: row;
-  position:relative;
-  left: 20%;
-}
-.t2{
-  position: relative;
-  left:30px;
-}
-.ngx-mat-timepicker {
-  font-size: 19px;
-}
-.timeLabel{
-  font-size: 15px;
-}
+
+
 
 
 /* Responsiveness */
