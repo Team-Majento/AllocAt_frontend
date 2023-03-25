@@ -9,7 +9,6 @@ import {UserService} from "../../service/user.service";
 export class ToolbarComponent implements OnInit{
 
   icon1=faBars;
-  username="TestUser";
   @Output() sideNavToggle= new EventEmitter<boolean>();
   menuStatus:boolean=false;
 

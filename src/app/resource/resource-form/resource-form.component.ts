@@ -1,10 +1,10 @@
-import {Component, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {Resource} from "../../../models/resource";
 import {ResourceService} from "../../service/resource.service";
 import {FormControlUtil} from "../../../utility/form-control-util";
 import {CompanyService} from "../../service/company.service";
-import {Company} from "../../../models/company";
+
 
 @Component({
   selector: 'app-resource-form',
