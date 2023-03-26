@@ -8,11 +8,13 @@ export interface UserRequest{
   password: String ;
   email: String;
   contactNo: String ;
- address: String ;
+  address: String ;
   gender: CharacterData ;
   imageURL: String ;
   userType: BigInt;
- managersEIDL: BigInt  ;
+  managersEIDL: BigInt  ;
+  role:String;
+  city:String;
   activeStatus: Boolean ;
 
 

@@ -4,63 +4,121 @@
     <div class="form-body" style="margin-top: 20px; margin-left: 25px;">
       <div class="row">
         <div class="column">
-          <div style="font-size: 16px">
+          <form #InputForm="ngForm">
+          <div style="font-size: 14px">
             <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
               <mat-label>UserId</mat-label>
-              <input matInput class="field" required/>
+              <input matInput name="id" id="id" [(ngModel)]="user.userId" #id="ngModel" class="field" required/>
+              <div *ngIf="id.invalid && (id.dirty || id.touched)" class="alert">
+                <div *ngIf="id.errors?.['required']">
+                  Userid is required.
+                </div>
+              </div>
             </mat-form-field>&nbsp;
+
 
             <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
               <mat-label>E-mail</mat-label>
-              <input matInput class="field" formController="email" required/>
+              <input matInput name="email" id="email" [(ngModel)]="user.email" #email="ngModel" class="field" formController="email" required/>
+              <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+                <div *ngIf="email.errors?.['required']">
+                  Email is required.
+                </div>
+              </div>
             </mat-form-field>
+
 
             <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
               <mat-label>First Name</mat-label>
-              <input matInput class="field" required/>
+              <input matInput name="firstName" id="firstName" [(ngModel)]="user.firstName" #firstName="ngModel" class="field" required/>
+              <div *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)" class="alert">
+                <div *ngIf="firstName.errors?.['required']">
+                  FirstName is required.
+                </div>
+              </div>
             </mat-form-field>&nbsp;
 
             <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
               <mat-label>Contact Number</mat-label>
-              <input matInput class="field" required/>
+              <input matInput name="contactNo" id="contactNo" [(ngModel)]="user.contactNo" #contactNo="ngModel" class="field" required/>
+              <div *ngIf="contactNo.invalid && (contactNo.dirty || contactNo.touched)" class="alert">
+                <div *ngIf="firstName.errors?.['required']">
+                  Contact Number is required.
+                </div>
+              </div>
             </mat-form-field>
 
 
             <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
               <mat-label>Middle Name</mat-label>
-              <input matInput class="field" required/>
+              <input matInput name="middleName" id="middleName" [(ngModel)]="user.middleName" #middleName="ngModel" class="field" required/>
+              <div *ngIf="middleName.invalid && (middleName.dirty || middleName.touched)" class="alert">
+                <div *ngIf="middleName.errors?.['required']">
+                  Middle Name is required.
+                </div>
+              </div>
             </mat-form-field>&nbsp;
 
             <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
               <mat-label>Last Name</mat-label>
-              <input matInput class="field" required/>
+              <input matInput name="lastName" id="lastName" [(ngModel)]="user.lastName" #lastName="ngModel" class="field" required/>
+              <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert">
+                <div *ngIf="lastName.errors?.['required']">
+                  Last Name is required.
+                </div>
+              </div>
             </mat-form-field>&nbsp;
 
             <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
-              <mat-label>Contact Number</mat-label>
-              <input matInput class="field" required/>
+              <mat-label>User Type</mat-label>
+              <input matInput name="userType" id="userType" [(ngModel)]="user.userType" #userType="ngModel" class="field" required/>
+              <div *ngIf="userType.invalid && (userType.dirty || userType.touched)" class="alert">
+                <div *ngIf="userType.errors?.['required']">
+                  User Type is required.
+                </div>
+              </div>
             </mat-form-field>&nbsp;
 
             <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
               <mat-label>User Name</mat-label>
-              <input matInput class="field" required/>
+              <input matInput name="userName" id="userName" [(ngModel)]="user.userName" #userName="ngModel" class="field" required/>
+              <div *ngIf="userName.invalid && (userName.dirty || userName.touched)" class="alert">
+                <div *ngIf="userName.errors?.['required']">
+                  User Name is required.
+                </div>
+              </div>
             </mat-form-field>
 
             <mat-form-field  class="justifier"  appearance="outline">
               <mat-label>Password</mat-label>
-              <input matInput class="field"  matInput [type]=" 'hide' ? 'password' : 'test' " required/>
+              <input matInput name="password" id="password" [(ngModel)]="user.password" #password="ngModel" class="field"  matInput [type]=" 'hide' ? 'password' : 'test' " required/>
+              <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+                <div *ngIf="password.errors?.['required']">
+                  Password is required.
+                </div>
+              </div>
             </mat-form-field>&nbsp;
 
 
             <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
               <mat-label>Role</mat-label>
-              <input matInput class="field" required/>
+              <input matInput name="role" id="role" [(ngModel)]="user.role" #role="ngModel" class="field" required/>
+              <div *ngIf="role.invalid && (role.dirty || role.touched)" class="alert">
+                <div *ngIf="role.errors?.['required']">
+                  Role is required.
+                </div>
+              </div>
             </mat-form-field>
 
             <div class="add">
               <mat-form-field  class="add" floatlabel="auto" appearance="outline">
                 <mat-label>Address Line1</mat-label>
-                <input matInput class="field" required/>
+                <input matInput name="address" id="address" [(ngModel)]="user.address" #address="ngModel" class="field" required/>
+                <div *ngIf="address.invalid && (address.dirty || address.touched)" class="alert">
+                  <div *ngIf="address.errors?.['required']">
+                    Address Line1 is required.
+                  </div>
+                </div>
               </mat-form-field>
 
               <mat-form-field  class="add" floatlabel="auto" appearance="outline">
@@ -102,13 +160,23 @@
 
             <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
               <mat-label>City</mat-label>
-              <input matInput class="field" required/>
+              <input matInput name="city" id="city" [(ngModel)]="user.city" #city="ngModel" class="field" required/>
+              <div *ngIf="city.invalid && (city.dirty || city.touched)" class="alert">
+                <div *ngIf="city.errors?.['required']">
+                  City is required.
+                </div>
+              </div>
             </mat-form-field>
 
 
             <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
               <mat-label>Image</mat-label>
-              <input matInput class="field" required/>
+              <input matInput name="imageURL" id="imageURL" [(ngModel)]="user.imageURL" #imageURL="ngModel" class="field" required/>
+              <div *ngIf="imageURL.invalid && (imageURL.dirty || imageURL.touched)" class="alert">
+                <div *ngIf="imageURL.errors?.['required']">
+                  City is required.
+                </div>
+              </div>
             </mat-form-field>
             &nbsp;&nbsp;&nbsp;&nbsp;
 
@@ -135,7 +203,9 @@
               </td>
             </tr>
           </table>
+          </form>
         </div>
+
       </div>
     </div>
   </div>
