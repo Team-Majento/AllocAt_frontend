@@ -2,12 +2,14 @@ import { Injectable } from '@angular/core';
 import {Config} from "../../config/config";
 import {HttpClient} from "@angular/common/http";
 import {Company} from "../../models/company";
-import {map, Observable} from "rxjs";
+import {BehaviorSubject, map, Observable} from "rxjs";
 
 @Injectable({
   providedIn: 'root'
 })
 export class CompanyService {
+  private selectedCompanySubject = new BehaviorSubject<number|null>(null);
+  selectedCompany$ = this.selectedCompanySubject.asObservable();
   private apiUrl:string=`${Config.endpoints.backendApi}/${Config.endpoints.prefix.company}`;
   private apiUrl2:string=`${Config.endpoints.backendApi}/companies`;
 
@@ -25,5 +27,17 @@ export class CompanyService {
 
   getAllCompanies() {
     return  this.httpClient.get<object>(this.apiUrl2);
+  }
+
+  setSelectedCompany(companyId: number) {
+    this.selectedCompanySubject.next(companyId);
+
+  }
+
+  getCompanyById(companyId: string) {
+
+    let apiUrl3=`${Config.endpoints.backendApi}/companies/${companyId}`
+    return  this.httpClient.get<object>(apiUrl3);
+
   }
 }

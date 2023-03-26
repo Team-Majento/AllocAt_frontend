@@ -1,0 +1,52 @@
+<div class="container mt-5 bg-light"  *ngIf="selectedCompany">
+  <div class="row">
+    <div class="col-12">
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-lg-6">
+      <img src="../../../assets/img/companyLogo.jpg" alt="companyLogo_img" class="img-fluid">
+    </div>
+
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-12 mb-3 mt-3">
+          <h4>Company Details</h4>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-9 ms-2">
+          <p>company id:{{selectedCompany.id}} </p>
+          <p>name :{{ selectedCompany.name}}</p>
+          <p>address :{{ selectedCompany.address}}</p>
+          <p>contactNumber :{{ selectedCompany.contactNumber}}</p>
+          <p>mobile :{{ selectedCompany.mobile}}</p>
+          <p>fax :{{ selectedCompany.fax}}</p>
+          <p>activeStatus :{{ selectedCompany.activeStatus}}</p>
+
+        </div>
+
+
+
+
+      </div>
+      <button class="btn btn-primary ms-2 mt-3">Back</button>
+    </div>
+
+  </div>
+
+
+<!--  <button class="btn btn-primary me-3" (click)="updateCompany()">Update</button>-->
+
+
+
+
+</div>
+
+
+
+
+
+

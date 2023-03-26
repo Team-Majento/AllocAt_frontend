@@ -53,6 +53,11 @@ export class ViewCompanyListComponent {
   //
   //
   // }
+  displayCompanyDetails(id:number) {
+    this.companyService.setSelectedCompany(id);
+    this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/companies/${id}`]));
+
+  }
 }
 
 

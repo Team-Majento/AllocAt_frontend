@@ -8,4 +8,6 @@ export interface Company{
   mobile: string;
   name: string;
 
+  id:string;
+
 }

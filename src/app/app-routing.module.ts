@@ -24,6 +24,7 @@ import {
 import {
   AcceptRejectBookingRequestComponent
 } from "./resourceAllocation/accept-reject-booking-request/accept-reject-booking-request.component";
+import {CompanyProfileComponent} from "./company/company-profile/company-profile.component";
 
 const routes: Routes = [
   {  path:"",component :HomeComponent },
@@ -77,7 +78,17 @@ const routes: Routes = [
           },
           {
             path: "companies",
-            component: ViewCompanyListComponent,
+            children:[
+              {
+                path:"",
+              component: ViewCompanyListComponent,
+              },
+              {
+                path:":companyId",
+                component:CompanyProfileComponent,
+              }
+            ],
+
           },
           {
             path: "resources",
