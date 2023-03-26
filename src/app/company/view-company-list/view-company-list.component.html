@@ -1,9 +1,9 @@
 <div class="container">
-
+<!--{{companyList|json}}-->
   <div class="row mt-2 g-3">
     <div class="col-lg-3 col-6 " *ngFor="let company of companyList" >
       <div class="card h-100" >
-        <img  width="300px"  alt="" src="assets/img/companyLogo.jpg">
+        <img  width="300px"  alt="" src="{{company.imgUrl}}">
         <div class="card-body">
           <h5 class="card-title">{{company.name}}  </h5>
           <p class="card-text">

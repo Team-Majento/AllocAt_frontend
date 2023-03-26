@@ -7,7 +7,7 @@ export interface Company{
   fax: string;
   mobile: string;
   name: string;
-
   id:string;
+  imgUrl:string;
 
 }

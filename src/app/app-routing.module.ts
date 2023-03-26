@@ -151,14 +151,6 @@ const routes: Routes = [
   },
 
 
-  {path: "company", component: AddCompanyComponent},
-  {path: "resource", component: AddResourceComponent},
-  {path: "review-rating", component: ReviewRatingFormComponent},
-  {path: "user", component: AddUserComponent},
-  //{  path:"lay",component :LayoutComponent},
-  // {path:"booking-request",component:AddBookingRequestComponent}
- // {path: "lay", component: LayoutComponent, children: [{path: "company", component: AddCompanyComponent}]},
-  //{path: "lay", component: LayoutComponent, children: [{path: "resource", component: AddResourceComponent}]},
 ];
 
 @NgModule({
