@@ -1,10 +1,44 @@
-<p>add-menu works!</p>
-<div class="box-grid">
-  <div class="box" (click)="openReport1()">
-    <p>sample report 1</p>
-  </div>
-  <div class="box" (click)="openReport2()">
-    <p>sample report 2</p>
-  </div>
+<!--<p>add-menu works!</p>-->
+<!--<div class="box-grid">-->
+<!--  <div class="box" (click)="openReport1()">-->
+<!--    <p>sample report 1</p>-->
+<!--  </div>-->
+<!--  <div class="box" (click)="openReport2()">-->
+<!--    <p>sample report 2</p>-->
+<!--  </div>-->
 
-</div>
+<!--</div>-->
+
+<section class="mt-3">
+  <div class="container" >
+    <div class="row" style="margin-top: 150px;">
+      <div class="col-md-2 card" (click)="openReport1()">
+        <div class="card shadow-lg ">
+          <img src="assets/img/report.jpg" alt="" class="img-fluid">
+          <div class="card d-flex align-items-center ">
+            <div class="card-body text-center ">
+              <p class="h3">January Report</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+      <div class="col-md-2 card "(click)="openReport2()">
+        <div class="card shadow-lg">
+          <img src="assets/img/report.jpg" alt="" class="img-fluid">
+          <div class="card d-flex align-items-center">
+            <div class="card-body text-center">
+              <p class="h3">February Report</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</section>

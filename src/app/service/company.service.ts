@@ -23,4 +23,7 @@ export class CompanyService {
   }
 
 
+  getAllCompanies() {
+    return  this.httpClient.get<object>(this.apiUrl2);
+  }
 }
