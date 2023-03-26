@@ -12,10 +12,12 @@ import {UserRequest} from "../../../models/userRequest";
   templateUrl: './user-profile.component.html',
   styleUrls: ['./user-profile.component.scss']
 })
-export class UserProfileComponent  {
+export class UserProfileComponent{
 
   userName!:String;
   selectedUser:any={};
+
+  jobRole:String="ss";
 
   constructor(private service: UserService,private dialogRef:MatDialog,private route: ActivatedRoute,private router:Router){
 
@@ -25,15 +27,33 @@ export class UserProfileComponent  {
     this.service.getUserByUserName(decodedData).subscribe((user) => {
             console.log(user);
             this.selectedUser = <UserRequest>user;
-          }
+            this.setTheJobRole(this.selectedUser.userType);
+
+
+      }
           , (error) => {
             console.log(error)
     });
 
-
   }
+
+
+
 
   openDialog(){
     this.dialogRef.open(ChangePasswordComponent);
+  }
+
+  public setTheJobRole(userType:number){
+    if(userType===1) {
+      this.jobRole = "Employee";
+    }
+    else if(userType===2){
+      this.jobRole="Resource Manager";
+    }
+    else if(userType===3){
+      this.jobRole="Group Administrator";
+
+    }
   }
 }
