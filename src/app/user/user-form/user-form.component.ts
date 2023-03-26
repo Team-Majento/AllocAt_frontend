@@ -14,6 +14,9 @@ export class UserFormComponent extends FormControlUtil{
   constructor(private service:UserService) {
     super();
   }
+  // emailPtn = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+  // passwordPtn ="^(?=.?[A-Z])(?=.?[a-z])(?=.*?[0-9]).{8,16}$"
+  // mobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$"
   @Input()
   formTitle="form";
 
@@ -24,9 +27,12 @@ export class UserFormComponent extends FormControlUtil{
   inputForm!: NgForm;
 
   addUser() {
+    console.log(this.user)
     if (this.isFormValid(this.inputForm)) {
+      console.log("*")
       this.service.addUser(this.user).subscribe(
         (compileResults) => {
+          console.log("#")
           console.log(compileResults);
         }
         , error => {
