@@ -14,47 +14,24 @@ import {UserRequest} from "../../../models/userRequest";
 })
 export class UserProfileComponent  {
 
-
-
-  userName:any;
+  userName!:String;
   selectedUser:any={};
 
   constructor(private service: UserService,private dialogRef:MatDialog,private route: ActivatedRoute,private router:Router){
-    route.params.subscribe(userName => {
-      this.userName = userName["userName"];
-      console.log(this.userName)
-      if (this.userName == null) {
 
-      } else {
-        this.service.getUserByUserName(this.userName).subscribe(
-          (user) => {
+
+    this.userName=localStorage.getItem("userName_")+"";
+    const decodedData = atob(this.userName.toString());
+    this.service.getUserByUserName(decodedData).subscribe((user) => {
             console.log(user);
             this.selectedUser = <UserRequest>user;
           }
           , (error) => {
             console.log(error)
-          });
-      }
-    })
+    });
+
+
   }
-
-
-
-  // ngOnInit(): void {
-  //   let currentUserName_ = localStorage.getItem("user-name");
-  //   if(currentUserName_!=""){
-  //     let resp=this.service.getUserByUserName(currentUserName_+"");
-  //     resp.subscribe((data)=>this.userByUserName=data);
-  //   }
-  //   else{
-  //     this.currentUserName=this.service.getCurrentUserName();
-  //     let resp=this.service.getUserByUserName(this.currentUserName);
-  //     resp.subscribe((data)=>this.userByUserName=data);
-  //   }
-
-  //
-  // }
-
 
   openDialog(){
     this.dialogRef.open(ChangePasswordComponent);

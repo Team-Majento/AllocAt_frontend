@@ -19,7 +19,7 @@ export class UserService {
 
   constructor(private http:HttpClient) { }
 
-  public getUserByUserName(userName:string){
+  public getUserByUserName(userName:String){
     return this.http.get("http://localhost:8082/users/getuser/"+userName);
   }
 
@@ -39,10 +39,10 @@ export class UserService {
       this.userRequest.contactNo=user.contactNo;
       this.userRequest.address=user.address;
       this.userRequest.gender=user.gender;
-    this.userRequest.imageURL=user.imageURL;
-    this.userRequest.userType=user.userType;
-    this.userRequest.managersEIDL=user.managersEIDL;
-    this.userRequest.activeStatus=user.activeStatus;
+      this.userRequest.imageURL=user.imageURL;
+      this.userRequest.userType=user.userType;
+      this.userRequest.managersEIDL=user.managersEIDL;
+      this.userRequest.activeStatus=user.activeStatus;
 
       return this.http.put<any>("http://localhost:8082/users/update/"+this.userRequest.userId,this.userRequest)
         .subscribe(data=>{
@@ -54,11 +54,4 @@ export class UserService {
 
 
 
-
-  setCurrentUserName(data:string){
-        this.currentUserName=data;
-  }
-  getCurrentUserName(){
-        return this.currentUserName;
-  }
 }

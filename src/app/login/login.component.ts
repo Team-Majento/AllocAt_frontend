@@ -22,7 +22,7 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
   user={} as UserLogin;
   private subSink=new SubSink();
 
-  currentUserName:string="";
+  currentUserName:String="";
 
   constructor(private loginService: LoginService,private messageService:DisplayMessageService,private router:Router,private userService:UserService) {
     super();
@@ -51,9 +51,10 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
 
             // saving current user password to local storage
             this.currentUserName=this.user.userName;
-            this.userService.setCurrentUserName(this.currentUserName);
 
-            //
+            const encodedData = btoa(this.currentUserName.toString());
+            localStorage.setItem("userName_",encodedData);
+
 
 
             console.log("abc")
@@ -62,7 +63,8 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
 
 
             this.messageService.showSucessMessage("login-Sucess");
-            this.router.navigateByUrl(this.router.createUrlTree(["dashboard/main"]))
+            this.router.navigateByUrl(this.router.createUrlTree(["dashboard/" +
+            "main"]))
           }
           , error => {
             console.log("error--");

@@ -15,12 +15,14 @@ export class ToolbarComponent implements OnInit{
   navOpen=false;
   dropDownStatus=false;
 
-  currentUserName:any;
+  currentUserName:String="";
 
   constructor(private userService:UserService) {
   }
   ngOnInit(): void {
-    this.currentUserName=this.userService.getCurrentUserName();
+    const username=localStorage.getItem("userName_")+"";
+    const decodedData = atob(username);
+    this.currentUserName=decodedData;
     console.log(this.currentUserName);
   }
 
