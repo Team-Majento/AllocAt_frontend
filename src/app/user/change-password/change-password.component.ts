@@ -23,6 +23,7 @@ export class ChangePasswordComponent extends FormControlUtil implements OnInit{
 
   constructor(private service:UserService) {
     super();
+
   }
 
 
@@ -41,26 +42,16 @@ export class ChangePasswordComponent extends FormControlUtil implements OnInit{
 
   }
   ngOnInit(): void {
-    // this.intervalSub=setInterval(()=>{
-    //   let currentUserName_ = localStorage.getItem("user-name");
-    //   let resp=this.service.getUserByUserName(currentUserName_+"");
-    //   resp.subscribe((data)=>this.userByUserName=data);
-    //   this.currentUserPassword=this.userByUserName.password;
-    // },1000)
-    //
-    let currentUserName_ = localStorage.getItem("_username_");
-    let resp=this.service.getUserByUserName(currentUserName_+"");
+
+    let currentUserName_ = localStorage.getItem("userName_")+"";
+    const decodedData = atob(currentUserName_);
+    let resp=this.service.getUserByUserName(decodedData);
     resp.subscribe((data)=>this.userByUserName=data);
     setTimeout(()=>{
-
         this.currentUserPassword=this.userByUserName.password;
-
     },1000)
 
-        // let currentUserName_ = localStorage.getItem("user-name");
-        // let resp=this.service.getUserByUserName(currentUserName_+"");
-        // resp.subscribe((data)=>this.userByUserName=data);
-        // this.currentUserPassword=this.userByUserName.password;
+
 
   }
 
