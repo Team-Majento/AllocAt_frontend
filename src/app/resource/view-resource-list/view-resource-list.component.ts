@@ -35,7 +35,6 @@ export class ViewResourceListComponent implements OnInit {
     this.getAllResources();
   }
 
-
   displayResourceDetails(id:number) {
       // this.resourceService.getResourceById(id).subscribe(
       //   (resource) => {
