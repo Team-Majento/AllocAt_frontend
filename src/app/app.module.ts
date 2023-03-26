@@ -50,6 +50,9 @@ import {ReactiveFormsModule} from '@angular/forms';
 import { ViewBookingRequestListComponent } from './bookingRequest/view-booking-request-list/view-booking-request-list.component';
 import { AcceptRejectBookingRequestComponent } from './resourceAllocation/accept-reject-booking-request/accept-reject-booking-request.component';
 import { CompanyProfileComponent } from './company/company-profile/company-profile.component';
+import { RateCardFormComponent } from './rateCard/rate-card-form/rate-card-form.component';
+import { UpdateRateCardComponent } from './rateCard/update-rate-card/update-rate-card.component';
+import { AddRateCardardComponent } from './rateCard/add-rate-cardard/add-rate-cardard.component';
 
 
 @NgModule({
@@ -86,7 +89,10 @@ import { CompanyProfileComponent } from './company/company-profile/company-profi
     UpdateBookingRequestComponent,
     ViewBookingRequestListComponent,
     AcceptRejectBookingRequestComponent,
-    CompanyProfileComponent
+    CompanyProfileComponent,
+    RateCardFormComponent,
+    UpdateRateCardComponent,
+    AddRateCardardComponent
   ],
   imports: [
     BrowserModule,
