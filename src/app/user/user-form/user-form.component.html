@@ -31,10 +31,12 @@
                   id="email"
                   [(ngModel)]="user.email"
                   #email="ngModel"
+                  [pattern]="emailPtn"
                   class="field"
                   formController="email"
                   required/>
                 <mat-error *ngIf="email.invalid && (email.dirty || email.touched) && email.errors?.['required']" class="alert">Email is required.</mat-error>
+                <mat-error *ngIf="email.invalid && (email.dirty || email.touched) && email.errors?.['pattern']" class="alert">Enter valid email.</mat-error>
               </mat-form-field>
 
               <!--FIRSTNAME-->
@@ -60,9 +62,11 @@
                   id="contactNo"
                   [(ngModel)]="user.contactNo"
                   #contactNo="ngModel"
+                  [pattern]="mobNumberPattern"
                   class="field"
                   required/>
                 <mat-error *ngIf="contactNo.invalid && (contactNo.dirty || contactNo.touched) && contactNo.errors?.['required']" class="alert">Contact Number is required.</mat-error>
+                <mat-error *ngIf="contactNo.invalid && (contactNo.dirty || contactNo.touched) && contactNo.errors?.['pattern']" class="alert">Contact number must have 10 digits</mat-error>
               </mat-form-field>
 
               <!--MIDDLE NAME-->
@@ -124,12 +128,16 @@
               <!--PASSWORD-->
               <mat-form-field  class="justifier"  appearance="outline">
                 <mat-label>Password</mat-label>
-                <input matInput name="password" id="password"
-                       [(ngModel)]="user.password"  class="field" type="password" required/>
-
-<!--                  [pattern]="passwordPtn"-->
-                <mat-error *ngIf="userType.invalid && (userType.dirty || userType.touched) && userType.errors?.['required']" class="alert">user type is required.</mat-error>
-
+                <input
+                  matInput
+                  name="password"
+                  id="password"
+                  [(ngModel)]="user.password"
+                  #password="ngModel"
+                  class="field"
+                  type="password"
+                  required/>
+                <mat-error *ngIf="password.invalid && (password.dirty || password.touched) && password.errors?.['required']" class="alert">Password is required.</mat-error>
               </mat-form-field>&nbsp;
 
               <!--MANAGEREID-->
@@ -144,6 +152,7 @@
                   class="field"
                   required/>
                 <mat-error *ngIf="managersEIDL.invalid && (managersEIDL.dirty || managersEIDL.touched) && managersEIDL.errors?.['required']" class="alert">managersEID is required.</mat-error>
+
               </mat-form-field>
 
 <!--<div class="add">-->
@@ -226,7 +235,7 @@
               </mat-form-field>&nbsp;&nbsp;&nbsp;&nbsp;
 
               <!--GENDER-->
-
+              <mat-label style="color: #212529">Gender </mat-label>
               <div class="form-check mb-2">
                 <input class="form-check-input" type="radio" name="gender" id="gender-m" value="M" [(ngModel)]="user.gender">
                 <label style="color:#000000;" class="form-check-label" for="gender-m">
