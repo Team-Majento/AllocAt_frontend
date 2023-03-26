@@ -39,9 +39,9 @@
       <a  (click)="dropDownOpen()" href="#" role="button"    data-bs-toggle="dropdown" aria-expanded="false">
         <img class="me-2" style="width:2.5rem  ;border-radius: 50%" src="https://img.freepik.com/free-icon/avatar_318-158392.jpg">
       </a>
-      <p  class="d-inline" style="color: white">{{username}}</p>
+      <p  class="d-inline" style="color: white">{{currentUserName}}</p>
       <ul class="dropdown-menu" [ngClass]="{show:dropDownStatus}">
-        <li><a class="dropdown-item" href="#" [routerLink]="['/dashboard/user-profile']" >View Profile</a></li>
+        <li><a class="dropdown-item" href="#" [routerLink]="['/dashboard/user-profile',this.currentUserName]" >View Profile</a></li>
         <li><a class="dropdown-item" href="#">Edit Profile</a></li>
       </ul>
     </li>

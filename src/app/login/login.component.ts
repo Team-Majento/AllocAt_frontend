@@ -50,11 +50,8 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
           (compileResults) => {
 
             // saving current user password to local storage
-
-            localStorage.clear();
             this.currentUserName=this.user.userName;
             this.userService.setCurrentUserName(this.currentUserName);
-            localStorage.setItem("_username_",this.currentUserName);
 
             //
 
@@ -65,7 +62,7 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
 
 
             this.messageService.showSucessMessage("login-Sucess");
-            this.router.navigateByUrl(this.router.createUrlTree(["dashboard"]))
+            this.router.navigateByUrl(this.router.createUrlTree(["dashboard/main"]))
           }
           , error => {
             console.log("error--");

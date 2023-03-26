@@ -21,6 +21,9 @@ import {UpdateResourceComponent} from "./resource/update-resource/update-resourc
 import {
   ViewBookingRequestListComponent
 } from "./bookingRequest/view-booking-request-list/view-booking-request-list.component";
+import {
+  AcceptRejectBookingRequestComponent
+} from "./resourceAllocation/accept-reject-booking-request/accept-reject-booking-request.component";
 
 const routes: Routes = [
   {  path:"",component :HomeComponent },
@@ -30,8 +33,15 @@ const routes: Routes = [
     component: LayoutComponent,
     children: [
       {
-        path: "",
-        component: DashboardMenuComponent
+        path: "main",
+        children: [
+          {
+            path: "",
+            component: DashboardMenuComponent,
+          },
+      ]
+
+
       },
       {
         path: "add",
@@ -115,8 +125,9 @@ const routes: Routes = [
       },
 
 
-      {path: "user-profile", component: UserProfileComponent},
+      {path: "user-profile/:userName", component: UserProfileComponent},
 
+      {path: "app-accept-reject-booking-request", component: AcceptRejectBookingRequestComponent},
 
       {path: "update-user", component:  UpdateUserComponent},
 

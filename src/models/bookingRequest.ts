@@ -1,19 +1,15 @@
 export interface BookingRequest{
 companyId:number;
 requesterUserId:number;
-requesterManagerUserId:number;
+requestersManagersUserId:number;
 
-requiredDate:Date;
+requiredDate:string;
 
 resourceId:number;
 
-startTime:{
+startTime:string;
 
-};
-
-endTime:{
-
-};
+endTime:string;
 
 status:string;
 

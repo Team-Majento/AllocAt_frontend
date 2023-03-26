@@ -48,6 +48,9 @@ import {MatDatepickerModule} from "@angular/material/datepicker";
 import {MatNativeDateModule} from '@angular/material/core';
 import {ReactiveFormsModule} from '@angular/forms';
 import { ViewBookingRequestListComponent } from './bookingRequest/view-booking-request-list/view-booking-request-list.component';
+import { AcceptRejectBookingRequestComponent } from './resourceAllocation/accept-reject-booking-request/accept-reject-booking-request.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -80,7 +83,8 @@ import { ViewBookingRequestListComponent } from './bookingRequest/view-booking-r
     BookingRequestFormComponent,
     AddBookingRequestComponent,
     UpdateBookingRequestComponent,
-    ViewBookingRequestListComponent
+    ViewBookingRequestListComponent,
+    AcceptRejectBookingRequestComponent
   ],
   imports: [
     BrowserModule,

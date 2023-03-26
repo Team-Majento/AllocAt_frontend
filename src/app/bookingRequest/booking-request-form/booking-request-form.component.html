@@ -1,7 +1,7 @@
 
 <!--<div class="container-body" style="background-color: #ffd305">-->
   <div class="container">
-    {{bookingRequest|json}}
+   {{bookingRequest|json}}
 
     <div class="side"><img src="assets/img/workingLady.png" /> <br /></div>
 <mat-card>
@@ -13,6 +13,28 @@
     </div>
 
     <form #InputForm="ngForm">
+      <span style="color: #212529" class="ms-0">Resource ID: {{bookingRequest.resourceId}}</span>
+
+            <div class="input">
+              <mat-form-field class="full-width" appearance="outline">
+                <mat-label>Company Id*</mat-label>
+                <input
+                  matInput
+                  name="comId"
+                  id="comId"
+                  [(ngModel)]="bookingRequest.companyId"
+                  #comId="ngModel"
+                  required
+                />
+              </mat-form-field>
+            </div>
+      <div *ngIf="comId.invalid && (comId.dirty || comId.touched)" class="alert">
+                  <div *ngIf="comId.errors?.['required']">
+                    Company ID is required.
+                  </div>
+                </div>
+
+
       <div class="input">
         <mat-form-field class="full-width" appearance="outline">
           <mat-label>User Id*</mat-label>
@@ -25,38 +47,57 @@
             required
           />
         </mat-form-field>
-        <div *ngIf="uid.invalid && (uid.dirty || uid.touched)" class="alert">
-          <div *ngIf="uid.errors?.['required']">
-            User ID is required.
-          </div>
-        </div>
       </div>
+      <div *ngIf="uid.invalid && (uid.dirty || uid.touched)" class="alert">-->
+                  <div *ngIf="uid.errors?.['required']">
+                    Requesters User  ID is required.
+                  </div>
+                </div>
+
 
       <div class="input">
         <mat-form-field class="full-width" appearance="outline">
-          <mat-label>Resource Id*</mat-label>
+          <mat-label>Manager's User Id*</mat-label>
           <input
             matInput
-            name="resourceid"
-            id="resourceid"
-            [(ngModel)]="bookingRequest.resourceId"
-            #rid="ngModel"
-            required />
+            name="ManagerUserid"
+            id="ManagerUserid"
+            [(ngModel)]="bookingRequest.requestersManagersUserId"
+            #Muid="ngModel"
+            required
+          />
         </mat-form-field>
-
-        <div *ngIf="rid.invalid && (rid.dirty || rid.touched)" class="alert">
-          <div *ngIf="rid.errors?.['required']">
-            Resource ID is required.
+        <div *ngIf="Muid.invalid && (Muid.dirty || Muid.touched)" class="alert">
+          <div *ngIf="Muid.errors?.['required']">
+           Managers UserID is required.
           </div>
         </div>
       </div>
+
+<!--      <div class="input">-->
+<!--        <mat-form-field class="full-width" appearance="outline">-->
+<!--          <mat-label>Resource Id*</mat-label>-->
+<!--          <input-->
+<!--            matInput-->
+<!--            name="resourceid"-->
+<!--            id="resourceid"-->
+<!--            [(ngModel)]="bookingRequest.resourceId"-->
+<!--            #rid="ngModel"-->
+<!--            required />-->
+<!--        </mat-form-field>-->
+
+<!--        <div *ngIf="rid.invalid && (rid.dirty || rid.touched)" class="alert">-->
+<!--          <div *ngIf="rid.errors?.['required']">-->
+<!--            Resource ID is required.-->
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
 
       <div class="input">
         <mat-form-field appearance="fill">
           <mat-label>Choose a date</mat-label>
           <!-- #docregion toggle -->
-          <input matInput [matDatepicker]="picker" [(ngModel)]="bookingRequest.requiredDate">
-          <mat-hint>MM/DD/YYYY</mat-hint>
+          <input matInput [matDatepicker]="picker" name="date"  [(ngModel)]="bookingRequest.requiredDate" (dateChange)="updateDate()" >
           <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
           <!-- #enddocregion toggle -->
@@ -65,14 +106,15 @@
 
 
 
-      <div class="input mt-4">
+      <div class="input mt-1">
         <!--          from here  *********      -->
                   <mat-form-field>
                     <input matInput
                            name="selected_time_A"
+                           [format]="24"
                            [(ngModel)]="bookingRequest.startTime"
                            [ngxMatTimepicker]="pickerA"
-                           placeholder="4:00 PM"
+                           placeholder="08:00"
                            readonly />
                     <mat-icon matSuffix
                               (click)="pickerA.open()">
@@ -85,24 +127,26 @@
       </div>
 
       <div class="input mt-1">
-
-                  <mat-form-field>
-                    <input matInput
-                           name="selected_time_B"
-                           [(ngModel)]="bookingRequest.endTime"
-                           [ngxMatTimepicker]="pickerB"
-                           placeholder="4:00 PM"
-                           readonly />
-                    <mat-icon matSuffix
-                              (click)="pickerB.open()">
-                      watch_later
-                    </mat-icon>
-                  </mat-form-field>
-                  <ngx-mat-timepicker #pickerB></ngx-mat-timepicker>
-
-        <!--          to here ***      -->
+        <!--          from here  *********      -->
+        <mat-form-field>
+          <input matInput
+                 name="selected_time_B"
+                 [format]="24"
+                 [(ngModel)]="bookingRequest.endTime"
+                 [ngxMatTimepicker]="pickerB"
+                 placeholder="18:00"
+                 readonly />
+          <mat-icon matSuffix
+                    (click)="pickerB.open()">
+            watch_later
+          </mat-icon>
+        </mat-form-field>
+        <ngx-mat-timepicker #pickerB></ngx-mat-timepicker>
 
       </div>
+
+
+
 
       <div>
 
