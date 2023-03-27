@@ -21,15 +21,6 @@
 
 }
 
-.main-con {
-  background: #154c79;
-}
-
-h3 {
-  color: azure;
-  font-size: xx-large;
-}
-
 
 .img1 {
   width: 170px;
@@ -71,12 +62,13 @@ h3 {
 
 }
 
-.outer-con {
+.container {
   overflow: hidden;
 }
 
 .btn {
   height: 40px;
+  width: 160px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
