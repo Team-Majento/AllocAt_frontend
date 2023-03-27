@@ -6,7 +6,8 @@ export const Config = {
     backendApi: 'http://localhost:4200',
     prefix: {
       company :"companies",
-      resource:"resource"
+      resource:"resource",
+      resources:"resources"
     }
   },
 };
