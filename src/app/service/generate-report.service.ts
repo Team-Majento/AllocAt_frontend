@@ -14,6 +14,7 @@ export class GenerateReportService {
     return this.http.post<object>(`http://localhost:8082/resourceAllocatedCost/generate-company-wise-report/${companyId}/${fromDate}/${toDate}`, null);
 
   }
+
   generateGeneralReport(fromDate: string, toDate: string) {
     return this.http.post<object>(`http://localhost:8082/resourceAllocatedCost/generate-general-report/${fromDate}/${toDate}`, null);
 

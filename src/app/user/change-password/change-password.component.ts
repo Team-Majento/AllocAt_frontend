@@ -1,6 +1,5 @@
-import {Component, Input, OnInit, ViewChild,AfterViewInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
-import {UserLogin} from "../../../models/userLogin";
 import {ChangePassword} from "../../../models/changePassword";
 import {UserService} from "../../service/user.service";
 import {FormControlUtil} from "../../../utility/form-control-util";
@@ -10,47 +9,42 @@ import {FormControlUtil} from "../../../utility/form-control-util";
   templateUrl: './change-password.component.html',
   styleUrls: ['./change-password.component.scss']
 })
-export class ChangePasswordComponent extends FormControlUtil implements OnInit{
+export class ChangePasswordComponent extends FormControlUtil implements OnInit {
   @ViewChild('InputForm')
   inputForm!: NgForm;
 
   @Input()
-  user={} as ChangePassword;
+  user = {} as ChangePassword;
 
-  userByUserName!:any;
-  currentUserPassword="";
-  intervalSub!:any;
+  userByUserName!: any;
+  currentUserPassword = "";
 
-  constructor(private service:UserService) {
+  constructor(private service: UserService) {
     super();
 
   }
 
 
-
-
-
-
-  submit(InputForm:any){
+  submit(InputForm: any) {
 
     if (this.isFormValid(this.inputForm)) {
-        this.service.ChangeUserPassword(this.userByUserName,this.user.confirmPassword);
-        console.log(this.currentUserPassword);
-        console.log(this.user.currentPassword);
+      this.service.ChangeUserPassword(this.userByUserName, this.user.confirmPassword);
+      console.log(this.currentUserPassword);
+      console.log(this.user.currentPassword);
 
     }
 
   }
+
   ngOnInit(): void {
 
-    let currentUserName_ = localStorage.getItem("userName_")+"";
+    let currentUserName_ = localStorage.getItem("userName_") + "";
     const decodedData = atob(currentUserName_);
-    let resp=this.service.getUserByUserName(decodedData);
-    resp.subscribe((data)=>this.userByUserName=data);
-    setTimeout(()=>{
-        this.currentUserPassword=this.userByUserName.password;
-    },1000)
-
+    let resp = this.service.getUserByUserName(decodedData);
+    resp.subscribe((data) => this.userByUserName = data);
+    setTimeout(() => {
+      this.currentUserPassword = this.userByUserName.password;
+    }, 1000)
 
 
   }
