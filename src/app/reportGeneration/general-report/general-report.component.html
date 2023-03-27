@@ -1,1 +1,84 @@
-<p>general-report works!</p>
+<div class="container" style="height: 500px;width:420px; margin: 10px">
+  <mat-card style="height: 500px ">
+    <mat-card-content>
+      <div class="header">
+        <h2><b>Company Wise Report</b></h2>
+        <br/>
+      </div>
+      <form #InputForm="ngForm">
+
+
+        <div class="input">
+          <mat-form-field appearance="outline">
+            <mat-label>Choose From date</mat-label>
+
+            <input
+              #fromDate="ngModel"
+              (dateChange)="updateFromDate()"
+              [(ngModel)]="generalReportGeneration.fromDate"
+              [matDatepicker]="pickerA"
+              id="fromDate"
+              matInput
+              name="fromDate"
+              required
+
+            />
+            <mat-datepicker-toggle
+              [for]="pickerA"
+              matIconSuffix
+            ></mat-datepicker-toggle>
+            <mat-datepicker #pickerA></mat-datepicker>
+          </mat-form-field>
+          <div
+            *ngIf="fromDate.invalid && (fromDate.dirty || fromDate.touched)"
+            class="alert1"
+          >
+            <div *ngIf="fromDate.errors?.['required']">
+              From Date is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="input">
+          <mat-form-field appearance="outline">
+            <mat-label>Choose To date</mat-label>
+
+            <input
+              #toDate="ngModel"
+              (dateChange)="updateToDate()"
+              [(ngModel)]="generalReportGeneration.toDate"
+              [matDatepicker]="pickerB"
+              id="toDate"
+              matInput
+              name="toDate"
+              required
+
+            />
+            <mat-datepicker-toggle
+              [for]="pickerB"
+              matIconSuffix
+            ></mat-datepicker-toggle>
+            <mat-datepicker #pickerB></mat-datepicker>
+          </mat-form-field>
+          <div
+            *ngIf="toDate.invalid && (toDate.dirty || toDate.touched)"
+            class="alert1"
+          >
+            <div *ngIf="toDate.errors?.['required']">
+              To Date is required.
+            </div>
+          </div>
+        </div>
+        <div>
+          <button (click)="generateReport()" class="btn btn-primary ">
+            Generate
+          </button>
+
+
+        </div>
+
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>
