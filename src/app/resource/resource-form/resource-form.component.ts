@@ -5,6 +5,9 @@ import {ResourceService} from "../../service/resource.service";
 import {FormControlUtil} from "../../../utility/form-control-util";
 import {CompanyService} from "../../service/company.service";
 import { Location } from '@angular/common';
+import {MatDialog} from "@angular/material/dialog";
+import {ChangePasswordComponent} from "../../user/change-password/change-password.component";
+import {RateCardFormComponent} from "../../rateCard/rate-card-form/rate-card-form.component";
 
 
 @Component({
@@ -24,12 +27,15 @@ export class ResourceFormComponent  extends FormControlUtil implements OnInit{
 
   companies!: any[];
 
-constructor(private resourceService:ResourceService,private companyService: CompanyService,private location: Location) {
+constructor(private resourceService:ResourceService,private companyService: CompanyService,private location: Location,private dialogRef:MatDialog) {
   super();
 }
 
   addResource() {
     if (this.isFormValid(this.inputForm)) {
+
+
+
       this.resourceService.addResource(this.resource).subscribe(
         (compileResults) => {
           console.log(compileResults);
@@ -60,6 +66,10 @@ constructor(private resourceService:ResourceService,private companyService: Comp
 
   goBack() {
     this.location.back();
+  }
+
+  openAddRateCardDialog() {
+    this.dialogRef.open(RateCardFormComponent);
   }
 }
 
