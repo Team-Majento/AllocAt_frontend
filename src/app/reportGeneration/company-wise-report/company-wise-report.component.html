@@ -1,15 +1,15 @@
-<div class="container" style="height: 500px;width:420px; margin: 10px">
-  <mat-card style="height: 500px ">
+<div class="container" style="height: 420px;width:380px; margin: 10px" >
+  <mat-card  style="height: 420px ">
     <mat-card-content>
       <div class="header">
         <h2><b>Company Wise Report</b></h2>
         <br/>
       </div>
-      <form #InputForm="ngForm">
+      <form #InputForm="ngForm" >
 
-        <div class="input ">
-          <mat-form-field appearance="outline">
-            <mat-label>Company Id</mat-label>
+        <div class="input">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label >Company Id</mat-label>
             <input
               #cid="ngModel"
               [(ngModel)]="companyWiseReportGeneration.companyId"
@@ -19,7 +19,7 @@
               required
             />
           </mat-form-field>
-          <div *ngIf="cid.invalid && (cid.dirty || cid.touched)" class="alert">
+          <div *ngIf="cid.invalid && (cid.dirty || cid.touched)" class="alert0">
             <div *ngIf="cid.errors?.['required']">Company ID is required.</div>
           </div>
         </div>
@@ -47,7 +47,7 @@
           </mat-form-field>
           <div
             *ngIf="fromDate.invalid && (fromDate.dirty || fromDate.touched)"
-            class="alert1"
+            class="alert0"
           >
             <div *ngIf="fromDate.errors?.['required']">
               From Date is required.
@@ -78,19 +78,17 @@
           </mat-form-field>
           <div
             *ngIf="toDate.invalid && (toDate.dirty || toDate.touched)"
-            class="alert1"
+            class="alert0"
           >
             <div *ngIf="toDate.errors?.['required']">
               To Date is required.
             </div>
           </div>
         </div>
-        <div>
+        <div class="d-flex justify-content-center mt-3">
           <button (click)="generateReport()" class="btn btn-primary ">
             Generate
           </button>
-
-
         </div>
 
 

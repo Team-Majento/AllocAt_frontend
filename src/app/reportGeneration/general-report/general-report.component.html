@@ -1,8 +1,8 @@
-<div class="container" style="height: 500px;width:420px; margin: 10px">
-  <mat-card style="height: 500px ">
+<div class="container" style="height: 360px;width:380px; margin: 10px">
+  <mat-card style="height: 360px ">
     <mat-card-content>
       <div class="header">
-        <h2><b>Company Wise Report</b></h2>
+        <h2><b>General Report</b></h2>
         <br/>
       </div>
       <form #InputForm="ngForm">
@@ -31,7 +31,7 @@
           </mat-form-field>
           <div
             *ngIf="fromDate.invalid && (fromDate.dirty || fromDate.touched)"
-            class="alert1"
+            class="alert0"
           >
             <div *ngIf="fromDate.errors?.['required']">
               From Date is required.
@@ -62,19 +62,18 @@
           </mat-form-field>
           <div
             *ngIf="toDate.invalid && (toDate.dirty || toDate.touched)"
-            class="alert1"
+            class="alert0"
           >
             <div *ngIf="toDate.errors?.['required']">
               To Date is required.
             </div>
           </div>
         </div>
-        <div>
+
+        <div class="d-flex justify-content-center mt-4">
           <button (click)="generateReport()" class="btn btn-primary ">
             Generate
           </button>
-
-
         </div>
 
 
