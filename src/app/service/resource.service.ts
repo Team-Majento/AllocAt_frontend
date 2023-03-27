@@ -1,4 +1,4 @@
-import {EventEmitter, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {Config} from "../../config/config";
 import {HttpClient} from "@angular/common/http";
 import {BehaviorSubject, Observable} from "rxjs";
@@ -45,4 +45,9 @@ export class ResourceService {
 
 
 
+  getReviewsByResourceId(resourceId: string) {
+
+    let apiUrl=`http://localhost:8082/companies/resource/${resourceId}/reviews`
+    return  this.httpClient.get<object>(apiUrl);
+  }
 }
