@@ -3,6 +3,7 @@ import {UserRequest} from "../../../models/userRequest";
 import {NgForm} from "@angular/forms";
 import {FormControlUtil} from "../../../utility/form-control-util";
 import {UserService} from "../../service/user.service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-user-form',
@@ -11,7 +12,7 @@ import {UserService} from "../../service/user.service";
 })
 export class UserFormComponent extends FormControlUtil{
 
-  constructor(private service:UserService) {
+  constructor(private service:UserService,private location :Location) {
     super();
   }
   // emailPtn = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
@@ -45,4 +46,7 @@ export class UserFormComponent extends FormControlUtil{
   }
 
 
+  goBack() {
+    this.location.back();
+  }
 }

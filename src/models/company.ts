@@ -9,5 +9,6 @@ export interface Company{
   name: string;
   id:string;
   imgUrl:string;
+  description:string;
 
 }

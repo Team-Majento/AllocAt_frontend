@@ -4,6 +4,7 @@ import {Resource} from "../../../models/resource";
 import {ResourceService} from "../../service/resource.service";
 import {FormControlUtil} from "../../../utility/form-control-util";
 import {CompanyService} from "../../service/company.service";
+import { Location } from '@angular/common';
 
 
 @Component({
@@ -23,7 +24,7 @@ export class ResourceFormComponent  extends FormControlUtil implements OnInit{
 
   companies!: any[];
 
-constructor(private resourceService:ResourceService,private companyService: CompanyService) {
+constructor(private resourceService:ResourceService,private companyService: CompanyService,private location: Location) {
   super();
 }
 
@@ -57,5 +58,8 @@ constructor(private resourceService:ResourceService,private companyService: Comp
     this.resource.companyId=selectedCompany;
 }
 
+  goBack() {
+    this.location.back();
+  }
 }
 

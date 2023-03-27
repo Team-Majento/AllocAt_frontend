@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {Resource} from "../../../models/resource";
 import {ResourceService} from "../../service/resource.service";
 import {ActivatedRoute, Router} from "@angular/router";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-resource-profile',
@@ -9,12 +10,11 @@ import {ActivatedRoute, Router} from "@angular/router";
   styleUrls: ['./resource-profile.component.scss']
 })
 export class ResourceProfileComponent {
-  selectedResourceId!: number | null;
   selectedResource!: Resource;
 
   resourceId!: string;
 
-  constructor(private resourceService: ResourceService, private route: ActivatedRoute,private router:Router) {
+  constructor(private resourceService: ResourceService, private route: ActivatedRoute,private router:Router,private location:Location) {
     route.params.subscribe(resourceId => {
       this.resourceId = resourceId["resourceId"];
       console.log(this.resourceId)
@@ -34,21 +34,6 @@ export class ResourceProfileComponent {
 
   }
 
-  // ngOnInit() {
-  //   // Subscribe to the selected resource using the ResourceService
-  //   this.resourceService.selectedResource$.subscribe((resourceId) => {
-  //     this.selectedResourceId = resourceId;
-  //
-  //     // this.resourceService.getResourceById(<number>resourceId).subscribe(
-  //     //   (resource) => {
-  //     //     console.log(resource);
-  //     //     this.selectedResource=<Resource>resource;
-  //     //   }
-  //     //   ,(error) => {
-  //     //     console.log(error)
-  //     //   });
-  //   });
-  // }
 
   addRequest() {
     this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/resources/${this.resourceId}/booking-request`]))
@@ -56,5 +41,9 @@ export class ResourceProfileComponent {
 
   updateResource() {
     this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/resources/${this.resourceId}/update`]))
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

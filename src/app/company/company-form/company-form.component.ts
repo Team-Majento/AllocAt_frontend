@@ -5,6 +5,7 @@ import {FormControlUtil} from "../../../utility/form-control-util";
 import {NgForm} from "@angular/forms";
 import {SubSink} from "subsink";
 import {DisplayMessageService} from "../../service/display-message.service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-company-form',
@@ -21,7 +22,7 @@ export class CompanyFormComponent extends FormControlUtil implements OnInit,OnDe
 
   private subSink=new SubSink();
 
-  constructor(private companyService: CompanyService,private messageService:DisplayMessageService) {
+  constructor(private companyService: CompanyService,private messageService:DisplayMessageService,private location: Location) {
     super();
   }
 
@@ -49,4 +50,7 @@ export class CompanyFormComponent extends FormControlUtil implements OnInit,OnDe
     this.subSink.unsubscribe();
   }
 
+  goBack() {
+    this.location.back();
+  }
 }

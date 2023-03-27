@@ -1,4 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-review-rating-form',
@@ -14,6 +15,9 @@ export class ReviewRatingFormComponent implements OnInit{
  selectedStars=0;
 previousSelection=0;
 maxRatingArray:any=[];
+
+    constructor(private location:Location) {
+    }
 
   ngOnInit(): void {
     this.maxRatingArray=Array(this.maxRating).fill(0);
@@ -39,5 +43,9 @@ this.selectedStars=this.previousSelection;
 this.selectedStars=index+1;
 this.previousSelection=this.selectedStars;
     console.log(this.selectedStars)
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

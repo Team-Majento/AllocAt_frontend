@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {BookingRequestService} from "../../service/booking-request.service";
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-view-booking-request-list',
@@ -9,7 +10,7 @@ import {BookingRequestService} from "../../service/booking-request.service";
 export class ViewBookingRequestListComponent implements OnInit{
 
   bookingReqList:any=[]; //***
-  constructor(private bookingReqService:BookingRequestService) {
+  constructor(private bookingReqService:BookingRequestService,private location:Location) {
   }
   getAllBookingRequests() {
     this.bookingReqService.getAllBookingRequests().subscribe(
@@ -29,4 +30,7 @@ export class ViewBookingRequestListComponent implements OnInit{
     this.getAllBookingRequests();
   }
 
+  goBack() {
+    this.location.back();
+  }
 }

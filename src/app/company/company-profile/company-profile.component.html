@@ -5,11 +5,11 @@
   </div>
 
   <div class="row">
-    <div class="col-lg-6">
+    <div class="col-lg-4">
       <img  width="60%" src="{{selectedCompany.imgUrl}}" alt="companyLogo_img" class="img-fluid mt-5 ms-5">
     </div>
 
-    <div class="col-lg-6">
+    <div class="col-lg-8">
       <div class="row">
         <div class="col-12 mb-3 mt-3">
           <h4>Company Details</h4>
@@ -25,6 +25,8 @@
           <p>mobile :{{ selectedCompany.mobile}}</p>
           <p>fax :{{ selectedCompany.fax}}</p>
           <p>activeStatus :{{ selectedCompany.activeStatus}}</p>
+          <p>Description</p>
+          <p>{{ selectedCompany.description}}</p>
 
         </div>
 
@@ -32,7 +34,7 @@
 
 
       </div>
-      <button class="btn btn-primary ms-2 mt-3">Back</button>
+      <button class="btn btn-primary ms-2 mt-3" (click)="goBack()">Back</button>
     </div>
 
   </div>
