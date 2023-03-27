@@ -10,26 +10,44 @@
           <div class="mb-4">
 
             <label class="mb-2" for="company-name">Company Name</label>
-            <input class="form-control" id="company-name" name="company-name" type="text"  [(ngModel)]="company.name"  required>
+            <input class="form-control" id="company-name" name="company-name" type="text"  [(ngModel)]="company.name" #name="ngModel"
+                   class="field"
+                   required/>
+            <mat-error *ngIf="name.invalid && (name.dirty || name.touched) && name.errors?.['required']" class="alert">Company name is required.</mat-error>
           </div>
           <div class="mb-4">
             <div class="form-group">
-              <label for="Description">Description</label>
-              <textarea class="form-control" name="description" id="Description" rows="3"  [(ngModel)]="company.description" ></textarea>
-            </div>
+              <label for="description">Description</label>
+              <textarea class="form-control" name="description"  id="Description" rows="8"  [(ngModel)]="company.description" #description="ngModel" required></textarea>
+              <mat-error *ngIf="description.invalid && (description.dirty || description.touched)" class="alert">
+                <div *ngIf="description.errors?.['required']">
+                  Description is required.
+              </div>
+            </mat-error>
           </div>
           <div class = "row">
             <div class="col-lg-6">
               <div class="mb-4">
                 <label class="mb-2" for="company-Contact No">Contact No</label>
-                <input class="form-control" name="company-Contact" id="company-Contact No" type="email"  [(ngModel)]="company.contactNumber" >
+                <input class="form-control" name="company-Contact" id="company-Contact No" type="email"  [(ngModel)]="company.contactNumber" #contactNumber="ngModel" required >
+                <mat-error *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched)" class="alert">
+                  <div *ngIf="contactNumber.errors?.['required']">
+                    Contact number is required.
+                  </div>
+                </mat-error>
               </div>
             </div>
+          </div>
 
             <div class="col-lg-6">
               <div class="mb-4">
                 <label class="mb-2" for="company-mobile">Mobile No</label>
-                <input class="form-control" name="company-Contact" id="company-mobile" type="email"  [(ngModel)]="company.mobile" >
+                <input class="form-control" name="company-Contact" id="company-mobile" type="email"  [(ngModel)]="company.mobile" #mobile="ngModel" required >
+                <mat-error *ngIf="mobile.invalid && (mobile.dirty || mobile.touched)" class="alert">
+                  <div *ngIf="mobile.errors?.['required']">
+                    Mobile number is required.
+                  </div>
+                </mat-error>
               </div>
             </div>
           </div>
@@ -47,7 +65,12 @@
           <div class="mb-4">
             <label class="mb-2" >Address</label>
             <div>
-              <input class="form-control mb-3" id="company-address1" name="company-address1" type="text"  [(ngModel)]="company.address">
+              <input class="form-control mb-3" id="company-address1" name="company-address1" type="text"  [(ngModel)]="company.address" #address="ngModel" required>
+              <mat-error *ngIf="address.invalid && (address.dirty || address.touched)" class="alert">
+                <div *ngIf="address.errors?.['required']">
+                  Address is required.
+                </div>
+              </mat-error>
 
             </div>
 
@@ -87,14 +110,24 @@
             <div class="col-lg-6">
               <div class="mb-4">
                 <label class="mb-2" for="company-email">Email</label>
-                <input class="form-control" name="company-email" id="company-email" type="email"  [(ngModel)]="company.email" >
+                <input class="form-control" name="company-email" id="company-email" type="email"  [(ngModel)]="company.email" #email="ngModel"
+                       [pattern]="emailPtn"
+                       class="field"
+                       formController="email" required>
+                <mat-error *ngIf="email.invalid && (email.dirty || email.touched) && email.errors?.['required']" class="alert">Email is required.</mat-error>
+                <mat-error *ngIf="email.invalid && (email.dirty || email.touched) && email.errors?.['pattern']" class="alert">Enter valid email.</mat-error>
               </div>
             </div>
 
             <div class="col-lg-6">
               <div class="mb-4">
                 <label class="mb-2" for="company-fax">fax</label>
-                <input class="form-control" name="company-email" id="company-fax" type="email"  [(ngModel)]="company.fax" >
+                <input class="form-control" name="company-email" id="company-fax" type="email"  [(ngModel)]="company.fax" #fax="ngModel" required >
+                <mat-error *ngIf="fax.invalid && (fax.dirty || fax.touched)" class="alert">
+                  <div *ngIf="fax.errors?.['required']">
+                    Fax is required.
+                  </div>
+                </mat-error>
               </div>
             </div>
 

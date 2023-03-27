@@ -21,6 +21,8 @@ export class CompanyFormComponent extends FormControlUtil implements OnInit,OnDe
   inputForm!: NgForm;
 
   private subSink=new SubSink();
+  emailPtn: any;
+
 
   constructor(private companyService: CompanyService,private messageService:DisplayMessageService,private location: Location) {
     super();
