@@ -1,0 +1,100 @@
+<div class="container" style="height: 500px;width:420px; margin: 10px">
+  <mat-card style="height: 500px ">
+    <mat-card-content>
+      <div class="header">
+        <h2><b>Company Wise Report</b></h2>
+        <br />
+      </div>
+      <form #InputForm="ngForm">
+
+        <div class="input ">
+          <mat-form-field  appearance="outline">
+            <mat-label>Company Id</mat-label>
+            <input
+              matInput
+              name="companyId"
+              id="companyId"
+              [(ngModel)]="companyWiseReportGeneration.companyId"
+              #cid="ngModel"
+              required
+            />
+          </mat-form-field>
+          <div *ngIf="cid.invalid && (cid.dirty || cid.touched)" class="alert">
+            <div *ngIf="cid.errors?.['required']">Company ID is required.</div>
+          </div>
+        </div>
+
+        <div class="input">
+          <mat-form-field appearance="outline">
+            <mat-label>Choose From date</mat-label>
+
+            <input
+              matInput
+              [matDatepicker]="picker"
+              name="fromDate"
+              id="fromDate"
+              [(ngModel)]="companyWiseReportGeneration.fromDate"
+              (dateChange)="updateFromDate()"
+              #fromDate="ngModel"
+              required
+
+            />
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <div
+            *ngIf="fromDate.invalid && (fromDate.dirty || fromDate.touched)"
+            class="alert1"
+          >
+            <div *ngIf="fromDate.errors?.['required']">
+              From Date is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="input">
+          <mat-form-field appearance="outline">
+            <mat-label>Choose To date</mat-label>
+
+            <input
+              matInput
+              [matDatepicker]="picker"
+              name="toDate"
+              id="toDate"
+              [(ngModel)]="companyWiseReportGeneration.toDate"
+              (dateChange)="updateToDate()"
+              #toDate="ngModel"
+              required
+
+            />
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+          <div
+            *ngIf="toDate.invalid && (toDate.dirty || toDate.touched)"
+            class="alert1"
+          >
+            <div *ngIf="toDate.errors?.['required']">
+              To Date is required.
+            </div>
+          </div>
+        </div>
+        <div>
+          <button class="btn btn-primary " (click)="generateReport()" >
+              Generate
+          </button>
+
+
+        </div>
+
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

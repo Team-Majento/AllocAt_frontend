@@ -1,4 +1,9 @@
 import { Component } from '@angular/core';
+import {MatDialog} from "@angular/material/dialog";
+import {
+  CompanyWiseReportComponent
+} from "../../reportGeneration/company-wise-report/company-wise-report.component";
+import {GeneralReportComponent} from "../../reportGeneration/general-report/general-report.component";
 
 @Component({
   selector: 'app-report-menu',
@@ -7,11 +12,13 @@ import { Component } from '@angular/core';
 })
 export class ReportMenuComponent {
 
-  openReport1() {
-
+  constructor(private dialogRef:MatDialog) {
   }
-  openReport2() {
-
+  openCompanyWiseReport() {
+       this.dialogRef.open(CompanyWiseReportComponent);
+  }
+  openGeneralReport() {
+    this.dialogRef.open(GeneralReportComponent);
   }
 
 

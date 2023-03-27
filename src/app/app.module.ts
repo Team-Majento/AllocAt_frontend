@@ -53,8 +53,8 @@ import { CompanyProfileComponent } from './company/company-profile/company-profi
 import { RateCardFormComponent } from './rateCard/rate-card-form/rate-card-form.component';
 import { UpdateRateCardComponent } from './rateCard/update-rate-card/update-rate-card.component';
 import { AddRateCardardComponent } from './rateCard/add-rate-cardard/add-rate-cardard.component';
-import { CompanyWiseReportComponent } from './reportGeneration/company-wise-report/company-wise-report/company-wise-report.component';
-import { GeneralReportComponent } from './reportGeneration/general-report/general-report/general-report.component';
+import { CompanyWiseReportComponent } from './reportGeneration/company-wise-report/company-wise-report.component';
+import { GeneralReportComponent } from './reportGeneration/general-report/general-report.component';
 
 
 @NgModule({
