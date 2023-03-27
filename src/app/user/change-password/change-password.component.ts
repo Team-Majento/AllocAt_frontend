@@ -28,6 +28,7 @@ export class ChangePasswordComponent extends FormControlUtil implements OnInit {
   submit(InputForm: any) {
 
     if (this.isFormValid(this.inputForm)) {
+      console.log("ss");
       this.service.ChangeUserPassword(this.userByUserName, this.user.confirmPassword);
       console.log(this.currentUserPassword);
       console.log(this.user.currentPassword);
@@ -42,6 +43,7 @@ export class ChangePasswordComponent extends FormControlUtil implements OnInit {
     const decodedData = atob(currentUserName_);
     let resp = this.service.getUserByUserName(decodedData);
     resp.subscribe((data) => this.userByUserName = data);
+
     setTimeout(() => {
       this.currentUserPassword = this.userByUserName.password;
     }, 1000)
