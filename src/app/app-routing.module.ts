@@ -142,10 +142,6 @@ const routes: Routes = [
 
       {path: "update-user", component:  UpdateUserComponent},
 
-      {
-        path: "resource",
-        component: AddResourceComponent
-      }
 
     ]
   },

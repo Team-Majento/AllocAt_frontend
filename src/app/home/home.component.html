@@ -165,44 +165,46 @@
    </section>
 
 <!--CONTACT US SECTION-->
-   <section id="contact" class="section-padding form">
-     <div class="container">
-       <div class="row">
-         <div class="col-12 text-center">
-           <div class="section-title">
-             <h1 class="display-4 text-white fw-semibold" style="font-family:Quicksand;">Get in touch</h1>
-             <div class="line bg-white"></div>
-             <p class="text-white">We will help you ! Fill the form for multiple answers !</p>
-           </div>
-         </div>
-       </div>
+<section id="contact" class="section-padding form">
+  <div class="container">
+    <div class="row">
+      <div class="col-12 text-center">
+        <div class="section-title">
+          <h1 class="display-4 text-white fw-semibold" style="font-family:Quicksand;">Get in touch</h1>
+          <div class="line bg-white"></div>
+          <p class="text-white">We will help you! Fill the form for multiple answers!</p>
+        </div>
+      </div>
+    </div>
 
-       <div class="row justify-content-center form1">
-         <div class="col-lg-8">
-           <form action="#" class="row g-3">
-             <div class="form-group col-lg-6">
-               <input type="text" class="form-control" id="name" placeholder="Enter your first name">
-             </div>
-             <div class="form-group col-lg-6">
-               <input type="text" class="form-control" id="name2" placeholder="Enter your last name">
-             </div>
-             <div class="form-group col-lg-12">
-               <input type="email" class="form-control" id="email" placeholder="Enter email address">
-             </div>
-             <div class="form-group col-lg-12">
-               <input type="text" class="form-control" id="subject" placeholder="Enter subject">
-             </div>
-             <div class="form-group col-lg-12">
-               <textarea name="message" rows="5" class="form-control" id="message" placeholder="Enter message"></textarea>
-             </div>
-             <div class="form-group col-lg-12 d-grid">
-               <button type="submit" class="btn btn-brand">Send Message</button>
-             </div>
-           </form>
-         </div>
-       </div>
-     </div>
-   </section>
+    <div class="row justify-content-center form1">
+      <div class="col-lg-8">
+        <form (submit)="sendEmail($event)" #contactForm="ngForm" class="row g-3">
+          <div class="form-group col-lg-6">
+            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" name="firstName" required>
+          </div>
+          <div class="form-group col-lg-6">
+            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" name="lastName" required >
+          </div>
+          <div class="form-group col-lg-12">
+            <input type="email" class="form-control" id="email" placeholder="Enter email address" name="email" required >
+          </div>
+          <div class="form-group col-lg-12">
+            <input type="text" class="form-control" id="subject" placeholder="Enter subject" name="subject" required >
+          </div>
+          <div class="form-group col-lg-12">
+            <textarea name="message" rows="5" class="form-control" id="message" placeholder="Enter message" name="message" required ></textarea>
+          </div>
+          <div class="form-group col-lg-12 d-grid">
+            <button type="submit" class="btn btn-brand">Send Message</button>
+          </div>
+        </form>
+
+      </div>
+    </div>
+  </div>
+</section>
+
 
 <!-- FOOTER -->
    <section class="section-padding text-dark footer">
@@ -272,59 +274,6 @@
 
 
 
-
-
-
-
-
-
-
-<!--<div class="header">-->
-<!--  <div class="container">-->
-<!--    <nav>-->
-<!--      <a href="#" class="logo">ALLOC @</a>-->
-<!--      <ul>-->
-<!--        <li class="ps-5"><a href="#">Home</a></li>-->
-<!--        <li><a href="#">About</a></li>-->
-<!--        <li><a href="#">Contact</a></li>-->
-<!--      </ul>-->
-<!--    </nav>-->
-<!--  </div>-->
-<!--</div>-->
-
-<!--<div class="hero">-->
-<!--  <div class="container text ms-5 rounded-4">-->
-<!--    <h1 class="mt-4 ms-3">Allocate Your Resources</h1>-->
-<!--    <p class="mt-4 ms-3">A web app to share resources across ABC Group of Companies</p>-->
-
-<!--    <button class="btn btn-primary mb-4 ms-3" [routerLink]="['/login']">login page</button>-->
-
-<!--  </div>-->
-<!--</div>-->
-
-<!--<div class="features">-->
-<!--  <div class="container">-->
-<!--    <h2>Features</h2>-->
-<!--    <ul>-->
-<!--      <li>Easy to use</li>-->
-<!--      <li>Secure and private</li>-->
-<!--      <li>Customizable user and project settings</li>-->
-<!--      <li>Real-time resource tracking</li>-->
-<!--    </ul>-->
-<!--  </div>-->
-<!--</div>-->
-<!--<footer class="bg-dark">-->
-<!--  <div class="container bg-dark">-->
-<!--    <p>&copy; 2023 ALLOC@ | ABC Group of Companies</p>-->
-<!--    <div class="footer-links">-->
-<!--      <ul style="text-decoration: none">-->
-<!--        <li><a href="#">Terms of Service</a></li>-->
-<!--        <li><a href="#">Privacy Policy</a></li>-->
-<!--        <li><a href="#">Contact Us</a></li>-->
-<!--      </ul>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</footer>-->
 
 
 
