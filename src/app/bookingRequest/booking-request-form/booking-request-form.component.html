@@ -1,9 +1,11 @@
 <!--<div class="container-body" style="background-color: #ffd305">-->
-<div class="container">
-  <!--   {{bookingRequest|json}}-->
-
-  <div class="side"><img src="assets/img/workingLady.png" /> <br /></div>
-  <mat-card>
+<div class="container" style="height: 650px; margin-bottom: 30px">
+<!--     {{bookingRequest|json}}-->
+  <div class="side">
+    <img src="assets/img/workingLady.png" style="width: 350px; height: 300px" />
+    <br />
+  </div>
+  <mat-card style="height: 650px">
     <mat-card-content>
       <div class="header">
         <h2><b>Booking Request Form</b></h2>
@@ -11,10 +13,9 @@
       </div>
 
       <form #InputForm="ngForm">
-        <span style="color: #212529" class="ms-0"
-        >Resource ID: {{ bookingRequest.resourceId }}</span
-        >
-
+        <span style="color: #212529" class="ms-0">
+<!--          Resource ID: {{ bookingRequest.resourceId }}-->
+        </span>
         <div class="input">
           <mat-form-field class="full-width" appearance="outline">
             <mat-label>User Id</mat-label>
@@ -26,15 +27,9 @@
               #uid="ngModel"
               required
             />
-
           </mat-form-field>
-          <div
-            *ngIf="uid.invalid && (uid.dirty || uid.touched)"
-            class="alert"
-          >
-            <div *ngIf="uid.errors?.['required']">
-              User ID is required.
-            </div>
+          <div *ngIf="uid.invalid && (uid.dirty || uid.touched)" class="alert">
+            <div *ngIf="uid.errors?.['required']">User ID is required.</div>
           </div>
         </div>
 
@@ -49,8 +44,6 @@
               #comId="ngModel"
               required
             />
-
-
           </mat-form-field>
           <div
             *ngIf="comId.invalid && (comId.dirty || comId.touched)"
@@ -84,75 +77,104 @@
           </div>
         </div>
 
-
-
         <div class="input">
-          <mat-form-field appearance="fill">
+          <mat-form-field appearance="outline">
             <mat-label>Choose a date</mat-label>
 
             <input
               matInput
               [matDatepicker]="picker"
-              name="date"
+              name="requiredDate"
+              id="requiredDate"
               [(ngModel)]="bookingRequest.requiredDate"
               (dateChange)="updateDate()"
               [min]="minDate"
+              #requiredDate="ngModel"
+              required
             />
             <mat-datepicker-toggle
               matIconSuffix
               [for]="picker"
             ></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
-
           </mat-form-field>
+          <div
+            *ngIf="requiredDate.invalid && (requiredDate.dirty || Muid.touched)"
+            class="alert1"
+          >
+            <div *ngIf="requiredDate.errors?.['required']">
+              Date is required.
+            </div>
+          </div>
         </div>
 
         <div class="input mt-1">
-          <mat-form-field>
+          <mat-form-field appearance="outline">
             <mat-label>Start time</mat-label>
             <input
               matInput
-              name="selected_time_A"
+              name="startTime"
+              id="startTime"
               [format]="24"
               [(ngModel)]="bookingRequest.startTime"
               [ngxMatTimepicker]="pickerA"
               [max]="max"
               [min]="min"
+              #startTime="ngModel"
               readonly
+              required
             />
             <mat-icon matSuffix (click)="pickerA.open()">
               watch_later
             </mat-icon>
           </mat-form-field>
+          <div
+            *ngIf="startTime.invalid && (startTime.dirty || startTime.touched)"
+            class="alert1"
+          >
+            <div *ngIf="startTime.errors?.['required']">
+              Start time is required.
+            </div>
+          </div>
           <ngx-mat-timepicker #pickerA></ngx-mat-timepicker>
         </div>
 
         <div class="input mt-1">
-          <mat-form-field>
+          <mat-form-field appearance="outline">
             <mat-label>End time</mat-label>
             <input
               matInput
-              name="selected_time_B"
+              name="endTime"
               [format]="24"
               [(ngModel)]="bookingRequest.endTime"
               [ngxMatTimepicker]="pickerB"
               [max]="max"
               [min]="min"
+              #endTime="ngModel"
               readonly
+              required
             />
             <mat-icon matSuffix (click)="pickerB.open()">
               watch_later
             </mat-icon>
           </mat-form-field>
+          <div
+            *ngIf="endTime.invalid && (endTime.dirty || endTime.touched)"
+            class="alert1"
+          >
+            <div *ngIf="endTime.errors?.['required']">
+              End time is required.
+            </div>
+          </div>
           <ngx-mat-timepicker #pickerB></ngx-mat-timepicker>
         </div>
 
         <div>
-          <button class="btn btn-primary" (click)="addBookingRequest()">
+          <button class="btn btn-primary " (click)="addBookingRequest()" >
             Submit
           </button>
 
-          <button class="btn btn-primary">Cancel</button>
+          <button class="btn btn-primary ">Cancel</button>
         </div>
       </form>
     </mat-card-content>
