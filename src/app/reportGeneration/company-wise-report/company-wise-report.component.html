@@ -3,19 +3,19 @@
     <mat-card-content>
       <div class="header">
         <h2><b>Company Wise Report</b></h2>
-        <br />
+        <br/>
       </div>
       <form #InputForm="ngForm">
 
         <div class="input ">
-          <mat-form-field  appearance="outline">
+          <mat-form-field appearance="outline">
             <mat-label>Company Id</mat-label>
             <input
+              #cid="ngModel"
+              [(ngModel)]="companyWiseReportGeneration.companyId"
+              id="companyId"
               matInput
               name="companyId"
-              id="companyId"
-              [(ngModel)]="companyWiseReportGeneration.companyId"
-              #cid="ngModel"
               required
             />
           </mat-form-field>
@@ -29,21 +29,21 @@
             <mat-label>Choose From date</mat-label>
 
             <input
-              matInput
-              [matDatepicker]="picker"
-              name="fromDate"
-              id="fromDate"
-              [(ngModel)]="companyWiseReportGeneration.fromDate"
-              (dateChange)="updateFromDate()"
               #fromDate="ngModel"
+              (dateChange)="updateFromDate()"
+              [(ngModel)]="companyWiseReportGeneration.fromDate"
+              [matDatepicker]="pickerA"
+              id="fromDate"
+              matInput
+              name="fromDate"
               required
 
             />
             <mat-datepicker-toggle
+              [for]="pickerA"
               matIconSuffix
-              [for]="picker"
             ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-datepicker #pickerA></mat-datepicker>
           </mat-form-field>
           <div
             *ngIf="fromDate.invalid && (fromDate.dirty || fromDate.touched)"
@@ -60,21 +60,21 @@
             <mat-label>Choose To date</mat-label>
 
             <input
-              matInput
-              [matDatepicker]="picker"
-              name="toDate"
-              id="toDate"
-              [(ngModel)]="companyWiseReportGeneration.toDate"
-              (dateChange)="updateToDate()"
               #toDate="ngModel"
+              (dateChange)="updateToDate()"
+              [(ngModel)]="companyWiseReportGeneration.toDate"
+              [matDatepicker]="pickerB"
+              id="toDate"
+              matInput
+              name="toDate"
               required
 
             />
             <mat-datepicker-toggle
+              [for]="pickerB"
               matIconSuffix
-              [for]="picker"
             ></mat-datepicker-toggle>
-            <mat-datepicker #picker></mat-datepicker>
+            <mat-datepicker #pickerB></mat-datepicker>
           </mat-form-field>
           <div
             *ngIf="toDate.invalid && (toDate.dirty || toDate.touched)"
@@ -86,8 +86,8 @@
           </div>
         </div>
         <div>
-          <button class="btn btn-primary " (click)="generateReport()" >
-              Generate
+          <button (click)="generateReport()" class="btn btn-primary ">
+            Generate
           </button>
 
 

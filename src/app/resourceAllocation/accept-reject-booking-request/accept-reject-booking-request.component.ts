@@ -6,12 +6,13 @@ import {AcceptRejectBookingRequestService} from "../../service/accept-reject-boo
   templateUrl: './accept-reject-booking-request.component.html',
   styleUrls: ['./accept-reject-booking-request.component.scss']
 })
-export class AcceptRejectBookingRequestComponent implements OnInit{
+export class AcceptRejectBookingRequestComponent implements OnInit {
 
 
   @Output()
-  bookingRequestList:any=[];
-  constructor(private acceptRejectBookingRequestService:AcceptRejectBookingRequestService) {
+  bookingRequestList: any = [];
+
+  constructor(private acceptRejectBookingRequestService: AcceptRejectBookingRequestService) {
 
   }
 
@@ -25,10 +26,10 @@ export class AcceptRejectBookingRequestComponent implements OnInit{
         // @ts-ignore
         const content = compileResults;
 
-        this.bookingRequestList=content;
+        this.bookingRequestList = content;
 
-        this.bookingRequestList=this.bookingRequestList.filter(this.isPending);
-        console.log( this.bookingRequestList);
+        this.bookingRequestList = this.bookingRequestList.filter(this.isPending);
+        console.log(this.bookingRequestList);
       }
       , error => {
         console.log(error)
@@ -36,7 +37,7 @@ export class AcceptRejectBookingRequestComponent implements OnInit{
 
   }
 
-  accept(bookingRequestId:BigInt) {
+  accept(bookingRequestId: BigInt) {
     console.log(bookingRequestId);
     this.acceptRejectBookingRequestService.acceptBookingRequest(bookingRequestId).subscribe(
       (compileResults) => {
@@ -45,13 +46,13 @@ export class AcceptRejectBookingRequestComponent implements OnInit{
       , error => {
         console.log(error)
       });
-    let index=this.bookingRequestList.findIndex((e:any)=>e.id===bookingRequestId);
-    this.bookingRequestList.splice(index,1);
+    let index = this.bookingRequestList.findIndex((e: any) => e.id === bookingRequestId);
+    this.bookingRequestList.splice(index, 1);
 
   }
 
-   isPending(element:any){
-        return element.status==="pending";
+  isPending(element: any) {
+    return element.status === "pending";
   }
 
 }
