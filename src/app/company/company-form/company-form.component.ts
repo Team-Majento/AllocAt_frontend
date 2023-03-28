@@ -22,6 +22,7 @@ export class CompanyFormComponent extends FormControlUtil implements OnInit,OnDe
 
   private subSink=new SubSink();
   emailPtn: any;
+  mobNumberPattern: any;
 
 
   constructor(private companyService: CompanyService,private messageService:DisplayMessageService,private location: Location) {
