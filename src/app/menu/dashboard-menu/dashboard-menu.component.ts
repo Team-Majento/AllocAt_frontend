@@ -38,10 +38,11 @@ export class DashboardMenuComponent implements OnInit {
           }],
           yAxes: [{
             display:false
-          //  beginAtZero: true
+            //  beginAtZero: true
           }]
         }
       }
     });
   }
 }
+

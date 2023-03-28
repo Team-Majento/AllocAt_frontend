@@ -25,6 +25,7 @@ import {
   AcceptRejectBookingRequestComponent
 } from "./resourceAllocation/accept-reject-booking-request/accept-reject-booking-request.component";
 import {CompanyProfileComponent} from "./company/company-profile/company-profile.component";
+import {UpdateCompanyComponent} from "./company/update-company/update-company.component";
 
 const routes: Routes = [
   {  path:"",component :HomeComponent },
@@ -86,6 +87,10 @@ const routes: Routes = [
               {
                 path:":companyId",
                 component:CompanyProfileComponent,
+              },
+              {
+                path: ":companyId/update",
+                component:UpdateCompanyComponent,
               }
             ],
 

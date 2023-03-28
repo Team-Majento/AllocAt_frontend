@@ -15,7 +15,7 @@ export class CompanyProfileComponent {
 
   companyId!: string;
 
-  constructor(private companyService: CompanyService, private route: ActivatedRoute,private router:Router,private location: Location) {
+  constructor(private companyService: CompanyService, private route: ActivatedRoute, private router: Router, private location: Location) {
     route.params.subscribe(companyId => {
       this.companyId = companyId["companyId"];
       console.log(this.companyId)
@@ -35,15 +35,17 @@ export class CompanyProfileComponent {
 
   }
 
+  updateCompany() {
+    this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/companies/${this.companyId}/update`]))
 
-
-
-
-  // updateCompany() {
-  //   this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/companies/${this.companyId}/update`]))
-  // }
-
-  goBack() {
-    this.location.back();
   }
+    // updateCompany() {
+    //   this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/companies/${this.companyId}/update`]))
+    // }
+
+    goBack()
+    {
+      this.location.back();
+    }
+
 }
