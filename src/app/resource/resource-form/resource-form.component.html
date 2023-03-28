@@ -1,29 +1,19 @@
-
 <section class="p-3 main-con">
   <h3 class="text-center mb-2 mt-1  text-capitalize">{{formTitle}}</h3>
   <div class="bg-light">
     <form #InputForm="ngForm">
-<!--     {{resource|json}}-->
+      <!--     {{resource|json}}-->
 
       <div class="row">
         <div class="col-12 col-lg-6 p-5 con__sub-01">
-<!--          <div class="mb-3">-->
-<!--            <label class="mb-2" for="resource-id">Resource ID</label>-->
-<!--            <input class="form-control" id="resource-id" name="resource-id" type="text" >-->
-<!--          </div>-->
-
-
-
-<!--          <div class="mb-3">-->
-<!--            <label class="mb-2" for="company-name">Company Name</label>-->
-<!--            <input class="form-control" id="company-name" name="company-name" type="text" required>-->
-<!--          </div>-->
-          <hr>
           <div>
             <label for="company-select">Select Company:</label>
-            <select id="company-select" [(ngModel)]="resource.companyId" #company="ngModel" name="company" (ngModelChange)="onCompanySelectionChange($event)"  >
+            <select #company="ngModel" (ngModelChange)="onCompanySelectionChange($event)"
+                    [(ngModel)]="resource.companyId" id="company-select"
+                    name="company" required>
               <option *ngFor="let company of companies" [value]="company.id">{{ company.name }}</option>
             </select>
+            <p></p>
             <div *ngIf="company.invalid && (company.dirty || company.touched)" class="alert">
               <div *ngIf="company.errors?.['required']">
                 Company is required.
@@ -31,19 +21,11 @@
             </div>
           </div>
 
-<!--          -->
-<!--          -->
-<!--          <div>-->
-<!--            <label for="company-select">Company Name:</label>-->
-<!--            <select id="company-select" name="company" [(ngModel)]="selectedCompany">-->
-<!--              <option *ngFor="let company of companies" [value]="company">{{ company }}</option>-->
-<!--            </select>-->
-<!--          </div>-->
-          <hr>
 
           <div class="mb-3">
             <label class="mb-2" for="resource-desc">Description</label>
-            <textarea class="form-control" name="resource-desc"  id="resource-desc" rows="8"  [(ngModel)]="resource.description" #description="ngModel" required></textarea>
+            <textarea #description="ngModel" [(ngModel)]="resource.description" class="form-control" id="resource-desc"
+                      name="resource-desc" required rows="8"></textarea>
             <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert">
               <div *ngIf="description.errors?.['required']">
                 Description is required.
@@ -53,63 +35,105 @@
 
           <div class="mb-3">
             <label class="mb-2" for="floor">Floor</label>
-            <input class="form-control" id="floor" name="floor" type="number"  [(ngModel)]="resource.floor"  required>
+            <input #floor="ngModel" [(ngModel)]="resource.floor" class="form-control" id="floor" name="floor"
+                   required type="number">
+            <div *ngIf="floor.invalid && (floor.dirty || floor.touched)" class="alert">
+              <div *ngIf="floor.errors?.['required']">
+                floor is required.
+              </div>
+            </div>
           </div>
 
           <div class="mb-3">
             <label class="mb-2" for="building-id">Building ID</label>
-            <input class="form-control" id="building-id" name="building-id" type="text" [(ngModel)]="resource.buildingId"  required>
+            <input #bId="ngModel" [(ngModel)]="resource.buildingId" class="form-control" id="building-id"
+                   name="building-id"
+                   required type="text">
+
+            <div *ngIf="bId.invalid && (bId.dirty || bId.touched)" class="alert">
+              <div *ngIf="bId.errors?.['required']">
+                Building Id is required.
+              </div>
+            </div>
           </div>
 
 
         </div>
         <div class="col-12 col-lg-6 p-5 con__sub-02">
 
-          <div class="mb-3">
-            <label class="mb-2" for="rateCard-id">Rate Card ID (optional )</label>
-            <input class="form-control" id="rateCard-id" name="rateCard-id" type="number" [(ngModel)]="resource.rateCardId" >
-          </div>
+          <!-- todo-->
+          <!--          <div class="mb-3">-->
+          <!--            <label class="mb-2" for="rateCard-id">Rate Card ID (optional )</label>-->
+          <!--            <input class="form-control" id="rateCard-id" name="rateCard-id" type="number" [(ngModel)]="resource.rateCardId" >-->
+          <!--          </div>-->
 
           <div class="mb-3">
             <label class="mb-2" for="resource-type">Resource Type</label>
-            <input class="form-control" id="resource-type" name="resource-type" type="number" [(ngModel)]="resource.resourceType"  required>
+            <input #rcType="ngModel" [(ngModel)]="resource.resourceType" class="form-control" id="resource-type"
+                   name="resource-type"
+                   required type="number">
+            <div *ngIf="rcType.invalid && (rcType.dirty ||rcType.touched)" class="alert">
+              <div *ngIf="rcType.errors?.['required']">
+                Resource Type is required.
+              </div>
+            </div>
+
           </div>
 
           <div class="mb-3">
             <label class="mb-2" for="max-capacity">Maximum Capacity</label>
-            <input class="form-control" id="max-capacity" name="max-capacity" type="number" [(ngModel)]="resource.maximumCapacity"  required>
+            <input #mCapacity="ngModel" [(ngModel)]="resource.maximumCapacity" class="form-control" id="max-capacity"
+                   name="max-capacity"
+                   required type="number">
+            <div *ngIf="mCapacity.invalid && (mCapacity.dirty ||mCapacity.touched)" class="alert">
+              <div *ngIf="mCapacity.errors?.['required']">
+                Maximum capacity is required.
+              </div>
+            </div>
+
           </div>
 
 
           <div class="form-check mb-2">
-            <input class="form-check-input" type="checkbox" value="true" name="active-status" id="active-status" checked  [(ngModel)]="resource.activeStatus"  required>
+            <input [(ngModel)]="resource.activeStatus" checked class="form-check-input" id="active-status"
+                   name="active-status" type="checkbox"
+                   value="true">
             <label class="form-check-label" for="active-status">
               Active Status
             </label>
           </div>
 
           <div class="form-check mb-3">
-            <input class="form-check-input" type="checkbox" value="true" name="availability" id="availability" checked [(ngModel)]="resource.availability"  required>
+            <input [(ngModel)]="resource.availability" checked class="form-check-input" id="availability"
+                   name="availability" type="checkbox"
+                   value="true">
             <label class="form-check-label" for="availability">
               Availability
             </label>
           </div>
 
-<!--          todo-->
-<!--          <div class="mb-3">-->
-<!--            <label for="formFile" class="form-label">Default file input example</label>-->
-<!--            <input class="form-control" type="file" id="formFile">-->
-<!--          </div>-->
+          <!--          todo-->
+          <!--          <div class="mb-3">-->
+          <!--            <label for="formFile" class="form-label">Default file input example</label>-->
+          <!--            <input class="form-control" type="file" id="formFile">-->
+          <!--          </div>-->
 
           <div class="mb-2">
             <label class="mb-2" for="img-url">Image URL</label>
-            <input class="form-control" id="img-url" name="img-url" type="text" [(ngModel)]="resource.imgUrl"  required>
+            <input #imgUrl="ngModel" [(ngModel)]="resource.imgUrl" class="form-control" id="img-url"
+                   maxlength="125" name="img-url" required type="text">
+
+            <div *ngIf="imgUrl.invalid && (imgUrl.dirty ||imgUrl.touched)" class="alert">
+              <div *ngIf="imgUrl.errors?.['required']">
+                Image Url is required.
+              </div>
+            </div>
           </div>
 
-          <div class="d-flex gap-3 justify-content-end align-items-center">
-          <button class="btn btn-primary"  (click)="addResource()">Submit</button>
-          <button class="btn btn-primary"   (click)="openAddRateCardDialog()">Add RateCard</button>
-            <button class="btn btn-primary" (click)="goBack()" >Back</button>
+          <div class="d-flex gap-3 justify-content-end align-items-center mt-4">
+            <button (click)="addResource()" [disabled]="InputForm.invalid" class="btn btn-primary">Submit</button>
+            <button (click)="openAddRateCardDialog()" class="btn btn-primary">Add RateCard</button>
+            <button (click)="goBack()" class="btn btn-primary">Back</button>
           </div>
 
         </div>

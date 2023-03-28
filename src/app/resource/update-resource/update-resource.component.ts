@@ -38,7 +38,6 @@ export class UpdateResourceComponent implements OnInit {
 
   ngOnInit(): void {
 
-
   }
 
 

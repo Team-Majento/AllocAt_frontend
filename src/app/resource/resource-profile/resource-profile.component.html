@@ -17,7 +17,7 @@
             <p>Resource ID </p>
             <p>Company Name </p>
             <p>Resource Type </p>
-            <p>RateCard ID </p>
+            <p *ngIf="selectedResource.rateCardId!=null">RateCard ID </p>
             <p>Active Status </p>
             <p>Capacity</p>
             <p><u>Description</u></p>
@@ -27,7 +27,7 @@
             <p class="resource-value">:  {{selectedResource.id}} </p>
             <p class="resource-value">:  {{ selectedResource.company}}</p>
             <p class="resource-value">:  {{ selectedResource.resourceType }}</p>
-            <p class="resource-value">:  {{ selectedResource.rateCardId }}</p>
+            <p class="resource-value" *ngIf="selectedResource.rateCardId!=null" >:  {{ selectedResource.rateCardId }}</p>
             <p class="resource-value">:  {{ selectedResource.activeStatus }}</p>
             <p class="resource-value">:  {{ selectedResource.maximumCapacity }}</p>
           </div>
