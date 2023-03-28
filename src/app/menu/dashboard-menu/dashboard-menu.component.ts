@@ -10,21 +10,21 @@ export class DashboardMenuComponent implements OnInit {
   ngOnInit()
   {
     new Chart("myChart", {
-      type: 'bar',
+      type: 'pie',
 
       data: {
 
         labels: ['ABC pvt ltd', 'Thoughtbeat', 'Photobug', 'Fliptune', 'Youobia', 'Snaptags'],
         datasets: [{
           label: '# of Votes',
-          data: [6, 8, 4, 6, 0, 2],
+          data: [6, 8, 4, 6,5, 2],
           backgroundColor:[
-            'rgba(255,99,132,0.4)',
-            'rgba(255,45,8,0.9)',
-            'rgba(21,255,132,0.5)',
-            'rgba(250,243,132,0.8)',
-            'rgba(250,143,2,0.8)',
-            'rgba(23,243,236,0.8)'
+            '#043e7d',
+            '#046ec4',
+            '#5791b3',
+            '#0e1e2b',
+            '#2e5f78',
+            '#51acc5'
 
           ],
           borderWidth: 2
@@ -33,11 +33,11 @@ export class DashboardMenuComponent implements OnInit {
       options: {
         scales: {
           xAxes:[{
-            display:true
+            display:false
 
           }],
           yAxes: [{
-            display:true
+            display:false
           //  beginAtZero: true
           }]
         }

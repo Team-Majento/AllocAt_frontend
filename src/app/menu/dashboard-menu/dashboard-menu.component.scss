@@ -54,7 +54,7 @@ h3{
 }
 
 .card-body4{
-    background-color: #f3797e;
+    background-color: #2e5f78;
 
     color: white;
     padding: 30px;
@@ -104,14 +104,7 @@ h5{
 tr:hover {
   background-color: rgb(206, 216, 236);
 }
-
-
-
-
-
-
-
-
+/*responsiveness*/
 @media (min-width: 1281px) {
   .tablestyle{
     width :700px;
@@ -140,6 +133,16 @@ tr:hover {
     width :400px;
     height: 500px;
   }
+  .container-fluid{
+    display:flex;
+    flex-direction: column;
+  }
+  .tbl{
+    margin-left:30px;
+    margin-top:-200px;
+    width: 400px;
+  }
+
 
 }
 
