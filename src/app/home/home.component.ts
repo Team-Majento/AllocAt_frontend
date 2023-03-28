@@ -12,9 +12,10 @@ export class HomeComponent {
   public sendEmail(e: Event) {
     e.preventDefault();
     console.log(e.target as HTMLFormElement)
-    emailjs.sendForm('service_ppk6y64', 'template_2t8maim', e.target as HTMLFormElement, 'VCG0NZdqW-JAzUun3')
+    emailjs.sendForm('service_dte4ecg', 'template_o1c0ld9', e.target as HTMLFormElement, 'szFNhaJujU5Xuw9YL')
       .then((result: EmailJSResponseStatus) => {
         console.log(result.text);
+        location.reload();
       }, (error: { text: any; }) => {
         console.log(error.text);
       });

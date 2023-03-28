@@ -270,7 +270,7 @@
                     <button mat-button (click)="addUser()" class="button">
                       <p>Submit </p>
                     </button>
-                    <button mat-button class="button" (click)="goBack()">
+                    <button mat-button class="button" [routerLink]="['/add']" (click)="goBack()">
                       <p>Back </p>
                     </button>
                   </td>
