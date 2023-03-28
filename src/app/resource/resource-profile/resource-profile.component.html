@@ -20,7 +20,7 @@
             <p *ngIf="selectedResource.rateCardId!=null">RateCard ID </p>
             <p>Active Status </p>
             <p>Capacity</p>
-            <p><u>Description</u></p>
+            <p class="font-monospace fw-bold"><u>Description</u></p>
           </div>
 
           <div class="col-8">
@@ -33,7 +33,7 @@
           </div>
 
           <div class="col-12 mt-0 ms-4">
-            <p class="resource-description text-center">{{ selectedResource.description }}</p>
+            <p class="resource-description" style="text-align: justify;">{{ selectedResource.description }}</p>
           </div>
         </div>
         <button (click)="addRequest()" class="btn btn-primary me-3 mb-3 book-btn ms-4">Book</button>
@@ -44,10 +44,10 @@
 
 
 
-  <div class="row bg-light">
+  <div class="row bg-light pt-0">
 
-    <div class="reviews mt-4">
-      <h2>Reviews</h2>
+    <div class="reviews ">
+      <span class="font-monospace fw-bold fs-5 mb-2 d-inline-block">Reviews</span>
       <div class="row">
         <div *ngFor="let review of reviews" class="col-lg-6 col-md-6 col-sm-12 mb-3">
           <div class="card">

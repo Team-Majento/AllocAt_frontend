@@ -3,7 +3,7 @@
   <div class="row g-3 mt-2">
     <div class="col-lg-3 col-6 " *ngFor="let resource of resourceList">
       <div class="card h-100" >
-        <img  alt="" src="{{resource['imgUrl']}}">
+        <img width="100%"  height="240px" alt="img of a resource" src="{{resource['imgUrl']}}">
         <div class="card-body">
           <h5 class="card-title">Resource ID: {{resource.id}} </h5>
           <p class="card-text">
