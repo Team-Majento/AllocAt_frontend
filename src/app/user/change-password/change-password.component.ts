@@ -28,7 +28,6 @@ export class ChangePasswordComponent extends FormControlUtil implements OnInit {
   submit(InputForm: any) {
 
     if (this.isFormValid(this.inputForm)) {
-      console.log("ss");
       this.service.ChangeUserPassword(this.userByUserName, this.user.confirmPassword);
       console.log(this.currentUserPassword);
       console.log(this.user.currentPassword);
