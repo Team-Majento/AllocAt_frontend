@@ -38,7 +38,7 @@ export class UserService {
     this.userRequest.gender = user.gender;
     this.userRequest.imageURL = user.imageURL;
     this.userRequest.userType = user.userType;
-    this.userRequest.managersEIDL = user.managersEIDL;
+    this.userRequest.managersEID = user.managersEID;
     this.userRequest.activeStatus = user.activeStatus;
 
     return this.http.put<any>("http://localhost:8082/users/update/" + this.userRequest.userId, this.userRequest)

@@ -1,4 +1,10 @@
 import { Component } from '@angular/core';
+// @ts-ignore
+import {User} from "../../../models/user";
+import {UserRequest} from "../../../models/userRequest";
+import {ResourceService} from "../../service/resource.service";
+import {ActivatedRoute} from "@angular/router";
+import {UserService} from "../../service/user.service";
 
 @Component({
   selector: 'app-update-user',
@@ -6,5 +12,34 @@ import { Component } from '@angular/core';
   styleUrls: ['./update-user.component.scss']
 })
 export class UpdateUserComponent {
+
+  selectedUser!:UserRequest;
+
+  // userId!: string;
+  //
+  // constructor(private UserService: UserService, private route: ActivatedRoute) {
+  //   route.params.subscribe(userId => {
+  //     this.userId = userId["userId"];
+  //     console.log(this.userId)
+  //     if (this.userId == null) {
+  //
+  //     } else {
+  //       this.UserService.getUserById(this.userId).subscribe(
+  //         (user) => {
+  //           console.log(user);
+  //           this.selectedUser = <User>user;
+  //         }
+  //         , (error) => {
+  //           console.log(error)
+  //         });
+  //     }
+  //   })
+  //
+  // }
+  //
+  // ngOnInit(): void {
+  //
+  // }
+  //
 
 }

@@ -39,7 +39,7 @@
            <h1 class="text-white fw-semibold display-1" style="font-family:Quicksand;">Welcome to Alloq-@</h1>
            <h5 class="text-white mt-3 mb-4">Book your meeting room today!</h5>
            <div>
-             <a href="#" class="btn btn-brand" [routerLink]="['/login']">Login</a>
+             <a  class="btn btn-brand" [routerLink]="['/login']">Login</a>
            </div>
          </div>
        </div>
@@ -87,6 +87,8 @@
        </div>
 
        <div class="row g-4 text-center">
+
+         <!--service cards-->
          <div class="col-lg-4 col-sm-6">
            <div class="service theme-shadow p-lg-5 p-4">
              <div class="iconbox">
@@ -165,40 +167,40 @@
    </section>
 
 <!--CONTACT US SECTION-->
-<section id="contact" class="section-padding form">
-  <div class="container">
-    <div class="row">
-      <div class="col-12 text-center">
-        <div class="section-title">
-          <h1 class="display-4 text-white fw-semibold" style="font-family:Quicksand;">Get in touch</h1>
-          <div class="line bg-white"></div>
-          <p class="text-white">We will help you! Fill the form for multiple answers!</p>
-        </div>
-      </div>
-    </div>
+   <section id="contact" class="section-padding form">
+     <div class="container">
+       <div class="row">
+         <div class="col-12 text-center">
+           <div class="section-title">
+             <h1 class="display-4 text-white fw-semibold" style="font-family:Quicksand;">Get in touch</h1>
+             <div class="line bg-white"></div>
+             <p class="text-white">We will help you! Fill the form for multiple answers!</p>
+           </div>
+         </div>
+       </div>
 
-    <div class="row justify-content-center form1">
-      <div class="col-lg-8">
-        <form (submit)="sendEmail($event)" #contactForm="ngForm" class="row g-3">
-          <div class="form-group col-lg-6">
-            <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" name="firstName" required>
-          </div>
-          <div class="form-group col-lg-6">
-            <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" name="lastName" required >
-          </div>
-          <div class="form-group col-lg-12">
-            <input type="email" class="form-control" id="email" placeholder="Enter email address" name="email" required >
-          </div>
-          <div class="form-group col-lg-12">
-            <input type="text" class="form-control" id="subject" placeholder="Enter subject" name="subject" required >
-          </div>
-          <div class="form-group col-lg-12">
-            <textarea name="message" rows="5" class="form-control" id="message" placeholder="Enter message" name="message" required ></textarea>
-          </div>
-          <div class="form-group col-lg-12 d-grid">
-            <button type="submit" class="btn btn-brand">Send Message</button>
-          </div>
-        </form>
+       <div class="row justify-content-center form1">
+         <div class="col-lg-8">
+           <form (submit)="sendEmail($event)" #contactForm="ngForm" class="row g-3">
+             <div class="form-group col-lg-6">
+               <input type="text" class="form-control" id="firstName" placeholder="Enter your first name" name="firstName" required>
+             </div>
+             <div class="form-group col-lg-6">
+               <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" name="lastName" required >
+             </div>
+             <div class="form-group col-lg-12">
+               <input type="email" class="form-control" id="email" placeholder="Enter email address" name="email" required >
+             </div>
+             <div class="form-group col-lg-12">
+               <input type="text" class="form-control" id="subject" placeholder="Enter subject" name="subject" required >
+             </div>
+             <div class="form-group col-lg-12">
+               <textarea name="message" rows="5" class="form-control" id="message" placeholder="Enter message" name="message" required ></textarea>
+             </div>
+             <div class="form-group col-lg-12 d-grid">
+               <button type="submit" class="btn btn-brand">Send Message</button>
+             </div>
+           </form>
 
       </div>
     </div>
