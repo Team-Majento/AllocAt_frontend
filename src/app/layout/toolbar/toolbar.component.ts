@@ -1,6 +1,7 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 import {UserService} from "../../service/user.service";
+import {UserRequest} from "../../../models/userRequest";
 @Component({
   selector: 'app-toolbar',
   templateUrl: './toolbar.component.html',
@@ -17,13 +18,24 @@ export class ToolbarComponent implements OnInit{
 
   currentUserName:String="";
 
+  userImg:string="";
+
+  currentUser: any ={} ;
+
   constructor(private userService:UserService) {
-  }
-  ngOnInit(): void {
     const username=localStorage.getItem("userName_")+"";
     const decodedData = atob(username);
     this.currentUserName=decodedData;
-    console.log(this.currentUserName);
+    this.userService.getUserByUserName( this.currentUserName).subscribe((user) => {
+        this.currentUser = <UserRequest>user;
+        this.userImg=this.currentUser.imageURL;
+      }
+      , (error) => {
+        console.log(error)
+      });;
+  }
+  ngOnInit(): void {
+
   }
 
   navBarOpen(){

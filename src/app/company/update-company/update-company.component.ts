@@ -25,7 +25,7 @@ export class UpdateCompanyComponent implements OnInit
 
       } else {
         this.companyService.getCompanyById(this.CompanyId).subscribe(
-          (company: any) => {
+          (company) => {
             console.log(company);
             this.selectedCompany = <Company>company;
           }

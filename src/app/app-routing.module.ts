@@ -143,7 +143,7 @@ const routes: Routes = [
 
       {path: "user-profile", component: UserProfileComponent},
 
-      {path: "app-accept-reject-booking-request", component: AcceptRejectBookingRequestComponent},
+      {path: "accept-reject-booking-request", component: AcceptRejectBookingRequestComponent},
 
       {path: "update-user", component:  UpdateUserComponent},
 

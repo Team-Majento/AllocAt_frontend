@@ -24,7 +24,7 @@ export class UpdateResourceComponent implements OnInit {
 
       } else {
         this.resourceService.getResourceById(this.resourceId).subscribe(
-          (resource) => {
+          (resource ) => {
             console.log(resource);
             this.selectedResource = <Resource>resource;
           }
