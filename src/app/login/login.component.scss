@@ -8,16 +8,14 @@
   color:red;
   margin-bottom: 10px;
   text-align: left;
-  margin-top: -20px;
+  margin-top: 0px;
 }
 
 .container{
-  width: 900px;
   box-shadow: 10px 10px 20px #000;
   margin: auto;
-  margin-top: 80px;
+  margin-top: 100px;
 }
-
 
 .side{
   background-color: #050858;
@@ -139,8 +137,6 @@ p{
     width: 700px;
     display: flex;
   }
-
-
 }
 
 
@@ -167,9 +163,8 @@ p{
   mat-card{
     height: 500px;;
   }
-
-
 }
+
 @media (min-width: 375px) and (max-width: 668px) {
   .side{
     background-color: #050858;

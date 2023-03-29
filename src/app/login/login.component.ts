@@ -8,12 +8,12 @@ import {UserLogin} from "../../models/userLogin";
 import {Router} from "@angular/router";
 import {UserService} from "../service/user.service";
 
-
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
 export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy {
   @ViewChild('InputForm')
   inputForm!: NgForm;
@@ -31,20 +31,6 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
   login(){
 
     if (this.isFormValid(this.inputForm)) {
-    //   this.subSink.add(
-    //     this.loginService.login(this.user).subscribe({
-    //       next: (compileResults) => {
-    //         console.log(compileResults);
-    //         this.messageService.showSucessMessage("login-Sucess");
-    //         this.router.navigateByUrl(this.router.createUrlTree([""]))
-    //       },
-    //       error: (e) =>{
-    //         console.log("error-",e);
-    //         this.messageService.showErrorMessage("login failed");
-    //       }
-    //     })
-    //   );
-    // }
       this.subSink.add(
         this.loginService.login(this.user).subscribe(
           (compileResults) => {
@@ -55,14 +41,10 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
             const encodedData = btoa(this.currentUserName.toString());
             localStorage.setItem("userName_",encodedData);
 
-
-
             console.log("abc")
             console.log(compileResults);
 
-
-
-            this.messageService.showSucessMessage("login-Sucess");
+            this.messageService.showSucessMessage("login-Success!");
             this.router.navigateByUrl(this.router.createUrlTree(["dashboard/main"]))
           }
           , error => {

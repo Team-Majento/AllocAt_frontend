@@ -12,8 +12,9 @@ export interface UserRequest{
   gender: CharacterData ;
   imageURL: String ;
   userType: BigInt;
-  managersEIDL: BigInt  ;
+  managersEID: number  ;
   activeStatus: Boolean ;
+
   // todo
   // city:String;
 

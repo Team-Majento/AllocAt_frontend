@@ -14,6 +14,7 @@
                 <input matInput
                        name="id"
                        id="id"
+                       type="number"
                        [(ngModel)]="user.userId"
                        #id="ngModel"
                        class="field"
@@ -147,11 +148,11 @@
                   matInput
                   name="managersEIDL"
                   id="managersEIDL"
-                  [(ngModel)]="user.managersEIDL"
-                  #managersEIDL="ngModel"
+                  [(ngModel)]="user.managersEID"
+                  #managersEID="ngModel"
                   class="field"
                   required/>
-                <mat-error *ngIf="managersEIDL.invalid && (managersEIDL.dirty || managersEIDL.touched) && managersEIDL.errors?.['required']" class="alert">managersEID is required.</mat-error>
+                <mat-error *ngIf="managersEID.invalid && (managersEID.dirty || managersEID.touched) && managersEID.errors?.['required']" class="alert">managersEID is required.</mat-error>
 
               </mat-form-field>
 
