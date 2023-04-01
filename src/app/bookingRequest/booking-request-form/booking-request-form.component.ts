@@ -3,7 +3,7 @@ import {NgForm} from "@angular/forms";
 import {SubSink} from "subsink";
 import {BookingRequest} from "../../../models/bookingRequest";
 import {BookingRequestService} from "../../service/booking-request.service";
-import {DatePipe} from "@angular/common";
+import {DatePipe, Location} from "@angular/common";
 import {ActivatedRoute} from "@angular/router";
 import {Resource} from "../../../models/resource";
 import {ResourceService} from "../../service/resource.service";
@@ -16,6 +16,7 @@ import {FormControlUtil} from "../../../utility/form-control-util";
   styleUrls: ['./booking-request-form.component.scss']
 })
 export class BookingRequestFormComponent  extends FormControlUtil {
+
 
   @Input()
   formTitle = "Form";
@@ -33,8 +34,7 @@ export class BookingRequestFormComponent  extends FormControlUtil {
 
   private subSink=new SubSink();
 
-
-  constructor(private userService :UserService ,private bookingReqService:BookingRequestService, private route: ActivatedRoute,private resourceService: ResourceService) {
+  constructor(private userService :UserService ,private bookingReqService:BookingRequestService, private route: ActivatedRoute,private resourceService: ResourceService,private location :Location) {
     super();
     this.bookingRequest.status="pending";
 
@@ -54,7 +54,6 @@ export class BookingRequestFormComponent  extends FormControlUtil {
     //     });
     // }
 
-
     route.params.subscribe(resourceId => {
       this.bookingRequest.resourceId = resourceId["resourceId"];
       console.log(this.bookingRequest.resourceId)
@@ -62,6 +61,7 @@ export class BookingRequestFormComponent  extends FormControlUtil {
     // if (this.bookingRequest.resourceId == null) {
     //
     // } else {
+
     //   this.resourceService.getResourceById(String(this.bookingRequest.resourceId)).subscribe(
     //     (resource) => {
     //       console.log(resource);
@@ -74,7 +74,6 @@ export class BookingRequestFormComponent  extends FormControlUtil {
     //     });
     // }
   }
-
   addBookingRequest() {
     if (this.isFormValid(this.inputForm)) {
       this.bookingReqService.addBookingRequest(this.bookingRequest).subscribe(
@@ -86,10 +85,12 @@ export class BookingRequestFormComponent  extends FormControlUtil {
         });
     }
   }
-
-
   updateDate() {
     const datePipe = new DatePipe('en-US');
     this.bookingRequest.requiredDate = <string>datePipe.transform(this.bookingRequest.requiredDate, 'yyyy-MM-dd');
+  }
+
+  goBack() {
+    this.location.back();
   }
 }

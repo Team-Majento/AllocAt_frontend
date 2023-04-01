@@ -12,7 +12,4 @@ startTime:string;
 endTime:string;
 
 status:string;
-
-
-
 }

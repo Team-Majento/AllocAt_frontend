@@ -1,23 +1,22 @@
-<!--<div class="container-body" style="background-color: #ffd305">-->
 <div class="container" style="height: 650px; margin-bottom: 30px">
-<!--     {{bookingRequest|json}}-->
+  <!--     {{bookingRequest|json}}-->
   <div class="side">
-    <img src="assets/img/workingLady.png" style="width: 350px; height: 300px" />
+    <img src="assets/img/booking_img.png" style="width: 350px; height: 300px" />
     <br />
   </div>
   <mat-card style="height: 650px">
     <mat-card-content>
       <div class="header">
-        <h2><b>Booking Request Form</b></h2>
+        <h2><b>Let's Place Your Booking Here</b></h2>
         <br />
       </div>
 
       <form #InputForm="ngForm">
         <span style="color: #212529" class="ms-0">
-<!--          Resource ID: {{ bookingRequest.resourceId }}-->
+          <!--Resource ID: {{ bookingRequest.resourceId }}-->
         </span>
         <div class="input">
-          <mat-form-field class="full-width" appearance="outline">
+          <mat-form-field class="full-width">
             <mat-label>User Id</mat-label>
             <input
               matInput
@@ -34,7 +33,7 @@
         </div>
 
         <div class="input">
-          <mat-form-field class="full-width" appearance="outline">
+          <mat-form-field class="full-width" >
             <mat-label>Company Id</mat-label>
             <input
               matInput
@@ -45,10 +44,7 @@
               required
             />
           </mat-form-field>
-          <div
-            *ngIf="comId.invalid && (comId.dirty || comId.touched)"
-            class="alert"
-          >
+          <div *ngIf="comId.invalid && (comId.dirty || comId.touched)" class="alert">
             <div *ngIf="comId.errors?.['required']">
               Company ID is required.
             </div>
@@ -56,7 +52,7 @@
         </div>
 
         <div class="input">
-          <mat-form-field class="full-width" appearance="outline">
+          <mat-form-field class="full-width" >
             <mat-label>Resource Manager's Id</mat-label>
             <input
               matInput
@@ -67,18 +63,16 @@
               required
             />
           </mat-form-field>
-          <div
-            *ngIf="Muid.invalid && (Muid.dirty || Muid.touched)"
-            class="alert"
-          >
+          <div *ngIf="Muid.invalid && (Muid.dirty || Muid.touched)" class="alert">
             <div *ngIf="Muid.errors?.['required']">
               Resource Manager's ID is required.
             </div>
           </div>
         </div>
 
+        <!--date picker-->
         <div class="input">
-          <mat-form-field appearance="outline">
+          <mat-form-field class="full-width" >
             <mat-label>Choose a date</mat-label>
 
             <input
@@ -98,10 +92,7 @@
             ></mat-datepicker-toggle>
             <mat-datepicker #picker></mat-datepicker>
           </mat-form-field>
-          <div
-            *ngIf="requiredDate.invalid && (requiredDate.dirty || Muid.touched)"
-            class="alert1"
-          >
+          <div *ngIf="requiredDate.invalid && (requiredDate.dirty || requiredDate.touched)" class="alert">
             <div *ngIf="requiredDate.errors?.['required']">
               Date is required.
             </div>
@@ -109,7 +100,7 @@
         </div>
 
         <div class="input mt-1">
-          <mat-form-field appearance="outline">
+          <mat-form-field class="full-width" >
             <mat-label>Start time</mat-label>
             <input
               matInput
@@ -128,10 +119,7 @@
               watch_later
             </mat-icon>
           </mat-form-field>
-          <div
-            *ngIf="startTime.invalid && (startTime.dirty || startTime.touched)"
-            class="alert1"
-          >
+          <div *ngIf="startTime.invalid && (startTime.dirty || startTime.touched)" class="alert">
             <div *ngIf="startTime.errors?.['required']">
               Start time is required.
             </div>
@@ -140,7 +128,7 @@
         </div>
 
         <div class="input mt-1">
-          <mat-form-field appearance="outline">
+          <mat-form-field class="full-width">
             <mat-label>End time</mat-label>
             <input
               matInput
@@ -158,10 +146,7 @@
               watch_later
             </mat-icon>
           </mat-form-field>
-          <div
-            *ngIf="endTime.invalid && (endTime.dirty || endTime.touched)"
-            class="alert1"
-          >
+          <div *ngIf="endTime.invalid && (endTime.dirty || endTime.touched)" class="alert">
             <div *ngIf="endTime.errors?.['required']">
               End time is required.
             </div>
@@ -170,11 +155,17 @@
         </div>
 
         <div>
-          <button class="btn btn-primary " (click)="addBookingRequest()" >
+          <button class="btn btn-primary" (click)="addBookingRequest()">
             Submit
           </button>
 
-          <button class="btn btn-primary ">Cancel</button>
+          <button
+            class="btn btn-secondary"
+            [routerLink]="['/resourceId']"
+            (click)="goBack()"
+          >
+            Cancel
+          </button>
         </div>
       </form>
     </mat-card-content>
