@@ -13,7 +13,7 @@ import {Location} from '@angular/common';
 export class ViewResourceListComponent implements OnInit {
   @Output()
   resourceList: any = []; //***
-  page:number=0;
+  page:number=1;
   allResources!: number;
   selectedResource!: Resource;
 
@@ -21,7 +21,7 @@ export class ViewResourceListComponent implements OnInit {
   constructor(private resourceService: ResourceService, private router: Router, private location: Location) {
   }
 
-  getAllResources(page:number) {
+  getAllResources() {
     this.resourceService.getAllResources(this.page).subscribe(
       (compileResults) => {
         // @ts-ignore
@@ -38,7 +38,7 @@ export class ViewResourceListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllResources(0);
+    this.getAllResources();
   }
 
   displayResourceDetails(id: number) {
@@ -54,7 +54,7 @@ export class ViewResourceListComponent implements OnInit {
 
   renderPage(event: number) {
     this.page=event;
-    this.getAllResources(this.page)
+    this.getAllResources()
   }
 
 
