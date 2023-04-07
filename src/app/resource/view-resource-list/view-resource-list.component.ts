@@ -2,7 +2,7 @@ import {Component, OnInit, Output} from '@angular/core';
 import {ResourceService} from "../../service/resource.service";
 import {Resource} from "../../../models/resource";
 import {Router} from "@angular/router";
-import { Location } from '@angular/common';
+import {Location} from '@angular/common';
 
 
 @Component({
@@ -12,31 +12,36 @@ import { Location } from '@angular/common';
 })
 export class ViewResourceListComponent implements OnInit {
   @Output()
-  resourceList:any=[]; //***
+  resourceList: any = []; //***
+  page:number=0;
+  allResources!: number;
+  selectedResource!: Resource;
 
-  selectedResource!:Resource;
-  constructor(private resourceService:ResourceService,private router:Router,private location:Location) {
+
+  constructor(private resourceService: ResourceService, private router: Router, private location: Location) {
   }
 
-  getAllResources() {
-      this.resourceService.getAllResources().subscribe(
-        (compileResults) => {
-          // @ts-ignore
-          const content = compileResults['content'];
-          console.log(content);
-          this.resourceList=content;
-        }
-        , error => {
-          console.log(error)
-        });
+  getAllResources(page:number) {
+    this.resourceService.getAllResources(this.page).subscribe(
+      (compileResults) => {
+        // @ts-ignore
+        const content = compileResults['content'];
+        // @ts-ignore
+          this.allResources= compileResults['totalElements'];
+
+        this.resourceList = content;
+      }
+      , error => {
+        console.log(error)
+      });
 
   }
 
   ngOnInit(): void {
-    this.getAllResources();
+    this.getAllResources(0);
   }
 
-  displayResourceDetails(id:number) {
+  displayResourceDetails(id: number) {
     this.resourceService.setSelectedResource(id);
     this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/resources/${id}`]));
 
@@ -44,6 +49,13 @@ export class ViewResourceListComponent implements OnInit {
   }
 
   goBack() {
-this.location.back();
+    this.location.back();
   }
+
+  renderPage(event: number) {
+    this.page=event;
+    this.getAllResources(this.page)
+  }
+
+
 }

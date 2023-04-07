@@ -1,9 +1,15 @@
 <div class="container">
-<!--{{resourceList|json}}-->
+  <!--{{resourceList|json}}-->
   <div class="row g-3 mt-2">
-    <div class="col-lg-3 col-6 " *ngFor="let resource of resourceList">
-      <div class="card h-100" >
-        <img width="100%"  height="240px" alt="img of a resource" src="{{resource['imgUrl']}}">
+    <div *ngFor="let resource of resourceList | paginate:
+    {
+      itemsPerPage:3,
+      currentPage:page,
+      totalItems:allResources
+    }"
+         class="col-lg-3 col-6 ">
+      <div class="card h-100">
+        <img alt="img of a resource" height="240px" src="{{resource['imgUrl']}}" width="100%">
         <div class="card-body">
           <h5 class="card-title">Resource ID: {{resource.id}} </h5>
           <p class="card-text">
@@ -12,15 +18,18 @@
             Company:{{resource["company"]}} <br>
             Capacity: {{resource["maximumCapacity"]}}<br>
           </p>
-          <button class="btn btn-primary" (click)="displayResourceDetails(resource.id)">More</button>
+          <button (click)="displayResourceDetails(resource.id)" class="btn btn-primary">More</button>
         </div>
       </div>
     </div>
 
-
   </div>
 
-  <button class="btn btn-primary me-3 mb-3 back-btn" (click)="goBack()">Back</button>
+  <div class="d-flex justify-content-center">
+<pagination-controls (pageChange)="renderPage($event)" class="mt-5"></pagination-controls>
+  </div>
+
+  <button (click)="goBack()" class="btn btn-primary me-3 mb-3 back-btn">Back</button>
 </div>
 
 

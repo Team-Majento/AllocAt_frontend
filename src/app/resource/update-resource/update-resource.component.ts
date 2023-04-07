@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {ResourceService} from "../../service/resource.service";
 import {ActivatedRoute} from "@angular/router";
 import {Resource} from "../../../models/resource";
@@ -8,12 +8,11 @@ import {Resource} from "../../../models/resource";
   templateUrl: './update-resource.component.html',
   styleUrls: ['./update-resource.component.scss']
 })
-export class UpdateResourceComponent implements OnInit {
+export class UpdateResourceComponent {
 
   selectedResource!: Resource;
 
   resourceId!: string;
-
 
 
   constructor(private resourceService: ResourceService, private route: ActivatedRoute) {
@@ -24,7 +23,7 @@ export class UpdateResourceComponent implements OnInit {
 
       } else {
         this.resourceService.getResourceById(this.resourceId).subscribe(
-          (resource ) => {
+          (resource) => {
             console.log(resource);
             this.selectedResource = <Resource>resource;
           }
@@ -35,19 +34,5 @@ export class UpdateResourceComponent implements OnInit {
     })
 
   }
-
-  ngOnInit(): void {
-
-  }
-
-
-
-
-
-
-
-
-
-
 
 }

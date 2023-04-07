@@ -2,7 +2,7 @@ import {Component} from '@angular/core';
 import {Resource} from "../../../models/resource";
 import {ResourceService} from "../../service/resource.service";
 import {ActivatedRoute, Router} from "@angular/router";
-import { Location } from '@angular/common';
+import {Location} from '@angular/common';
 import {ReviewRating} from "../../../models/reviewRating";
 
 @Component({
@@ -13,11 +13,11 @@ import {ReviewRating} from "../../../models/reviewRating";
 export class ResourceProfileComponent {
   selectedResource!: Resource;
 
-  reviews!:any;
+  reviews!: any;
 
   resourceId!: string;
 
-  constructor(private resourceService: ResourceService, private route: ActivatedRoute,private router:Router,private location:Location) {
+  constructor(private resourceService: ResourceService, private route: ActivatedRoute, private router: Router, private location: Location) {
     route.params.subscribe(resourceId => {
       this.resourceId = resourceId["resourceId"];
       console.log(this.resourceId)

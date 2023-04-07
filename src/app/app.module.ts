@@ -55,7 +55,7 @@ import { UpdateRateCardComponent } from './rateCard/update-rate-card/update-rate
 import { AddRateCardardComponent } from './rateCard/add-rate-cardard/add-rate-cardard.component';
 import { CompanyWiseReportComponent } from './reportGeneration/company-wise-report/company-wise-report.component';
 import { GeneralReportComponent } from './reportGeneration/general-report/general-report.component';
-
+import {NgxPaginationModule} from "ngx-pagination";
 
 @NgModule({
   declarations: [
@@ -110,13 +110,13 @@ import { GeneralReportComponent } from './reportGeneration/general-report/genera
     MatCardModule,
     MatCheckboxModule,
     MatInputModule,
-    //MatInputModule,
     MatDatepickerModule,
     MatRadioModule,
     NgxMatTimepickerModule,
     MatSelectModule,
     MatNativeDateModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

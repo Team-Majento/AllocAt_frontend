@@ -8,12 +8,12 @@ import {UserLogin} from "../../models/userLogin";
 import {Router} from "@angular/router";
 import {UserService} from "../service/user.service";
 
+
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
-
 export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy {
   @ViewChild('InputForm')
   inputForm!: NgForm;
@@ -44,7 +44,8 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
             console.log("abc")
             console.log(compileResults);
 
-            this.messageService.showSucessMessage("login-Success!");
+            this.messageService.showSucessMessage("login-Sucess");
+          //  this.messageService.showSucessMessage("login-Success!");
             this.router.navigateByUrl(this.router.createUrlTree(["dashboard/main"]))
           }
           , error => {
@@ -56,7 +57,6 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
   }
 
   ngOnDestroy(): void {
-
     this.subSink.unsubscribe();
   }
 

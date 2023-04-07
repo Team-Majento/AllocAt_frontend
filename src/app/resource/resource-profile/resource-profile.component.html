@@ -1,47 +1,46 @@
 <!--{{selectedResource|json}}-->
 <div *ngIf="selectedResource" class="container mt-5 bg-light">
-    <div class="row">
-      <div class="col-lg-6 resource-image-container">
-        <img alt="resource_img" class="img-fluid mt-5 img-shadow" src="{{ selectedResource.imgUrl }}">
-      </div>
-
-      <div class="col-lg-6">
-        <div class="row">
-          <div class="col-12 mb-3 mt-3">
-            <h3 class="ms-4 resource-title">Resource Details</h3>
-          </div>
-        </div>
-
-        <div class="row">
-          <div class="col-3 mb-0 ms-4 resource-label">
-            <p>Resource ID </p>
-            <p>Company Name </p>
-            <p>Resource Type </p>
-            <p *ngIf="selectedResource.rateCardId!=null">RateCard ID </p>
-            <p>Active Status </p>
-            <p>Capacity</p>
-            <p class="font-monospace fw-bold"><u>Description</u></p>
-          </div>
-
-          <div class="col-8">
-            <p class="resource-value">:  {{selectedResource.id}} </p>
-            <p class="resource-value">:  {{ selectedResource.company}}</p>
-            <p class="resource-value">:  {{ selectedResource.resourceType }}</p>
-            <p class="resource-value" *ngIf="selectedResource.rateCardId!=null" >:  {{ selectedResource.rateCardId }}</p>
-            <p class="resource-value">:  {{ selectedResource.activeStatus }}</p>
-            <p class="resource-value">:  {{ selectedResource.maximumCapacity }}</p>
-          </div>
-
-          <div class="col-12 mt-0 ms-4">
-            <p class="resource-description" style="text-align: justify;">{{ selectedResource.description }}</p>
-          </div>
-        </div>
-        <button (click)="addRequest()" class="btn btn-primary me-3 mb-3 book-btn ms-4">Book</button>
-        <button (click)="updateResource()" class="btn btn-primary me-3 mb-3 update-btn">Update</button>
-        <button (click)="goBack()" class="btn btn-primary me-3 mb-3 back-btn">Back</button>
-      </div>
+  <div class="row">
+    <div class="col-lg-6 resource-image-container">
+      <img alt="resource_img" class="img-fluid mt-5 img-shadow" src="{{ selectedResource.imgUrl }}">
     </div>
 
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-12 mb-3 mt-3">
+          <h3 class="ms-4 resource-title">Resource Details</h3>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-3 mb-0 ms-4 resource-label">
+          <p>Resource ID </p>
+          <p>Company Name </p>
+          <p>Resource Type </p>
+          <p *ngIf="selectedResource.rateCardId!=null">RateCard ID </p>
+          <p>Active Status </p>
+          <p>Capacity</p>
+          <p class="font-monospace fw-bold"><u>Description</u></p>
+        </div>
+
+        <div class="col-8">
+          <p class="resource-value">:  {{selectedResource.id}} </p>
+          <p class="resource-value">:  {{ selectedResource.company}}</p>
+          <p class="resource-value">:  {{ selectedResource.resourceType }}</p>
+          <p *ngIf="selectedResource.rateCardId!=null" class="resource-value">:  {{ selectedResource.rateCardId }}</p>
+          <p class="resource-value">:  {{ selectedResource.activeStatus }}</p>
+          <p class="resource-value">:  {{ selectedResource.maximumCapacity }}</p>
+        </div>
+
+        <div class="col-12 mt-0 ms-4">
+          <p class="resource-description" style="text-align: justify;">{{ selectedResource.description }}</p>
+        </div>
+      </div>
+      <button (click)="addRequest()" class="btn btn-primary me-3 mb-3 book-btn ms-4">Book</button>
+      <button (click)="updateResource()" class="btn btn-primary me-3 mb-3 update-btn">Update</button>
+      <button (click)="goBack()" class="btn btn-primary me-3 mb-3 back-btn">Back</button>
+    </div>
+  </div>
 
 
   <div class="row bg-light pt-0">
@@ -75,6 +74,6 @@
       </div>
     </div>
 
-</div>
+  </div>
 
 </div>

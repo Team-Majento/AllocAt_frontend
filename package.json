@@ -29,6 +29,7 @@
     "bootstrap": "^5.2.3",
     "chart.js": "^2.9.4",
     "ngx-mat-timepicker": "^15.1.6",
+    "ngx-pagination": "^6.0.3",
     "rxjs": "~7.8.0",
     "subsink": "^1.0.2",
     "tslib": "^2.3.0",
