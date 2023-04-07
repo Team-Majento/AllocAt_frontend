@@ -29,7 +29,7 @@ export class ResourceService {
   }
 
   getAllResources(page:number) {
-    this.apiUrl2=`${Config.endpoints.backendApi}/companies/resources-page?page=${page-1}&size=3`;
+    this.apiUrl2=`${Config.endpoints.backendApi}/companies/resources-page?page=${page-1}&size=8`;
     return this.httpClient.get<object>(this.apiUrl2);
   }
 
