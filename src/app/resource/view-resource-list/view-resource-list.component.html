@@ -1,5 +1,18 @@
 <div class="container">
   <!--{{resourceList|json}}-->
+  <div class="row g-3 mt-2 mb-2 bg-warning ">
+    <div class="d-inline-block col-3">
+      <label for="company-select">Select Company:</label>
+      <select #company="ngModel" (ngModelChange)="onCompanySelectionChange($event)"
+              [(ngModel)]="companyId" id="company-select"
+              name="company" >
+        <option *ngFor="let company of companies" [value]="company.id">{{ company.name }}</option>
+      </select>
+    </div>
+    <div class="col-3">  <button class="btn btn-primary mb-2" (click)="search()">Search</button></div>
+
+  </div>
+
   <div class="row g-3 mt-2">
     <div *ngFor="let resource of resourceList | paginate:
     {

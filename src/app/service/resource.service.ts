@@ -49,4 +49,12 @@ export class ResourceService {
     let apiUrl = `http://localhost:8082/companies/resource/${resourceId}/reviews`
     return this.httpClient.get<object>(apiUrl);
   }
+
+  getAllFilteredResources(page: number, companyId: number) {
+    let apiUrl4=`${Config.endpoints.backendApi}/companies/filtered-resources-page?page=${page-1}&size=8&company=${companyId}`;
+    console.log("**"+apiUrl4)
+    return this.httpClient.get<object>(apiUrl4);
+  }
+
+
 }
