@@ -21,40 +21,87 @@
             </div>
           </div>
 
-          <div class="mb-3">
-            <label class="mb-2" for="resource-desc">Description</label>
-            <textarea #description="ngModel" [(ngModel)]="resource.description" class="form-control" id="resource-desc"
-                      name="resource-desc" required rows="8"></textarea>
-            <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert">
-              <div *ngIf="description.errors?.['required']">
-                Description is required.
-              </div>
-            </div>
-          </div>
 
-          <div class="mb-3">
-            <label class="mb-2" for="floor">Floor</label>
-            <input #floor="ngModel" [(ngModel)]="resource.floor" class="form-control" id="floor" name="floor"
-                   required type="number">
-            <div *ngIf="floor.invalid && (floor.dirty || floor.touched)" class="alert">
-              <div *ngIf="floor.errors?.['required']">
-                floor is required.
-              </div>
-            </div>
-          </div>
+<!--            <label class="mb-2" for="resource-desc">Description</label>-->
+<!--            <textarea #description="ngModel" [(ngModel)]="resource.description" class="form-control" id="resource-desc1"-->
+<!--                      name="resource-desc1" required rows="8"></textarea>-->
+<!--            <div *ngIf="description.invalid && (description.dirty || description.touched)" class="alert">-->
+<!--              <div *ngIf="description.errors?.['required']">-->
+<!--                Description is required.-->
+<!--              </div>-->
+<!--            </div>-->
 
-          <div class="mb-3">
-            <label class="mb-2" for="building-id">Building ID</label>
-            <input #bId="ngModel" [(ngModel)]="resource.buildingId" class="form-control" id="building-id"
-                   name="building-id"
-                   required type="text">
+            <!--USERID-->
+            <mat-form-field  class="justifier mt-0" style="width:100%" floatlabel="auto" appearance="outline">
+              <mat-label>Description</mat-label>
+              <textarea matInput
+                        name="resource-desc"
+                        rows="8"
+                        id="resource-desc"
+                        type="number"
+                        style="width:100%;"
+                        [(ngModel)]="resource.description"
+                        #description="ngModel"
+                        class="field"
+                        required></textarea>
+              <mat-error *ngIf="description.invalid && (description.dirty || description.touched) && description.errors?.['required']" class="alert ">Description is required.</mat-error>
+            </mat-form-field>&nbsp;
 
-            <div *ngIf="bId.invalid && (bId.dirty || bId.touched)" class="alert">
-              <div *ngIf="bId.errors?.['required']">
-                Building Id is required.
-              </div>
-            </div>
-          </div>
+<!--            <label class="mb-2" for="floor">Floor</label>-->
+<!--            <input #floor="ngModel" [(ngModel)]="resource.floor" class="form-control" id="floor1" name="floor1"-->
+<!--                   required type="number">-->
+<!--            <div *ngIf="floor.invalid && (floor.dirty || floor.touched)" class="alert">-->
+<!--              <div *ngIf="floor.errors?.['required']">-->
+<!--                floor is required.-->
+<!--              </div>-->
+<!--            </div>-->
+
+            <mat-form-field  class="justifier mt-0" style="width:100%;" floatlabel="auto" appearance="outline">
+              <mat-label>Floor</mat-label>
+              <input matInput
+                     name="floor"
+                     id="floor"
+                     style="width:100%;"
+                     type="number"
+                     [(ngModel)]="resource.floor"
+                     #floor="ngModel"
+                     class="field"
+                     required/>
+              <mat-error *ngIf="floor.invalid && (floor.dirty || floor.touched) && floor.errors?.['required']" class="alert">Floor is required.</mat-error>
+            </mat-form-field>&nbsp;
+
+
+          <mat-form-field  class="justifier mt-0" style="width:100%;" floatlabel="auto" appearance="outline">
+            <mat-label>Building ID:</mat-label>
+            <input matInput
+                   name="floor"
+                   id="building-id"
+                   style="width:100%;"
+                   type="text"
+                   [(ngModel)]="resource.buildingId"
+                   #buildingID="ngModel"
+                   class="field"
+                   required/>
+            <mat-error *ngIf="buildingID.invalid && (buildingID.dirty || buildingID.touched) && buildingID.errors?.['required']" class="alert">BuildingId is required.</mat-error>
+          </mat-form-field>&nbsp;
+
+
+
+
+
+
+<!--          <div class="mb-3">-->
+<!--            <label class="mb-2" for="building-id">Building ID</label>-->
+<!--            <input #bId="ngModel" [(ngModel)]="resource.buildingId" class="form-control" id="building-id"-->
+<!--                   name="building-id"-->
+<!--                   required type="text">-->
+
+<!--            <div *ngIf="bId.invalid && (bId.dirty || bId.touched)" class="alert">-->
+<!--              <div *ngIf="bId.errors?.['required']">-->
+<!--                Building Id is required.-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
 
 
         </div>
@@ -66,28 +113,63 @@
           <!--            <input class="form-control" id="rateCard-id" name="rateCard-id" type="number" [(ngModel)]="resource.rateCardId" >-->
           <!--          </div>-->
 
-          <div class="mb-3">
-            <label class="mb-2" for="resource-type">Resource Type</label>
-            <input #rcType="ngModel" [(ngModel)]="resource.resourceType" class="form-control" id="resource-type"
+
+          <mat-form-field  class="justifier mt-0" style="width:100%;" floatlabel="auto" appearance="outline">
+            <mat-label>Resource Type:</mat-label>
+            <input matInput
                    name="resource-type"
-                   required type="number">
-            <div *ngIf="rcType.invalid && (rcType.dirty ||rcType.touched)" class="alert">
-              <div *ngIf="rcType.errors?.['required']">
-                Resource Type is required.
-              </div>
-            </div>
-          </div>
+                   id="resource-type"
+                   style="width:100%;"
+                   type="number"
+                   [(ngModel)]="resource.resourceType"
+                   #rcType="ngModel"
+                   class="field"
+                   required/>
+            <mat-error *ngIf="rcType.invalid && (rcType.dirty || rcType.touched) && rcType.errors?.['required']" class="alert">Resource Type is required.</mat-error>
+          </mat-form-field>&nbsp;
+
+
+
+
+
+<!--          <div class="mb-3">-->
+<!--            <label class="mb-2" for="resource-type">Resource Type</label>-->
+<!--            <input #rcType="ngModel" [(ngModel)]="resource.resourceType" class="form-control" id="resource-type"-->
+<!--                   name="resource-type"-->
+<!--                   required type="number">-->
+<!--            <div *ngIf="rcType.invalid && (rcType.dirty ||rcType.touched)" class="alert">-->
+<!--              <div *ngIf="rcType.errors?.['required']">-->
+<!--                Resource Type is required.-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
 
           <div class="mb-3">
-            <label class="mb-2" for="max-capacity">Maximum Capacity</label>
-            <input #mCapacity="ngModel" [(ngModel)]="resource.maximumCapacity" class="form-control" id="max-capacity"
-                   name="max-capacity"
-                   required type="number">
-            <div *ngIf="mCapacity.invalid && (mCapacity.dirty ||mCapacity.touched)" class="alert">
-              <div *ngIf="mCapacity.errors?.['required']">
-                Maximum capacity is required.
-              </div>
-            </div>
+
+
+
+<!--            <label class="mb-2" for="max-capacity">Maximum Capacity</label>-->
+<!--            <input #mCapacity="ngModel" [(ngModel)]="resource.maximumCapacity" class="form-control" id="max-capacity"-->
+<!--                   name="max-capacity"-->
+<!--                   required type="number">-->
+<!--            <div *ngIf="mCapacity.invalid && (mCapacity.dirty ||mCapacity.touched)" class="alert">-->
+<!--              <div *ngIf="mCapacity.errors?.['required']">-->
+<!--                Maximum capacity is required.-->
+<!--              </div>-->
+<!--            </div>-->
+            <mat-form-field  class="justifier mt-0" style="width:100%;" floatlabel="auto" appearance="outline">
+              <mat-label>Maximum Capacity:</mat-label>
+              <input matInput
+                     name="maximum-capacity"
+                     id="maximum-capacity"
+                     style="width:100%;"
+                     type="number"
+                     [(ngModel)]="resource.maximumCapacity"
+                     #mCapacity="ngModel"
+                     class="field"
+                     required/>
+              <mat-error *ngIf="mCapacity.invalid && (mCapacity.dirty || mCapacity.touched) && mCapacity.errors?.['required']" class="alert">Maximum Capacity is required.</mat-error>
+            </mat-form-field>&nbsp;
 
           </div>
 

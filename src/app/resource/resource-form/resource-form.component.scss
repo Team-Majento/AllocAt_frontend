@@ -24,3 +24,26 @@ h3{
   text-align: left;
   margin-top: -20px;
 }
+
+
+.custom-mat-error{
+color: #860404;
+  background-color: #f57979;
+ width: 105%;
+  height:30px;
+  padding: 0 0 0 10px;
+  margin-top: 5px;
+  margin-left: -15px;
+  margin-bottom:0;
+}
+
+
+.alert{
+  color:red;
+  width:600px;
+  height:13px;
+  font-size: 12px;
+  padding:0px;
+  //margin-bottom: 10px;
+  text-align: left;
+}

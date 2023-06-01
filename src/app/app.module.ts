@@ -56,6 +56,7 @@ import { AddRateCardardComponent } from './rateCard/add-rate-cardard/add-rate-ca
 import { CompanyWiseReportComponent } from './reportGeneration/company-wise-report/company-wise-report.component';
 import { GeneralReportComponent } from './reportGeneration/general-report/general-report.component';
 import {NgxPaginationModule} from "ngx-pagination";
+import { ResourceSchedulerComponent } from './resource/resource-scheduler/resource-scheduler.component';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,8 @@ import {NgxPaginationModule} from "ngx-pagination";
     UpdateRateCardComponent,
     AddRateCardardComponent,
     CompanyWiseReportComponent,
-    GeneralReportComponent
+    GeneralReportComponent,
+    ResourceSchedulerComponent
   ],
   imports: [
     BrowserModule,

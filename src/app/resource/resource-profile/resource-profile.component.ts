@@ -55,6 +55,10 @@ export class ResourceProfileComponent {
     this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/resources/${this.resourceId}/update`]))
   }
 
+  viewBookings() {
+    this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/resources/${this.resourceId}/view-booking-schedule`]))
+  }
+
   goBack() {
     this.location.back();
   }
@@ -62,4 +66,8 @@ export class ResourceProfileComponent {
   getStarsArray(numStars: number): number[] {
     return Array(numStars).fill(0);
   }
+
+
+
+
 }
