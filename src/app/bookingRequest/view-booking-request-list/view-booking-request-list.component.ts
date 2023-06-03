@@ -29,7 +29,6 @@ export class ViewBookingRequestListComponent implements OnInit{
   ngOnInit(): void {
     this.getAllBookingRequests();
   }
-
   goBack() {
     this.location.back();
   }

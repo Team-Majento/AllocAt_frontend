@@ -1,40 +1,60 @@
-@media (max-width: 992px) {
-  .main-con {
-    padding: 1.5rem .5rem !important;
-  }
-}
+
 .table,th,td{
   border-collapse: collapse;
-  border: 1px solid black;
+  border: 0.5px solid gray ;
+
 }
-
-// .table{
-//   width:90%;
-//   margin-left:80px;
-//   margin-top:20px;
-
-// }
-
-// tr:nth-child(even) {
-//   background-color: #dddddd;
-// }
 th{
-  // background-color: rgb(153, 210, 236);
-  height:25px;
+  background-color:#4b49ac;
+  height:45px;
+  color: white;
+  font-weight:400;
+  text-align: center;
+  border-right:none;
+  border-left:none;
+
+}
+td{
+  border-right:none;
+  border-left:none;
+  text-align: center;
+
 }
 button{
   margin-right: 10px;
+  height:35px;
 }
-
 h2{
   text-align: center;
   margin-top: 10px;
 }
 
-tr:hover {
-  background-color: rgb(230, 235, 238);}
+//tr:hover {
+//  background-color: rgb(230, 235, 238);}
 
 
+.form-select{
+
+  width:20%;
+  margin-top:30px;
+  margin-left:1022px;
+  //background-color:darkgrey;
+}
+
+body{
+  background-color: #f5f7ff;
+  //height: 650px;
+  margin-top:15px;
+  margin-left:40px;
+  margin-right:40px;
+  padding-top:2px;
+}
+select{
+  //background:lightgrey;
+  border-radius: 3px;
+  font-weight:400;
+
+}
 
 @media (min-width: 1281px) {
   .table{
@@ -64,6 +84,11 @@ tr:hover {
 
   }
 
+}
+@media (max-width: 992px) {
+  .main-con {
+    padding: 1.5rem .5rem !important;
+  }
 }
 
 .back-btn {
