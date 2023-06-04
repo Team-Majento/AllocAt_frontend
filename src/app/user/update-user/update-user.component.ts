@@ -15,31 +15,34 @@ export class UpdateUserComponent {
 
   selectedUser!:UserRequest;
 
-  // userId!: string;
-  //
-  // constructor(private UserService: UserService, private route: ActivatedRoute) {
-  //   route.params.subscribe(userId => {
-  //     this.userId = userId["userId"];
-  //     console.log(this.userId)
-  //     if (this.userId == null) {
-  //
-  //     } else {
-  //       this.UserService.getUserById(this.userId).subscribe(
-  //         (user) => {
-  //           console.log(user);
-  //           this.selectedUser = <User>user;
-  //         }
-  //         , (error) => {
-  //           console.log(error)
-  //         });
-  //     }
-  //   })
-  //
-  // }
-  //
-  // ngOnInit(): void {
-  //
-  // }
-  //
+  userId!: BigInteger;
+  userName!: String;
+
+
+  constructor(private UserService: UserService, private route: ActivatedRoute) {
+    route.params.subscribe(userId => {
+      this.userName = localStorage.getItem("userName_") + "";
+      const decodedData = atob(this.userName.toString());
+      console.log(this.userId)
+      if (this.userName == null) {
+
+      } else {
+        this.UserService.getUserByUserName(decodedData).subscribe(
+          (user) => {
+            console.log(user);
+            this.selectedUser = <User>user;
+          }
+          , (error) => {
+            console.log(error)
+          });
+      }
+    })
+
+  }
+
+  ngOnInit(): void {
+
+  }
+
 
 }
