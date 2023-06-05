@@ -9,6 +9,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {RateCardFormComponent} from "../../rateCard/rate-card-form/rate-card-form.component";
 import {Config} from "../../../config/config";
 import {HttpClient} from "@angular/common/http";
+import {DisplayMessageService} from "../../service/display-message.service";
 
 @Component({
   selector: 'app-resource-form',
@@ -32,7 +33,7 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
 
   url="assets/img/upload-img.png"
 
-  constructor(private resourceService: ResourceService, private companyService: CompanyService, private location: Location, private dialogRef: MatDialog,private httpClient: HttpClient) {
+  constructor(private resourceService: ResourceService, private companyService: CompanyService, private location: Location, private dialogRef: MatDialog,private httpClient: HttpClient,private messageService:DisplayMessageService) {
     super();
   }
 
@@ -55,14 +56,17 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
           this.resourceService.addResource(this.resource).subscribe(
             (compileResults) => {
               console.log(compileResults);
+              this.messageService.showSucessMessage("resource Added-Successfully");
             }
             , error => {
               console.log(error)
+              this.messageService.showErrorMessage("error occurred");
             });
         },
         (error: any) => {
           // Handle any errors that occurred during the upload
           console.error('Error uploading file:', error);
+          this.messageService.showErrorMessage("error occurred--Error uploading file");
         }
       );
 
