@@ -57,6 +57,7 @@ import { CompanyWiseReportComponent } from './reportGeneration/company-wise-repo
 import { GeneralReportComponent } from './reportGeneration/general-report/general-report.component';
 import {NgxPaginationModule} from "ngx-pagination";
 import { ResourceSchedulerComponent } from './resource/resource-scheduler/resource-scheduler.component';
+import { SelectBookingsComponent } from './bookingRequest/select-bookings/select-bookings.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { ResourceSchedulerComponent } from './resource/resource-scheduler/resour
     AddRateCardardComponent,
     CompanyWiseReportComponent,
     GeneralReportComponent,
-    ResourceSchedulerComponent
+    ResourceSchedulerComponent,
+    SelectBookingsComponent
   ],
   imports: [
     BrowserModule,
