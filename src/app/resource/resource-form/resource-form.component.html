@@ -1,7 +1,7 @@
 <section class="p-3 main-con">
   <h3 class="text-center mb-2 mt-1  text-capitalize">{{formTitle}}</h3>
   <div class="bg-light">
-    <form #InputForm="ngForm">
+    <form #InputForm="ngForm"  enctype="multipart/form-data">
       <!--     {{resource|json}}-->
 
       <div class="row">
@@ -198,15 +198,24 @@
           <!--          </div>-->
 
           <div class="mb-2">
-            <label class="mb-2" for="img-url">Image URL</label>
-            <input #imgUrl="ngModel" [(ngModel)]="resource.imgUrl" class="form-control" id="img-url"
-                   maxlength="125" name="img-url" required type="text">
+<!--            <label class="mb-2" for="img-url">Image URL</label>-->
+<!--            <input #imgUrl="ngModel" [(ngModel)]="resource.imgUrl" class="form-control" id="img-url"-->
+<!--                   maxlength="125" name="img-url" required type="text">-->
 
-            <div *ngIf="imgUrl.invalid && (imgUrl.dirty ||imgUrl.touched)" class="alert">
-              <div *ngIf="imgUrl.errors?.['required']">
-                Image Url is required.
-              </div>
-            </div>
+            <img [src]="url" alt=""  width="150px">
+            <br>
+
+            <input class="pt-3" type="file" (change)="onSelectFile($event)">
+
+
+<!--            <div *ngIf="imgUrl.invalid && (imgUrl.dirty ||imgUrl.touched)" class="alert">-->
+<!--              <div *ngIf="imgUrl.errors?.['required']">-->
+<!--                Image Url is required.-->
+<!--              </div>-->
+<!--            </div>-->
+
+
+
           </div>
 
           <div class="d-flex gap-3 justify-content-end align-items-center mt-4">

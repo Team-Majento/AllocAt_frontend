@@ -25,6 +25,7 @@ export class ResourceService {
     this.apiUrl1 = `${Config.endpoints.backendApi}/${Config.endpoints.prefix.company}/${resource.companyId}/${Config.endpoints.prefix.resource}`;
     // @ts-ignore
     delete resource.companyId;
+
     return this.httpClient.post<number>(this.apiUrl1, resource)
   }
 
@@ -54,6 +55,14 @@ export class ResourceService {
     let apiUrl4=`${Config.endpoints.backendApi}/companies/filtered-resources-page?page=${page-1}&size=8&company=${companyId}`;
     console.log("**"+apiUrl4)
     return this.httpClient.get<object>(apiUrl4);
+  }
+
+
+  uploadImg(formData: FormData) {
+    let url7:string=`http://localhost:8082/file`;
+
+     return this.httpClient.post<any>(url7,formData);
+
   }
 
 
