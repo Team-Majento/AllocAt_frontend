@@ -1,0 +1,35 @@
+.alert-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 40px;
+  border-radius: 4px;
+  font-size: 16px;
+  font-weight: normal;
+  color: #ffffff;
+}
+
+.alert-danger {
+  background-color: #e5564c;
+}
+
+.alert-success {
+  background-color: #5dcc61;
+}
+
+
+
+.close-button {
+  margin-left: 20px;
+  background-color: transparent;
+  border: none;
+  color: white;
+  cursor: pointer;
+}

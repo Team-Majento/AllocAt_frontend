@@ -1,6 +1,19 @@
-<div>
-  <p class="alert"
-     [class.alert-danger] = "data.isError"
-     [class.alert-success] = "!data.isError"
-  >{{ data.message }}</p>
+<!--<div class="alert-container">-->
+<!--  <p class="alert" style="padding: 0; margin: 0"-->
+<!--     [class.alert-danger]="data.isError"-->
+<!--     [class.alert-success]="!data.isError"-->
+<!--  >{{ data.message }}-->
+<!--  <span style="margin-right: 10px"  [class.alert-danger]="data.isError"-->
+<!--             [class.alert-success]="!data.isError"-->
+<!--             (click)="close()"> X </span>-->
+
+
+<!--  </p>-->
+<!--</div>-->
+
+<div class="alert-container">
+  <p class="alert" style="padding: 0; margin: 0" [class.alert-danger]="data.isError" [class.alert-success]="!data.isError">
+    {{ data.message }}
+    <span class="close-button" (click)="close()">X</span>
+  </p>
 </div>
