@@ -1,4 +1,4 @@
-<div class="container mt-5 bg-light"  *ngIf="selectedCompany">
+<div class="container mt-5 text-bg-dark"  *ngIf="selectedCompany">
   <div class="row">
     <div class="col-12">
     </div>
@@ -6,26 +6,26 @@
 
   <div class="row">
     <div class="col-lg-4">
-      <img  src="{{selectedCompany.imgUrl}}" alt="companyLogo_img" class="img-fluid mt-5">
+      <img  src="{{selectedCompany.imgUrl}}" alt="companyLogo_img" class="img-fluid mt-5 shadow-lg">
     </div>
 
     <div class="col-lg-8">
       <div class="row">
         <div class="col-12 mb-3 mt-3">
-          <h4>Company Details</h4>
+          <h4><b>Company Details</b></h4>
         </div>
       </div>
 
       <div class="row">
-        <div class="col-9 ms-2">
-          <p>company id:{{selectedCompany.id}} </p>
-          <p>name :{{ selectedCompany.name}}</p>
-          <p>address :{{ selectedCompany.address}}</p>
-          <p>contactNumber :{{ selectedCompany.contactNumber}}</p>
-          <p>mobile :{{ selectedCompany.mobile}}</p>
-          <p>fax :{{ selectedCompany.fax}}</p>
-          <p>activeStatus :{{ selectedCompany.activeStatus}}</p>
-          <p>Description</p>
+        <div class="col-12 ms-2">
+          <p><b>Company id:</b>{{selectedCompany.id}} </p>
+          <p><b>Name :</b>{{ selectedCompany.name}}</p>
+          <p><b>Address :</b>{{ selectedCompany.address}}</p>
+          <p><b>ContactNumber :</b>{{ selectedCompany.contactNumber}}</p>
+          <p><b>Mobile :</b>{{ selectedCompany.mobile}}</p>
+          <p><b>Fax :</b>{{ selectedCompany.fax}}</p>
+          <p><b>ActiveStatus :</b>{{ selectedCompany.activeStatus}}</p>
+          <p><b><u>Description:</u></b></p>
           <p>{{ selectedCompany.description}}</p>
 
         </div>
@@ -34,14 +34,14 @@
 
 
       </div>
-      <button (click)="updateCompany()" class="btn btn-primary me-3 mb-3 update-btn">Update</button>
+      <button (click)="updateCompany()" class="btn btn-primary me-3 mt-3 update-btn">Update</button>
       <button class="btn btn-primary ms-2 mt-3" (click)="goBack()">Back</button>
     </div>
 
   </div>
 
 
-<!--  <button class="btn btn-primary me-3" (click)="updateCompany()">Update</button>-->
+
 
 
 

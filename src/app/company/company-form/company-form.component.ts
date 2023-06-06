@@ -21,8 +21,8 @@ export class CompanyFormComponent extends FormControlUtil implements OnInit,OnDe
   inputForm!: NgForm;
 
   private subSink=new SubSink();
-  emailPtn: any;
-  mobNumberPattern: any;
+  emailPtn = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+  mobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$"
 
 
   constructor(private companyService: CompanyService,private messageService:DisplayMessageService,private location: Location) {
