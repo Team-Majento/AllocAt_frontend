@@ -24,4 +24,9 @@ export class AcceptRejectBookingRequestService {
     return this.http.get<object>(`http://localhost:8082/resourceAllocaion/send-notification-email/${userId}/${resourceManagerId}/${status}/${requiredDate}/${startTime}/${endTime}/${resourceId}`);
   }
 
+  rejectBookingRequest(bookingRequestId: number) {
+    console.log(bookingRequestId);
+    return this.http.post<object>("http://localhost:8082/resourceAllocaion/reject/" + bookingRequestId, null);
+  }
+
 }

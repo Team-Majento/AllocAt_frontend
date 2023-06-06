@@ -60,7 +60,15 @@ export class AcceptRejectBookingRequestComponent implements OnInit {
     return (element.status === "pending"|| element.status === "Pending");
   }
 
-  reject(bookingRequestId: BigInt) {
+  reject(bookingRequestId: number) {
+    this.acceptRejectBookingRequestService.rejectBookingRequest(bookingRequestId).subscribe(
+      (compileResults) => {
+        console.log(compileResults);
+      }
+      , error => {
+        console.log(error)
+      });
+
     let index = this.bookingRequestList.findIndex((e: any) => e.id === bookingRequestId);
     this.bookingRequestList.splice(index, 1);
     //Not completed
