@@ -7,7 +7,6 @@ import {CompanyService} from "../../service/company.service";
 import {Location} from '@angular/common';
 import {MatDialog} from "@angular/material/dialog";
 import {RateCardFormComponent} from "../../rateCard/rate-card-form/rate-card-form.component";
-import {Config} from "../../../config/config";
 import {HttpClient} from "@angular/common/http";
 import {DisplayMessageService} from "../../service/display-message.service";
 
@@ -31,10 +30,12 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
   img :any;
   formData: FormData = new FormData();
 
+  @Input()
   url="assets/img/upload-img.png"
 
   constructor(private resourceService: ResourceService, private companyService: CompanyService, private location: Location, private dialogRef: MatDialog,private httpClient: HttpClient,private messageService:DisplayMessageService) {
     super();
+    this.resource.imgUrl=this.url;
   }
 
   addResource() {
@@ -78,6 +79,7 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
     this.companyService.getCompanyNames().subscribe(
       companies => {
         this.companies = companies;
+
         //  this.resource.companyId= this.companies[0].id; // set default selection
       },
       error => console.error(error)
@@ -113,7 +115,8 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
       // @ts-ignore
       console.log(e.target.files[0])
       reader.onload = (event: any) => {
-        this.url = event.target.result;
+       this.url = event.target.result;
+
       };
       //
       // let url7:string=`http://localhost:8082/file`;

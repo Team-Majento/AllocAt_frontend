@@ -2,18 +2,20 @@
   <h3 class="text-center mb-2 mt-1  text-capitalize">{{formTitle}}</h3>
   <div class="bg-light">
     <form #InputForm="ngForm"  enctype="multipart/form-data">
-      <!--     {{resource|json}}-->
 
       <div class="row">
         <div class="col-12 col-lg-6 p-5 con__sub-01">
-          <div>
+          <p *ngIf="resource.company != null">Company :{{resource.company}}</p>
+          <div *ngIf="resource.company == null">
             <label for="company-select">Select Company:</label>
-            <select #company="ngModel" (ngModelChange)="onCompanySelectionChange($event)"
+            <select  #company="ngModel" (ngModelChange)="onCompanySelectionChange($event)"
                     [(ngModel)]="resource.companyId" id="company-select"
                     name="company" required>
-              <option *ngFor="let company of companies" [value]="company.id">{{ company.name }}</option>
+
+              <option *ngFor="let company of companies"  [ngValue]="company.id"   [selected]="resource.companyId === company.id"  >{{ company.name }}</option>
+
             </select>
-            <p></p>
+
             <div *ngIf="company.invalid && (company.dirty || company.touched)" class="alert">
               <div *ngIf="company.errors?.['required']">
                 Company is required.
@@ -32,13 +34,14 @@
 <!--            </div>-->
 
             <!--USERID-->
+          <br>
             <mat-form-field  class="justifier mt-0" style="width:100%" floatlabel="auto" appearance="outline">
               <mat-label>Description</mat-label>
               <textarea matInput
                         name="resource-desc"
                         rows="8"
                         id="resource-desc"
-                        type="number"
+                        type="text"
                         style="width:100%;"
                         [(ngModel)]="resource.description"
                         #description="ngModel"
@@ -74,7 +77,7 @@
           <mat-form-field  class="justifier mt-0" style="width:100%;" floatlabel="auto" appearance="outline">
             <mat-label>Building ID:</mat-label>
             <input matInput
-                   name="floor"
+                   name="building-id"
                    id="building-id"
                    style="width:100%;"
                    type="text"
@@ -202,7 +205,8 @@
 <!--            <input #imgUrl="ngModel" [(ngModel)]="resource.imgUrl" class="form-control" id="img-url"-->
 <!--                   maxlength="125" name="img-url" required type="text">-->
 
-            <img [src]="url" alt=""  width="150px">
+                        <img [src]="url" alt=""  width="150px">
+
             <br>
 
             <input class="pt-3" type="file" (change)="onSelectFile($event)">
@@ -220,6 +224,7 @@
 
           <div class="d-flex gap-3 justify-content-end align-items-center mt-4">
             <button (click)="addResource()" [disabled]="InputForm.invalid" class="btn btn-primary">Submit</button>
+
             <button (click)="openAddRateCardDialog()" class="btn btn-primary">Add RateCard</button>
             <button (click)="goBack()" class="btn btn-primary">Back</button>
           </div>
