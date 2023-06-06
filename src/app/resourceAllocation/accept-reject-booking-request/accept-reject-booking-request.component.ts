@@ -37,7 +37,7 @@ export class AcceptRejectBookingRequestComponent implements OnInit {
 
   }
 
-  accept(bookingRequestId: BigInt, requesterUserId: any, requestersManagersUserId: any, requiredDate: any, startTime: any, endTime: any, resourceId: any) {
+  accept(bookingRequestId: number, requesterUserId: number, requestersManagersUserId: number, requiredDate: string, startTime: string, endTime: string, resourceId: number) {
     console.log(bookingRequestId);
     this.acceptRejectBookingRequestService.acceptBookingRequest(bookingRequestId).subscribe(
       (compileResults) => {

@@ -14,12 +14,12 @@ export class AcceptRejectBookingRequestService {
   }
 
 
-  acceptBookingRequest(bookingRequestId: BigInt) {
+  acceptBookingRequest(bookingRequestId: number) {
     console.log(bookingRequestId);
     return this.http.post<object>("http://localhost:8082/resourceAllocaion/accept/" + bookingRequestId, null);
   }
 
-  sendNotificationEmail(userId:any,resourceManagerId:any,status:any,requiredDate:any,startTime:any,endTime:any,resourceId:any){
+  sendNotificationEmail(userId:number,resourceManagerId:number,status:number,requiredDate:string,startTime:string,endTime:string,resourceId:number){
     console.log(userId+" "+resourceManagerId+" "+status+" "+requiredDate+" "+startTime+" "+endTime+" "+resourceId);
     return this.http.get<object>(`http://localhost:8082/resourceAllocaion/send-notification-email/${userId}/${resourceManagerId}/${status}/${requiredDate}/${startTime}/${endTime}/${resourceId}`);
   }
