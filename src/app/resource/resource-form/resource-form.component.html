@@ -223,8 +223,8 @@
           </div>
 
           <div class="d-flex gap-3 justify-content-end align-items-center mt-4">
-            <button (click)="addResource()" [disabled]="InputForm.invalid" class="btn btn-primary">Submit</button>
-
+            <button *ngIf="resource.company == null" (click)="addResource()" [disabled]="InputForm.invalid" class="btn btn-primary">Submit</button>
+            <button *ngIf="resource.company != null"(click)="updateResource()" [disabled]="InputForm.invalid" class="btn btn-primary">Update</button>
             <button (click)="openAddRateCardDialog()" class="btn btn-primary">Add RateCard</button>
             <button (click)="goBack()" class="btn btn-primary">Back</button>
           </div>

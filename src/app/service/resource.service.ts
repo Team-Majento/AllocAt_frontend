@@ -66,4 +66,12 @@ export class ResourceService {
   }
 
 
+  updateResource(resource: Resource) {
+    let apiUrlUpdate = `${Config.endpoints.backendApi}/${Config.endpoints.prefix.company}/${Config.endpoints.prefix.resources}/${resource.id}`;
+    // @ts-ignore
+    delete resource.companyId;
+    console.log("***"+apiUrlUpdate)
+    return this.httpClient.put<number>(apiUrlUpdate, resource)
+  }
+
 }

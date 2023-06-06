@@ -33,6 +33,8 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
   @Input()
   url="assets/img/upload-img.png"
 
+  flag:boolean=false;
+
   constructor(private resourceService: ResourceService, private companyService: CompanyService, private location: Location, private dialogRef: MatDialog,private httpClient: HttpClient,private messageService:DisplayMessageService) {
     super();
     this.resource.imgUrl=this.url;
@@ -108,6 +110,7 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
       const file: File = e.target.files[0];
 
       this.formData.append('file', file);
+      this.flag=true;
 
       var reader = new FileReader();
       // @ts-ignore
@@ -136,5 +139,61 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
 
     }
   }
+
+  updateResource() {
+
+    if (this.isFormValid(this.inputForm)) {
+      if(this.flag){
+        let url_image:string="";
+        this.resourceService.uploadImg(this.formData).subscribe(
+          (response: any) => {
+            // Handle the server response here
+            console.log('File uploaded successfully!');
+            // console.log(response)
+            console.log(response.publicURL)
+            url_image=response.publicURL;
+
+
+            this.resource.imgUrl=url_image;
+            //console.log(this.resource)
+
+
+            this.resourceService.updateResource(this.resource).subscribe(
+              (compileResults) => {
+                console.log(compileResults);
+                this.messageService.showSucessMessage("resource updated-Successfully");
+              }
+              , error => {
+                console.log(error)
+                this.messageService.showErrorMessage("error occurred");
+              });
+          },
+          (error: any) => {
+            // Handle any errors that occurred during the upload
+            console.error('Error uploading file:', error);
+            this.messageService.showErrorMessage("error occurred--Error uploading file");
+          }
+        );
+
+
+
+      }
+      else{
+
+        this.resourceService.updateResource(this.resource).subscribe(
+          (compileResults) => {
+            console.log(compileResults);
+            this.messageService.showSucessMessage("resource updated-Successfully");
+          }
+          , error => {
+            console.log(error)
+            this.messageService.showErrorMessage("error occurred");
+          });
+      }
+
+    }
+
+  }
+
 }
 
