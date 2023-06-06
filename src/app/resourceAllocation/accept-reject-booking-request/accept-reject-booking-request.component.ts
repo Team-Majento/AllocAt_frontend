@@ -37,7 +37,7 @@ export class AcceptRejectBookingRequestComponent implements OnInit {
 
   }
 
-  accept(bookingRequestId: BigInt) {
+  accept(bookingRequestId: BigInt, requesterUserId: any, requestersManagersUserId: any, requiredDate: any, startTime: any, endTime: any, resourceId: any) {
     console.log(bookingRequestId);
     this.acceptRejectBookingRequestService.acceptBookingRequest(bookingRequestId).subscribe(
       (compileResults) => {
@@ -46,8 +46,13 @@ export class AcceptRejectBookingRequestComponent implements OnInit {
       , error => {
         console.log(error)
       });
+
     let index = this.bookingRequestList.findIndex((e: any) => e.id === bookingRequestId);
     this.bookingRequestList.splice(index, 1);
+
+    //status set to 1
+    this.acceptRejectBookingRequestService.sendNotificationEmail(requesterUserId,requestersManagersUserId,1,requiredDate,startTime,endTime,resourceId).subscribe();
+
 
   }
 
