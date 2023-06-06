@@ -6,3 +6,16 @@ mat-icon{
   cursor: pointer;
 }
 
+@media (max-width: 992px) {
+  .main-con{
+    padding: 1.5rem .5rem!important;
+  }
+  .con__sub-01{
+    padding-bottom: .3rem!important;
+  }
+  .con__sub-02{
+    padding-top: .3rem!important;
+  }
+}
+
+
