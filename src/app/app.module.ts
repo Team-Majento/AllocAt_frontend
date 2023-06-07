@@ -58,6 +58,8 @@ import { GeneralReportComponent } from './reportGeneration/general-report/genera
 import {NgxPaginationModule} from "ngx-pagination";
 import { ResourceSchedulerComponent } from './resource/resource-scheduler/resource-scheduler.component';
 import { SelectBookingsComponent } from './bookingRequest/select-bookings/select-bookings.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -100,7 +102,8 @@ import { SelectBookingsComponent } from './bookingRequest/select-bookings/select
     CompanyWiseReportComponent,
     GeneralReportComponent,
     ResourceSchedulerComponent,
-    SelectBookingsComponent
+    SelectBookingsComponent,
+    ForgotPasswordComponent
   ],
   imports: [
     BrowserModule,
@@ -120,7 +123,8 @@ import { SelectBookingsComponent } from './bookingRequest/select-bookings/select
     MatSelectModule,
     MatNativeDateModule,
     ReactiveFormsModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

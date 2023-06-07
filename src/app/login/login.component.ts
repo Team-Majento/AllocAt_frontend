@@ -7,6 +7,9 @@ import {LoginService} from "../service/login.service";
 import {UserLogin} from "../../models/userLogin";
 import {Router} from "@angular/router";
 import {UserService} from "../service/user.service";
+import {ChangePasswordComponent} from "../user/change-password/change-password.component";
+import {MatDialog} from "@angular/material/dialog";
+import {ForgotPasswordComponent} from "../forgot-password/forgot-password.component";
 
 
 @Component({
@@ -24,8 +27,14 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
 
   currentUserName:String="";
 
-  constructor(private loginService: LoginService,private messageService:DisplayMessageService,private router:Router,private userService:UserService) {
+  constructor(private loginService: LoginService,private dialogRef: MatDialog,private messageService:DisplayMessageService,private router:Router,private userService:UserService) {
     super();
+  }
+
+  openDialog() {
+    this.dialogRef.open(ForgotPasswordComponent,
+    {width:'350px',
+    })
   }
 
   login(){

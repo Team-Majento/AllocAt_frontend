@@ -14,8 +14,9 @@
         </div>
 
         <form #InputForm="ngForm">
-<!--          {{user|json}}-->
 
+
+<!--          Username field-->
           <div class="input">
             <mat-form-field  class="full-width"  appearance="outline">
               <mat-label>Username or Email</mat-label>
@@ -28,6 +29,8 @@
             </div>
           </div>
 
+
+<!--          Password field-->
           <div class="input">
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Password</mat-label>
@@ -39,17 +42,19 @@
               Password is required.
             </div>
           </div>
-          <mat-checkbox color="primary">
-            Remember me
-          </mat-checkbox>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 
-          <a style="text-decoration: none;cursor: pointer; ">Forgot password?</a>
+<!--          ForgotPassword-->
+          <div style="text-align: left; ">
+            <a style="text-decoration: none;cursor: pointer; text-align: left;" (click)="openDialog()">Forgot password?</a>
+          </div>
 
+<!--          Login Button-->
           <button mat-button class="login-button" (click)="login()">
             <p>Log In</p>
           </button>
 
         </form>
+
       </mat-card-content>
     </mat-card>
   </div>
