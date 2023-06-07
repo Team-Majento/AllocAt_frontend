@@ -61,7 +61,7 @@ import { SelectBookingsComponent } from './bookingRequest/select-bookings/select
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import {MatButtonModule} from "@angular/material/button";
 import { RoleFormComponent } from './role/role-form/role-form.component';
-import { MenuComponent } from './rm-dashboard/menu/menu.component';
+// import { MenuComponent } from './rm-dashboard/menu/menu.component';
 import { RmDashboardComponent } from './menu/rm-dashboard/rm-dashboard.component';
 import { EmpDashboardComponent } from './menu/emp-dashboard/emp-dashboard.component';
 
@@ -109,7 +109,6 @@ import { EmpDashboardComponent } from './menu/emp-dashboard/emp-dashboard.compon
     SelectBookingsComponent,
     ForgotPasswordComponent,
     RoleFormComponent,
-    MenuComponent,
     RmDashboardComponent,
     EmpDashboardComponent
   ],
