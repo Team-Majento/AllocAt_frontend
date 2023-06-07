@@ -28,6 +28,7 @@ import {CompanyProfileComponent} from "./company/company-profile/company-profile
 import {UpdateCompanyComponent} from "./company/update-company/update-company.component";
 import {ResourceSchedulerComponent} from "./resource/resource-scheduler/resource-scheduler.component";
 import {SelectBookingsComponent} from "./bookingRequest/select-bookings/select-bookings.component";
+import {RoleFormComponent} from "./role/role-form/role-form.component";
 
 const routes: Routes = [
   {  path:"",component :HomeComponent },
@@ -66,6 +67,10 @@ const routes: Routes = [
             path: "user",
             component: AddUserComponent,
           },
+          {
+            path:"role",
+            component: RoleFormComponent,
+          }
         ]
       },
       {

@@ -24,19 +24,36 @@
                 <mat-error *ngIf="name.invalid && (name.dirty || name.touched) && name.errors?.['required']" class="alert">Company Name is required.</mat-error>
               </mat-form-field>&nbsp;
 
-              <!--CID-->
+<!--              &lt;!&ndash;CID&ndash;&gt;-->
+<!--              <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">-->
+<!--                <mat-label>Company ID</mat-label>-->
+<!--                <input-->
+<!--                  matInput-->
+<!--                  name="id"-->
+<!--                  id="id"-->
+<!--                  [(ngModel)]="company.id"-->
+<!--                  #id="ngModel"-->
+<!--                  class="field"-->
+<!--                  required/>-->
+<!--                <mat-error *ngIf="id.invalid && (id.dirty || id.touched) && id.errors?.['required']" class="alert">CompanyID is required.</mat-error>-->
+<!--              </mat-form-field>-->
+
+              <!--Mobile No-->
               <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
-                <mat-label>Company ID</mat-label>
+                <mat-label>Mobile Number</mat-label>
                 <input
                   matInput
-                  name="id"
-                  id="id"
-                  [(ngModel)]="company.id"
-                  #id="ngModel"
+                  name="mobileNo"
+                  id="mobileNo"
+                  [(ngModel)]="company.mobile"
+                  #mobile="ngModel"
+                  [pattern]="mobNumberPattern"
                   class="field"
+
                   required/>
-                <mat-error *ngIf="id.invalid && (id.dirty || id.touched) && id.errors?.['required']" class="alert">CompanyID is required.</mat-error>
-              </mat-form-field>
+                <mat-error *ngIf="mobile.invalid && (mobile.dirty || mobile.touched) && mobile.errors?.['required']" class="alert">Mobile Number is required.</mat-error>
+                <mat-error *ngIf="mobile.invalid && (mobile.dirty || mobile.touched) && mobile.errors?.['pattern']" class="alert">Mobile number must have 10 digits</mat-error>
+              </mat-form-field>&nbsp;
 
 
 
@@ -76,22 +93,19 @@
                 <mat-error *ngIf="contactNumber.invalid && (contactNumber.dirty || contactNumber.touched) && contactNumber.errors?.['pattern']" class="alert">Contact number must have 10 digits</mat-error>
               </mat-form-field>
 
-              <!--Mobile No-->
+              <!--Address-->
               <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
-                <mat-label>Mobile Number</mat-label>
-                <input
-                  matInput
-                  name="mobileNo"
-                  id="mobileNo"
-                  [(ngModel)]="company.mobile"
-                  #mobile="ngModel"
-                  [pattern]="mobNumberPattern"
-                  class="field"
-
-                  required/>
-                <mat-error *ngIf="mobile.invalid && (mobile.dirty || mobile.touched) && mobile.errors?.['required']" class="alert">Mobile Number is required.</mat-error>
-                <mat-error *ngIf="mobile.invalid && (mobile.dirty || mobile.touched) && mobile.errors?.['pattern']" class="alert">Mobile number must have 10 digits</mat-error>
+                <mat-label>Address</mat-label>
+                <input matInput
+                       name="address"
+                       id="address"
+                       [(ngModel)]="company.address"
+                       #address="ngModel"
+                       class="field"
+                       required/>
+                <mat-error *ngIf="address.invalid && (address.dirty || address.touched) && address.errors?.['required']" class="alert">Address is required.</mat-error>
               </mat-form-field>&nbsp;
+
 
 
 
@@ -139,18 +153,7 @@
                 <mat-error *ngIf="imgUrl.invalid && (imgUrl.dirty || imgUrl.touched) && imgUrl.errors?.['required']" class="alert">ImageURL is required.</mat-error>
               </mat-form-field>&nbsp;
 
-              <!--Address-->
-              <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
-                <mat-label>Address</mat-label>
-                <input matInput
-                       name="address"
-                       id="address"
-                       [(ngModel)]="company.address"
-                       #address="ngModel"
-                       class="field"
-                       required/>
-                <mat-error *ngIf="address.invalid && (address.dirty || address.touched) && address.errors?.['required']" class="alert">Address is required.</mat-error>
-              </mat-form-field>&nbsp;
+
 
               <!--ACTIVE STATUS-->
               <mat-checkbox
