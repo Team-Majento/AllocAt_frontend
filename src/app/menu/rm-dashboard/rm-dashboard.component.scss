@@ -207,9 +207,13 @@ tr:hover {
 
 
 @media (min-width: 320px) and (max-width: 480px) {
-  .tablestyle{
-    width :400px;
+  .tablestyle {
+    width: 400px;
     height: 500px;
   }
-
+  .container-fluid {
+    display: flex;
+    flex-direction: column;
+  }
 }
+
