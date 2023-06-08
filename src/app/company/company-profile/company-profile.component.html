@@ -34,8 +34,8 @@
 
 
       </div>
-      <button (click)="updateCompany()" class="btn btn-primary me-3 mt-3 update-btn">Update</button>
-      <button class="btn btn-primary ms-2 mt-3" (click)="goBack()">Back</button>
+      <button *ngIf="userType=='1'" (click)="updateCompany()" class="btn btn-primary me-3 mt-3 update-btn">Update</button>
+      <button class="btn btn-primary ms-2 mt-3" (click)="goBack()" >Back</button>
     </div>
 
   </div>

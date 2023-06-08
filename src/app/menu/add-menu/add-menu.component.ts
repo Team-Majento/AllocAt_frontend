@@ -8,7 +8,12 @@ import {Router} from "@angular/router";
 })
 export class AddMenuComponent {
 
+  userType:string;
+
+
+
   constructor(private router:Router) {
+    this.userType=localStorage.getItem("userType")+"";
 
   }
   openAddCompanyForm() {

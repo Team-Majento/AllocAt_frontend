@@ -29,6 +29,8 @@ import {UpdateCompanyComponent} from "./company/update-company/update-company.co
 import {ResourceSchedulerComponent} from "./resource/resource-scheduler/resource-scheduler.component";
 import {SelectBookingsComponent} from "./bookingRequest/select-bookings/select-bookings.component";
 import {RoleFormComponent} from "./role/role-form/role-form.component";
+import {EmpDashboardComponent} from "./menu/emp-dashboard/emp-dashboard.component";
+import {RmDashboardComponent} from "./menu/rm-dashboard/rm-dashboard.component";
 
 const routes: Routes = [
   {  path:"",component :HomeComponent },
@@ -41,9 +43,17 @@ const routes: Routes = [
         path: "main",
         children: [
           {
-            path: "",
+            path: "admin",
             component: DashboardMenuComponent,
           },
+          {
+            path: "resource-manager",
+            component: RmDashboardComponent,
+          },
+          {
+            path: "employee",
+            component: EmpDashboardComponent,
+          }
       ]
 
 

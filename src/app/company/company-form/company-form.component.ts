@@ -31,6 +31,7 @@ export class CompanyFormComponent extends FormControlUtil implements OnInit,OnDe
 
   ngOnInit(): void {
 
+
   }
 
   addCompany() {

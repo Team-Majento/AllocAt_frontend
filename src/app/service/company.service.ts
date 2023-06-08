@@ -43,9 +43,11 @@ export class CompanyService {
     // const requestOptions = { headers: headers };
     //
     // return  this.httpClient.get<object>(apiUrl3, requestOptions);
+
     const apiUrl = `${Config.endpoints.backendApi}/companies/${companyId}`;
     const tokenParse = localStorage.getItem('jwtToken')+'';
     const headers = new HttpHeaders().set('Authorization', `Bearer ${tokenParse}`);
+    console.log(tokenParse);
     const requestOptions = { headers };
 
     return this.httpClient.get<object>(apiUrl, requestOptions);

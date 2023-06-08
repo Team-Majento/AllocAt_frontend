@@ -17,7 +17,10 @@ export class ResourceProfileComponent {
 
   resourceId!: string;
 
+  userType:string;
+
   constructor(private resourceService: ResourceService, private route: ActivatedRoute, private router: Router, private location: Location) {
+    this.userType=localStorage.getItem("userType")+"";
     route.params.subscribe(resourceId => {
       this.resourceId = resourceId["resourceId"];
       console.log(this.resourceId)

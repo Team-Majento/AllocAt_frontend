@@ -15,6 +15,8 @@ export class SidebarComponent {
   icon5=faFileText;
   icon6=faStar;
 
-
-
+  userType:string;
+  constructor() {
+    this.userType=localStorage.getItem("userType")+"";
+  }
 }

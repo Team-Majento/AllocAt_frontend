@@ -53,11 +53,25 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
             console.log("abc")
             console.log(compileResults.jwtToken);
 
+            localStorage.setItem("userType",compileResults.user.userType);
+
             localStorage.setItem("jwtToken",compileResults.jwtToken);
 
             this.messageService.showSucessMessage("login-Sucess");
-          //  this.messageService.showSucessMessage("login-Success!");
-            this.router.navigateByUrl(this.router.createUrlTree(["dashboard/main"]))
+
+            if(compileResults.user.userType==3){
+              this.router.navigateByUrl(this.router.createUrlTree(["dashboard/main/employee"]))
+            }
+            else if(compileResults.user.userType==2){
+              this.router.navigateByUrl(this.router.createUrlTree(["dashboard/main/resource-manager"]))
+
+            }
+            else if(compileResults.user.userType==1){
+              this.router.navigateByUrl(this.router.createUrlTree(["dashboard/main/admin"]))
+
+            }
+
+
           }
           , error => {
             console.log("error--");

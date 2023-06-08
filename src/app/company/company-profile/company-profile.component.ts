@@ -14,8 +14,14 @@ export class CompanyProfileComponent {
   selectedCompany!: Company;
 
   companyId!: string;
+  userType:string;
 
   constructor(private companyService: CompanyService, private route: ActivatedRoute, private router: Router, private location: Location) {
+     this.userType =localStorage.getItem("userType")+"";
+     console.log(this.userType);
+
+
+
     route.params.subscribe(companyId => {
       this.companyId = companyId["companyId"];
       console.log(this.companyId)
