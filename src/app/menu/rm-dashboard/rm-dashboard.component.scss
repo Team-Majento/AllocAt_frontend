@@ -1,0 +1,200 @@
+//.card1
+//{
+//  //height: 200px;
+//  background-color: blueviolet;
+//}
+//
+//.card2
+//{
+//  height: 200px;
+//  background-color: rgb(22, 9, 34);
+//}
+//
+//.card3
+//{
+//
+//  height: 200px;
+//  background-color: rgb(226, 128, 43);
+//}
+//
+//
+//.main-con{
+//  background: #154c79;
+//}
+//h3{
+//  color: black;
+//  font-size: xx-large;
+//  padding:10px;
+//}
+//
+//
+//.card-body1{
+//  background-color: #4747a1;
+//
+//  color: white;
+//  padding: 30px;
+//  border-radius: 20px;
+//
+//}
+//
+//.card-body2{
+//  background-color: #7da0fa;
+//
+//  color: white;
+//  padding: 30px;
+//  border-radius: 20px;
+//}
+//
+//.card-body3{
+//  background-color: #7978e9;
+//
+//  color: white;
+//  padding: 30px;
+//  border-radius: 20px;
+//}
+//
+//.card-body4{
+//    background-color: #2e5f78;
+//
+//    color: white;
+//    padding: 30px;
+//    border-radius: 20px;
+//  };
+//
+//.card{
+//
+//  border-radius: 20px;
+//}
+
+body {
+  background-color: #E3F2FD;
+}
+
+.heading{
+  font-size:20px;
+  font-weight:600;
+  color:#3D5AFE;
+
+}
+
+.line1{
+  color:#000;
+  font-size:12px;
+
+}
+.line2{
+  color:#000;
+  font-size:12px;
+
+}
+.line3{
+  color:#000;
+  font-size:12px;
+
+}
+
+.cards{
+
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+
+}
+
+
+
+.cards:hover{
+
+  box-shadow: 5px 6px 6px 2px #e9ecef;
+  transform: scale(1.1);
+
+}
+.tablestyle{
+  margin-top: 20px;
+}
+
+body{
+  background-color: #f5f7ff;
+}
+.container-fluid{
+  display: flex;
+  flex-direction:row;
+}
+.tbl{
+  margin-left: 130px;
+  margin-top: 50px;
+  width: 680px;
+  height:320px;
+  border-radius: 25px;
+
+  // background-color: #777ba0;
+  background-color: white;
+
+
+}
+h5{
+  // color: white;
+  margin-left: 30px;
+  margin-top:20px;
+}
+.head{
+  background-color: #4b49ac;
+  border-radius: 2px;
+  color: white;
+  text-align: center;
+
+
+}
+tr:hover {
+  background-color: rgb(206, 216, 236);
+}
+/*responsiveness*/
+@media (min-width: 1281px) {
+  .tablestyle{
+    width :700px;
+  }
+
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .tablestyle{
+    width :700px;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .tablestyle{
+    width :500px;
+    height: 500px;
+  }
+
+}
+
+
+@media (min-width: 481px) and (max-width: 767px) {
+  .tablestyle{
+    width :400px;
+    height: 500px;
+  }
+  .container-fluid{
+    display:flex;
+    flex-direction: column;
+  }
+  .tbl{
+    margin-left:30px;
+    margin-top:-200px;
+    width: 400px;
+  }
+
+
+}
+
+
+@media (min-width: 320px) and (max-width: 480px) {
+  .tablestyle{
+    width :400px;
+    height: 500px;
+  }
+
+}
