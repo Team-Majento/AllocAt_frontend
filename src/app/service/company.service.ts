@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import {Config} from "../../config/config";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Company} from "../../models/company";
 import {BehaviorSubject, map, Observable} from "rxjs";
 
@@ -36,8 +36,19 @@ export class CompanyService {
 
   getCompanyById(companyId: string) {
 
-    let apiUrl3=`${Config.endpoints.backendApi}/companies/${companyId}`
-    return  this.httpClient.get<object>(apiUrl3);
+    // let apiUrl3=`${Config.endpoints.backendApi}/companies/${companyId}`
+    // const headers = new Headers();
+    // let tokenParse = JSON.parse( localStorage.getItem("jwtToken")+"");
+    // headers.append('Authorization', `Bearer ${tokenParse}`);
+    // const requestOptions = { headers: headers };
+    //
+    // return  this.httpClient.get<object>(apiUrl3, requestOptions);
+    const apiUrl = `${Config.endpoints.backendApi}/companies/${companyId}`;
+    const tokenParse = localStorage.getItem('jwtToken')+'';
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${tokenParse}`);
+    const requestOptions = { headers };
+
+    return this.httpClient.get<object>(apiUrl, requestOptions);
 
   }
 }

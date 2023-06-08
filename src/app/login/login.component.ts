@@ -41,7 +41,7 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
 
     if (this.isFormValid(this.inputForm)) {
       this.subSink.add(
-        this.loginService.login(this.user).subscribe(
+        this.loginService.login_new(this.user).subscribe(
           (compileResults) => {
 
             // saving current user password to local storage
@@ -51,7 +51,9 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
             localStorage.setItem("userName_",encodedData);
 
             console.log("abc")
-            console.log(compileResults);
+            console.log(compileResults.jwtToken);
+
+            localStorage.setItem("jwtToken",compileResults.jwtToken);
 
             this.messageService.showSucessMessage("login-Sucess");
           //  this.messageService.showSucessMessage("login-Success!");

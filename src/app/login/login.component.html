@@ -34,7 +34,7 @@
           <div class="input">
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Password</mat-label>
-              <input  name="pass" id="pass" matInput [type]=" 'hide' ? 'password' : 'test' " [(ngModel)]="user.password" #password="ngModel" required/>
+              <input  name="pass" id="pass" matInput [type]=" 'hide' ? 'password' : 'test' " [(ngModel)]="user.userPassword" #password="ngModel" required/>
             </mat-form-field>
           </div>
           <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
