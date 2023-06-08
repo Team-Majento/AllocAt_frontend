@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import {Chart} from 'chart.js';
+import {BookingRequestService} from "../../service/booking-request.service";
+import {Location} from "@angular/common";
 @Component({
   selector: 'app-dashboard-menu',
   templateUrl: './dashboard-menu.component.html',
   styleUrls: ['./dashboard-menu.component.scss']
 })
 export class DashboardMenuComponent implements OnInit {
+  bookingReqList:any=[]; //***
   title = 'chartDemo'
   ngOnInit()
   {
+    this.getAllBookingRequests();
     new Chart("myChart", {
-      type: 'pie',
+      type: 'bar',
 
       data: {
 
@@ -43,6 +47,22 @@ export class DashboardMenuComponent implements OnInit {
         }
       }
     });
+  }
+
+  constructor(private bookingReqService:BookingRequestService,private location:Location) {
+  }
+  getAllBookingRequests() {
+    this.bookingReqService.getAllBookingRequests().subscribe(
+      (compileResults) => {
+        // @ts-ignore
+        const content = compileResults;
+        console.log(compileResults);
+        this.bookingReqList=content;
+      }
+      , error => {
+        console.log(error)
+      });
+
   }
 }
 

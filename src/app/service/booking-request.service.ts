@@ -3,12 +3,14 @@ import { HttpClient } from '@angular/common/http';
 import { Config } from '../../config/config';
 import { Observable } from 'rxjs';
 import { BookingRequest } from '../../models/bookingRequest';
+import {Resource} from "../../models/resource";
 
 @Injectable({
   providedIn: 'root',
 })
 export class BookingRequestService {
   private apiUrl2: string = `http://localhost:8082/bookingRequests`;
+
   constructor(private httpClient: HttpClient) {}
 
   getAllBookingRequests() {
@@ -21,5 +23,19 @@ export class BookingRequestService {
     console.log(bookingRequest);
     // @ts-ignore
     return this.httpClient.post<number>(apiUrl1, bookingRequest);
+  }
+
+  getBookingRequestById(bookingRequestId: string) {
+
+    this.apiUrl2 = `${Config.endpoints.backendApi}/bookingRequests/${bookingRequestId}`
+    return this.httpClient.get<object>(this.apiUrl2);
+  }
+
+  updateBookingRequest(resource: Resource) {
+    let apiUrlUpdate = `${Config.endpoints.backendApi}/${Config.endpoints.prefix.company}/${Config.endpoints.prefix.resources}/${resource.id}`;
+    // @ts-ignore
+    delete resource.companyId;
+    console.log("***"+apiUrlUpdate)
+    return this.httpClient.put<number>(apiUrlUpdate, resource)
   }
 }

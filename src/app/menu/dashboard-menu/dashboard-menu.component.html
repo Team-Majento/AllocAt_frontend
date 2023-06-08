@@ -56,7 +56,7 @@
         <div class="cards">
 
 
-          <div class="first bg-white p-4 text-center">
+          <div class="first p-4 text-center" style="background-color:blueviolet;">
             <img src="https://img.icons8.com/clouds/100/000000/box.png" />
 
             <p>Total Bookings</p>
@@ -242,34 +242,49 @@
         <thead>
           <tr>
             <td scope="col" class="head">Meeting ID</td>
-            <td scope="col" class="head">Date</td>
+            <td scope="col" class="head">Company</td>
             <td scope="col" class="head">Venue</td>
+            <td scope="col" class="head">Date</td>
             <td scope="col" class="head">Start Time</td>
             <td scope="col" class="head">End Time</td>
           </tr>
         </thead>
+<!--        <tbody>-->
+<!--          <tr>-->
+<!--            <td scope="row">1</td>-->
+<!--            <td>2023/04/12</td>-->
+<!--            <td>Thoughbeat MR001</td>-->
+<!--            <td>2.30 PM</td>-->
+<!--            <td>3.30 PM</td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td scope="row">2</td>-->
+<!--            <td>2023/03/19</td>-->
+<!--            <td>Photobug CU005</td>-->
+<!--            <td>4.00 PM</td>-->
+<!--            <td>6.00 PM</td>-->
+<!--          </tr>-->
+<!--          <tr>-->
+<!--            <td scope="row">3</td>-->
+<!--            <td>2023/03/20</td>-->
+<!--            <td>Fliptune MR003</td>-->
+<!--            <td>2.00 PM</td>-->
+<!--            <td>3.30 PM</td>-->
+<!--          </tr>-->
+<!--        </tbody>-->
         <tbody>
-          <tr>
-            <td scope="row">1</td>
-            <td>2023/04/12</td>
-            <td>Thoughbeat MR001</td>
-            <td>2.30 PM</td>
-            <td>3.30 PM</td>
-          </tr>
-          <tr>
-            <td scope="row">2</td>
-            <td>2023/03/19</td>
-            <td>Photobug CU005</td>
-            <td>4.00 PM</td>
-            <td>6.00 PM</td>
-          </tr>
-          <tr>
-            <td scope="row">3</td>
-            <td>2023/03/20</td>
-            <td>Fliptune MR003</td>
-            <td>2.00 PM</td>
-            <td>3.30 PM</td>
-          </tr>
+        <tr *ngFor="let req of bookingReqList">
+          <td scope="row">{{req.id}}</td>
+<!--          <td>{{req["requesterUserId"]}}</td>-->
+          <td>{{req.companyId}}</td>
+          <td>{{req.resourceId}}</td>
+<!--          <td>{{req.requestersManagersUserId}}</td>-->
+          <td>{{req.requiredDate}}</td>
+          <td>{{req.startTime}}</td>
+          <td>{{req.endTime}} </td>
+<!--          <td ><p style="color: rgb(173,142,0)" >{{req.status}}</p></td>-->
+        </tr>
+
         </tbody>
       </table>
     </div>

@@ -1,1 +1,98 @@
-<p>emp-dashboard works!</p>
+<body>
+<div class="greeting" >
+  <h3 style="color: #003D64"><b>Welcome Tharushi</b></h3>
+</div>
+ <div class="container mt-12 d-flex justify-content-center">
+
+  <!--    <div class="col-lg-12">-->
+   <div class="col-md-2 border-right">
+    <div class="cards">
+      <div class="first p-4 text-center" style="background-color:#043e7d">
+        <img src="https://img.icons8.com/clouds/100/000000/box.png" />
+        <p>My Total Bookings</p>
+        <p class="line3">60</p>
+      </div>
+    </div>
+   </div>
+
+   <div class="col-md-2 border-right">
+    <div class="cards">
+      <div class=" second  p-4 text-center" style="background-color:#2a6f97">
+        <img src="https://img.icons8.com/clouds/100/000000/groups.png"/>
+        <p> Total Meeting Hours</p>
+        <p class="line3">60</p>
+      </div>
+    </div>
+   </div>
+
+   <div class="col-md-2">
+     <div class="cards">
+      <div class=" third p-4 text-center" style="background-color:#043e7d">
+        <img src="https://img.icons8.com/fluent/100/000000/trophy.png"/>
+        <p>Total Bookings</p>
+        <p class="line3">60</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-2">
+    <div class="cards">
+      <div class="third  p-4 text-center" style="background-color:#2a6f97">
+        <img src="https://img.icons8.com/fluent/100/000000/trophy.png"/>
+        <p>Total Bookings</p>
+        <p class="line3">60</p>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col-md-2">
+    <div class="cards">
+      <div class="third  p-4 text-center" style="background-color:#043e7d">
+        <img src="https://img.icons8.com/fluent/100/000000/trophy.png"/>
+        <p>Total Bookings</p>
+        <p class="line3">60</p>
+      </div>
+    </div>
+  </div>
+ </div>
+
+<div class="container-fluid">
+  <div style="width: 600px; height: 500px; margin-top:30px;">
+    <h5 style="font-size:22px;">Total Bookings</h5>
+    <div class="tablestyle">
+      <canvas id="myChart"></canvas>
+    </div>
+  </div>
+  <div class="tbl">
+    <h5>Up Coming Meetings</h5>
+    <table class="table table-bordered">
+      <thead>
+      <tr>
+        <td scope="col" class="head">Meeting ID</td>
+        <td scope="col" class="head">Company</td>
+        <td scope="col" class="head">Venue</td>
+        <td scope="col" class="head">Date</td>
+        <td scope="col" class="head">Start Time</td>
+        <td scope="col" class="head">End Time</td>
+      </tr>
+      </thead>
+
+      <tbody>
+      <tr *ngFor="let req of bookingReqList">
+        <td scope="row">{{req.id}}</td>
+        <!--          <td>{{req["requesterUserId"]}}</td>-->
+        <td>{{req.companyId}}</td>
+        <td>{{req.resourceId}}</td>
+        <!--          <td>{{req.requestersManagersUserId}}</td>-->
+        <td>{{req.requiredDate}}</td>
+        <td>{{req.startTime}}</td>
+        <td>{{req.endTime}} </td>
+        <!--          <td ><p style="color: rgb(173,142,0)" >{{req.status}}</p></td>-->
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
