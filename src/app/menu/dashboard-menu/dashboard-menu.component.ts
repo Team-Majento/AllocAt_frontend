@@ -37,11 +37,11 @@ export class DashboardMenuComponent implements OnInit {
       options: {
         scales: {
           xAxes:[{
-            display:false
+            display:true
 
           }],
           yAxes: [{
-            display:false
+            display:true
             //  beginAtZero: true
           }]
         }
