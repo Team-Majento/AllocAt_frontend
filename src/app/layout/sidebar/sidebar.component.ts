@@ -16,7 +16,16 @@ export class SidebarComponent {
   icon6=faStar;
 
   userType:string;
+  dashboardType:string="";
   constructor() {
     this.userType=localStorage.getItem("userType")+"";
+    if(this.userType=="1"){
+      this.dashboardType="admin";
+    }else if(this.userType=="2"){
+      this.dashboardType="resource-manager"
+    }else if(this.userType=="3"){
+      this.dashboardType="employee"
+    }
+
   }
 }
