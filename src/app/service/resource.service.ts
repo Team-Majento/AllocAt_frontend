@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {Config} from "../../config/config";
-import {HttpClient} from "@angular/common/http";
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {BehaviorSubject, Observable} from "rxjs";
 import {Resource} from "../../models/resource";
 
@@ -25,8 +25,12 @@ export class ResourceService {
     this.apiUrl1 = `${Config.endpoints.backendApi}/${Config.endpoints.prefix.company}/${resource.companyId}/${Config.endpoints.prefix.resource}`;
     // @ts-ignore
     delete resource.companyId;
+    const tokenParse = localStorage.getItem('jwtToken')+'';
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${tokenParse}`);
+    console.log(tokenParse);
+    const requestOptions = { headers };
 
-    return this.httpClient.post<number>(this.apiUrl1, resource)
+    return this.httpClient.post<number>(this.apiUrl1, resource,requestOptions)
   }
 
   getAllResources(page:number) {
