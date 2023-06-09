@@ -65,6 +65,9 @@ export class ReviewRatingFormComponent extends FormControlUtil implements OnInit
 
   addReview() {
     if (this.isFormValid(this.inputForm)) {
+      var user= localStorage.getItem("userName_")+"";
+      const decodedData = atob(user.toString());
+      this.review.username=decodedData;
       this.subSink.add(
         this.reviewService.addReview(this.review).subscribe(
           (compileResults) => {
