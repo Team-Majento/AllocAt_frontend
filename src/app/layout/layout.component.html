@@ -5,7 +5,7 @@
   <main >
     <app-sidebar [sideNavStatus]="sideNavStatus" [ngClass]="{'app-side-nav-open':sideNavStatus}"></app-sidebar>
 
-    <div class="display-area p-1 bg-light"  [ngClass]="{'display-area-shrink':sideNavStatus}">
+    <div class="display-area p-1 " style="background-color: rgb(233,231,240)"  [ngClass]="{'display-area-shrink':sideNavStatus}">
             <router-outlet></router-outlet>
              <app-message> </app-message>
     </div>

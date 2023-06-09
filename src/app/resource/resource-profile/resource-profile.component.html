@@ -1,16 +1,24 @@
 <!--{{selectedResource|json}}-->
-<div *ngIf="selectedResource" class="container mt-5 bg-light">
+<div *ngIf="selectedResource" class="container mt-4 " style="background-color: rgb(233,231,240)">
   <div class="row">
-    <div class="col-lg-6 resource-image-container">
-      <img alt="resource_img" class="img-fluid mt-5 img-shadow" src="{{ selectedResource.imgUrl }}">
+    <div class="row">
+      <h3 class="ms-3 resource-title mb-2">Resource Details</h3>
+      <hr class="ms-3" style="border-style: solid; border-width: 1px; font-weight: bold; color: #000000">
+
+    </div>
+    <div class="col-lg-6 resource-image-container ">
+      <img alt="resource_img" class="img-fluid mt-2 img-shadow" src="{{ selectedResource.imgUrl }}">
+
+      <div class="mt-4 ms-0 ">
+        <button (click)="addRequest()" class="btn btn-primary me-3 mb-3 book-btn ms-4">Book</button>
+        <button *ngIf="userType!='3'" (click)="updateResource()" class="btn btn-primary me-3 mb-3 update-btn">Update</button>
+        <button (click)="viewBookings()" class="btn btn-primary me-3 mb-3 update-btn">Bookings</button>
+        <button (click)="goBack()" class="btn btn-primary me-3 mb-3 back-btn">Back</button>
+      </div>
+
     </div>
 
-    <div class="col-lg-6">
-      <div class="row">
-        <div class="col-12 mb-3 mt-3">
-          <h3 class="ms-4 resource-title">Resource Details</h3>
-        </div>
-      </div>
+    <div class="col-lg-6 mt-2">
 
       <div class="row">
         <div class="col-3 mb-0 ms-4 resource-label">
@@ -18,6 +26,8 @@
           <p>Company Name </p>
           <p>Resource Type </p>
           <p *ngIf="selectedResource.rateCardId!=null">RateCard ID </p>
+          <p *ngIf="selectedResource.rateCardId!=null">Hourly Rate</p>
+          <p *ngIf="selectedResource.rateCardId!=null">Extra hour Rate</p>
           <p>Active Status </p>
           <p>Capacity</p>
           <p class="font-monospace fw-bold"><u>Description</u></p>
@@ -28,6 +38,9 @@
           <p class="resource-value">:  {{ selectedResource.company}}</p>
           <p class="resource-value">:  {{ selectedResource.resourceType }}</p>
           <p *ngIf="selectedResource.rateCardId!=null" class="resource-value">:  {{ selectedResource.rateCardId }}</p>
+          <p *ngIf="selectedResource.rateCardId!=null" class="resource-value">:  Rs. {{ rateCardOfSelectedResource.hourRate}}</p>
+          <p *ngIf="selectedResource.rateCardId!=null" class="resource-value">:  Rs. {{ rateCardOfSelectedResource.extraHourRate }}</p>
+
           <p class="resource-value">:  {{ selectedResource.activeStatus }}</p>
           <p class="resource-value">:  {{ selectedResource.maximumCapacity }}</p>
         </div>
@@ -36,15 +49,12 @@
           <p class="resource-description" style="text-align: justify;">{{ selectedResource.description }}</p>
         </div>
       </div>
-      <button (click)="addRequest()" class="btn btn-primary me-3 mb-3 book-btn ms-4">Book</button>
-      <button *ngIf="userType!='3'" (click)="updateResource()" class="btn btn-primary me-3 mb-3 update-btn">Update</button>
-      <button (click)="viewBookings()" class="btn btn-primary me-3 mb-3 update-btn">Bookings</button>
-      <button (click)="goBack()" class="btn btn-primary me-3 mb-3 back-btn">Back</button>
+
     </div>
   </div>
 
 
-  <div class="row bg-light pt-0">
+  <div class="row pt-0" style="background-color: rgb(233,231,240)">
 
     <div class="reviews ">
       <span class="font-monospace fw-bold fs-5 mb-2 d-inline-block">Reviews</span>
@@ -68,12 +78,13 @@
             </div>
             <div class="card-footer">
               <span class="fw-bold">{{review.username}}</span>
-              <span class="ms-2 text-muted">Jan 1, 2023</span>
+<!--              <span class="ms-2 text-muted">Jan 1, 2023</span>-->
             </div>
           </div>
         </div>
       </div>
     </div>
+<!--    <p>{{rateCardOfSelectedResource|json}}</p>-->
 
   </div>
 

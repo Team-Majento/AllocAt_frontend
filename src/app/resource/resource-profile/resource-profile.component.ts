@@ -4,6 +4,8 @@ import {ResourceService} from "../../service/resource.service";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Location} from '@angular/common';
 import {ReviewRating} from "../../../models/reviewRating";
+import {RateCard} from "../../../models/rateCard";
+import {RatecardService} from "../../service/ratecard.service";
 
 @Component({
   selector: 'app-resource-profile',
@@ -13,13 +15,15 @@ import {ReviewRating} from "../../../models/reviewRating";
 export class ResourceProfileComponent {
   selectedResource!: Resource;
 
+  rateCardOfSelectedResource!:RateCard;
+
   reviews!: any;
 
   resourceId!: string;
 
   userType:string;
 
-  constructor(private resourceService: ResourceService, private route: ActivatedRoute, private router: Router, private location: Location) {
+  constructor(private resourceService: ResourceService, private route: ActivatedRoute, private router: Router, private location: Location,private rateCardService:RatecardService) {
     this.userType=localStorage.getItem("userType")+"";
     route.params.subscribe(resourceId => {
       this.resourceId = resourceId["resourceId"];
@@ -31,6 +35,21 @@ export class ResourceProfileComponent {
           (resource) => {
             console.log(resource);
             this.selectedResource = <Resource>resource;
+            if(this.selectedResource.rateCardId!= null){
+              this.rateCardService.getRateCardById(this.selectedResource.rateCardId).subscribe(
+                (rateCard)=>{
+                  console.log(rateCard)
+                  this.rateCardOfSelectedResource=rateCard;
+                },
+                (error)=>{
+                  console.log(error)
+                }
+              );
+
+
+            }
+
+
           }
           , (error) => {
             console.log(error)
