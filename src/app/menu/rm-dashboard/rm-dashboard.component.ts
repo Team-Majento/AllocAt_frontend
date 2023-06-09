@@ -1,16 +1,19 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Chart} from "chart.js";
+import {BookingRequestService} from "../../service/booking-request.service";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-rm-dashboard',
   templateUrl: './rm-dashboard.component.html',
   styleUrls: ['./rm-dashboard.component.scss']
 })
-export class RmDashboardComponent {
+export class RmDashboardComponent implements OnInit{
+  bookingReqList:any=[];
   title = 'chartDemo'
   ngOnInit()
   {
-
+    this.getAllBookingRequests();
     new Chart("myChart", {
       type: 'bar',
 
@@ -45,5 +48,20 @@ export class RmDashboardComponent {
         }
       }
     });
+  }
+  constructor(private bookingReqService:BookingRequestService,private location:Location) {
+  }
+  getAllBookingRequests() {
+    this.bookingReqService.getAllBookingRequests().subscribe(
+      (compileResults) => {
+        // @ts-ignore
+        const content = compileResults;
+        console.log(compileResults);
+        this.bookingReqList=content;
+      }
+      , error => {
+        console.log(error)
+      });
+
   }
 }

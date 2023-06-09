@@ -161,11 +161,11 @@ body {
 }
 p{
   color: white;
-  font-size:15px;
+  font-size:20px;
 }
 p.line3{
   color: white;
-  font-size:24px;
+  font-size:38px;
 }
 
 .heading{
@@ -238,6 +238,14 @@ tr:hover {
   padding-top:10px;
   margin-bottom:20px;
   padding-left:20px;
+  color: #003D64;
+
+}
+.greeting p{
+  color: #003D64;
+}
+img{
+  margin-bottom:20px;
 }
 /*responsiveness*/
 @media (min-width: 1281px) {

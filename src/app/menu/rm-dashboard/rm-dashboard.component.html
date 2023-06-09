@@ -59,7 +59,7 @@
 
 
       <div class="first p-4 text-center" style="background-color:#043e7d">
-        <img src="assets/img/man.png" height="60px" />
+        <img src="assets/img/man.png" height="60px" /><br>
 
         <p>No of Subordinates</p>
         <p class="line3">60</p>
@@ -92,7 +92,7 @@
 
     <div class="cards">
       <div class=" third p-4 text-center" style="background-color:#043e7d">
-        <img src="assets/img/rejected.png" height="60px">
+        <img src="assets/img/rejected.png" height="60px"><br>
         <p>Total rejected</p>
         <p class="line3">60</p>
       </div>
@@ -116,7 +116,7 @@
   <div class="col-md-2">
     <div class="cards">
       <div class="third  p-4 text-center" style="background-color:#043e7d">
-        <img src="assets/img/refresh.png" height="60px">
+        <img src="assets/img/refresh.png" height="60px"><br>
 
         <p>Pending Requests</p>
         <p class="line3">60</p>
@@ -233,7 +233,7 @@
 <!--  </div>-->
 <div class="container-fluid">
   <div style="width: 600px; height: 500px; margin-top:30px;">
-    <h5 style="font-size:22px;">My Bookings</h5>
+    <h5 style="font-size:22px;">Total Bookings</h5>
     <div class="tablestyle">
       <canvas id="myChart"></canvas>
     </div>
@@ -251,3 +251,22 @@
         <td scope="col" class="head">End Time</td>
       </tr>
       </thead>
+
+      <tbody>
+      <tr *ngFor="let req of bookingReqList">
+        <td scope="row">{{req.id}}</td>
+<!--        <td>{{req["requesterUserId"]}}</td>-->
+        <td>{{req.companyId}}</td>
+        <td>{{req.resourceId}}</td>
+<!--        <td>{{req.requestersManagersUserId}}</td>&ndash;&gt;-->
+        <td>{{req.requiredDate}}</td>
+        <td>{{req.startTime}}</td>
+        <td>{{req.endTime}} </td>
+<!--        <td ><p style="color: rgb(173,142,0)" >{{req.status}}</p></td>&ndash;&gt;-->
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>

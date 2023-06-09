@@ -1,16 +1,16 @@
 <body>
-    <div class="filter">
-    <select class="form-select" >
-        <option selected>All Requests</option>
-        <option value="1">Accepted Requests</option>
-        <option value="2">Rejected Requests</option>
-        <option value="3">Pending Requests</option>
-    </select>
-    </div>
+<!--    <div class="filter">-->
+<!--    <select class="form-select" >-->
+<!--        <option selected>All Requests</option>-->
+<!--        <option value="1">Accepted Requests</option>-->
+<!--        <option value="2">Rejected Requests</option>-->
+<!--        <option value="3">Pending Requests</option>-->
+<!--    </select>-->
+<!--    </div>-->
 
   <h2>My Booking Requests</h2>
   <!--{{bookingReqList|json}}-->
-  <table class="table">
+  <table class="table" style="margin-top:25px;">
     <thead>
        <tr>
          <th scope="col">Request ID</th>
@@ -45,5 +45,6 @@
 
   </tbody>
 </table>
-</body>
+
 <button class="btn btn-primary me-3 mb-3 back-btn" (click)="goBack()">Back</button>
+</body>

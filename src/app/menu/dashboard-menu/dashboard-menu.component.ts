@@ -20,7 +20,7 @@ export class DashboardMenuComponent implements OnInit {
 
         labels: ['ABC pvt ltd', 'Thoughtbeat', 'Photobug', 'Fliptune', 'Youobia', 'Snaptags'],
         datasets: [{
-          label: '# of Votes',
+          label: 'Number of Bookings',
           data: [6, 8, 4, 6,5, 2],
           backgroundColor:[
             '#043e7d',

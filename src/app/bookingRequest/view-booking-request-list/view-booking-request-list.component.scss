@@ -4,8 +4,12 @@
   border: 0.5px solid gray ;
 
 }
+tr{
+  background-color: #f6f1f1;
+}
+
 th{
-  background-color:#4b49ac;
+  background-color:#043e7d;
   height:45px;
   color: white;
   font-weight:400;
@@ -27,10 +31,11 @@ button{
 h2{
   text-align: center;
   margin-top: 10px;
+  color: #050858;
 }
 
-//tr:hover {
-//  background-color: rgb(230, 235, 238);}
+tr:hover {
+  background-color: rgb(160, 197, 241);}
 
 
 .form-select{
@@ -42,7 +47,7 @@ h2{
 }
 
 body{
-  background-color: #f5f7ff;
+  background-color:#e9e7f0;
   //height: 650px;
   margin-top:15px;
   margin-left:40px;
@@ -106,7 +111,7 @@ select{
 }
 
 .back-btn:hover {
-  background-color: rgba(0, 123, 255, 0.8);
+  background-color:#043e7d ;
 }
 
 
