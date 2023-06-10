@@ -1,0 +1,58 @@
+<div class="container" style="height: 360px;width:380px; margin: 10px" >
+  <mat-card style="height: 360px">
+    <mat-card-content>
+      <div class="header">
+        <h2 style="text-align:center"><b>Add Condition</b></h2>
+        <br/>
+      </div>
+      <form #InputForm="ngForm">
+
+
+        <div class="input">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Choose a date</mat-label>
+            <input
+              #date="ngModel"
+              [(ngModel)]="condition.date"
+              [matDatepicker]="pickerA"
+              id="date"
+              matInput
+              name="date"
+              required
+            />
+            <mat-datepicker-toggle [for]="pickerA" matIconSuffix></mat-datepicker-toggle>
+            <mat-datepicker #pickerA></mat-datepicker>
+            <mat-error *ngIf="date.invalid && (date.dirty || date.touched)">
+              <span *ngIf="date.errors?.['required']">From Date is required.</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="input mt-3">
+          <mat-form-field appearance="outline" class="w-100">
+            <mat-label>Enter the discount percentage(%)</mat-label>
+            <input
+              [(ngModel)]="condition.discount"
+              #discountInput="ngModel"
+              type="number"
+              matInput
+              name="number"
+              [min]="1"
+              [max]="100"
+              required
+            />
+            <mat-error *ngIf="discountInput.invalid && (discountInput.dirty || discountInput.touched)">
+              <span *ngIf="discountInput.errors?.['min'] || discountInput.errors?.['max']">Discount percentage must be between 1 and 100.</span>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="d-flex justify-content-center mt-4">
+          <button (click)="submit(InputForm)" class="btn btn-primary ">
+              Create
+          </button>
+        </div>
+
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</div>

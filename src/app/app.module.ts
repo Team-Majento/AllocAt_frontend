@@ -64,6 +64,7 @@ import { RoleFormComponent } from './role/role-form/role-form.component';
 // import { MenuComponent } from './rm-dashboard/menu/menu.component';
 import { RmDashboardComponent } from './menu/rm-dashboard/rm-dashboard.component';
 import { EmpDashboardComponent } from './menu/emp-dashboard/emp-dashboard.component';
+import { ConditionComponent } from './condition/condition.component';
 
 @NgModule({
   declarations: [
@@ -110,7 +111,8 @@ import { EmpDashboardComponent } from './menu/emp-dashboard/emp-dashboard.compon
     ForgotPasswordComponent,
     RoleFormComponent,
     RmDashboardComponent,
-    EmpDashboardComponent
+    EmpDashboardComponent,
+    ConditionComponent
   ],
   imports: [
     BrowserModule,
