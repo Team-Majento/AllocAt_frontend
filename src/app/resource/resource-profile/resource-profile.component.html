@@ -36,7 +36,7 @@
         <div class="col-8">
           <p class="resource-value">:  {{selectedResource.id}} </p>
           <p class="resource-value">:  {{ selectedResource.company}}</p>
-          <p class="resource-value">:  {{ selectedResource.resourceType }}</p>
+          <p class="resource-value">:  {{ resourceType }}</p>
           <p *ngIf="selectedResource.rateCardId!=null" class="resource-value">:  {{ selectedResource.rateCardId }}</p>
           <p *ngIf="selectedResource.rateCardId!=null" class="resource-value">:  Rs. {{ rateCardOfSelectedResource.hourRate}}</p>
           <p *ngIf="selectedResource.rateCardId!=null" class="resource-value">:  Rs. {{ rateCardOfSelectedResource.extraHourRate }}</p>

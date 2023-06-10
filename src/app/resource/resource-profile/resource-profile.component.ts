@@ -22,6 +22,7 @@ export class ResourceProfileComponent {
   resourceId!: string;
 
   userType:string;
+  resourceType: string | undefined;
 
   constructor(private resourceService: ResourceService, private route: ActivatedRoute, private router: Router, private location: Location,private rateCardService:RatecardService) {
     this.userType=localStorage.getItem("userType")+"";
@@ -35,6 +36,15 @@ export class ResourceProfileComponent {
           (resource) => {
             console.log(resource);
             this.selectedResource = <Resource>resource;
+           if(this.selectedResource.resourceType===1){
+             this.resourceType="Cubicle";
+           } if(this.selectedResource.resourceType===2){
+             this.resourceType="Meeting Room";
+           } if(this.selectedResource.resourceType===3){
+             this.resourceType="Conference Room";
+           } if(this.selectedResource.resourceType===4){
+             this.resourceType="Lounge Area";
+           }
             if(this.selectedResource.rateCardId!= null){
               this.rateCardService.getRateCardById(this.selectedResource.rateCardId).subscribe(
                 (rateCard)=>{

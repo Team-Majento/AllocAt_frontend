@@ -26,11 +26,23 @@
         <div class="card-body">
           <h5 class="card-title">Resource ID: {{resource.id}} </h5>
           <p class="card-text">
-
-            Type:{{resource["resourceType"]}}  <br>
+            Type:
+            <span *ngIf="resource['resourceType'] === 1">Cubicle</span>
+            <span *ngIf="resource['resourceType'] === 2">Meeting Room</span>
+            <span *ngIf="resource['resourceType'] === 3">Conference Room</span>
+            <span *ngIf="resource['resourceType'] === 4">Lounge Area</span>
+<!--            <span *ngIf="resource['resourceType'] !== 1 && resource['resourceType'] !== 2 && resource['resourceType'] !== 3  && resource['resourceType'] !== 4">Custom Resource Type</span>-->
+            <br>
             Company:{{resource["company"]}} <br>
             Capacity: {{resource["maximumCapacity"]}}<br>
           </p>
+
+<!--          <p class="card-text">-->
+
+<!--            Type:{{resource["resourceType"]}}  <br>-->
+<!--            Company:{{resource["company"]}} <br>-->
+<!--            Capacity: {{resource["maximumCapacity"]}}<br>-->
+<!--          </p>-->
           <button (click)="displayResourceDetails(resource.id)" class="btn btn-primary">More</button>
         </div>
       </div>
