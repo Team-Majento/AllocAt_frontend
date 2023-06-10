@@ -12,7 +12,7 @@
           <mat-label>Condition Name</mat-label>
           <input
             #conditionName="ngModel"
-            [(ngModel)]="condition.conditionName"
+            [(ngModel)]="condition.condition_name"
             type="text"
             matInput
             name="conditionName"
@@ -29,7 +29,7 @@
           <mat-form-field appearance="outline" class="w-100">
             <mat-label>Enter the discount percentage(%)</mat-label>
             <input
-              [(ngModel)]="condition.discount"
+              [(ngModel)]="condition.discount_rate"
               #discountInput="ngModel"
               type="number"
               matInput
@@ -48,6 +48,7 @@
             <mat-label>Choose a date</mat-label>
             <input
               #date="ngModel"
+              (dateChange)="updateDate()"
               [(ngModel)]="condition.date"
               [matDatepicker]="pickerA"
               id="date"

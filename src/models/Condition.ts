@@ -1,8 +1,8 @@
 export interface Condition{
 
-  conditionName:string;
+  condition_name:string;
   date:string;
-  discount:number;
+  discount_rate:number;
 
 
 
