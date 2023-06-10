@@ -14,9 +14,9 @@ export class AcceptRejectBookingRequestService {
   }
 
 
-  acceptBookingRequest(bookingRequestId: number) {
+  acceptBookingRequest(bookingRequestId: number, selectedCondition: string) {
     console.log(bookingRequestId);
-    return this.http.post<object>("http://localhost:8082/resourceAllocaion/accept/" + bookingRequestId, null);
+    return this.http.post<object>(`http://localhost:8082/resourceAllocaion/accept/${bookingRequestId}/${selectedCondition}`, null);
   }
 
   sendNotificationEmail(userId:number,resourceManagerId:number,status:number,requiredDate:string,startTime:string,endTime:string,resourceId:number){
