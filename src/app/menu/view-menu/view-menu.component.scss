@@ -4,3 +4,47 @@
   cursor: pointer;
   // background-color: #154c79;
 }
+
+.card
+{
+  cursor: pointer;
+}
+
+p{
+  color: white;
+  font-size: 45px;
+}
+
+.line1{
+  color:#000;
+  font-size:12px;
+
+}
+.line2{
+  color:#000;
+  font-size:12px;
+
+}
+.line3{
+  color:white;
+  font-size:38px;
+  //font-weight: bold;
+
+}
+
+.cards{
+
+  transition: all 0.2s ease;
+  cursor: pointer;
+
+
+}
+
+
+
+.cards:hover{
+
+  box-shadow: 5px 6px 6px 2px #e9ecef;
+  transform: scale(1.1);
+
+}
