@@ -47,6 +47,7 @@ export class UserFormComponent extends FormControlUtil{
         (compileResults) => {
           console.log("#")
           console.log(compileResults);
+          location.reload();
         }
         , error => {
           console.log(error)
