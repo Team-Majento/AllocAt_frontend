@@ -12,7 +12,7 @@ export class HomeComponent {
   public sendEmail(e: Event) {
     e.preventDefault();
     console.log(e.target as HTMLFormElement)
-    emailjs.sendForm('service_dte4ecg', 'template_o1c0ld9', e.target as HTMLFormElement, 'szFNhaJujU5Xuw9YL')
+    emailjs.sendForm('service_fme2a7z', 'template_ssp9ozq', e.target as HTMLFormElement, 'El6uFa2gZTKo5PV1g')
       .then((result: EmailJSResponseStatus) => {
         console.log(result.text);
         location.reload();
