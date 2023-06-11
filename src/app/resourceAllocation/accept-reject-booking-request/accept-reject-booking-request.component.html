@@ -1,5 +1,5 @@
-<h2>Accept Or Reject Booking Requests</h2>
-<table class="table">
+<h2 >Accept Or Reject Booking Requests</h2>
+<table class="table mt-5">
   <thead>
   <tr>
     <th scope="col">Request ID</th>
@@ -10,6 +10,7 @@
     <th scope="col">Required Date</th>
     <th scope="col">Start Time</th>
     <th scope="col">End Time</th>
+    <th scope="col">Set Condition</th>
     <th scope="col">Action</th>
 
   </tr>
@@ -27,7 +28,7 @@
     <td>{{bookingRequest["endTime"]}}</td>
     <td>
       <div class="form-group">
-        <label for="myDropdown">Select an option:</label>
+        <label for="myDropdown">Select an condition:</label>
         <select id="myDropdown" [(ngModel)]="bookingRequest.selectedOption" (ngModelChange)="onConditionSelectionChange($event)" name="selectedOption" class="form-control">
           <option *ngFor="let option of conditions" [value]="option.condition_name" [selected]="option.condition_name === bookingRequest.selectedOption">
             {{ option.condition_name }}
