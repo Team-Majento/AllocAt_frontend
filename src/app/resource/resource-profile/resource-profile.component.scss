@@ -112,8 +112,7 @@
   text-decoration: none;
 }
 
-.book-btn, .update-btn, .back-btn {
-  background-color: #0d6efd;
+.btn-style{
   border: none;
   border-radius: 5px;
   color: #fff;
@@ -124,8 +123,15 @@
   margin-right: 10px;
 }
 
-.book-btn:hover, .update-btn:hover, .back-btn:hover {
-  background-color: #0b5ed7;
+.book-btn,.bookings-btn, .back-btn {
+  background-color:rgb(42,111,151);
+}
+
+
+
+.book-btn:hover,.bookings-btn:hover, .back-btn:hover {
+  background-color: rgb(37, 100, 133);
+  //background-color: #0b5ed7;
 }
 
 //img-styles

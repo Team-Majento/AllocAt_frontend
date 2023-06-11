@@ -6,6 +6,7 @@ import {Location} from '@angular/common';
 import {ReviewRating} from "../../../models/reviewRating";
 import {RateCard} from "../../../models/rateCard";
 import {RatecardService} from "../../service/ratecard.service";
+import {DisplayMessageService} from "../../service/display-message.service";
 
 @Component({
   selector: 'app-resource-profile',
@@ -24,7 +25,7 @@ export class ResourceProfileComponent {
   userType:string;
   resourceType: string | undefined;
 
-  constructor(private resourceService: ResourceService, private route: ActivatedRoute, private router: Router, private location: Location,private rateCardService:RatecardService) {
+  constructor(private resourceService: ResourceService, private route: ActivatedRoute, private router: Router, private location: Location,private rateCardService:RatecardService,private messageService:DisplayMessageService) {
     this.userType=localStorage.getItem("userType")+"";
     route.params.subscribe(resourceId => {
       this.resourceId = resourceId["resourceId"];
@@ -100,6 +101,19 @@ export class ResourceProfileComponent {
   }
 
 
+  unlistResource() {
+        this.resourceService.unlistResource(this.resourceId).subscribe(
+          (compileResults) => {
+            console.log(compileResults);
+            this.messageService.showSucessMessage("Resource Deleted");
+            this.location.back();
+          }
+          , error => {
+            console.log("error--",error);
+            this.messageService.showErrorMessage("Failed to Delete Resource");
+          })
 
+
+  }
 
 }

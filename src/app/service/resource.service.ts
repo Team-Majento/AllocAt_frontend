@@ -84,4 +84,8 @@ export class ResourceService {
   }
 
 
+  unlistResource(resourceId: string) {
+    let unlistResource:string=`http://localhost:8082/companies/delete/${resourceId}`;
+    return this.httpClient.delete<boolean>(unlistResource);
+  }
 }

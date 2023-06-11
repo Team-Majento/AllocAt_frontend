@@ -10,10 +10,11 @@
       <img alt="resource_img" class="img-fluid mt-2 img-shadow" src="{{ selectedResource.imgUrl }}">
 
       <div class="mt-4 ms-0 ">
-        <button (click)="addRequest()" class="btn btn-primary me-3 mb-3 book-btn ms-4">Book</button>
-        <button *ngIf="userType!='3'" (click)="updateResource()" class="btn btn-primary me-3 mb-3 update-btn">Update</button>
-        <button (click)="viewBookings()" class="btn btn-primary me-3 mb-3 update-btn">Bookings</button>
-        <button (click)="goBack()" class="btn btn-primary me-3 mb-3 back-btn">Back</button>
+        <button (click)="addRequest()" class="btn btn-primary me-3 mb-3 book-btn ms-4 btn-style">Book</button>
+        <button *ngIf="userType!='3'" (click)="updateResource()" class="btn btn-success me-3 mb-3 update-btn btn-style">Update</button>
+        <button *ngIf="userType =='1'" (click)="unlistResource()" class="btn btn-danger me-3 mb-3 delete-btn btn-style">Delete</button>
+        <button (click)="viewBookings()" class="btn btn-primary me-3 mb-3 bookings-btn btn-style">Bookings</button>
+        <button (click)="goBack()" class="btn btn-primary me-3 mb-3 back-btn btn-style">Back</button>
       </div>
 
     </div>
