@@ -2,6 +2,8 @@ import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {UserRequest} from "../../models/userRequest";
 import {Observable} from "rxjs";
+import {Resource} from "../../models/resource";
+import {Config} from "../../config/config";
 
 @Injectable({
   providedIn: 'root'
@@ -59,6 +61,17 @@ export class UserService {
 
 
   }
+
+  updateUser(user: UserRequest) {
+    // let apiUrlUpdate = `${Config.endpoints.backendApi}/${Config.endpoints.prefix.company}/${Config.endpoints.prefix.resources}/${user.userName}`;
+    // @ts-ignore
+    let apiUrlUpdateUser= `http://localhost:8082/users/update/${user.userId}`
+    //delete resource.companyId;
+    console.log(apiUrlUpdateUser)
+    return this.http.put<any>(apiUrlUpdateUser, user)
+  }
+
+
 
 
 }
