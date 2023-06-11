@@ -140,19 +140,23 @@
               </mat-form-field>
 
               <!--IMAGE-->
-              <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
-                <mat-label>Image URL</mat-label>
-                <input
-                  matInput
-                  name="imageURL"
-                  id="imageURL"
-                  [(ngModel)]="company.imgUrl"
-                  #imgUrl="ngModel"
-                  class="field"
-                  required/>
-                <mat-error *ngIf="imgUrl.invalid && (imgUrl.dirty || imgUrl.touched) && imgUrl.errors?.['required']" class="alert">ImageURL is required.</mat-error>
-              </mat-form-field>&nbsp;
-
+<!--              <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">-->
+<!--                <mat-label>Image URL</mat-label>-->
+<!--                <input-->
+<!--                  matInput-->
+<!--                  name="imageURL"-->
+<!--                  id="imageURL"-->
+<!--                  [(ngModel)]="company.imgUrl"-->
+<!--                  #imgUrl="ngModel"-->
+<!--                  class="field"-->
+<!--                  required/>-->
+<!--                <mat-error *ngIf="imgUrl.invalid && (imgUrl.dirty || imgUrl.touched) && imgUrl.errors?.['required']" class="alert">ImageURL is required.</mat-error>-->
+<!--              </mat-form-field>&nbsp;-->
+              <div class="mb-2">
+                <img [src]="url" alt=""  width="150px">
+                <br>
+                <input class="pt-3" type="file" (change)="onSelectFile($event)">
+              </div>
 
 
               <!--ACTIVE STATUS-->
@@ -174,8 +178,8 @@
 <!--              <tr>-->
 <!--                <td style="text-align: center;">-->
             <div class="d-flex gap-3 justify-content-end align-items-center mt-4">
-                  <button *ngIf="company == null" (click)="addCompany()" [disabled]="InputForm.invalid"class="btn btn-primary">Submit</button>
-                  <button *ngIf="company != null"(click)="updateCompany()" [disabled]="InputForm.invalid"class="btn btn-primary">Update</button>
+                  <button (click)="addCompany()" [disabled]="InputForm.invalid"class="btn btn-primary">Submit</button>
+                  <button (click)="updateCompany()" [disabled]="InputForm.invalid"class="btn btn-primary">Update</button>
                   <button (click)="goBack()"class="btn btn-primary">Back</button>
 <!--                </td>-->
 
