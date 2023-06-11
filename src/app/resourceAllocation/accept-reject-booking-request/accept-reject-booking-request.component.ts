@@ -1,5 +1,8 @@
-import {Component, OnInit, Output} from '@angular/core';
+import {Component, Input, OnInit, Output} from '@angular/core';
 import {AcceptRejectBookingRequestService} from "../../service/accept-reject-booking-request.service";
+import {ConditionService} from "../../service/condition.service";
+import {Condition} from "../../../models/Condition";
+import {Resource} from "../../../models/resource";
 
 @Component({
   selector: 'app-accept-reject-booking-request',
@@ -8,16 +11,30 @@ import {AcceptRejectBookingRequestService} from "../../service/accept-reject-boo
 })
 export class AcceptRejectBookingRequestComponent implements OnInit {
 
+  selectedCondition!:any;
+
 
   @Output()
   bookingRequestList: any = [];
 
-  constructor(private acceptRejectBookingRequestService: AcceptRejectBookingRequestService) {
+  conditions: any;
+
+  @Input()
+  condition = {} as Condition;
+
+  constructor(private acceptRejectBookingRequestService: AcceptRejectBookingRequestService,private  conditionService:ConditionService) {
 
   }
 
   ngOnInit(): void {
     this.getAllBookingRequests();
+    this.conditionService.getConditionNames().subscribe(
+      condition => {
+        this.conditions = condition;
+
+      },
+      error => console.error(error)
+    );
   }
 
   getAllBookingRequests() {
@@ -39,13 +56,14 @@ export class AcceptRejectBookingRequestComponent implements OnInit {
 
   accept(bookingRequestId: number, requesterUserId: number, requestersManagersUserId: number, requiredDate: string, startTime: string, endTime: string, resourceId: number) {
     console.log(bookingRequestId);
-    this.acceptRejectBookingRequestService.acceptBookingRequest(bookingRequestId).subscribe(
+    this.acceptRejectBookingRequestService.acceptBookingRequest(bookingRequestId,this.selectedCondition).subscribe(
       (compileResults) => {
         console.log(compileResults);
       }
       , error => {
         console.log(error)
       });
+    this.selectedCondition=null;
 
     let index = this.bookingRequestList.findIndex((e: any) => e.id === bookingRequestId);
     this.bookingRequestList.splice(index, 1);
@@ -74,5 +92,9 @@ export class AcceptRejectBookingRequestComponent implements OnInit {
 
     this.acceptRejectBookingRequestService.sendNotificationEmail(requesterUserId,requestersManagersUserId,-1,requiredDate,startTime,endTime,resourceId).subscribe();
 
+  }
+
+  onConditionSelectionChange(selectedCondition: any): void {
+    this.selectedCondition = selectedCondition;
   }
 }

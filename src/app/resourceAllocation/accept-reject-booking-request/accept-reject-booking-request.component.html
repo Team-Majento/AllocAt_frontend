@@ -26,6 +26,18 @@
     <td>{{bookingRequest["startTime"]}}</td>
     <td>{{bookingRequest["endTime"]}}</td>
     <td>
+      <div class="form-group">
+        <label for="myDropdown">Select an option:</label>
+        <select id="myDropdown" [(ngModel)]="bookingRequest.selectedOption" (ngModelChange)="onConditionSelectionChange($event)" name="selectedOption" class="form-control">
+          <option *ngFor="let option of conditions" [value]="option.condition_name" [selected]="option.condition_name === bookingRequest.selectedOption">
+            {{ option.condition_name }}
+            <span *ngIf="option.isSpecial && option.condition_name === bookingRequest.selectedOption">(Special Condition)</span>
+          </option>
+        </select>
+      </div>
+    </td>
+
+    <td>
       <button (click)="accept(bookingRequest.id,bookingRequest.requesterUserId,bookingRequest.requestersManagersUserId,bookingRequest.requiredDate,bookingRequest.startTime,bookingRequest.endTime,bookingRequest.resourceId)" class="btn btn-primary" type="button">Accept</button>
       <button (click)="reject(bookingRequest.id,bookingRequest.requesterUserId,bookingRequest.requestersManagersUserId,bookingRequest.requiredDate,bookingRequest.startTime,bookingRequest.endTime,bookingRequest.resourceId)" class="btn btn-dark" type="button">Reject</button>
     </td>

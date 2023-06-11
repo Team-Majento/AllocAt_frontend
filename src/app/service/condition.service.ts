@@ -15,4 +15,7 @@ export class ConditionService {
 
   }
 
+  getConditionNames() {
+    return this.httpClient.get<any[]>(`http://localhost:8082/conditions/getAllConditions`);
+  }
 }
