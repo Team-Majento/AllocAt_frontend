@@ -2,6 +2,8 @@ import {Component, Input} from '@angular/core';
 import {faCirclePlus, faEye, faFileText, faHouse, faStar} from "@fortawesome/free-solid-svg-icons";
 import {MatDialog} from "@angular/material/dialog";
 import {ConditionComponent} from "../../condition/condition.component";
+import { faCheckCircle } from '@fortawesome/free-solid-svg-icons';
+import { faCogs } from '@fortawesome/free-solid-svg-icons';
 
 
 @Component({
@@ -17,7 +19,11 @@ export class SidebarComponent {
   icon5=faFileText;
   icon6=faStar;
 
-  userType:string;
+  icon7=faCheckCircle;
+  icon8=faCogs;
+
+
+userType:string;
   dashboardType:string="";
   constructor(private dialogRef:MatDialog) {
     this.userType=localStorage.getItem("userType")+"";
