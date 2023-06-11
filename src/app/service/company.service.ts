@@ -17,8 +17,12 @@ export class CompanyService {
   constructor(private httpClient: HttpClient) {}
 
   addCompany(company:Company) : Observable<number>{
+    const tokenParse = localStorage.getItem('jwtToken')+'';
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${tokenParse}`);
+    console.log(tokenParse);
+    const requestOptions = { headers };
     //console.log(this.apiUrl);
-    return  this.httpClient.post<number>(this.apiUrl,company);
+    return  this.httpClient.post<number>(this.apiUrl,company,requestOptions);
   }
 
   getCompanyNames(): Observable<any[]> {
@@ -36,11 +40,15 @@ export class CompanyService {
   }
 
   updateCompany(company: Company) {
+    const tokenParse = localStorage.getItem('jwtToken')+'';
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${tokenParse}`);
+    console.log(tokenParse);
+    const requestOptions = { headers };
     let apiUrlUpdate = `${Config.endpoints.backendApi}/${Config.endpoints.prefix.company}/${company.id}`;
     // @ts-ignore
     // delete companyId;
     console.log("***"+apiUrlUpdate)
-    return this.httpClient.put<number>(apiUrlUpdate, company)
+    return this.httpClient.put<number>(apiUrlUpdate, company,requestOptions)
   }
   getCompanyById(companyId: string) {
 

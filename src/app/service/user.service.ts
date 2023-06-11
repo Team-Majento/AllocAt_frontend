@@ -1,4 +1,4 @@
-import {HttpClient} from '@angular/common/http';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {UserRequest} from "../../models/userRequest";
 import {Observable} from "rxjs";
@@ -21,8 +21,12 @@ export class UserService {
   }
 
   addUser(user: UserRequest): Observable<number> {
+    const tokenParse = localStorage.getItem('jwtToken')+'';
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${tokenParse}`);
+    console.log(tokenParse);
+    const requestOptions = { headers };
     // @ts-ignore
-    return this.http.post<number>("http://localhost:8082/users", user)
+    return this.http.post<number>("http://localhost:8082/users", user,requestOptions)
   }
 
   uploadImg(formData: FormData) {
