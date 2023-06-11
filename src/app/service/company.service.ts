@@ -3,6 +3,7 @@ import {Config} from "../../config/config";
 import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {Company} from "../../models/company";
 import {BehaviorSubject, map, Observable} from "rxjs";
+import {Resource} from "../../models/resource";
 
 @Injectable({
   providedIn: 'root'
@@ -34,6 +35,13 @@ export class CompanyService {
 
   }
 
+  updateCompany(company: Company) {
+    let apiUrlUpdate = `${Config.endpoints.backendApi}/${Config.endpoints.prefix.company}/${company.id}`;
+    // @ts-ignore
+    // delete companyId;
+    console.log("***"+apiUrlUpdate)
+    return this.httpClient.put<number>(apiUrlUpdate, company)
+  }
   getCompanyById(companyId: string) {
 
     // let apiUrl3=`${Config.endpoints.backendApi}/companies/${companyId}`

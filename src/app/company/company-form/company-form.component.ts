@@ -50,6 +50,9 @@ export class CompanyFormComponent extends FormControlUtil implements OnInit,OnDe
     }
   }
 
+
+
+
   ngOnDestroy(): void {
     this.subSink.unsubscribe();
   }
@@ -58,3 +61,4 @@ export class CompanyFormComponent extends FormControlUtil implements OnInit,OnDe
     this.location.back();
   }
 }
+

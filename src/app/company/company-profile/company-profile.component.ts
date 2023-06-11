@@ -41,9 +41,9 @@ export class CompanyProfileComponent {
 
   }
 
-    updateCompany() {
-      this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/companies/${this.companyId}/update`]))
-    }
+  updateCompany() {
+    this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/companies/${this.companyId}/update`]))
+  }
 
     goBack()
     {
