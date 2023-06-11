@@ -2,6 +2,10 @@ import {Component, OnInit} from '@angular/core';
 import {Chart} from "chart.js";
 import {BookingRequestService} from "../../service/booking-request.service";
 import {Location} from "@angular/common";
+import {UserService} from "../../service/user.service";
+import {MatDialog} from "@angular/material/dialog";
+import {ActivatedRoute, Router} from "@angular/router";
+import {UserRequest} from "../../../models/userRequest";
 
 @Component({
   selector: 'app-emp-dashboard',
@@ -10,6 +14,8 @@ import {Location} from "@angular/common";
 })
 export class EmpDashboardComponent implements OnInit {
   bookingReqList:any=[];
+  selectedUser: any = {}
+  userName!: String;
 
 
   ngOnInit()
@@ -51,7 +57,17 @@ export class EmpDashboardComponent implements OnInit {
     });
   }
 
-  constructor(private bookingReqService:BookingRequestService,private location:Location) {
+  constructor(private bookingReqService:BookingRequestService,private location:Location,private service: UserService, private dialogRef: MatDialog, private route: ActivatedRoute, private router: Router)
+  {
+    this.userName = localStorage.getItem("userName_") + "";
+    const decodedData = atob(this.userName.toString());
+    this.service.getUserByUserName(decodedData).subscribe((user) => {
+        console.log(user);
+        this.selectedUser = <UserRequest>user;
+      }
+      , (error) => {
+        console.log(error)
+      });
   }
   getAllBookingRequests() {
     this.bookingReqService.getAllBookingRequests().subscribe(
