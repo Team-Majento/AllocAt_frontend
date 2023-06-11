@@ -11,26 +11,12 @@
     </tr>
     </thead>
     <tbody>
-    <tr>
-      <td>2023/04/12</td>
-      <td>R001</td>
-      <td>2.30 PM</td>
-      <td>3.30 PM</td>
-    </tr>
 
-    <tr>
-    <tr>
-      <td>2023/04/12</td>
-      <td>R001</td>
-      <td>2.30 PM</td>
-      <td>3.30 PM</td>
-    </tr>
-
-    <tr>
-      <td>2023/04/12</td>
-      <td>R001</td>
-      <td>2.30 PM</td>
-      <td>3.30 PM</td>
+    <tr  *ngFor="let allocation of resourceWiseAllocationList">
+      <td>{{allocation.requiredDate}}</td>
+      <td>{{allocation.id}}</td>
+      <td>{{allocation.startTime}}</td>
+      <td>{{allocation.endTime}}</td>
     </tr>
 
 

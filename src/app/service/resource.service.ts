@@ -78,4 +78,10 @@ export class ResourceService {
     return this.httpClient.put<number>(apiUrlUpdate, resource)
   }
 
+  getAllAllocationsByResourceId(resourceId: string) {
+    let url_allocationsByResourceId:string=`http://localhost:8082/resourceAllocaion/allocations/${resourceId}`;
+    return this.httpClient.get<any>(url_allocationsByResourceId);
+  }
+
+
 }
