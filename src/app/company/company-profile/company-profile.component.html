@@ -1,35 +1,45 @@
-<div class="container mt-5 text-bg-dark"  *ngIf="selectedCompany">
+<div *ngIf="selectedCompany" class="container mt-4 " style="background-color: rgb(233,231,240)">
   <div class="row">
-    <div class="col-12">
-    </div>
-  </div>
+    <div class="row">
+      <h3 class="ms-3 company-title mb-2">Company Details</h3>
+      <hr class="ms-3" style="border-style: solid; border-width: 1px; font-weight: bold; color: #000000">
 
-  <div class="row">
-    <div class="col-lg-4">
-      <img  src="{{selectedCompany.imgUrl}}" alt="companyLogo_img" class="img-fluid mt-5 shadow-lg">
     </div>
 
-    <div class="col-lg-8">
+  <div class="row">
+    <div class="col-lg-6 company-image-container ">
+      <img alt="company_img" class="img-fluid mt-2 img-shadow" src="{{ selectedCompany.imgUrl }}">
+
+    </div>
+
+    <div class="col-lg-6 mt-2">
+
       <div class="row">
-        <div class="col-12 mb-3 mt-3">
-          <h4><b>Company Details</b></h4>
+        <div class="col-3 mb-0 ms-4 company-label">
+          <p>Company id</p>
+          <p>Name</p>
+          <p>Address</p>
+          <p>ContactNumber</p>
+          <p>Mobile</p>
+          <p>Fax</p>
+          <p>Email</p>
+          <p>ActiveStatus</p>
+          <p class="font-monospace fw-bold"><u>Description</u></p>
+
         </div>
+        <div class="col-8">
+          <p class="resource-value">:  <b>{{selectedCompany.id}}</b> </p>
+          <p class="resource-value">:  <b>{{ selectedCompany.name}}</b></p>
+          <p class="resource-value">:  <b>{{ selectedCompany.address }}</b></p>
+          <p class="resource-value">:  <b>{{selectedCompany.contactNumber}}</b> </p>
+          <p class="resource-value">:  <b>{{ selectedCompany.mobile}}</b></p>
+          <p class="resource-value">:  <b>{{ selectedCompany.fax}}</b></p>
+          <p class="resource-value">:  <b>{{selectedCompany.email}}</b> </p>
+          <p class="resource-value">:  <b>{{ selectedCompany.activeStatus}}</b></p>
+          <div class="col-12 mt-0 ms-4">
+            <p class="company-description" style="text-align: justify;">{{ selectedCompany.description }}</p>
+          </div>
       </div>
-
-      <div class="row">
-        <div class="col-12 ms-2">
-          <p><b>Company id:</b>{{selectedCompany.id}} </p>
-          <p><b>Name :</b>{{ selectedCompany.name}}</p>
-          <p><b>Address :</b>{{ selectedCompany.address}}</p>
-          <p><b>ContactNumber :</b>{{ selectedCompany.contactNumber}}</p>
-          <p><b>Mobile :</b>{{ selectedCompany.mobile}}</p>
-          <p><b>Fax :</b>{{ selectedCompany.fax}}</p>
-          <p><b>Email :</b>{{ selectedCompany.email}}</p>
-          <p><b>ActiveStatus :</b>{{ selectedCompany.activeStatus}}</p>
-          <p><b><u>Description:</u></b></p>
-          <p>{{ selectedCompany.description}}</p>
-
-        </div>
 
 
 

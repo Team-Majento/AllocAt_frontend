@@ -1,10 +1,10 @@
 
 
 
-<div class="content  mat-elevation-z4" style="background-color: #050858;" >
+<!--<div class="content  mat-elevation-z4" style="background-color: #050858;" >-->
 <!--   {{company| json}}-->
-  <h2 style="color:#fff;font-size: 32px;">{{formTitle}}</h2>
-  <div class="content2 mat-elevation-z4" style="background-color: #C3E5F9;  " >
+  <h2 style="color:black;text-align: center;font-size: 32px;">{{formTitle}}</h2>
+<!--  <div class="content2 mat-elevation-z4" style="background-color: #C3E5F9;  " >-->
     <div class="form-body" style="margin-top: 20px; margin-left: 25px;">
       <div class="row">
         <div class="column">
@@ -170,26 +170,24 @@
             </div>
 
             <!--BUTTONS AND IMAGE-->
-            <table border="0" class="tbl">
-              <tr>
-                <td style="text-align: center;">
-                  <button mat-button (click)="addCompany()" class="button" >
-                    <p>Submit </p>
-                  </button>
-                  <button mat-button class="button" (click)="goBack()">
-                    <p>Back </p>
-                  </button>
-                </td>
+<!--            <table border="0" class="tbl">-->
+<!--              <tr>-->
+<!--                <td style="text-align: center;">-->
+            <div class="d-flex gap-3 justify-content-end align-items-center mt-4">
+                  <button *ngIf="company == null" (click)="addCompany()" [disabled]="InputForm.invalid"class="btn btn-primary">Submit</button>
+                  <button *ngIf="company != null"(click)="updateCompany()" [disabled]="InputForm.invalid"class="btn btn-primary">Update</button>
+                  <button (click)="goBack()"class="btn btn-primary">Back</button>
+<!--                </td>-->
 
-              </tr>
-            </table>
-
+<!--              </tr>-->
+<!--            </table>-->
+            </div>
           </form>
         </div>
 
       </div>
     </div>
-  </div>
-</div>
+<!--  </div>-->
+<!--</div>-->
 
 

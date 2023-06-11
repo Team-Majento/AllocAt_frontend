@@ -50,6 +50,19 @@ export class CompanyFormComponent extends FormControlUtil implements OnInit,OnDe
     }
   }
 
+  updateCompany(){
+ this.companyService.updateCompany(this.company).subscribe(
+      (compileResults) => {
+        console.log(compileResults);
+        this.messageService.showSucessMessage("Update-Sucess");
+      }
+      , error => {
+        console.log("error--",error);
+        this.messageService.showErrorMessage("error");
+      })
+
+  }
+
 
 
 

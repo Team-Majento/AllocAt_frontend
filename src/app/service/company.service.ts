@@ -44,7 +44,9 @@ export class CompanyService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${tokenParse}`);
     console.log(tokenParse);
     const requestOptions = { headers };
-    let apiUrlUpdate = `${Config.endpoints.backendApi}/${Config.endpoints.prefix.company}/${company.id}`;
+    // http://localhost:8082/companies/2
+    //   http://localhost:4200/companies/[object
+      let apiUrlUpdate = `${Config.endpoints.backendApi}/${Config.endpoints.prefix.company}/${company.id}`;
     // @ts-ignore
     // delete companyId;
     console.log("***"+apiUrlUpdate)

@@ -2,3 +2,106 @@
 
   height: 600px;
 }
+
+
+.company-title{
+  margin: 0;
+  padding: 0;
+}
+
+.reviews {
+  padding: 20px 0;
+  background-color: rgb(233,231,240);
+}
+
+.reviews h2 {
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 24px;
+}
+
+.card {
+  border: none;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 10px;
+}
+
+.card-footer {
+  background-color: #f8f9fa;
+  border-top: 1px solid #e9ecef;
+  padding: 5px 5px;
+}
+
+.stars {
+  display: flex;
+  align-items: center;
+  color: #e5ae1b;
+}
+
+.star {
+  font-size: 20px;
+}
+
+.quotation {
+  font-size: 1.5em;
+  color: #383834;
+  line-height: 0.1em;
+  vertical-align: middle;
+}
+
+.card-text {
+  font-size: 18px;
+  line-height: 1.5;
+  margin-bottom: 0;
+}
+
+.card-footer span {
+  font-size: 14px;
+  color: #6c757d;
+}
+
+.card-footer .fw-bold {
+  font-weight: 700;
+  color: #212529;
+}
+.company-img {
+  height: 400px;
+  object-fit: cover;
+}
+.company-details {
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.company-details h3 {
+  font-size: 28px;
+  font-weight: bold;
+  color: #212529;
+}
+
+.company-details p {
+  font-size: 16px;
+  font-weight: 500;
+  color: #212529;
+  margin-bottom: 5px;
+}
+
+.company-details u {
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-style{
+  border: none;
+  border-radius: 5px;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-right: 10px;
+}
