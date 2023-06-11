@@ -1,8 +1,8 @@
-<div class="container" style="height: 360px;width:380px; margin: 10px" >
-  <mat-card style="height: 360px">
+<div class="container" style="height: 430px;width:400px;padding-top: 10px;padding-bottom: 10px" >
+  <mat-card style="height: 410px;">
     <mat-card-content>
       <div class="header">
-        <h2 style="text-align:center"><b>Add Condition</b></h2>
+        <h2 style="text-align:center;color: #222222"><b>Add Condition</b></h2>
         <br/>
       </div>
       <form #InputForm="ngForm">
@@ -62,9 +62,11 @@
             </mat-error>
           </mat-form-field>
         </div>
-        <div class="d-flex justify-content-center mt-4">
+
+
+        <div class="d-flex justify-content-center mt-3">
           <button (click)="submit(InputForm)" class="btn btn-primary ">
-              Create
+              ADD
           </button>
         </div>
 
