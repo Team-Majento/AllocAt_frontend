@@ -16,32 +16,43 @@
         <form #InputForm="ngForm">
 
 
-<!--          Username field-->
+<!--Username field-->
           <div class="input">
             <mat-form-field  class="full-width"  appearance="outline">
               <mat-label>Username or Email</mat-label>
-              <input matInput name="name" id="name" [(ngModel)]="user.userName" #name="ngModel" required/>
+              <input matInput
+                     name="name"
+                     id="name"
+                     [(ngModel)]="user.userName"
+                     #name="ngModel"
+                     required/>
+              <mat-error *ngIf="name.invalid && (name.dirty || name.touched) && name.errors?.['required']" class="alert">userName is required.</mat-error>
             </mat-form-field>&nbsp;
           </div>
-          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert">
-            <div *ngIf="name.errors?.['required']">
-              Name is required.
-            </div>
-          </div>
 
 
-<!--          Password field-->
+
+<!--Password field-->
           <div class="input">
             <mat-form-field class="full-width" appearance="outline">
               <mat-label>Password</mat-label>
-              <input  name="pass" id="pass" matInput [type]=" 'hide' ? 'password' : 'test' " [(ngModel)]="user.userPassword" #password="ngModel" required/>
+              <input
+                name="pass"
+                id="pass"
+                matInput
+                type="{{ hidePassword ?'password' : 'text' }}"
+                [(ngModel)]="user.userPassword"
+                #password="ngModel"
+                required/>
+              <mat-icon style="cursor: pointer" matSuffix (click)="togglePasswordVisibility()">{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
+
+              <mat-error *ngIf="password.invalid && (password.dirty || password.touched) && password.errors?.['required']" class="alert">Password is required.</mat-error>
+<!--          <mat-error *ngIf="password.invalid && (password.dirty || password.touched) && password.errors?.['pattern']" class="alert">must have one uppercase,one lowercase letter, and be between 8-16 characters long.</mat-error>-->
             </mat-form-field>
           </div>
-          <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
-            <div *ngIf="password.errors?.['required']">
-              Password is required.
-            </div>
-          </div>
+
+          <br>
+
 
 <!--          ForgotPassword-->
           <div style="text-align: left; ">

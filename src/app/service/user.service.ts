@@ -25,6 +25,13 @@ export class UserService {
     return this.http.post<number>("http://localhost:8082/users", user)
   }
 
+  uploadImg(formData: FormData) {
+    let url7:string=`http://localhost:8082/file`;
+
+    return this.http.post<any>(url7,formData);
+
+  }
+
   public ChangeUserPassword(user: any, password: String) {
     this.userRequest.userId = user.userId;
     this.userRequest.firstName = user.firstName;

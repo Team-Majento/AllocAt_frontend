@@ -136,9 +136,12 @@
                   [(ngModel)]="user.password"
                   #password="ngModel"
                   class="field"
-                  type="password"
+                  type="{{ hidePassword ?'password' : 'text' }}"
                   required/>
+
+                <mat-icon style="cursor: pointer; color: #212529" matSuffix (click)="togglePasswordVisibility()">{{ hidePassword ? 'visibility_off' : 'visibility' }}</mat-icon>
                 <mat-error *ngIf="password.invalid && (password.dirty || password.touched) && password.errors?.['required']" class="alert">Password is required.</mat-error>
+<!--            <mat-error *ngIf="password.invalid && (password.dirty || password.touched) && password.errors?.['pattern']" class="alert">must have one uppercase,one lowercase letter, and be between 8-16 characters long.</mat-error>-->
               </mat-form-field>&nbsp;
 
               <!--MANAGEREID-->
