@@ -18,12 +18,15 @@ import {ForgotPasswordComponent} from "../forgot-password/forgot-password.compon
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy {
-  @ViewChild('InputForm')
+
+  hidePassword: boolean=true;   //current visibility state
+
+  @ViewChild('InputForm')         //obtain reference form to the NgForm
   inputForm!: NgForm;
 
-  @Input()
+  @Input()              //mark user property as input property. can receive data.
   user={} as UserLogin;
-  private subSink=new SubSink();
+  private subSink=new SubSink();    //used to manage and unsubscribe from multiple subscriptions
 
   currentUserName:String="";
 
@@ -31,24 +34,30 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
     super();
   }
 
-  openDialog() {
+  togglePasswordVisibility(){
+    this.hidePassword =!this.hidePassword;
+  }
+
+  // passwordPtn ='^(?=.?[A-Z])(?=.?[a-z])(?=.*?[0-9]).{8,16}$';
+
+  openDialog() {                                       //triggered when forgot password button clicked
     this.dialogRef.open(ForgotPasswordComponent,
     {width:'350px',
     })
   }
 
-  login(){
+  login(){                                      //when login form submitted
 
-    if (this.isFormValid(this.inputForm)) {
+    if (this.isFormValid(this.inputForm)) {               //form-control.util- check all required fields are filled or not
       this.subSink.add(
-        this.loginService.login_new(this.user).subscribe(
+        this.loginService.login_new(this.user).subscribe(          //login.service.ts - authenticate user and get login credentials
           (compileResults) => {
 
             // saving current user password to local storage
             this.currentUserName=this.user.userName;
 
-            const encodedData = btoa(this.currentUserName.toString());
-            localStorage.setItem("userName_",encodedData);
+            const encodedData = btoa(this.currentUserName.toString());   //encode password
+            localStorage.setItem("userName_",encodedData);               //save as userName_
 
             console.log("abc")
             console.log(compileResults.jwtToken);
@@ -71,9 +80,8 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
 
             }
 
-
           }
-          , error => {
+          , (error) => {
             console.log("error--");
             this.messageService.showErrorMessage("error-login failed");
           }),
@@ -81,11 +89,11 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
     }
   }
 
-  ngOnDestroy(): void {
+  ngOnDestroy(): void {                //cleanup task
     this.subSink.unsubscribe();
   }
 
-  ngOnInit(): void {
+  ngOnInit(): void {                                   //initialization
     this.messageService.showSucessMessage("loss");
   }
 
