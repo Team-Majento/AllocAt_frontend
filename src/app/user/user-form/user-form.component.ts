@@ -12,18 +12,27 @@ import { Location } from '@angular/common';
 })
 export class UserFormComponent extends FormControlUtil{
 
-  constructor(private service:UserService,private location :Location) {
-    super();
-  }
-
   @Input()
-  formTitle="form";
+  formTitle = "form";
 
   @Input()
   user = {} as UserRequest;
 
   @ViewChild('InputForm')
   inputForm!: NgForm;
+
+  form: any;
+  img: any;
+  formData: FormData = new FormData();
+
+  @Input()
+  url = "assets/img/upload-img.png"
+  flag: boolean = false;
+
+  constructor(private service: UserService, private location: Location) {
+    super();
+    this.user.imageURL=this.url;
+  }
 
   // todo
   // passwordPtn ='^(?=.?[A-Z])(?=.?[a-z])(?=.*?[0-9]).{8,16}$'
@@ -42,6 +51,26 @@ export class UserFormComponent extends FormControlUtil{
         , error => {
           console.log(error)
         });
+    }
+  }
+
+  onSelectFile(e: Event) {
+    // @ts-ignore
+    if (e.target.files && e.target.files.length > 0) {
+      // @ts-ignore
+      const file: File = e.target.files[0];
+
+      this.formData.append('file', file);
+      this.flag = true;
+
+      var reader = new FileReader();
+      // @ts-ignore
+      reader.readAsDataURL(e.target.files[0]);
+      // @ts-ignore
+      console.log(e.target.files[0])
+      reader.onload = (event: any) => {
+        this.url = event.target.result;
+      };
     }
   }
 
