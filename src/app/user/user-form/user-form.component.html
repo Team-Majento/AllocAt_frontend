@@ -16,10 +16,12 @@
                        id="id"
                        type="number"
                        [(ngModel)]="user.userId"
+                       [pattern]="IdPattern"
                        #id="ngModel"
                        class="field"
                        required/>
-                <mat-error *ngIf="id.invalid && (id.dirty || id.touched) && id.errors?.['required']" class="alert">Userid is required.</mat-error>
+                <mat-error *ngIf="id.invalid && (id.dirty || id.touched) && id.errors?.['required']" class="alert">Userid is required and must be a number.</mat-error>
+                <mat-error *ngIf="id.invalid && (id.dirty || id.touched) && id.errors?.['pattern']" class="alert">Only the numbers greater than 0</mat-error>
               </mat-form-field>&nbsp;
 
               <!--EMAIL-->
@@ -48,10 +50,12 @@
                   name="firstName"
                   id="firstName"
                   [(ngModel)]="user.firstName"
+                  [pattern]="namePattern"
                   #firstName="ngModel"
                   class="field"
                   required/>
                 <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched) && firstName.errors?.['required']" class="alert">first name is required.</mat-error>
+                <mat-error *ngIf="firstName.invalid && (firstName.dirty || firstName.touched) && firstName.errors?.['pattern']" class="alert">Firstname must be string</mat-error>
               </mat-form-field>&nbsp;
 
               <!--CONTACT NUMBER-->
@@ -78,10 +82,12 @@
                   name="middleName"
                   id="middleName"
                   [(ngModel)]="user.middleName"
+                  [pattern]="namePattern"
                   #middleName="ngModel"
                   class="field"
                   required/>
                 <mat-error *ngIf="middleName.invalid && (middleName.dirty || middleName.touched) && middleName.errors?.['required']" class="alert">middle name is required.</mat-error>
+                <mat-error *ngIf="middleName.invalid && (middleName.dirty || middleName.touched) && middleName.errors?.['pattern']" class="alert">Middle name must be string</mat-error>
               </mat-form-field>&nbsp;
 
               <!--LAST NAME-->
@@ -92,23 +98,35 @@
                   name="lastName"
                   id="lastName"
                   [(ngModel)]="user.lastName"
+                  [pattern]="namePattern"
                   #lastName="ngModel"
                   class="field"
                   required/>
-                <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched) && lastName.errors?.['required']" class="alert">last name is required.</mat-error>
+                <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched) && lastName.errors?.['required']" class="alert">Last name is required.</mat-error>
+                <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched) && lastName.errors?.['pattern']" class="alert">Last name must be string</mat-error>
               </mat-form-field>&nbsp;
 
               <!--USER TYPE-->
-              <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
-                <mat-label>User Type</mat-label>
-                <input
-                  matInput
-                  name="userType"
-                  id="userType"
-                  [(ngModel)]="user.userType"
-                  #userType="ngModel"
-                  class="field"
-                  required/>
+<!--              <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">-->
+<!--                <mat-label>User Type</mat-label>-->
+<!--                <input-->
+<!--                  matInput-->
+<!--                  name="userType"-->
+<!--                  id="userType"-->
+<!--                  [(ngModel)]="user.userType"-->
+<!--                  #userType="ngModel"-->
+<!--                  class="field"-->
+<!--                  required/>-->
+<!--                <mat-error *ngIf="userType.invalid && (userType.dirty || userType.touched) && userType.errors?.['required']" class="alert">user type is required.</mat-error>-->
+<!--              </mat-form-field>&nbsp;-->
+
+              <mat-form-field class="justifier" floatlabel="auto" appearance="outline">
+                <mat-label>Choose an option</mat-label>
+                <mat-select name="userType" id="userType" [(ngModel)]="user.userType" #userType="ngModel" class="field" required>
+                  <mat-option value="1">Group Administrator</mat-option>
+                  <mat-option value="2">Resource Manager</mat-option>
+                  <mat-option value="3">Employee</mat-option>
+                </mat-select>
                 <mat-error *ngIf="userType.invalid && (userType.dirty || userType.touched) && userType.errors?.['required']" class="alert">user type is required.</mat-error>
               </mat-form-field>&nbsp;
 
@@ -149,13 +167,16 @@
                 <mat-label>ManagerEId</mat-label>
                 <input
                   matInput
+                  type="number"
                   name="managersEIDL"
                   id="managersEIDL"
                   [(ngModel)]="user.managersEID"
+                  [pattern]="IdPattern"
                   #managersEID="ngModel"
                   class="field"
                   required/>
                 <mat-error *ngIf="managersEID.invalid && (managersEID.dirty || managersEID.touched) && managersEID.errors?.['required']" class="alert">managersEID is required.</mat-error>
+                <mat-error *ngIf="managersEID.invalid && (managersEID.dirty || managersEID.touched) && managersEID.errors?.['pattern']" class="alert">Only the numbers greater than 0</mat-error>
 
               </mat-form-field>
 
@@ -178,7 +199,7 @@
               <div class="mb-2">
                 <img [src]="url" alt=""  width="150px">
                 <br>
-                <input class="pt-3" type="file" (change)="onSelectFile($event)">
+                <input class="pt-3" type="file" (change)="onSelectFile($event)" required/>
               </div>
 
               <!--GENDER-->
@@ -204,7 +225,8 @@
                 [(ngModel)]="user.activeStatus"
                 #activeStatus="ngModel"
                 color="primary"
-                style="font-size: 14px;">
+                style="font-size: 14px;"
+                 required >
                 Active Status
               </mat-checkbox>
 
