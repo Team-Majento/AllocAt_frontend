@@ -1,14 +1,14 @@
 
 export interface UserRequest{
   userId: BigInt ;
-  firstName: String;
-  middleName: String ;
-  lastName: String ;
-  userName: String ;
+  firstName: string;
+  middleName: string ;
+  lastName: string ;
+  userName: string ;
   password: String ;
-  email: String;
-  contactNo: String ;
-  address: String ;
+  email: string;
+  contactNo: string ;
+  address: string ;
   gender: CharacterData ;
   imageURL: String ;
   userType: BigInt;

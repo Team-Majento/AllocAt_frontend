@@ -29,6 +29,9 @@ export class UserFormComponent extends FormControlUtil{
   formData: FormData = new FormData();
 
   @Input()
+  isUpdateForm : boolean | undefined;
+
+  @Input()
   url = "assets/img/upload-img.png"
   flag: boolean = false;
 
@@ -81,6 +84,57 @@ export class UserFormComponent extends FormControlUtil{
     }
   }
 
+  updateUser() {
+    if (this.isFormValid(this.inputForm)) {
+      if(this.flag){
+        let url_image:string="";
+        this.service.uploadImg(this.formData).subscribe(
+          (response: any) => {
+            // Handle the server response here
+            console.log('File uploaded successfully!');
+            // console.log(response)
+            console.log(response.publicURL)
+            url_image=response.publicURL;
+
+
+            this.user.imageURL=url_image;
+            //console.log(this.resource)
+
+
+            this.service.updateUser(this.user).subscribe(
+              (compileResults) => {
+                console.log(compileResults);
+                this.messageService.showSucessMessage("resource updated-Successfully");
+              }
+              , error => {
+                console.log(error)
+                this.messageService.showErrorMessage("error occurred");
+              });
+          },
+          (error: any) => {
+            // Handle any errors that occurred during the upload
+            console.error('Error uploading file:', error);
+            this.messageService.showErrorMessage("error occurred--Error uploading file");
+          }
+        );
+      }
+      else{
+
+        this.service.updateUser(this.user).subscribe(
+          (compileResults) => {
+            console.log(compileResults);
+            this.messageService.showSucessMessage("resource updated-Successfully");
+          }
+          , error => {
+            console.log(error)
+            this.messageService.showErrorMessage("error occurred");
+          });
+      }
+
+    }
+
+  }
+
   onSelectFile(e: Event) {
     // @ts-ignore
     if (e.target.files && e.target.files.length > 0) {
@@ -105,4 +159,5 @@ export class UserFormComponent extends FormControlUtil{
   goBack() {
     this.location.back();
   }
+
 }
