@@ -29,4 +29,9 @@ export class AcceptRejectBookingRequestService {
     return this.http.post<object>("http://localhost:8082/resourceAllocaion/reject/" + bookingRequestId, null);
   }
 
+  getAllCompanyIdOfTheResourceAllocation(){
+    return this.http.get<any[]>("http://localhost:8082/resourceAllocaion/allocations/get-all-companyId");
+
+  }
+
 }

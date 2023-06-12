@@ -7,21 +7,35 @@
       </div>
       <form #InputForm="ngForm" >
 
+<!--        <div class="input">-->
+<!--          <mat-form-field appearance="outline" class="w-100">-->
+<!--            <mat-label >Company Id</mat-label>-->
+<!--            <input-->
+<!--              #cid="ngModel"-->
+<!--              [(ngModel)]="companyWiseReportGeneration.companyId"-->
+<!--              id="companyId"-->
+<!--              matInput-->
+<!--              name="companyId"-->
+<!--              required-->
+<!--            />-->
+<!--          </mat-form-field>-->
+<!--          <div *ngIf="cid.invalid && (cid.dirty || cid.touched) ||InputForm.submitted" class="alert0">-->
+<!--            <div *ngIf="cid.errors?.['required']">Company ID is required.</div>-->
+<!--          </div>-->
+<!--        </div>-->
+
         <div class="input">
           <mat-form-field appearance="outline" class="w-100">
-            <mat-label >Company Id</mat-label>
-            <input
-              #cid="ngModel"
-              [(ngModel)]="companyWiseReportGeneration.companyId"
-              id="companyId"
-              matInput
-              name="companyId"
-              required
-            />
+            <mat-label>Company Id</mat-label>
+            <mat-select  [(ngModel)]="companyWiseReportGeneration.companyId" name="companyId" required>
+              <mat-option  *ngFor="let companyId of companyIdList" [value]="companyId">
+                {{ companyId}}
+              </mat-option>
+            </mat-select>
           </mat-form-field>
-          <div *ngIf="cid.invalid && (cid.dirty || cid.touched) ||InputForm.submitted" class="alert0">
-            <div *ngIf="cid.errors?.['required']">Company ID is required.</div>
-          </div>
+<!--          <div *ngIf="cid.invalid && (cid.dirty || cid.touched) || InputForm.submitted" class="alert0">-->
+<!--            <div *ngIf="cid.errors?.['required']">Company ID is required.</div>-->
+<!--          </div>-->
         </div>
 
         <div class="input">
