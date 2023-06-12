@@ -10,8 +10,6 @@ export class AddMenuComponent {
 
   userType:string;
 
-
-
   constructor(private router:Router) {
     this.userType=localStorage.getItem("userType")+"";
 

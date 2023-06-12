@@ -13,9 +13,9 @@ import {UserRequest} from "../../../models/userRequest";
   styleUrls: ['./dashboard-menu.component.scss']
 })
 export class DashboardMenuComponent implements OnInit {
-  bookingReqList:any=[]; //***
+  bookingReqList:any=[]; //hold booking request data
   title = 'chartDemo'
-  selectedUser: any = {}
+  selectedUser: any = {}  //hold the selected user data
   userName!: String;
   totalUsers!:any;
 
@@ -85,7 +85,6 @@ export class DashboardMenuComponent implements OnInit {
       , error => {
         console.log(error)
       });
-
   }
    getAllUsersCount() {
      this.service.getAllUsersCount().subscribe(

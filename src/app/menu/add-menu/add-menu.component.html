@@ -1,100 +1,24 @@
-<!--<section class="mt-3">-->
-<!--  <div class="container">-->
-<!--    <div class="row" style="margin-top: 50px; margin-bottom: 50px">-->
-<!--      <div class="col-md-3 card" *ngIf="userType=='1'" (click)="openAddCompanyForm()">-->
-<!--        <div class="card shadow-lg ">-->
-<!--          <img src="assets/img/company.jpg" alt="" class="img-fluid">-->
-<!--          <div class="card d-flex align-items-center ">-->
-<!--            <div class="card-body text-center ">-->
-<!--            <p class="h3">Add Company</p>-->
-<!--            </div>-->
-
-<!--          </div>-->
-
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      <div class="col-md-3 card" *ngIf="userType!='3'" (click)="openAddResourceForm()">-->
-<!--        <div class="card shadow-lg">-->
-<!--          <img src="assets/img/resource.jpg" alt="" class="img-fluid">-->
-<!--          <div class="card d-flex align-items-center">-->
-<!--            <div class="card-body text-center">-->
-<!--            <p class="h3">Add Resource</p>-->
-<!--            </div>-->
-
-<!--          </div>-->
-
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      <div class="col-md-3 card"*ngIf="userType=='1'" (click)="openAddUserForm()">-->
-<!--        <div class="card shadow-lg">-->
-<!--          <img src="assets/img/role.jpg" alt="" class="img-fluid">-->
-<!--          <div class="card d-flex align-items-center">-->
-<!--            <div class="card-body text-center">-->
-<!--            <p class="h3">Add User</p>-->
-<!--            </div>-->
-
-<!--          </div>-->
-
-<!--        </div>-->
-<!--      </div>-->
-
-<!--      <div class="col-md-3 card" (click)="openAddRoleForm()">-->
-<!--        <div class="card shadow-lg">-->
-<!--          <img src="assets/img/user.jpg" alt="" class="img-fluid">-->
-<!--          <div class="card d-flex align-items-center">-->
-<!--            <div class="card-body text-center">-->
-<!--            <p class="h3">Add Role</p>-->
-<!--            </div>-->
-
-<!--          </div>-->
-
-<!--        </div>-->
-<!--      </div-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
-
-<!--<div class="container-fluid d-flex justify-content-center">-->
-
-  <div class="row" style="margin-top: 100px; margin-bottom: 160px">
+<div class="row" style="margin-top: 100px; margin-bottom: 160px">
 
   <div class="col-md-4 border-right" *ngIf="userType=='1'" (click)="openAddCompanyForm()">
     <div class="cards">
-
-
       <div class="first p-4 text-center" style="background-color:#043e7d">
         <img src="assets/img/companyadd.png" height="200px" ><br>
-
         <p>Add Company</p>
-
       </div>
-
     </div>
-
   </div>
-
-
 
   <div class="col-md-4 border-right" *ngIf="userType=='1'" (click)="openAddUserForm()">
     <div class="cards">
       <div class=" second  p-4 text-center" style="background-color:#2a6f97">
         <img src="assets/img/useradd.png" height="200px"/>
-
         <p>Add User</p>
-
-
       </div>
     </div>
-</div>
-
-
-
-
+  </div>
 
   <div class="col-md-4" *ngIf="userType!='3'" (click)="openAddResourceForm()">
-
     <div class="cards">
       <div class=" third p-4 text-center" style="background-color:#043e7d">
         <img src="assets/img/resourceadd.png" height="200px"><br>
