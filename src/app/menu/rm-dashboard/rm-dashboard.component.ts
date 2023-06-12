@@ -7,6 +7,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserRequest} from "../../../models/userRequest";
 
+
 @Component({
   selector: 'app-rm-dashboard',
   templateUrl: './rm-dashboard.component.html',
@@ -17,9 +18,11 @@ export class RmDashboardComponent implements OnInit{
   title = 'chartDemo'
   selectedUser: any = {}
   userName!: String;
+  //totalSubordinates!:any;
   ngOnInit()
   {
     this.getAllBookingRequests();
+    //this.getAllSubordinatesCount(5);
     new Chart("myChart", {
       type: 'bar',
 
@@ -27,7 +30,7 @@ export class RmDashboardComponent implements OnInit{
 
         labels: ['ABC pvt ltd', 'Thoughtbeat', 'Photobug', 'Fliptune', 'Youobia', 'Snaptags'],
         datasets: [{
-          label: '# of Votes',
+          label: 'Number of Bookings',
           data: [6, 8, 4, 6,5, 2],
           backgroundColor:[
             '#043e7d',
@@ -77,6 +80,17 @@ export class RmDashboardComponent implements OnInit{
       , error => {
         console.log(error)
       });
-
   }
+  // getAllSubordinatesCount(managerEid:number) {
+  //   this.service.getAllSubordinatesCount(managerEid).subscribe(
+  //     (compileResults) => {
+  //       // @ts-ignore
+  //       const totSub = compileResults;
+  //       console.log(compileResults);
+  //       this.totalSubordinates=totSub;
+  //     }
+  //     , error => {
+  //       console.log(error)
+  //     });
+  // }
 }
