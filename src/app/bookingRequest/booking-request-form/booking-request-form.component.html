@@ -1,5 +1,5 @@
 <div class="container" style="height: 650px; margin-bottom: 30px">
-  <!--     {{bookingRequest|json}}-->
+<!--       {{bookingRequest|json}}-->
   <div class="side">
     <img src="assets/img/booking_img.png" style="width: 350px; height: 300px" />
     <br />
@@ -158,7 +158,7 @@
           <button class="btn btn-primary" (click)="addBookingRequest()">
             Submit
           </button>
-
+          <button (click)="updateBookingRequest()" [disabled]="InputForm.invalid"class="btn btn-primary">Update</button>
           <button
             class="btn btn-secondary"
             [routerLink]="['/resourceId']"

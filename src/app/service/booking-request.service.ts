@@ -20,7 +20,6 @@ export class BookingRequestService {
   }
 
   getAllBookingRequestsByRequestersUserId(userId:string) {
-    console.log(222222)
     return this.httpClient.get<object>(`http://localhost:8082/bookingRequests/resource-booking-request/all-booking-requests/${userId}?page=0&size=10`);
   }
 
@@ -35,15 +34,18 @@ export class BookingRequestService {
 
   getBookingRequestById(bookingRequestId: string) {
 
-    this.apiUrl2 = `${Config.endpoints.backendApi}/bookingRequests/${bookingRequestId}`
-    return this.httpClient.get<object>(this.apiUrl2);
+    this.apiUrl2 = `http://localhost:8082/bookingRequests/${bookingRequestId}`
+    return this.httpClient.get<BookingRequest>(this.apiUrl2);
   }
 
-  updateBookingRequest(resource: Resource) {
-    let apiUrlUpdate = `${Config.endpoints.backendApi}/${Config.endpoints.prefix.company}/${Config.endpoints.prefix.resources}/${resource.id}`;
+  updateBookingRequest(bookingRequest: BookingRequest) {
+    console.log("kkkk")
+
+    let apiUrlUpdate = `http://localhost:8082/bookingRequests/${bookingRequest.id}`;
+
     // @ts-ignore
-    delete resource.companyId;
+    //delete resource.companyId;
     console.log("***"+apiUrlUpdate)
-    return this.httpClient.put<number>(apiUrlUpdate, resource)
+    return this.httpClient.put<any>(apiUrlUpdate, bookingRequest)
   }
 }

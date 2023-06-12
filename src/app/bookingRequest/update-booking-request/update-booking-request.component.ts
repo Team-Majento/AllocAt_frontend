@@ -9,30 +9,35 @@ import {BookingRequestService} from "../../service/booking-request.service";
   templateUrl: './update-booking-request.component.html',
   styleUrls: ['./update-booking-request.component.scss']
 })
-export class UpdateBookingRequestComponent
-{
+export class UpdateBookingRequestComponent {
   selectedBooking!: BookingRequest;
-
+  reqId!: string;
   bookingId!: string;
 
-  // constructor(private bookingrequestService: BookingRequestService, private route: ActivatedRoute) {
-  //   route.params.subscribe(bookingId => {
-  //     this.bookingId = bookingId["bookingId"];
-  //     console.log(this.bookingId)
-  //     if (this.bookingId == null) {
-  //
-  //     } else {
-  //       this.bookingrequestService.getBookingRequestById(this.bookingId).subscribe(
-  //         (booking) => {
-  //           console.log(booking);
-  //           this.selectedBooking = <BookingRequest>booking;
-  //         }
-  //         , (error) => {
-  //           console.log(error)
-  //         });
-  //     }
-  //   })
-  //
-  // }
+
+  constructor(private bookingrequestService: BookingRequestService, private route: ActivatedRoute) {
+    route.params.subscribe(reqId => {
+      this.reqId = reqId["reqId"];
+      console.log("+**************"+this.reqId)
+      if (this.reqId == null) {
+
+      } else {
+
+        this.bookingrequestService.getBookingRequestById(this.reqId).subscribe(
+          (results) => {
+            console.log(results);
+            this.selectedBooking = <BookingRequest>results;
+          }
+          , (error) => {
+            console.log(error)
+          });
+      }
+    })
+
+
+  }
+
+
+
 }
 

@@ -4,11 +4,14 @@ import {SubSink} from "subsink";
 import {BookingRequest} from "../../../models/bookingRequest";
 import {BookingRequestService} from "../../service/booking-request.service";
 import {DatePipe, Location} from "@angular/common";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {Resource} from "../../../models/resource";
 import {ResourceService} from "../../service/resource.service";
 import {UserService} from "../../service/user.service";
 import {FormControlUtil} from "../../../utility/form-control-util";
+import {UserRequest} from "../../../models/userRequest";
+import {MatDialog} from "@angular/material/dialog";
+import {DisplayMessageService} from "../../service/display-message.service";
 
 @Component({
   selector: 'app-booking-request-form',
@@ -18,12 +21,14 @@ import {FormControlUtil} from "../../../utility/form-control-util";
 export class BookingRequestFormComponent  extends FormControlUtil {
 
 
+
+  flag:boolean=false;
   @Input()
   formTitle = "Form";
 
   @Input()
   bookingRequest = {} as BookingRequest
-  selectedResource!: Resource;
+ // selectedResource!: Resource;
   max="18:00"
   min="09:00"
   minDate = new Date();
@@ -33,10 +38,12 @@ export class BookingRequestFormComponent  extends FormControlUtil {
   inputForm!: NgForm;
 
   private subSink=new SubSink();
+  formData: FormData = new FormData();
 
-  constructor(private userService :UserService ,private bookingReqService:BookingRequestService, private route: ActivatedRoute,private resourceService: ResourceService,private location :Location) {
+  constructor(private userService :UserService ,private bookingReqService:BookingRequestService, private route: ActivatedRoute,private resourceService: ResourceService,private location :Location,private dialogRef: MatDialog,private router: Router,private service: UserService,private messageService:DisplayMessageService) {
     super();
     this.bookingRequest.status="pending";
+    ;
 
     // let currentUserName = this.userService.getCurrentUserName();
     //
@@ -93,4 +100,25 @@ export class BookingRequestFormComponent  extends FormControlUtil {
   goBack() {
     this.location.back();
   }
+
+  updateBookingRequest() {
+    if (this.isFormValid(this.inputForm)) {
+
+      console.log("****")
+      console.log(this.bookingRequest)
+      console.log("****")
+            this.bookingReqService.updateBookingRequest(this.bookingRequest).subscribe(
+              (compileResults) => {
+                console.log(compileResults);
+                this.messageService.showSucessMessage("booking request updated-Successfully");
+              }
+              , error => {
+                console.log(error)
+                this.messageService.showErrorMessage("error occurred");
+              });
+          }
+
+    }
+
+
 }
