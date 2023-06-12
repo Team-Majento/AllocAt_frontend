@@ -8,6 +8,7 @@ import {catchError, map} from 'rxjs/operators';
 import { of } from 'rxjs';
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
+import {DisplayMessageService} from "../../service/display-message.service";
 
 
 
@@ -29,7 +30,7 @@ export class ChangePasswordComponent extends FormControlUtil implements OnInit {
   currentUserPassword = "";
 
 
-  constructor(private service: UserService,private change_pwd_service: ChangePwdServiceService, private router: Router,private dialogRef: MatDialog) {
+  constructor(private service: UserService,private change_pwd_service: ChangePwdServiceService, private router: Router,private dialogRef: MatDialog,private messageService:DisplayMessageService) {
     super();
 
   }
@@ -80,7 +81,7 @@ export class ChangePasswordComponent extends FormControlUtil implements OnInit {
 
 
   submit(InputForm: any) {
-    const result = window.confirm('Are you sure you want to change the password?');
+    const result = window.confirm('Are you sure you want to proceed with the password change?');
 
     if (result) {
       if (this.isFormValid(InputForm)) {
@@ -90,7 +91,7 @@ export class ChangePasswordComponent extends FormControlUtil implements OnInit {
         this.service.ChangeUserPassword(this.userByUserName, this.user.confirmPassword);
         this.inputForm.resetForm();
         this.dialogRef.closeAll();
-
+        this.messageService.showSucessMessage("Password Changed Successfully");
       }
     }
 

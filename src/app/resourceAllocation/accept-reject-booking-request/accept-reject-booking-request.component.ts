@@ -55,21 +55,25 @@ export class AcceptRejectBookingRequestComponent implements OnInit {
   }
 
   accept(bookingRequestId: number, requesterUserId: number, requestersManagersUserId: number, requiredDate: string, startTime: string, endTime: string, resourceId: number) {
-    console.log(bookingRequestId);
-    this.acceptRejectBookingRequestService.acceptBookingRequest(bookingRequestId,this.selectedCondition).subscribe(
-      (compileResults) => {
-        console.log(compileResults);
-      }
-      , error => {
-        console.log(error)
-      });
-    this.selectedCondition=null;
+    const result = window.confirm('Are you sure you want to accept the booking request?');
+    if(result){
+      console.log(bookingRequestId);
+      this.acceptRejectBookingRequestService.acceptBookingRequest(bookingRequestId,this.selectedCondition).subscribe(
+        (compileResults) => {
+          console.log(compileResults);
+        }
+        , error => {
+          console.log(error)
+        });
+      this.selectedCondition=null;
 
-    let index = this.bookingRequestList.findIndex((e: any) => e.id === bookingRequestId);
-    this.bookingRequestList.splice(index, 1);
+      let index = this.bookingRequestList.findIndex((e: any) => e.id === bookingRequestId);
+      this.bookingRequestList.splice(index, 1);
 
-    //status set to 1
-    this.acceptRejectBookingRequestService.sendNotificationEmail(requesterUserId,requestersManagersUserId,1,requiredDate,startTime,endTime,resourceId).subscribe();
+      //status set to 1
+      this.acceptRejectBookingRequestService.sendNotificationEmail(requesterUserId,requestersManagersUserId,1,requiredDate,startTime,endTime,resourceId).subscribe();
+
+    }
 
 
   }
@@ -79,18 +83,24 @@ export class AcceptRejectBookingRequestComponent implements OnInit {
   }
 
   reject(bookingRequestId: number, requesterUserId: number, requestersManagersUserId: number, requiredDate: string, startTime: string, endTime: string , resourceId: number) {
-    this.acceptRejectBookingRequestService.rejectBookingRequest(bookingRequestId).subscribe(
-      (compileResults) => {
-        console.log(compileResults);
-      }
-      , error => {
-        console.log(error)
-      });
+    const result = window.confirm('Are you sure you want to reject the booking request?');
 
-    let index = this.bookingRequestList.findIndex((e: any) => e.id === bookingRequestId);
-    this.bookingRequestList.splice(index, 1);
+    if(result){
+      this.acceptRejectBookingRequestService.rejectBookingRequest(bookingRequestId).subscribe(
+        (compileResults) => {
+          console.log(compileResults);
+        }
+        , error => {
+          console.log(error)
+        });
 
-    this.acceptRejectBookingRequestService.sendNotificationEmail(requesterUserId,requestersManagersUserId,-1,requiredDate,startTime,endTime,resourceId).subscribe();
+      let index = this.bookingRequestList.findIndex((e: any) => e.id === bookingRequestId);
+      this.bookingRequestList.splice(index, 1);
+
+      this.acceptRejectBookingRequestService.sendNotificationEmail(requesterUserId,requestersManagersUserId,-1,requiredDate,startTime,endTime,resourceId).subscribe();
+
+
+    }
 
   }
 

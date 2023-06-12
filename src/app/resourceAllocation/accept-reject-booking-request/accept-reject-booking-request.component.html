@@ -27,14 +27,26 @@
     <td>{{bookingRequest["startTime"]}}</td>
     <td>{{bookingRequest["endTime"]}}</td>
     <td>
+<!--      <div class="form-group">-->
+<!--        <label for="myDropdown">Select an condition:</label>-->
+<!--        <select id="myDropdown" [(ngModel)]="bookingRequest.selectedOption" (ngModelChange)="onConditionSelectionChange($event)" name="selectedOption" class="form-control">-->
+<!--          <option *ngFor="let option of conditions" [value]="option.condition_name" [selected]="option.condition_name === bookingRequest.selectedOption">-->
+<!--            {{ option.condition_name }}-->
+<!--            <span *ngIf="option.isSpecial && option.condition_name === bookingRequest.selectedOption">(Special Condition)</span>-->
+<!--          </option>-->
+<!--        </select>-->
+<!--      </div>-->
+
       <div class="form-group">
-        <label for="myDropdown">Select an condition:</label>
-        <select id="myDropdown" [(ngModel)]="bookingRequest.selectedOption" (ngModelChange)="onConditionSelectionChange($event)" name="selectedOption" class="form-control">
-          <option *ngFor="let option of conditions" [value]="option.condition_name" [selected]="option.condition_name === bookingRequest.selectedOption">
-            {{ option.condition_name }}
-            <span *ngIf="option.isSpecial && option.condition_name === bookingRequest.selectedOption">(Special Condition)</span>
-          </option>
-        </select>
+        <label for="myDropdown">Select a condition:</label>
+        <div class="condition-input-container">
+          <select id="myDropdown" [(ngModel)]="bookingRequest.selectedOption" (ngModelChange)="onConditionSelectionChange($event)" name="selectedOption" class="form-control">
+            <option *ngFor="let option of conditions" [value]="option.condition_name" [selected]="option.condition_name === bookingRequest.selectedOption">
+              <span class="marquee">{{ option.condition_name }}</span>
+              <span *ngIf="option.isSpecial && option.condition_name === bookingRequest.selectedOption">(Special Condition)</span>
+            </option>
+          </select>
+        </div>
       </div>
     </td>
 

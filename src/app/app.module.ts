@@ -65,6 +65,7 @@ import { RoleFormComponent } from './role/role-form/role-form.component';
 import { RmDashboardComponent } from './menu/rm-dashboard/rm-dashboard.component';
 import { EmpDashboardComponent } from './menu/emp-dashboard/emp-dashboard.component';
 import { ConditionComponent } from './condition/condition.component';
+import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
 
 @NgModule({
   declarations: [
@@ -112,7 +113,8 @@ import { ConditionComponent } from './condition/condition.component';
     RoleFormComponent,
     RmDashboardComponent,
     EmpDashboardComponent,
-    ConditionComponent
+    ConditionComponent,
+    ConfirmationDialogComponent
   ],
   imports: [
     BrowserModule,

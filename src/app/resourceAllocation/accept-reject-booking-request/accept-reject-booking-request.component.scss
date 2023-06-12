@@ -114,8 +114,13 @@ select{
   background-color:#043e7d ;
 }
 
-
-
+.condition-input-container {
+  width: 200px; /* Adjust the width as needed */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  position: relative;
+}
 
 
 

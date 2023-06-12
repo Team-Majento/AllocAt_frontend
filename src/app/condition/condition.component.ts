@@ -6,6 +6,8 @@ import {GeneralReportGeneration} from "../../models/generalReportGeneration";
 import {Condition} from "../../models/Condition";
 import {ConditionService} from "../service/condition.service";
 import {DatePipe} from "@angular/common";
+import {MatDialog} from "@angular/material/dialog";
+import {DisplayMessageService} from "../service/display-message.service";
 
 
 
@@ -17,7 +19,7 @@ import {DatePipe} from "@angular/common";
 export class ConditionComponent extends FormControlUtil implements OnInit{
   @Input()
   condition = {} as Condition;
-  constructor(private service: UserService,private conditionService:ConditionService) {
+  constructor(private service: UserService,private conditionService:ConditionService,private dialogRef: MatDialog,private messageService:DisplayMessageService) {
     super();
 
   }
@@ -27,14 +29,21 @@ export class ConditionComponent extends FormControlUtil implements OnInit{
   @ViewChild('InputForm')
   inputForm!: NgForm;
   submit(InputForm: any) {
-    if (this.isFormValid(InputForm)) {
-           this.conditionService.addCondition(this.condition).subscribe(
-             (compileResults) => {
-               console.log(compileResults);
-             }
-             , error => {
-               console.log(error)
-             });;
+    const result = window.confirm('Are you sure you want to add this condition?');
+
+    if (result){
+      if (this.isFormValid(InputForm)) {
+        this.conditionService.addCondition(this.condition).subscribe(
+          (compileResults) => {
+            console.log(compileResults);
+          }
+          , error => {
+            console.log(error)
+          });;
+        this.inputForm.resetForm();
+        this.dialogRef.closeAll();
+        this.messageService.showSucessMessage("The condition has been successfully added");
+      }
     }
 
   }
