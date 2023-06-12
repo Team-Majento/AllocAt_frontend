@@ -1,4 +1,4 @@
-import {Component, Input, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {ChangePassword} from "../../../models/changePassword";
 import {UserService} from "../../service/user.service";
@@ -6,6 +6,8 @@ import {FormControlUtil} from "../../../utility/form-control-util";
 import {ChangePwdServiceService} from "../../service/change-pwd-service.service";
 import {catchError, map} from 'rxjs/operators';
 import { of } from 'rxjs';
+import {Router} from "@angular/router";
+import {MatDialog} from "@angular/material/dialog";
 
 
 
@@ -21,10 +23,13 @@ export class ChangePasswordComponent extends FormControlUtil implements OnInit {
   @Input()
   user = {} as ChangePassword;
 
+
+
   userByUserName!: any;
   currentUserPassword = "";
 
-  constructor(private service: UserService,private change_pwd_service: ChangePwdServiceService) {
+
+  constructor(private service: UserService,private change_pwd_service: ChangePwdServiceService, private router: Router,private dialogRef: MatDialog) {
     super();
 
   }
@@ -72,16 +77,25 @@ export class ChangePasswordComponent extends FormControlUtil implements OnInit {
     return this.change_pwd_service.comparePasswords(this.user.currentPassword, this.currentUserPassword);
   }
 
-  submit(InputForm: any) {
-    if (this.isFormValid(InputForm)) {
-      this.service.ChangeUserPassword(this.userByUserName, this.user.confirmPassword);
-      console.log(this.currentUserPassword);
-      console.log(this.user.currentPassword);
-      this.passwordMatch;
 
-      // Continue with the submission logic if the password is correct
+
+  submit(InputForm: any) {
+    const result = window.confirm('Are you sure you want to change the password?');
+
+    if (result) {
+      if (this.isFormValid(InputForm)) {
+        console.log(this.currentUserPassword);
+        console.log(this.user.currentPassword);
+        this.passwordMatch;
+        this.service.ChangeUserPassword(this.userByUserName, this.user.confirmPassword);
+        this.inputForm.resetForm();
+        this.dialogRef.closeAll();
+
+      }
     }
+
   }
+
 
   ngOnInit(): void {
     this.fetchUserByUserName();
