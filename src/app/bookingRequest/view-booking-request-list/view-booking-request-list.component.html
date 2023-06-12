@@ -28,7 +28,7 @@
     <td>{{req.endTime}} </td>
     <td ><p style="color: rgb(173,142,0)" >{{req.status}}</p></td>
     <td>
-      <button type="button" class="btn btn-primary" [routerLink]="['/dashboard/view/booking-requests/myBookings/update']">Update</button>
+      <button type="button" class="btn btn-primary" (click)="updateBookingRequest()">Update</button>
       <button type="button" class="btn btn-secondary">Cancel</button>
     </td>
   </tr>
@@ -46,7 +46,7 @@
       <td>{{req.endTime}} </td>
       <td ><p style="color: rgb(173,142,0)" >{{req.status}}</p></td>
       <td *ngIf="userType!='1'">
-        <button type="button" class="btn btn-primary" click="updateBooking()">Update</button>
+        <button type="button" class="btn btn-primary" click="updateBookingRequest()">Update</button>
         <button type="button" class="btn btn-secondary">Cancel</button>
       </td>
 

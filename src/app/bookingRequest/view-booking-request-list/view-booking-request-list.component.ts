@@ -49,12 +49,12 @@ export class ViewBookingRequestListComponent implements OnInit{
       });
 
   }
-   updateBooking() {
+   updateBookingRequest() {
    this.router.navigateByUrl(this.router.createUrlTree([`dashboard/view/booking-requests/myBookings/update`]))
   }
 
   ngOnInit(): void {
-    console.log(1111)
+    // console.log(1111)
     this.getMyBookingRequests();
     this.getAllBookingRequests();
 
