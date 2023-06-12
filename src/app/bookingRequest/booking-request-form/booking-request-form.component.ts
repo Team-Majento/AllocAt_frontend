@@ -28,7 +28,7 @@ export class BookingRequestFormComponent  extends FormControlUtil {
 
   @Input()
   bookingRequest = {} as BookingRequest
-  selectedResource!: Resource;
+ // selectedResource!: Resource;
   max="18:00"
   min="09:00"
   minDate = new Date();
@@ -103,49 +103,20 @@ export class BookingRequestFormComponent  extends FormControlUtil {
 
   updateBookingRequest() {
     if (this.isFormValid(this.inputForm)) {
-      if(this.flag){
-        let url_image:string="";
-        //this.bookingReqService.uploadImg(this.formData).subscribe(
-          //(response: any) => {
-            // Handle the server response here
-            //console.log('File uploaded successfully!');
-            // console.log(response)
-            //console.log(response.publicURL)
-            //url_image=response.publicURL;
 
-
-            //this.bookingRequest.imgUrl=url_image;
-            //console.log(this.resource)
-
-
+      console.log("****")
+      console.log(this.bookingRequest)
+      console.log("****")
             this.bookingReqService.updateBookingRequest(this.bookingRequest).subscribe(
               (compileResults) => {
                 console.log(compileResults);
-                this.messageService.showSucessMessage("resource updated-Successfully");
+                this.messageService.showSucessMessage("booking request updated-Successfully");
               }
               , error => {
                 console.log(error)
                 this.messageService.showErrorMessage("error occurred");
               });
           }
-          // (error: any) => {
-          //   // Handle any errors that occurred during the upload
-          //   //console.error('Error uploading file:', error);
-          //  // this.messageService.showErrorMessage("error occurred--Error uploading file");
-          // }
-      }
-      else{
-
-        this.bookingReqService.updateBookingRequest(this.bookingRequest).subscribe(
-          (compileResults) => {
-            console.log(compileResults);
-            this.messageService.showSucessMessage("resource updated-Successfully");
-          }
-          , error => {
-            console.log(error)
-            this.messageService.showErrorMessage("error occurred");
-          });
-      }
 
     }
 

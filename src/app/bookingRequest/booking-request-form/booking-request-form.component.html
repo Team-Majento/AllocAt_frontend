@@ -158,7 +158,7 @@
           <button class="btn btn-primary" (click)="addBookingRequest()">
             Submit
           </button>
-
+          <button (click)="updateBookingRequest()" [disabled]="InputForm.invalid"class="btn btn-primary">Update</button>
           <button
             class="btn btn-secondary"
             [routerLink]="['/resourceId']"

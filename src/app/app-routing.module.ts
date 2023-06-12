@@ -104,7 +104,7 @@ const routes: Routes = [
                 component:ViewBookingRequestListComponent,
               },
               {
-                path:"myBookings/update",
+                path:"myBookings/update/:reqId",
                 component:UpdateBookingRequestComponent,
               },
               {

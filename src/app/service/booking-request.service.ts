@@ -34,15 +34,18 @@ export class BookingRequestService {
 
   getBookingRequestById(bookingRequestId: string) {
 
-    this.apiUrl2 = `${Config.endpoints.backendApi}/bookingRequests/${bookingRequestId}`
-    return this.httpClient.get<object>(this.apiUrl2);
+    this.apiUrl2 = `http://localhost:8082/bookingRequests/${bookingRequestId}`
+    return this.httpClient.get<BookingRequest>(this.apiUrl2);
   }
 
   updateBookingRequest(bookingRequest: BookingRequest) {
-    let apiUrlUpdate = `${Config.endpoints.backendApi}/${Config.endpoints.prefix.company}/${Config.endpoints.prefix.resources}/${bookingRequest.id}`;
+    console.log("kkkk")
+
+    let apiUrlUpdate = `http://localhost:8082/bookingRequests/${bookingRequest.id}`;
+
     // @ts-ignore
-    delete resource.companyId;
+    //delete resource.companyId;
     console.log("***"+apiUrlUpdate)
-    return this.httpClient.put<number>(apiUrlUpdate, bookingRequest)
+    return this.httpClient.put<any>(apiUrlUpdate, bookingRequest)
   }
 }
