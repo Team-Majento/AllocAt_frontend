@@ -58,8 +58,9 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
 
           this.resourceService.addResource(this.resource).subscribe(
             (compileResults) => {
-              console.log(compileResults);
-              this.messageService.showSucessMessage("resource Added-Successfully");
+              console.log("resource id---->"+compileResults);
+              this.messageService.showSucessMessage("resource Added-Successfully..ResourceId: "+ compileResults);
+              localStorage.setItem("resourceIdForRateCard",String(compileResults));
             }
             , error => {
               console.log(error)
