@@ -16,10 +16,13 @@ export class EmpDashboardComponent implements OnInit {
   bookingReqList:any=[];
   selectedUser: any = {}
   userName!: String;
+  totalUsers!:any;
 
 
   ngOnInit()
   {
+
+    this.getAllUsersCount();
     this.getAllBookingRequests();
     new Chart("myChart", {
       type: 'bar',
@@ -81,6 +84,19 @@ export class EmpDashboardComponent implements OnInit {
         console.log(error)
       });
 
+  }
+
+  getAllUsersCount() {
+    this.service.getAllUsersCount().subscribe(
+      (compileResults) => {
+        // @ts-ignore
+        const totUsers = compileResults;
+        console.log(compileResults);
+        this.totalUsers=totUsers;
+      }
+      , error => {
+        console.log(error)
+      });
   }
 
 }

@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import {Component, Input, ViewChild} from '@angular/core';
 import emailjs, {EmailJSResponseStatus} from "@emailjs/browser";
 import {UserRequest} from "../../models/userRequest";
+import {NgForm} from "@angular/forms";
 
 @Component({
   selector: 'app-forgot-password',
@@ -9,6 +10,11 @@ import {UserRequest} from "../../models/userRequest";
 })
 export class ForgotPasswordComponent {
 
+  @Input()
+  user = {} as UserRequest;
+
+  @ViewChild('forgotPasswordForm')
+  inputForm!: NgForm;
   selectedResource!: UserRequest;
   email:string='';
 
@@ -17,6 +23,9 @@ export class ForgotPasswordComponent {
   password !: string;
 
   constructor(){}
+
+  emailPtn = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+
 
   sendEmail( e: Event) {
     // Retrieve the username, password, and login page link from the database
