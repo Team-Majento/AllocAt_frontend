@@ -25,6 +25,12 @@ export class CompanyService {
     return  this.httpClient.post<number>(this.apiUrl,company,requestOptions);
   }
 
+  uploadImg(formData: FormData) {
+    let url7:string=`http://localhost:8082/file`;
+
+    return this.httpClient.post<any>(url7,formData);
+
+  }
   getCompanyNames(): Observable<any[]> {
     return this.httpClient.get<any[]>(this.apiUrl2)
   }
