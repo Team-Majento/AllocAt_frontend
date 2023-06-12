@@ -43,11 +43,11 @@ export class UserProfileComponent {
 
   public setTheJobRole(userType: number) {
     if (userType === 1) {
-      this.jobRole = "Employee";
+      this.jobRole = "Group Administrator";
     } else if (userType === 2) {
       this.jobRole = "Resource Manager";
     } else if (userType === 3) {
-      this.jobRole = "Group Administrator";
+      this.jobRole = "Employee";
 
     }
   }
