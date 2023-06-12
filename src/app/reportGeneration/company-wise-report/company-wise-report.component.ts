@@ -3,6 +3,8 @@ import {CompanyWiseReportGeneration} from "../../../models/companyWiseReportGene
 import {NgForm} from "@angular/forms";
 import {DatePipe} from "@angular/common";
 import {GenerateReportService} from "../../service/generate-report.service";
+import {MatDialog} from "@angular/material/dialog";
+import {DisplayMessageService} from "../../service/display-message.service";
 
 @Component({
   selector: 'app-company-wise-report',
@@ -18,7 +20,7 @@ export class CompanyWiseReportComponent {
   @ViewChild('InputForm')
   inputForm!: NgForm;
 
-  constructor(private generateReportService: GenerateReportService) {
+  constructor(private generateReportService: GenerateReportService,private dialogRef: MatDialog,private messageService:DisplayMessageService) {
   }
 
   updateFromDate() {
@@ -39,6 +41,10 @@ export class CompanyWiseReportComponent {
       }, error => {
         console.log(error)
       });
+
+    this.inputForm.resetForm();
+    this.dialogRef.closeAll();
+    this.messageService.showSucessMessage("Report Generated Successfully");
 
   }
 }

@@ -4,6 +4,8 @@ import {NgForm} from "@angular/forms";
 import {GenerateReportService} from "../../service/generate-report.service";
 import {DatePipe} from "@angular/common";
 import {GeneralReportGeneration} from "../../../models/generalReportGeneration";
+import {MatDialog} from "@angular/material/dialog";
+import {DisplayMessageService} from "../../service/display-message.service";
 
 @Component({
   selector: 'app-general-report',
@@ -20,7 +22,7 @@ export class GeneralReportComponent {
   @ViewChild('InputForm')
   inputForm!: NgForm;
 
-  constructor(private generateReportService: GenerateReportService) {
+  constructor(private generateReportService: GenerateReportService,private dialogRef: MatDialog,private messageService:DisplayMessageService) {
   }
 
   updateFromDate() {
@@ -41,6 +43,10 @@ export class GeneralReportComponent {
       }, error => {
         console.log(error)
       });
+    this.inputForm.resetForm();
+    this.dialogRef.closeAll();
+    this.messageService.showSucessMessage("Report Generated Successfully");
+
 
   }
 

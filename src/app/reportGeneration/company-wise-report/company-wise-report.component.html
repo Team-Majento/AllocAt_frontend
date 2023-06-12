@@ -19,7 +19,7 @@
               required
             />
           </mat-form-field>
-          <div *ngIf="cid.invalid && (cid.dirty || cid.touched)" class="alert0">
+          <div *ngIf="cid.invalid && (cid.dirty || cid.touched) ||InputForm.submitted" class="alert0">
             <div *ngIf="cid.errors?.['required']">Company ID is required.</div>
           </div>
         </div>
@@ -46,9 +46,9 @@
             <mat-datepicker #pickerA></mat-datepicker>
           </mat-form-field>
           <div
-            *ngIf="fromDate.invalid && (fromDate.dirty || fromDate.touched)"
+            *ngIf="fromDate.invalid && (fromDate.dirty || fromDate.touched) || InputForm.submitted"
             class="alert0"
-          >
+             >
             <div *ngIf="fromDate.errors?.['required']">
               From Date is required.
             </div>
@@ -77,7 +77,7 @@
             <mat-datepicker #pickerB></mat-datepicker>
           </mat-form-field>
           <div
-            *ngIf="toDate.invalid && (toDate.dirty || toDate.touched)"
+            *ngIf="toDate.invalid && (toDate.dirty || toDate.touched) || InputForm.submitted"
             class="alert0"
           >
             <div *ngIf="toDate.errors?.['required']">

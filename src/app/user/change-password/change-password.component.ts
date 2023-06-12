@@ -9,6 +9,8 @@ import { of } from 'rxjs';
 import {Router} from "@angular/router";
 import {MatDialog} from "@angular/material/dialog";
 import {DisplayMessageService} from "../../service/display-message.service";
+import {ConfirmationDialogComponent} from "../../confirmation-dialog/confirmation-dialog.component";
+
 
 
 
@@ -80,7 +82,9 @@ export class ChangePasswordComponent extends FormControlUtil implements OnInit {
 
 
 
+
   submit(InputForm: any) {
+
     const result = window.confirm('Are you sure you want to proceed with the password change?');
 
     if (result) {
@@ -96,6 +100,7 @@ export class ChangePasswordComponent extends FormControlUtil implements OnInit {
     }
 
   }
+
 
 
   ngOnInit(): void {
