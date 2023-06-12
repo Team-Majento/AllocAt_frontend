@@ -84,6 +84,7 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
           , (error) => {
             console.log("error--");
             this.messageService.showErrorMessage("error-login failed");
+            alert("error-login failed");
           }),
       );
     }
