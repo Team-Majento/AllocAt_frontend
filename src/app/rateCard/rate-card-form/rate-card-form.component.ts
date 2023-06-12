@@ -17,6 +17,13 @@ export class RateCardFormComponent extends FormControlUtil {
   inputForm!: NgForm;
 
   @Input()
+  formTitle = "Form"
+
+  @Input()
+  isUpdate=false;
+
+
+  @Input()
   rateCard = {} as RateCard
 
   constructor(private rateCardService:RatecardService,private messageService:DisplayMessageService) {
@@ -45,6 +52,22 @@ export class RateCardFormComponent extends FormControlUtil {
       }
 
 
+  }
+
+
+  updateRateCard() {
+    if (this.isFormValid(this.inputForm)) {
+      this.rateCardService.updateRateCard(this.rateCard).subscribe(
+        (compileResults) => {
+          console.log(compileResults);
+          this.messageService.showSucessMessage("RateCard updated-Successfully");
+        }
+        , error => {
+          console.log(error)
+          this.messageService.showErrorMessage("error occurred");
+        });
+
+    }
   }
 
 

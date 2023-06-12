@@ -79,7 +79,7 @@ export class ResourceService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${tokenParse}`);
     console.log(tokenParse);
     const requestOptions = { headers };
-    return this.httpClient.put<number>(apiUrlUpdate, resource,requestOptions)
+    return this.httpClient.put<Resource>(apiUrlUpdate, resource,requestOptions)
   }
 
   getAllAllocationsByResourceId(resourceId: string) {

@@ -22,7 +22,7 @@ export class RatecardService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${tokenParse}`);
     console.log(tokenParse);
     const requestOptions = { headers };
-    let resourceId=localStorage.getItem('resourceIdForRateCard')+'';;
+    let resourceId=localStorage.getItem('resourceIdForRateCard')+'';
     console.log("recId in ratecard service---->"+ resourceId)
     console.log(rateCard)
     console.log("****")
@@ -30,6 +30,19 @@ export class RatecardService {
     return  this.httpClient.post<number>(apiUrl_rateCardAdd,rateCard,requestOptions);
   }
 
+
+  updateRateCard(rateCard: RateCard) {
+    const tokenParse = localStorage.getItem('jwtToken')+'';
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${tokenParse}`);
+    console.log(tokenParse);
+    const requestOptions = { headers };
+    let rateCardId=localStorage.getItem('rateCard')+'';
+    //console.log("recId in ratecard service---->"+ resourceId)
+    //console.log(rateCard)
+   // console.log("****")
+    let apiUrl_rateCardUpdate:string=`http://localhost:8082/Companies/resources/ratecard/${rateCardId}`;
+    return  this.httpClient.put<RateCard>(apiUrl_rateCardUpdate,rateCard,requestOptions);
+  }
 
 
 }

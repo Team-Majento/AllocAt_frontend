@@ -9,6 +9,7 @@ import {MatDialog} from "@angular/material/dialog";
 import {RateCardFormComponent} from "../../rateCard/rate-card-form/rate-card-form.component";
 import {HttpClient} from "@angular/common/http";
 import {DisplayMessageService} from "../../service/display-message.service";
+import {UpdateRateCardComponent} from "../../rateCard/update-rate-card/update-rate-card.component";
 
 @Component({
   selector: 'app-resource-form',
@@ -60,6 +61,7 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
             (compileResults) => {
               console.log("resource id---->"+compileResults);
               this.messageService.showSucessMessage("resource Added-Successfully..ResourceId: "+ compileResults);
+              this.dialogRef.open(RateCardFormComponent);
               localStorage.setItem("resourceIdForRateCard",String(compileResults));
             }
             , error => {
@@ -162,7 +164,10 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
             this.resourceService.updateResource(this.resource).subscribe(
               (compileResults) => {
                 console.log(compileResults);
-                this.messageService.showSucessMessage("resource updated-Successfully");
+                localStorage.setItem("rateCard",String(compileResults.rateCardId));
+                this.dialogRef.open(UpdateRateCardComponent);
+               // this.messageService.showSucessMessage("resource updated-Successfully");
+
               }
               , error => {
                 console.log(error)
@@ -184,7 +189,9 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
         this.resourceService.updateResource(this.resource).subscribe(
           (compileResults) => {
             console.log(compileResults);
-            this.messageService.showSucessMessage("resource updated-Successfully");
+            localStorage.setItem("rateCard",String(compileResults.rateCardId));
+            this.dialogRef.open(UpdateRateCardComponent);
+           // this.messageService.showSucessMessage("resource updated-Successfully");
           }
           , error => {
             console.log(error)
