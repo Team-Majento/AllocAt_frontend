@@ -10,12 +10,20 @@ import {Resource} from "../../models/resource";
 })
 export class BookingRequestService {
   private apiUrl2: string = `http://localhost:8082/bookingRequests`;
+  //bookingRequests/
+
 
   constructor(private httpClient: HttpClient) {}
 
   getAllBookingRequests() {
     return this.httpClient.get<object>(this.apiUrl2);
   }
+
+  getAllBookingRequestsByRequestersUserId(userId:string) {
+    console.log(222222)
+    return this.httpClient.get<object>(`http://localhost:8082/bookingRequests/resource-booking-request/all-booking-requests/${userId}?page=0&size=10`);
+  }
+
 
   addBookingRequest(bookingRequest: BookingRequest): Observable<number> {
     let apiUrl1 = `http://localhost:8082/bookingRequests`;

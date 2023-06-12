@@ -18,11 +18,13 @@ export class RmDashboardComponent implements OnInit{
   title = 'chartDemo'
   selectedUser: any = {}
   userName!: String;
-  //totalSubordinates!:any;
+  totalUsers!:any;
+  totalSubordinates!:object;
   ngOnInit()
   {
+    this.getAllUsersCount();
     this.getAllBookingRequests();
-    //this.getAllSubordinatesCount(5);
+    this.getAllSubordinatesCount();
     new Chart("myChart", {
       type: 'bar',
 
@@ -81,16 +83,37 @@ export class RmDashboardComponent implements OnInit{
         console.log(error)
       });
   }
-  // getAllSubordinatesCount(managerEid:number) {
-  //   this.service.getAllSubordinatesCount(managerEid).subscribe(
-  //     (compileResults) => {
-  //       // @ts-ignore
-  //       const totSub = compileResults;
-  //       console.log(compileResults);
-  //       this.totalSubordinates=totSub;
-  //     }
-  //     , error => {
-  //       console.log(error)
-  //     });
-  // }
+
+  getAllUsersCount() {
+    this.service.getAllUsersCount().subscribe(
+      (compileResults) => {
+        // @ts-ignore
+        const totUsers = compileResults;
+        console.log(compileResults);
+        this.totalUsers=totUsers;
+      }
+      , error => {
+        console.log(error)
+      });
+  }
+  getAllSubordinatesCount() {
+    var userId= localStorage.getItem("userId")+"";
+    var parsedUserId = parseInt(userId);
+   // const decodedData = atob(userId.toString());
+   //  console.log("*****")
+   //  console.log(userId)
+   //  console.log("*****")
+    this.service.getAllSubordinatesCount(parsedUserId).subscribe(
+      (compileResults) => {
+        // @ts-ignore
+        console.log("*****")
+        const totSub = compileResults;
+        console.log(compileResults);
+        console.log("*****")
+        this.totalSubordinates=totSub;
+      }
+      , error => {
+        console.log(error)
+      });
+  }
 }

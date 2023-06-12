@@ -71,7 +71,16 @@ export class UserService {
     return this.http.put<any>(apiUrlUpdateUser, user)
   }
 
+  public getAllUsersCount() {
+    return this.http.get("http://localhost:8082/users/getUsersCount/");
+  }
 
+  public getAllSubordinatesCount(managerEid:number) {
+    console.log("**")
+    console.log(managerEid);
+    console.log("****")
+    return this.http.get(`http://localhost:8082/users/getAllSubordinatesCount/${managerEid}`);
+  }
 
 
 }

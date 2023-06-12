@@ -6,6 +6,7 @@ import {UserService} from "../../service/user.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserRequest} from "../../../models/userRequest";
+
 @Component({
   selector: 'app-dashboard-menu',
   templateUrl: './dashboard-menu.component.html',
@@ -16,11 +17,14 @@ export class DashboardMenuComponent implements OnInit {
   title = 'chartDemo'
   selectedUser: any = {}
   userName!: String;
+  totalUsers!:any;
+
 
 
 
   ngOnInit()
   {
+    this.getAllUsersCount();
     this.getAllBookingRequests();
     new Chart("myChart", {
       type: 'bar',
@@ -82,6 +86,18 @@ export class DashboardMenuComponent implements OnInit {
         console.log(error)
       });
 
+  }
+   getAllUsersCount() {
+     this.service.getAllUsersCount().subscribe(
+       (compileResults) => {
+         // @ts-ignore
+         const totUsers = compileResults;
+         console.log(compileResults);
+         this.totalUsers=totUsers;
+       }
+       , error => {
+         console.log(error)
+       });
   }
 
 }

@@ -31,6 +31,7 @@ import {SelectBookingsComponent} from "./bookingRequest/select-bookings/select-b
 import {RoleFormComponent} from "./role/role-form/role-form.component";
 import {EmpDashboardComponent} from "./menu/emp-dashboard/emp-dashboard.component";
 import {RmDashboardComponent} from "./menu/rm-dashboard/rm-dashboard.component";
+import {UpdateBookingRequestComponent} from "./bookingRequest/update-booking-request/update-booking-request.component";
 
 
 const routes: Routes = [
@@ -101,6 +102,10 @@ const routes: Routes = [
               {
                 path:"myBookings",
                 component:ViewBookingRequestListComponent,
+              },
+              {
+                path:"myBookings/update",
+                component:UpdateBookingRequestComponent,
               },
               {
                 path:"mySubBookings",
