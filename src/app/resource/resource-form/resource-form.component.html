@@ -2,6 +2,7 @@
   <h3 class="text-lg-start mb-2 mt-1 text-capitalize">{{formTitle}}</h3>
   <hr>
 <!--  <div class="bg-light">-->
+<!--  <p>{{resource|json}}</p>-->
     <form #InputForm="ngForm"  enctype="multipart/form-data">
 
       <div class="row">
@@ -117,20 +118,40 @@
           <!--            <input class="form-control" id="rateCard-id" name="rateCard-id" type="number" [(ngModel)]="resource.rateCardId" >-->
           <!--          </div>-->
 
+          <mat-label>Resource Type:</mat-label>
+<!--          <select class="mb-4" name="type" id="types">-->
+          <select matNativeControl
+                  name="resource-type"
+                  id="resource-type"
+                  style="width:100%;"
+                  [(ngModel)]="resource.resourceType"
+                  #rcType="ngModel"
+                  class="field mb-4"
+                  required>
 
-          <mat-form-field  class="justifier mt-0" style="width:100%;" floatlabel="auto" appearance="outline">
-            <mat-label>Resource Type:</mat-label>
-            <input matInput
-                   name="resource-type"
-                   id="resource-type"
-                   style="width:100%;"
-                   type="number"
-                   [(ngModel)]="resource.resourceType"
-                   #rcType="ngModel"
-                   class="field"
-                   required/>
-            <mat-error *ngIf="rcType.invalid && (rcType.dirty || rcType.touched) && rcType.errors?.['required']" class="alert">Resource Type is required.</mat-error>
-          </mat-form-field>&nbsp;
+            <option value=1>Cubicle</option>
+            <option value=2>Meeting Room</option>
+            <option value=3>Conference Room</option>
+            <option value=4>Lounge Area</option>
+          </select>
+<!--          <mat-form-field  appearance="outline">-->
+
+<!--            <input matInput-->
+<!--                   name="resource-type"-->
+<!--                   id="resource-type"-->
+<!--                   style="width:100%;"-->
+<!--                   type="number"-->
+<!--                   [(ngModel)]="resource.resourceType"-->
+<!--                   #rcType="ngModel"-->
+<!--                   class="field"-->
+<!--                   required/>-->
+
+
+<!--&lt;!&ndash;            <mat-error *ngIf="rcType.invalid && (rcType.dirty || rcType.touched) && rcType.errors?.['required']" class="alert">Resource Type is required.</mat-error>&ndash;&gt;-->
+<!--          </mat-form-field>&nbsp;-->
+
+
+
 
 
 

@@ -75,7 +75,11 @@ export class ResourceService {
     // @ts-ignore
     delete resource.companyId;
     console.log("***"+apiUrlUpdate)
-    return this.httpClient.put<number>(apiUrlUpdate, resource)
+    const tokenParse = localStorage.getItem('jwtToken')+'';
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${tokenParse}`);
+    console.log(tokenParse);
+    const requestOptions = { headers };
+    return this.httpClient.put<number>(apiUrlUpdate, resource,requestOptions)
   }
 
   getAllAllocationsByResourceId(resourceId: string) {
