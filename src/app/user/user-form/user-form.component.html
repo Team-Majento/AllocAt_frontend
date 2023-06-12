@@ -214,7 +214,7 @@
               <table border="0" class="tbl">
                 <tr>
                   <td style="text-align: center;">
-                    <button mat-button (click)="addUser()" class="button">
+                    <button *ngIf="!isUpdateForm"  mat-button (click)="addUser()" class="button">
                       <p>Submit </p>
                     </button>
                     <button *ngIf="isUpdateForm" mat-button class="button" (click)="updateUser()">

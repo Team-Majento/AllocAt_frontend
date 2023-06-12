@@ -10,7 +10,7 @@ export interface UserRequest{
   contactNo: string ;
   address: string ;
   gender: CharacterData ;
-  imageURL: String ;
+  imageURL: string ;
   userType: BigInt;
   managersEID: number  ;
   activeStatus: Boolean ;
