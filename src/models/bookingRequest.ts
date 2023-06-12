@@ -1,4 +1,5 @@
 export interface BookingRequest{
+  id:number;
 companyId:number;
 requesterUserId:number;
 requestersManagersUserId:number;

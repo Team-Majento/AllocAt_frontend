@@ -5,7 +5,7 @@
     <thead>
        <tr>
          <th scope="col">Request ID</th>
-         <th scope="col">User ID</th>
+         <th *ngIf="userType!='3'" scope="col">User ID</th>
          <th scope="col">Resource ID</th>
          <th scope="col">Company ID</th>
          <th scope="col">Resource Manager ID</th>
@@ -13,13 +13,13 @@
          <th scope="col">Start Time</th>
          <th scope="col">End Time</th>
          <th scope="col">Status</th>
-         <th scope="col">Action</th>
+         <th *ngIf="userType!='1'" scope="col">Action</th>
        </tr>
     </thead>
-    <tbody>
-    <tr *ngFor="let req of bookingReqList">
+    <tbody *ngIf="userType=='3'">
+    <tr *ngFor="let req of myBookingReqList">
     <td scope="row">{{req.id}}</td>
-    <td>{{req["requesterUserId"]}}</td>
+<!--    <td>{{req["requesterUserId"]}}</td>-->
     <td>{{req.resourceId}}</td>
     <td>{{req.companyId}}</td>
     <td>{{req.requestersManagersUserId}}</td>
@@ -31,8 +31,30 @@
       <button type="button" class="btn btn-primary" [routerLink]="['/dashboard/view/booking-requests/myBookings/update']">Update</button>
       <button type="button" class="btn btn-secondary">Cancel</button>
     </td>
-
   </tr>
+    </tbody>
+
+    <tbody *ngIf="userType=='1'">
+    <tr   *ngFor="let req of bookingReqList">
+      <td scope="row">{{req.id}}</td>
+      <td>{{req["requesterUserId"]}}</td>
+      <td>{{req.resourceId}}</td>
+      <td>{{req.companyId}}</td>
+      <td>{{req.requestersManagersUserId}}</td>
+      <td>{{req.requiredDate}}</td>
+      <td>{{req.startTime}}</td>
+      <td>{{req.endTime}} </td>
+      <td ><p style="color: rgb(173,142,0)" >{{req.status}}</p></td>
+      <td *ngIf="userType!='1'">
+        <button type="button" class="btn btn-primary" click="updateBooking()">Update</button>
+        <button type="button" class="btn btn-secondary">Cancel</button>
+      </td>
+
+    </tr>
+
+
+
+
 
   </tbody>
 </table>

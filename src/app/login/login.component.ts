@@ -63,6 +63,7 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
             console.log(compileResults.jwtToken);
 
             localStorage.setItem("userType",compileResults.user.userType);
+            localStorage.setItem("userId",compileResults.user.userId);
 
             localStorage.setItem("jwtToken",compileResults.jwtToken);
 
