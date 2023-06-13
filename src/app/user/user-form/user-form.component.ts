@@ -48,6 +48,8 @@ export class UserFormComponent extends FormControlUtil{
   // passwordPtn ='^(?=.?[A-Z])(?=.?[a-z])(?=.*?[0-9]).{8,16}$'
   emailPtn = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
   mobNumberPattern = "^((\\+91-?)|0)?[0-9]{10}$"
+  IdPattern = "^[1-9]\d*$"
+  namePattern= "[a-zA-Z]+$"
 
   addUser() {
     if (this.isFormValid(this.inputForm)) {
