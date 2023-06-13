@@ -37,25 +37,60 @@ export class BookingRequestFormComponent  extends FormControlUtil {
   @ViewChild('InputForm')
   inputForm!: NgForm;
 
+  private subSink=new SubSink();
+  formData: FormData = new FormData();
+
   constructor(private userService :UserService ,private bookingReqService:BookingRequestService, private route: ActivatedRoute,private resourceService: ResourceService,private location :Location,private dialogRef: MatDialog,private router: Router,private service: UserService,private messageService:DisplayMessageService) {
     super();
     this.bookingRequest.status="pending";
     ;
 
+    // let currentUserName = this.userService.getCurrentUserName();
+    //
+    // if (currentUserName == null) {
+    //
+    // } else {
+    //   this.userService.getUserByUserName(currentUserName).subscribe(
+    //     (user) => {
+    //       console.log(user);
+    //       let selectedUser:UserRequest = <UserRequest>user;
+    //       this.bookingRequest.requesterUserId=Number(selectedUser.userId);
+    //     }
+    //     , (error) => {
+    //       console.log(error)
+    //     });
+    // }
+
     route.params.subscribe(resourceId => {
       this.bookingRequest.resourceId = resourceId["resourceId"];
       console.log(this.bookingRequest.resourceId)
     })
+    // if (this.bookingRequest.resourceId == null) {
+    //
+    // } else {
 
+    //   this.resourceService.getResourceById(String(this.bookingRequest.resourceId)).subscribe(
+    //     (resource) => {
+    //       console.log(resource);
+    //     this.selectedResource=<Resource>resource;
+    //     this.bookingRequest.companyId=this.selectedResource.companyId;
+    //       console.log(this.selectedResource.company)
+    //     }
+    //     , (error) => {
+    //       console.log(error)
+    //     });
+    // }
   }
   addBookingRequest() {
     if (this.isFormValid(this.inputForm)) {
       this.bookingReqService.addBookingRequest(this.bookingRequest).subscribe(
         (compileResults) => {
           console.log(compileResults);
+          this.messageService.showSucessMessage("booking request added-Successfully");
         }
         , error => {
-          console.log(error)
+          console.log(error);
+          this.messageService.showErrorMessage("error occurred");
         });
     }
   }
