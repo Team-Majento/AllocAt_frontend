@@ -1,6 +1,6 @@
 <body>
  <h2>My Booking Requests</h2>
-  <!--{{bookingReqList|json}}-->
+ <!--{{bookingReqList|json}}-->
   <table class="table" style="margin-top:25px;">
     <thead>
        <tr>
@@ -16,7 +16,8 @@
          <th *ngIf="userType!='1'" scope="col">Action</th>
        </tr>
     </thead>
-    <tbody *ngIf="userType=='3'">
+
+    <tbody *ngIf="userType=='3'|| userType=='2'">
     <tr *ngFor="let req of myBookingReqList">
     <td scope="row">{{req.id}}</td>
 <!--    <td>{{req["requesterUserId"]}}</td>-->
@@ -51,12 +52,7 @@
       </td>
 
     </tr>
-
-
-
-
-
-  </tbody>
+    </tbody>
 </table>
 
 <button class="btn btn-primary me-3 mb-3 back-btn" (click)="goBack()">Back</button>

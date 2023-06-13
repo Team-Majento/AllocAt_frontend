@@ -4,6 +4,7 @@ import { Location } from '@angular/common';
 import {Router} from "@angular/router";
 import {BookingRequest} from "../../../models/bookingRequest";
 
+
 @Component({
   selector: 'app-view-booking-request-list',
   templateUrl: './view-booking-request-list.component.html',
@@ -12,6 +13,7 @@ import {BookingRequest} from "../../../models/bookingRequest";
 export class ViewBookingRequestListComponent implements OnInit{
   myBookingReqList:BookingRequest[]=[];
   bookingReqList:any=[]; //***
+  acceptedBookingReqList:BookingRequest[]=[];
   bookingId!: string;
   userType!:string;
 
@@ -35,6 +37,21 @@ export class ViewBookingRequestListComponent implements OnInit{
 
   }
 
+  // getAcceptedBookingRequests(){
+  //   var userId = localStorage.getItem("userId") + ""
+  //   this.bookingReqService.getAllAcceptedBookingRequestByUserId(userId).subscribe(
+  //     (compileResults) => {
+  //       // @ts-ignore
+  //       const content = compileResults;
+  //       console.log(compileResults);
+  //       this.acceptedBookingReqList=<BookingRequest[]>content;
+  //     }
+  //     , error => {
+  //       console.log(error)
+  //     });
+  //
+  // }
+
 
   getAllBookingRequests() {
     this.bookingReqService.getAllBookingRequests().subscribe(
@@ -57,9 +74,12 @@ export class ViewBookingRequestListComponent implements OnInit{
 
   }
 
+
+
   ngOnInit(): void {
     // console.log(1111)
     this.getMyBookingRequests();
+    // this.getAcceptedBookingRequests();
     this.getAllBookingRequests();
 
   }

@@ -12,6 +12,7 @@ import {FormControlUtil} from "../../../utility/form-control-util";
 import {UserRequest} from "../../../models/userRequest";
 import {MatDialog} from "@angular/material/dialog";
 import {DisplayMessageService} from "../../service/display-message.service";
+import emailjs, {EmailJSResponseStatus} from "@emailjs/browser";
 
 @Component({
   selector: 'app-booking-request-form',
@@ -65,21 +66,7 @@ export class BookingRequestFormComponent  extends FormControlUtil {
       this.bookingRequest.resourceId = resourceId["resourceId"];
       console.log(this.bookingRequest.resourceId)
     })
-    // if (this.bookingRequest.resourceId == null) {
-    //
-    // } else {
 
-    //   this.resourceService.getResourceById(String(this.bookingRequest.resourceId)).subscribe(
-    //     (resource) => {
-    //       console.log(resource);
-    //     this.selectedResource=<Resource>resource;
-    //     this.bookingRequest.companyId=this.selectedResource.companyId;
-    //       console.log(this.selectedResource.company)
-    //     }
-    //     , (error) => {
-    //       console.log(error)
-    //     });
-    // }
   }
   addBookingRequest() {
     if (this.isFormValid(this.inputForm)) {
@@ -109,6 +96,8 @@ export class BookingRequestFormComponent  extends FormControlUtil {
       this.bookingReqService.updateBookingRequest(this.bookingRequest).subscribe(
         (compileResults) => {
           console.log(compileResults);
+          let updatedReq=<BookingRequest>compileResults;
+           this.sendEmail(updatedReq.id,updatedReq.startTime,updatedReq.endTime,updatedReq.requiredDate);
            this.messageService.showSucessMessage("booking request updated-Successfully");
           },
           error => {
@@ -116,5 +105,23 @@ export class BookingRequestFormComponent  extends FormControlUtil {
             this.messageService.showErrorMessage("error occurred");
           });
           }
+  }
+
+  sendEmail(id:number,startTime:string,endTime:string,date:string ) {
+    const templateParams = {
+      id: id,
+      startTime: startTime,
+      endTime:endTime,
+      date: date
+    };
+
+    emailjs.send('service_j5oevya', 'template_qt9epkl', templateParams, 'Q39eTsMf3eV9YPX9S')
+      .then((response) => {
+
+        console.log('Email sent!', response.status, response.text);
+        location.reload();
+      }, (error) => {
+        console.error('Error sending email:', error);
+      });
   }
 }
