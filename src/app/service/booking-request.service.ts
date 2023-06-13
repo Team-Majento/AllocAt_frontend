@@ -48,4 +48,10 @@ export class BookingRequestService {
     console.log("***"+apiUrlUpdate)
     return this.httpClient.put<any>(apiUrlUpdate, bookingRequest)
   }
+
+  getAllNumberOfPendingBookingRequest(){
+    return this.httpClient.get<object>(`http://localhost:8082/bookingRequests/resource-booking-request/num-of-pending-booking-request`);
+
+  }
+
 }
