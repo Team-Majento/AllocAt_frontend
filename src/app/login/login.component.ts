@@ -47,7 +47,7 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
   }
 
   login(){                                      //when login form submitted
-
+    localStorage.clear();
     if (this.isFormValid(this.inputForm)) {               //form-control.util- check all required fields are filled or not
       this.subSink.add(
         this.loginService.login_new(this.user).subscribe(          //login.service.ts - authenticate user and get login credentials
@@ -64,6 +64,10 @@ export class LoginComponent extends FormControlUtil implements OnInit,OnDestroy 
 
             localStorage.setItem("userType",compileResults.user.userType);
             localStorage.setItem("userId",compileResults.user.userId);
+            localStorage.setItem("companyId",compileResults.user.companyId);
+            localStorage.setItem("managerId",compileResults.user.managersEID);
+
+
 
             localStorage.setItem("jwtToken",compileResults.jwtToken);
 

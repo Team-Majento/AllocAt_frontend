@@ -1,4 +1,4 @@
-import {Component, Input, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
 import {SubSink} from "subsink";
 import {BookingRequest} from "../../../models/bookingRequest";
@@ -19,7 +19,8 @@ import emailjs, {EmailJSResponseStatus} from "@emailjs/browser";
   templateUrl: './booking-request-form.component.html',
   styleUrls: ['./booking-request-form.component.scss']
 })
-export class BookingRequestFormComponent  extends FormControlUtil {
+export class BookingRequestFormComponent extends FormControlUtil implements OnInit{
+
 
   @Input()
   formTitle = "Form";
@@ -44,7 +45,7 @@ export class BookingRequestFormComponent  extends FormControlUtil {
   constructor(private userService :UserService ,private bookingReqService:BookingRequestService, private route: ActivatedRoute,private resourceService: ResourceService,private location :Location,private dialogRef: MatDialog,private router: Router,private service: UserService,private messageService:DisplayMessageService) {
     super();
     this.bookingRequest.status="pending";
-    ;
+
 
     // let currentUserName = this.userService.getCurrentUserName();
     //
@@ -68,7 +69,28 @@ export class BookingRequestFormComponent  extends FormControlUtil {
     })
 
   }
+  ngOnInit(): void {
+
+
+    let companyId:string=localStorage.getItem("companyId")+"";
+    let comp_id:number=parseInt(companyId, 10);
+    this.bookingRequest.companyId=comp_id;
+
+    let managerId=localStorage.getItem("managerId")+"";
+    let man_id:number=parseInt(managerId, 10);
+    this.bookingRequest.requestersManagersUserId=man_id;
+
+    let userId=localStorage.getItem("userId")+"";
+    let user_id:number=parseInt(userId, 10);
+    console.log(userId);
+    this.bookingRequest.requesterUserId=user_id;
+  }
+
+
+
   addBookingRequest() {
+
+
     if (this.isFormValid(this.inputForm)) {
       this.bookingReqService.addBookingRequest(this.bookingRequest).subscribe(
         (compileResults) => {

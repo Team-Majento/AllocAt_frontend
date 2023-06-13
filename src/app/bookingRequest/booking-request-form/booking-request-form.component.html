@@ -34,22 +34,8 @@
         </div>
 
         <!--companyid-->
-        <div class="input">
-          <mat-form-field class="full-width" >
-            <mat-label>Company Id</mat-label>
-            <input
-              matInput
-              name="comId"
-              id="comId"
-              [(ngModel)]="bookingRequest.companyId"
-              #comId="ngModel"
-              [pattern]="IdPattern"
-              required
-            />
-          </mat-form-field>
-          <mat-error *ngIf="comId.invalid && (comId.dirty || comId.touched) && comId.errors?.['required']" class="alert">Company ID is required and must be a number.</mat-error>
-          <mat-error *ngIf="uid.invalid && (comId.dirty || comId.touched) && comId.errors?.['pattern']" class="alert">Only the numbers greater than 0 are allowed</mat-error>
-        </div>
+<!--       y
+-->
 
         <!--resourcemanagerid-->
         <div class="input">
