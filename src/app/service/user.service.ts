@@ -112,4 +112,26 @@ export class UserService {
     return this.http.get<number>(`http://localhost:8082/bookingRequests/resource-booking-request/all-booking-request-count/${userId}`);
 
   }
+
+  getResourceCountCompany1() {
+    return this.http.get<number>(`http://localhost:8082/companies/getResourceCount/getAllResourcesBelongToCompanyId1`);
+  }
+
+  getResourceCountCompany2() {
+    return this.http.get<number>(`http://localhost:8082/companies/getResourceCount/getAllResourcesBelongToCompanyId2`);
+  }
+
+  getResourceCountCompany3() {
+    return this.http.get<number>(`http://localhost:8082/companies/getResourceCount/getAllResourcesBelongToCompanyId3`);
+  }
+
+  getResourceCountCompany4() {
+    return this.http.get<number>(`http://localhost:8082/companies/getResourceCount/getAllResourcesBelongToCompanyId4`);
+  }
+  getResourceCountCompany5() {
+    return this.http.get<number>(`http://localhost:8082/companies/getResourceCount/getAllResourcesBelongToCompanyId5`);
+  }
+  getResourceCountCompany6() {
+    return this.http.get<number>(`http://localhost:8082/companies/getResourceCount/getAllResourcesBelongToCompanyId6`);
+  }
 }
