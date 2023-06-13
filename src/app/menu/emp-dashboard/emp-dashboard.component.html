@@ -79,7 +79,7 @@
       </thead>
 
       <tbody>
-      <tr *ngFor="let req of bookingReqList">
+      <tr *ngFor="let req of bookingReqList| slice:0:5">
         <td scope="row">{{req.id}}</td>
         <!--          <td>{{req["requesterUserId"]}}</td>-->
         <td>{{req.companyId}}</td>

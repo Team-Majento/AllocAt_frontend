@@ -6,6 +6,7 @@ import {UserService} from "../../service/user.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserRequest} from "../../../models/userRequest";
+import {BookingRequest} from "../../../models/bookingRequest";
 
 
 @Component({
@@ -14,7 +15,7 @@ import {UserRequest} from "../../../models/userRequest";
   styleUrls: ['./rm-dashboard.component.scss']
 })
 export class RmDashboardComponent implements OnInit{
-  bookingReqList:any=[];
+  bookingReqList!:BookingRequest[];
   title = 'chartDemo'
   selectedUser: any = {}
   userName!: String;

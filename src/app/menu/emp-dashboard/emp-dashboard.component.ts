@@ -6,6 +6,7 @@ import {UserService} from "../../service/user.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserRequest} from "../../../models/userRequest";
+import {BookingRequest} from "../../../models/bookingRequest";
 
 @Component({
   selector: 'app-emp-dashboard',
@@ -13,7 +14,7 @@ import {UserRequest} from "../../../models/userRequest";
   styleUrls: ['./emp-dashboard.component.scss']
 })
 export class EmpDashboardComponent implements OnInit {
-  bookingReqList!:any;
+  bookingReqList!:BookingRequest[];
   selectedUser: any = {}
   userName!: String;
   totalUsers!:any;
