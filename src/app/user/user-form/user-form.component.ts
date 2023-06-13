@@ -106,7 +106,7 @@ export class UserFormComponent extends FormControlUtil{
             this.service.updateUser(this.user).subscribe(
               (compileResults) => {
                 console.log(compileResults);
-                this.messageService.showSucessMessage("resource updated-Successfully");
+                this.messageService.showSucessMessage("user updated-Successfully");
               }
               , error => {
                 console.log(error)
@@ -125,7 +125,7 @@ export class UserFormComponent extends FormControlUtil{
         this.service.updateUser(this.user).subscribe(
           (compileResults) => {
             console.log(compileResults);
-            this.messageService.showSucessMessage("resource updated-Successfully");
+            this.messageService.showSucessMessage("user updated-Successfully");
           }
           , error => {
             console.log(error)
