@@ -5,7 +5,7 @@ import {ResourceService} from "../../service/resource.service";
 import {FormControlUtil} from "../../../utility/form-control-util";
 import {CompanyService} from "../../service/company.service";
 import {Location} from '@angular/common';
-import {MatDialog} from "@angular/material/dialog";
+import {MatDialog, MatDialogConfig} from "@angular/material/dialog";
 import {RateCardFormComponent} from "../../rateCard/rate-card-form/rate-card-form.component";
 import {HttpClient} from "@angular/common/http";
 import {DisplayMessageService} from "../../service/display-message.service";
@@ -21,7 +21,9 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
   formTitle = "Form"
 
   @Input()
-  resource = {} as Resource
+  resource = {} as Resource;
+
+
 
   @ViewChild('InputForm')
   inputForm!: NgForm;
@@ -39,6 +41,8 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
   constructor(private resourceService: ResourceService, private companyService: CompanyService, private location: Location, private dialogRef: MatDialog,private httpClient: HttpClient,private messageService:DisplayMessageService) {
     super();
     this.resource.imgUrl=this.url;
+    this.resource.availability=true;
+
   }
 
   IdPattern = "^[1-9][0-9]*$"
@@ -62,8 +66,19 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
           this.resourceService.addResource(this.resource).subscribe(
             (compileResults) => {
               console.log("resource id---->"+compileResults);
-              this.messageService.showSucessMessage("resource Added-Successfully..ResourceId: "+ compileResults);
-              this.dialogRef.open(RateCardFormComponent);
+              //this.messageService.showSucessMessage("resource Added-Successfully..ResourceId: "+ compileResults);
+
+              //this.dialogRef.open(RateCardFormComponent);
+              const dialogConfig: MatDialogConfig = {
+                disableClose: true, // Disable closing the dialog by clicking outside
+                // Add other dialog configuration options if needed
+              };
+
+              const dialogRef = this.dialogRef.open(RateCardFormComponent, dialogConfig);
+
+              // dialogRef.afterClosed().subscribe(result => {
+              //   // Handle the dialog close event if needed
+              // });
               localStorage.setItem("resourceIdForRateCard",String(compileResults));
             }
             , error => {
@@ -167,14 +182,29 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
               (compileResults) => {
                 console.log(compileResults);
                 localStorage.setItem("rateCard",String(compileResults.rateCardId));
-                this.dialogRef.open(UpdateRateCardComponent);
+
+               // this.dialogRef.open(UpdateRateCardComponent);
+                //this.dialogRef.open(RateCardFormComponent);
+                const dialogConfig: MatDialogConfig = {
+                  disableClose: true, // Disable closing the dialog by clicking outside
+                  // Add other dialog configuration options if needed
+                };
+
+                const dialogRef = this.dialogRef.open(UpdateRateCardComponent, dialogConfig);
+
+                // dialogRef.afterClosed().subscribe(result => {
+                //   // Handle the dialog close event if needed
+                // });
+
                // this.messageService.showSucessMessage("resource updated-Successfully");
+
 
               }
               , error => {
                 console.log(error)
                 this.messageService.showErrorMessage("error occurred");
               });
+
           },
           (error: any) => {
             // Handle any errors that occurred during the upload
@@ -192,8 +222,20 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
           (compileResults) => {
             console.log(compileResults);
             localStorage.setItem("rateCard",String(compileResults.rateCardId));
-            this.dialogRef.open(UpdateRateCardComponent);
-           // this.messageService.showSucessMessage("resource updated-Successfully");
+           // this.dialogRef.open(UpdateRateCardComponent);
+            const dialogConfig: MatDialogConfig = {
+              disableClose: true, // Disable closing the dialog by clicking outside
+              // Add other dialog configuration options if needed
+            };
+
+            const dialogRef = this.dialogRef.open(UpdateRateCardComponent, dialogConfig);
+
+            // dialogRef.afterClosed().subscribe(result => {
+            //   // Handle the dialog close event if needed
+            // });
+
+            // this.messageService.showSucessMessage("resource updated-Successfully");
+
           }
           , error => {
             console.log(error)

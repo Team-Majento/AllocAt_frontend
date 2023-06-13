@@ -5,6 +5,7 @@ import {DisplayMessageService} from "../../service/display-message.service";
 import {FormControlUtil} from "../../../utility/form-control-util";
 import {Resource} from "../../../models/resource";
 import {RateCard} from "../../../models/rateCard";
+import {Location} from "@angular/common";
 
 
 @Component({
@@ -26,7 +27,7 @@ export class RateCardFormComponent extends FormControlUtil {
   @Input()
   rateCard = {} as RateCard
 
-  constructor(private rateCardService:RatecardService,private messageService:DisplayMessageService) {
+  constructor(private rateCardService:RatecardService,private messageService:DisplayMessageService, private location: Location) {
     super();
   }
 
@@ -61,6 +62,7 @@ export class RateCardFormComponent extends FormControlUtil {
         (compileResults) => {
           console.log(compileResults);
           this.messageService.showSucessMessage("RateCard updated-Successfully");
+          this.location.back();
         }
         , error => {
           console.log(error)
