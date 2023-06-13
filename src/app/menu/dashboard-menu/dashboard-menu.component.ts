@@ -17,17 +17,23 @@ export class DashboardMenuComponent implements OnInit {
   title = 'chartDemo'
   selectedUser: any = {}  //hold the selected user data
   userName!: String;
-  totalUsers!:any;
-  pendingReqCount!:any;
+  totalUsers!:number;
+  rejectedCount!:number;
+  pendingCount!:number;
+
+  ongoingCount!:number;
+
 
 
 
 
   ngOnInit()
   {
+    this.getOngoingBookingsCount();
+    this.getPendingBookingRequestCount();
     this.getAllUsersCount();
     this.getAllBookingRequests();
-    this.getPendingRequestCount();
+    this.getRejectBookingRequestCount();
     new Chart("myChart", {
       type: 'bar',
 
@@ -101,18 +107,47 @@ export class DashboardMenuComponent implements OnInit {
        });
   }
 
-  getPendingRequestCount() {
-    this.bookingReqService.getAllNumberOfPendingBookingRequest().subscribe(
+  getRejectBookingRequestCount(){
+    this.service.getRejectBookingRequestCount().subscribe(
       (compileResults) => {
+
+        this.rejectedCount=compileResults;
         // @ts-ignore
-        const pcount= compileResults;
         console.log(compileResults);
-        this.pendingReqCount=pcount;
       }
       , error => {
         console.log(error)
-      });
+      }
+    );
   }
+
+  getPendingBookingRequestCount(){
+    this.service.getPendingBookingRequestCount().subscribe(
+      (compileResults) => {
+
+        this.pendingCount=compileResults;
+        // @ts-ignore
+        console.log(compileResults);
+      }
+      , error => {
+        console.log(error)
+      }
+    );
+  }
+  getOngoingBookingsCount(){
+    this.service.getOngoingBookingsCount().subscribe(
+      (compileResults) => {
+
+        this.ongoingCount=compileResults;
+        // @ts-ignore
+        console.log(compileResults);
+      }
+      , error => {
+        console.log(error)
+      }
+    );
+  }
+
 
 }
 

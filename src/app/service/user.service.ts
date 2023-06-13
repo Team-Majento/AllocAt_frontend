@@ -72,16 +72,39 @@ export class UserService {
   }
 
   public getAllUsersCount() {
-    return this.http.get("http://localhost:8082/users/getUsersCount/");
+    return this.http.get<number>("http://localhost:8082/users/getUsersCount/");
   }
 
   public getAllSubordinatesCount(managerEid:number) {
     console.log("**")
     console.log(managerEid);
     console.log("****")
-    return this.http.get(`http://localhost:8082/users/getAllSubordinatesCount/${managerEid}`);
+    return this.http.get<number>(`http://localhost:8082/users/getAllSubordinatesCount/${managerEid}`);
   }
 
 
+  getRejectBookingRequestCount(){
+      return this.http.get<number>(`http://localhost:8082/bookingRequests/resource-booking-request/num-of-rejected-booking-request`);
+  }
 
+  getPendingBookingRequestCount() {
+    return this.http.get<number>(`http://localhost:8082/bookingRequests/resource-booking-request/num-of-pending-booking-request`);
+
+  }
+
+  getOngoingBookingsCount() {
+    return this.http.get<number>(`http://localhost:8082/resourceAllocaion/allocations/ongoing-aalocation-count`);
+
+  }
+
+  totalRejectedCount(userId: string) {
+    return this.http.get<number>(`http://localhost:8082/bookingRequests/resource-booking-request/num-of-rejected-booking-request/${userId}`);
+
+  }
+
+  totalPendingCount(userId: string) {
+    return this.http.get<number>(`http://localhost:8082/bookingRequests/resource-booking-request/num-of-pending-booking-request/${userId}`);
+
+
+  }
 }

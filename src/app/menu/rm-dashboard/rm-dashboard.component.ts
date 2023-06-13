@@ -19,9 +19,15 @@ export class RmDashboardComponent implements OnInit{
   selectedUser: any = {}
   userName!: String;
   totalUsers!:any;
-  totalSubordinates!:object;
+  totalSubordinates!:number;
+  totalRejectedCount!:number;
+  totalPendingCount!:number;
+
+
   ngOnInit()
   {
+    this.totalPendingCountById();
+    this.totalRejectedCountById();
     this.getAllUsersCount();
     this.getAllBookingRequests();
     this.getAllSubordinatesCount();
@@ -99,12 +105,47 @@ export class RmDashboardComponent implements OnInit{
   getAllSubordinatesCount() {
     var userId= localStorage.getItem("userId")+"";
     var parsedUserId = parseInt(userId);
+   // const decodedData = atob(userId.toString());
+   //  console.log("*****")
+   //  console.log(userId)
+   //  console.log("*****")
     this.service.getAllSubordinatesCount(parsedUserId).subscribe(
       (compileResults) => {
         // @ts-ignore
+        console.log("*****")
         const totSub = compileResults;
         console.log(compileResults);
+        console.log("*****")
         this.totalSubordinates=totSub;
+      }
+      , error => {
+        console.log(error)
+      });
+  }
+
+  totalRejectedCountById() {
+    var userId=localStorage.getItem("userId")+"";
+
+    this.service.totalRejectedCount(userId).subscribe(
+      (compileResults) => {
+        // @ts-ignore
+        const totalRejectedCount = compileResults;
+        console.log(compileResults);
+        this.totalRejectedCount=totalRejectedCount;
+      }
+      , error => {
+        console.log(error)
+      });
+  }
+  totalPendingCountById() {
+    var userId=localStorage.getItem("userId")+"";
+
+    this.service.totalPendingCount(userId).subscribe(
+      (compileResults) => {
+        // @ts-ignore
+        const totalRejectedCount = compileResults;
+        console.log(compileResults);
+        this.totalPendingCount=totalRejectedCount;
       }
       , error => {
         console.log(error)
