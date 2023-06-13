@@ -34,7 +34,7 @@
         </span>
     </li>
 
-    <li class="nav-list-item"    [routerLink]="['accept-reject-booking-request']" >
+    <li *ngIf="userType=='1'" class="nav-list-item"    [routerLink]="['accept-reject-booking-request']" >
       <div class="icon  me-1 ">
 
         <fa-icon [icon]="icon7" class="ms-3"></fa-icon>
@@ -48,7 +48,7 @@
 
     </li>
 
-    <li class="nav-list-item"   (click)="openDialog()" >
+    <li *ngIf="userType=='1'" class="nav-list-item"   (click)="openDialog()" >
       <div class="icon  me-1 ">
         <fa-icon [icon]="icon8" class="ms-3"></fa-icon>
       </div>
