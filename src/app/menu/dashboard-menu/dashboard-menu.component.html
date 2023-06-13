@@ -44,7 +44,7 @@
     </div>
   </div>
 </section> -->
-<body>
+<!--<body>-->
 <div class="greeting" >
   <h3 style="color: #003D64"><b>Welcome {{selectedUser.userName}}</b></h3>
 </div>
@@ -212,15 +212,15 @@
   <div class="container-fluid">
 
     <div style="width: 600px; height: 500px; margin-top:30px;">
-      <h5 style="font-size:22px;">Total Bookings</h5>
+      <h5 style="font-size:22px;color: #212529;">Total Bookings</h5>
       <div class="tablestyle">
         <canvas id="myChart"></canvas>
       </div>
     </div>
 
     <div class="tbl">
-      <h5>Up Coming Meetings</h5>
-      <table class="table table-bordered">
+      <h5 style="color: #212529">Up Coming Meetings</h5>
+      <table class="table table-bordered" border="1">
         <thead>
           <tr>
             <td scope="col" class="head">Meeting ID</td>
@@ -233,7 +233,7 @@
         </thead>
 
         <tbody>
-        <tr *ngFor="let req of bookingReqList">
+        <tr *ngFor="let req of bookingReqList" style="background-color: azure;">
           <td scope="row">{{req.id}}</td>
 <!--          <td>{{req["requesterUserId"]}}</td>&ndash;&gt;-->
           <td>{{req.companyId}}</td>
@@ -249,4 +249,4 @@
       </table>
     </div>
   </div>
-</body>
+<!--</body>-->
