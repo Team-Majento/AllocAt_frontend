@@ -73,7 +73,14 @@ export class BookingRequestFormComponent  extends FormControlUtil {
       this.bookingReqService.addBookingRequest(this.bookingRequest).subscribe(
         (compileResults) => {
           console.log(compileResults);
-          this.messageService.showSucessMessage("booking request added-Successfully");
+          if(compileResults==-1){
+            this.messageService.showErrorMessage("error occurred");
+
+          }
+          else {
+            this.messageService.showSucessMessage("booking request added-Successfully");
+
+          }
         }
         , error => {
           console.log(error);
