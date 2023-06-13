@@ -22,6 +22,9 @@ export class BookingRequestFormComponent  extends FormControlUtil {
 
   @Input()
   formTitle = "Form";
+  @Input()
+  isUpdateForm : boolean | undefined;
+
 
   @Input()
   bookingRequest = {} as BookingRequest
@@ -29,7 +32,7 @@ export class BookingRequestFormComponent  extends FormControlUtil {
   max="18:00"
   min="09:00"
   minDate = new Date();
-  IdPattern = "^[1-9]\d*$"
+  IdPattern = "^([1-9]+[0-9]* | [1-9])$"
 
   @ViewChild('InputForm')
   inputForm!: NgForm;

@@ -158,10 +158,10 @@
         </div>
 
         <div>
-          <button class="btn btn-primary" (click)="addBookingRequest()">
+          <button *ngIf="!isUpdateForm" class="btn btn-primary" (click)="addBookingRequest()">
             Submit
           </button>
-          <button  (click)="updateBookingRequest()" [disabled]="InputForm.invalid"class="btn btn-primary">Update</button>
+          <button  *ngIf="isUpdateForm" (click)="updateBookingRequest()" [disabled]="InputForm.invalid"class="btn btn-primary">Update</button>
           <button
             class="btn btn-secondary"
             [routerLink]="['/resourceId']"
