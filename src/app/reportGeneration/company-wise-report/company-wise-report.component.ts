@@ -61,20 +61,19 @@ export class CompanyWiseReportComponent {
   }
 
 
-  getAllCompanyIdOfTheResourceAllocation(){
+  getAllCompanyIdOfTheResourceAllocation() {
     this.accept_reject_service.getAllCompanyIdOfTheResourceAllocation().subscribe(
       (compileResults) => {
-
-
-        // @ts-ignore
         const content = compileResults;
         console.log(content);
-        this.companyIdList=content;
-      }
-      , error => {
-        console.log(error)
-      });
-  }
 
+        this.companyIdList = Array.from(new Set(content));
+
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 
 }
