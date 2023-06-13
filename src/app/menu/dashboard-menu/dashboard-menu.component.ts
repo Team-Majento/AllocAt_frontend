@@ -18,6 +18,7 @@ export class DashboardMenuComponent implements OnInit {
   selectedUser: any = {}  //hold the selected user data
   userName!: String;
   totalUsers!:any;
+  pendingReqCount!:any;
 
 
 
@@ -26,6 +27,7 @@ export class DashboardMenuComponent implements OnInit {
   {
     this.getAllUsersCount();
     this.getAllBookingRequests();
+    this.getPendingRequestCount();
     new Chart("myChart", {
       type: 'bar',
 
@@ -97,6 +99,19 @@ export class DashboardMenuComponent implements OnInit {
        , error => {
          console.log(error)
        });
+  }
+
+  getPendingRequestCount() {
+    this.bookingReqService.getAllNumberOfPendingBookingRequest().subscribe(
+      (compileResults) => {
+        // @ts-ignore
+        const pcount= compileResults;
+        console.log(compileResults);
+        this.pendingReqCount=pcount;
+      }
+      , error => {
+        console.log(error)
+      });
   }
 
 }

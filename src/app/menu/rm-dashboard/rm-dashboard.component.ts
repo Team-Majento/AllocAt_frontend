@@ -99,17 +99,11 @@ export class RmDashboardComponent implements OnInit{
   getAllSubordinatesCount() {
     var userId= localStorage.getItem("userId")+"";
     var parsedUserId = parseInt(userId);
-   // const decodedData = atob(userId.toString());
-   //  console.log("*****")
-   //  console.log(userId)
-   //  console.log("*****")
     this.service.getAllSubordinatesCount(parsedUserId).subscribe(
       (compileResults) => {
         // @ts-ignore
-        console.log("*****")
         const totSub = compileResults;
         console.log(compileResults);
-        console.log("*****")
         this.totalSubordinates=totSub;
       }
       , error => {
