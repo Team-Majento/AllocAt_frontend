@@ -6,13 +6,14 @@ import {DatePipe} from "@angular/common";
 import {GeneralReportGeneration} from "../../../models/generalReportGeneration";
 import {MatDialog} from "@angular/material/dialog";
 import {DisplayMessageService} from "../../service/display-message.service";
+import {FormControlUtil} from "../../../utility/form-control-util";
 
 @Component({
   selector: 'app-general-report',
   templateUrl: './general-report.component.html',
   styleUrls: ['./general-report.component.scss']
 })
-export class GeneralReportComponent {
+export class GeneralReportComponent extends FormControlUtil{
 
   @Input()
   formTitle = "Form";
@@ -23,6 +24,7 @@ export class GeneralReportComponent {
   inputForm!: NgForm;
 
   constructor(private generateReportService: GenerateReportService,private dialogRef: MatDialog,private messageService:DisplayMessageService) {
+    super();
   }
 
   updateFromDate() {
@@ -37,16 +39,18 @@ export class GeneralReportComponent {
 
 
   generateReport() {
-    this.generateReportService.generateGeneralReport(this.generalReportGeneration.fromDate, this.generalReportGeneration.toDate)
-      .subscribe((compileResults) => {
-        console.log(compileResults);
-      }, error => {
-        console.log(error)
-      });
-    this.inputForm.resetForm();
-    this.dialogRef.closeAll();
-    this.messageService.showSucessMessage("Report Generated Successfully");
+    if (this.isFormValid(this.inputForm)) {
 
+      this.generateReportService.generateGeneralReport(this.generalReportGeneration.fromDate, this.generalReportGeneration.toDate)
+        .subscribe((compileResults) => {
+          console.log(compileResults);
+        }, error => {
+          console.log(error)
+        });
+      this.inputForm.resetForm();
+      this.dialogRef.closeAll();
+      this.messageService.showSucessMessage("Report Generated Successfully");
+    }
 
   }
 

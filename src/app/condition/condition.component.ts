@@ -29,17 +29,19 @@ export class ConditionComponent extends FormControlUtil implements OnInit{
   @ViewChild('InputForm')
   inputForm!: NgForm;
   submit(InputForm: any) {
-    const result = window.confirm('Are you sure you want to add this condition?');
 
-    if (result){
-      if (this.isFormValid(InputForm)) {
+    if (this.isFormValid(InputForm)) {
+      const result = window.confirm('Are you sure you want to add this condition?');
+
+      if (result) {
         this.conditionService.addCondition(this.condition).subscribe(
           (compileResults) => {
             console.log(compileResults);
           }
           , error => {
             console.log(error)
-          });;
+          });
+        ;
         this.inputForm.resetForm();
         this.dialogRef.closeAll();
         this.messageService.showSucessMessage("The condition has been successfully added");

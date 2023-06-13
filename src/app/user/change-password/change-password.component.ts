@@ -84,21 +84,19 @@ export class ChangePasswordComponent extends FormControlUtil implements OnInit {
 
 
   submit(InputForm: any) {
-
-    const result = window.confirm('Are you sure you want to proceed with the password change?');
-
-    if (result) {
       if (this.isFormValid(InputForm)) {
-        console.log(this.currentUserPassword);
-        console.log(this.user.currentPassword);
-        this.passwordMatch;
-        this.service.ChangeUserPassword(this.userByUserName, this.user.confirmPassword);
-        this.inputForm.resetForm();
-        this.dialogRef.closeAll();
-        this.messageService.showSucessMessage("Password Changed Successfully");
-      }
-    }
+        const result = window.confirm('Are you sure you want to proceed with the password change?');
 
+        if (result) {
+          console.log(this.currentUserPassword);
+          console.log(this.user.currentPassword);
+          this.passwordMatch;
+          this.service.ChangeUserPassword(this.userByUserName, this.user.confirmPassword);
+          this.inputForm.resetForm();
+          this.dialogRef.closeAll();
+          this.messageService.showSucessMessage("Password Changed Successfully");
+        }
+    }
   }
 
 
