@@ -6,6 +6,7 @@ import {UserService} from "../../service/user.service";
 import {MatDialog} from "@angular/material/dialog";
 import {ActivatedRoute, Router} from "@angular/router";
 import {UserRequest} from "../../../models/userRequest";
+import {BookingRequest} from "../../../models/bookingRequest";
 
 @Component({
   selector: 'app-dashboard-menu',
@@ -13,7 +14,7 @@ import {UserRequest} from "../../../models/userRequest";
   styleUrls: ['./dashboard-menu.component.scss']
 })
 export class DashboardMenuComponent implements OnInit {
-  bookingReqList:any=[]; //hold booking request data
+  bookingReqList!:BookingRequest[];
   title = 'chartDemo'
   selectedUser: any = {}  //hold the selected user data
   userName!: String;

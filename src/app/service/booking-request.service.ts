@@ -16,7 +16,7 @@ export class BookingRequestService {
   constructor(private httpClient: HttpClient) {}
 
   getAllBookingRequests() {
-    return this.httpClient.get<object>(this.apiUrl2);
+    return this.httpClient.get<BookingRequest[]>(this.apiUrl2);
   }
 
   getAllBookingRequestsByRequestersUserId(userId:string) {
