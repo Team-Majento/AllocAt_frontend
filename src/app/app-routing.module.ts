@@ -32,6 +32,10 @@ import {RoleFormComponent} from "./role/role-form/role-form.component";
 import {EmpDashboardComponent} from "./menu/emp-dashboard/emp-dashboard.component";
 import {RmDashboardComponent} from "./menu/rm-dashboard/rm-dashboard.component";
 import {UpdateBookingRequestComponent} from "./bookingRequest/update-booking-request/update-booking-request.component";
+import {ViewRequestsRmComponent} from "./bookingRequest/view-requests-rm/view-requests-rm.component";
+import {
+  ViewSubordinateBookingsRmComponent
+} from "./bookingRequest/view-subordinate-bookings-rm/view-subordinate-bookings-rm.component";
 
 
 const routes: Routes = [
@@ -102,15 +106,18 @@ const routes: Routes = [
               {
                 path:"myBookings",
                 component:ViewBookingRequestListComponent,
+              },       {
+                path:"myBookingsRM",
+                component:ViewRequestsRmComponent,
               },
               {
                 path:"myBookings/update/:reqId",
                 component:UpdateBookingRequestComponent,
               },
               {
-                path:"mySubBookings",
-                component:ViewBookingRequestListComponent,
-              },
+               path:"mySubBookings",
+               component:ViewSubordinateBookingsRmComponent,
+             },
 
             ]
 

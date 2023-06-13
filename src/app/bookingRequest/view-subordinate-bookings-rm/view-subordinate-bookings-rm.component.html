@@ -1,0 +1,40 @@
+<body>
+<h2>Subordinates Booking Requests(RM)</h2>
+<!--{{bookingReqList|json}}-->
+<table class="table" style="margin-top:25px;">
+  <thead>
+  <tr>
+    <th scope="col">Request ID</th>
+        <th  scope="col">User ID</th>
+    <th scope="col">Resource ID</th>
+    <th scope="col">Company ID</th>
+    <th scope="col">Resource Manager ID</th>
+    <th scope="col">Required Date</th>
+    <th scope="col">Start Time</th>
+    <th scope="col">End Time</th>
+    <th scope="col">Status</th>
+<!--    <th scope="col">Action</th>-->
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let req of subBookingReqList">
+    <td scope="row">{{req.id}}</td>
+            <td>{{req["requesterUserId"]}}</td>
+    <td>{{req.resourceId}}</td>
+    <td>{{req.companyId}}</td>
+    <td>{{req.requestersManagersUserId}}</td>
+    <td>{{req.requiredDate}}</td>
+    <td>{{req.startTime}}</td>
+    <td>{{req.endTime}} </td>
+    <td ><p style="color: rgb(173,142,0)" >{{req.status}}</p></td>
+    <td>
+<!--      <button type="button" class="btn btn-primary" (click)="updateBookingRequestRM(req.id)">Update</button>-->
+<!--      <button type="button" class="btn btn-secondary">Cancel</button>-->
+    </td>
+  </tr>
+  </tbody>
+
+</table>
+
+<!--<button class="btn btn-primary me-3 mb-3 back-btn" (click)="goBack()">Back</button>-->
+</body>

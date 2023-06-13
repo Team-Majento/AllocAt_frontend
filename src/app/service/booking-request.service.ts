@@ -49,6 +49,23 @@ export class BookingRequestService {
     return this.httpClient.put<any>(apiUrlUpdate, bookingRequest)
   }
 
+  getSubBookingRequest() {
+    console.log("kkkk")
+    var userId = localStorage.getItem("userId") + ""
+    let apiUrlGetSubReq = `http://localhost:8082/bookingRequests/resource-booking-request/all-sub-booking-requests/${userId}`;
+
+    // @ts-ignore
+    //delete resource.companyId;
+    //console.log("***"+apiUrlUpdate)
+    return this.httpClient.get<object>(apiUrlGetSubReq)
+  }
+
+
+
+
+
+
+
   getAllNumberOfPendingBookingRequest(){
     return this.httpClient.get<object>(`http://localhost:8082/bookingRequests/resource-booking-request/num-of-pending-booking-request`);
 

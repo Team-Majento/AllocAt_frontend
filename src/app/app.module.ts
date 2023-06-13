@@ -66,6 +66,8 @@ import { RmDashboardComponent } from './menu/rm-dashboard/rm-dashboard.component
 import { EmpDashboardComponent } from './menu/emp-dashboard/emp-dashboard.component';
 import { ConditionComponent } from './condition/condition.component';
 import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-dialog.component';
+import { ViewRequestsRmComponent } from './bookingRequest/view-requests-rm/view-requests-rm.component';
+import { ViewSubordinateBookingsRmComponent } from './bookingRequest/view-subordinate-bookings-rm/view-subordinate-bookings-rm.component';
 
 @NgModule({
   declarations: [
@@ -114,7 +116,9 @@ import { ConfirmationDialogComponent } from './confirmation-dialog/confirmation-
     RmDashboardComponent,
     EmpDashboardComponent,
     ConditionComponent,
-    ConfirmationDialogComponent
+    ConfirmationDialogComponent,
+    ViewRequestsRmComponent,
+    ViewSubordinateBookingsRmComponent
   ],
   imports: [
     BrowserModule,
