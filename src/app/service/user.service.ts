@@ -107,4 +107,9 @@ export class UserService {
 
 
   }
+
+  getBookingCountById(userId: string) {
+    return this.http.get<number>(`http://localhost:8082/bookingRequests/resource-booking-request/all-booking-request-count/${userId}`);
+
+  }
 }

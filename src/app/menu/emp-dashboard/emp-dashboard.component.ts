@@ -13,17 +13,25 @@ import {UserRequest} from "../../../models/userRequest";
   styleUrls: ['./emp-dashboard.component.scss']
 })
 export class EmpDashboardComponent implements OnInit {
-  bookingReqList:any=[];
+  bookingReqList!:any;
   selectedUser: any = {}
   userName!: String;
   totalUsers!:any;
 
+  totalRejectedCount!:any;
+
+  pendingCount!:number;
+
+  bookingCountById!:number;
+
 
   ngOnInit()
   {
-
+    this.totalRejectedCountById();
+    this.getPendingBookingRequestCount();
     this.getAllUsersCount();
     this.getAllBookingRequests();
+    this. getBookingCountById();
     new Chart("myChart", {
       type: 'bar',
 
@@ -76,9 +84,9 @@ export class EmpDashboardComponent implements OnInit {
     this.bookingReqService.getAllBookingRequests().subscribe(
       (compileResults) => {
         // @ts-ignore
-        const content = compileResults;
+        this.bookingReqList=compileResults;
         console.log(compileResults);
-        this.bookingReqList=content;
+
       }
       , error => {
         console.log(error)
@@ -98,5 +106,57 @@ export class EmpDashboardComponent implements OnInit {
         console.log(error)
       });
   }
+
+  getPendingBookingRequestCount(){
+    var userId=localStorage.getItem("userId")+"";
+    this.service.totalPendingCount(userId).subscribe(
+      (compileResults) => {
+
+        this.pendingCount=compileResults;
+        // @ts-ignore
+        console.log(compileResults);
+      }
+      , error => {
+        console.log(error)
+      }
+    );
+  }
+
+  totalRejectedCountById() {
+    var userId = localStorage.getItem("userId") + "";
+    this.service.totalRejectedCount(userId).subscribe(
+      (compileResults) => {
+
+        const totalRejectedCount = compileResults;
+        console.log(compileResults);
+        this.totalRejectedCount = totalRejectedCount;
+        // @ts-ignore
+        console.log(compileResults);
+      }
+      , error => {
+        console.log(error)
+      }
+    );
+  }
+
+  getBookingCountById() {
+    var userId = localStorage.getItem("userId") + "";
+    this.service.getBookingCountById(userId).subscribe(
+      (compileResults) => {
+
+        const totalRejectedCount = compileResults;
+        console.log(compileResults);
+        this.bookingCountById = totalRejectedCount;
+        // @ts-ignore
+        console.log(compileResults);
+      }
+      , error => {
+        console.log(error)
+      }
+    );
+  }
+
+
+
 
 }
