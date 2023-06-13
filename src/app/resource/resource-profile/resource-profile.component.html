@@ -31,6 +31,7 @@
           <p *ngIf="selectedResource.rateCardId!=null">Extra hour Rate</p>
           <p>Active Status </p>
           <p>Capacity</p>
+          <p>Floor</p>
           <p class="font-monospace fw-bold"><u>Description</u></p>
         </div>
 
@@ -44,6 +45,7 @@
 
           <p class="resource-value">:  {{ selectedResource.activeStatus }}</p>
           <p class="resource-value">:  {{ selectedResource.maximumCapacity }}</p>
+          <p class="resource-value">:  {{ selectedResource.floor }}</p>
         </div>
 
         <div class="col-12 mt-0 ms-4">
