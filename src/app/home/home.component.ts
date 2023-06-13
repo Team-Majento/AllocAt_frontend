@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
+import {UserRequest} from "../../models/userRequest";
 
 @Component({
   selector: 'app-home',
@@ -7,6 +8,10 @@ import emailjs, { EmailJSResponseStatus } from '@emailjs/browser';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+
+  user = {} as UserRequest;
+
+  emailPtn = "^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
 
   constructor() { }
   public sendEmail(e: Event) {

@@ -189,7 +189,17 @@
                <input type="text" class="form-control" id="lastName" placeholder="Enter your last name" name="lastName" required >
              </div>
              <div class="form-group col-lg-12">
-               <input type="email" class="form-control" id="email" placeholder="Enter email address" name="email" required >
+               <input
+                 type="email"
+                 class="form-control"
+                 id="email"
+                 placeholder="Enter email address"
+                 name="email"
+                 [(ngModel)]="user.email"
+                 #email="ngModel"
+                 [pattern]="emailPtn"
+                 required/>
+               <mat-error *ngIf="email.invalid && (email.dirty || email.touched) && email.errors?.['pattern']" class="alert">Enter valid email.</mat-error>
              </div>
              <div class="form-group col-lg-12">
                <input type="text" class="form-control" id="subject" placeholder="Enter subject" name="subject" required >
