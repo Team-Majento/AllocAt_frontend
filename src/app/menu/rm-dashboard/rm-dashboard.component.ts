@@ -21,6 +21,7 @@ export class RmDashboardComponent implements OnInit{
   userName!: String;
   totalUsers!:any;
   totalSubordinates!:number;
+  totalRequestCount!:number;
   totalRejectedCount!:number;
   totalPendingCount!:number;
   resourceCountCompany1!:number;
@@ -35,6 +36,7 @@ export class RmDashboardComponent implements OnInit{
   {
     this.totalPendingCountById();
     this.totalRejectedCountById();
+    this.getBookingRequestCountById()
     this.getAllUsersCount();
     this.getAllBookingRequests();
     this.getAllSubordinatesCount();
@@ -131,6 +133,23 @@ export class RmDashboardComponent implements OnInit{
       , error => {
         console.log(error)
       });
+  }
+
+  getBookingRequestCountById() {
+    var userId = localStorage.getItem("userId") + "";
+    this.service.getBookingCountById(userId).subscribe(
+      (compileResults) => {
+
+        const bookCount = compileResults;
+        console.log(compileResults);
+        this.totalRequestCount = bookCount;
+        // @ts-ignore
+        console.log(compileResults);
+      }
+      , error => {
+        console.log(error)
+      }
+    );
   }
 
   getResourceCountCompany1(){

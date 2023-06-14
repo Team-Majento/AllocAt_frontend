@@ -39,29 +39,13 @@ export class BookingRequestFormComponent extends FormControlUtil implements OnIn
   @ViewChild('InputForm')
   inputForm!: NgForm;
 
-  private subSink=new SubSink();
-  formData: FormData = new FormData();
+  // private subSink=new SubSink();
+  // formData: FormData = new FormData();
 
   constructor(private userService :UserService ,private bookingReqService:BookingRequestService, private route: ActivatedRoute,private resourceService: ResourceService,private location :Location,private dialogRef: MatDialog,private router: Router,private service: UserService,private messageService:DisplayMessageService) {
     super();
     this.bookingRequest.status="pending";
 
-
-    // let currentUserName = this.userService.getCurrentUserName();
-    //
-    // if (currentUserName == null) {
-    //
-    // } else {
-    //   this.userService.getUserByUserName(currentUserName).subscribe(
-    //     (user) => {
-    //       console.log(user);
-    //       let selectedUser:UserRequest = <UserRequest>user;
-    //       this.bookingRequest.requesterUserId=Number(selectedUser.userId);
-    //     }
-    //     , (error) => {
-    //       console.log(error)
-    //     });
-    // }
 
     route.params.subscribe(resourceId => {
       this.bookingRequest.resourceId = resourceId["resourceId"];
@@ -89,15 +73,12 @@ export class BookingRequestFormComponent extends FormControlUtil implements OnIn
 
 
   addBookingRequest() {
-
-
     if (this.isFormValid(this.inputForm)) {
       this.bookingReqService.addBookingRequest(this.bookingRequest).subscribe(
         (compileResults) => {
           console.log(compileResults);
           if(compileResults==-1){
             this.messageService.showErrorMessage("error occurred");
-
           }
           else {
             this.messageService.showSucessMessage("booking request added-Successfully");

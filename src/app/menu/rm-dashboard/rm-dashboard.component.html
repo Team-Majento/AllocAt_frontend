@@ -1,67 +1,16 @@
-<!-- <section class="mt-3">
-  <div class="container">
-    <div class="row" style="margin-top: 50px;">
-      <div class="col-md-4 card1">
-        <div class="card shadow-lg ">
 
-          <div class="card d-flex align-items-center ">
-            <div class="card-body text-center ">
-            <p class="h3"></p>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-
-      <div class="col-md-4 card2 ">
-        <div class="card shadow-lg">
-
-          <div class="card d-flex align-items-center">
-            <div class="card-body text-center">
-            <p class="h3"></p>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-
-      <div class="col-md-4 card3">
-        <div class="card shadow-lg">
-
-          <div class="card d-flex align-items-center">
-            <div class="card-body text-center">
-            <p class="h3"></p>
-            </div>
-
-          </div>
-
-        </div>
-      </div>
-
-
-    </div>
-  </div>
-</section> -->
 <!--<body>-->
 <div class="greeting" >
   <h3 style="color: #003D64"><b>Welcome {{selectedUser.userName}}</b></h3>
 </div>
 
-
 <div class="container-fluid d-flex justify-content-center">
-
-  <!--    <div class="row-md-6">-->
-
   <div class="col-md-2 border-right">
     <div class="cards">
       <div class="first p-4 text-center" style="background-color:#043e7d">
         <img src="assets/img/man.png" height="60px" /><br>
-
         <p>Total System Users</p>
         <p class="line3">{{totalUsers}}</p>
-
       </div>
     </div>
   </div>
@@ -70,22 +19,18 @@
     <div class="cards">
       <div class=" second  p-4 text-center" style="background-color:#2a6f97">
         <img src="assets/img/budget.png" height="60px"/>
-
         <p>No of Subordinates</p>
         <p class="line3">{{totalSubordinates}}</p>
-
       </div>
     </div>
-
   </div>
-
 
   <div class="col-md-2">
     <div class="cards">
       <div class=" third p-4 text-center" style="background-color:#043e7d">
-        <img src="assets/img/rejected.png" height="60px"><br>
-        <p>Total Bookings</p>
-        <p class="line3">60</p>
+        <img src="assets/img/booking.png" height="60px"><br>
+        <p>Total Requests Count</p>
+        <p class="line3">{{totalRequestCount}}</p>
       </div>
     </div>
   </div>
@@ -93,8 +38,7 @@
   <div class="col-md-2">
     <div class="cards">
       <div class="third  p-4 text-center" style="background-color:#2a6f97">
-        <img src="assets/img/booking.png" height="60px" alt=""/>
-
+        <img src="assets/img/refresh.png" height="60px" alt=""/>
         <p>Total Pending Requests</p>
         <p class="line3">{{totalPendingCount}}</p>
       </div>
@@ -107,7 +51,7 @@
   <div class="col-md-2">
     <div class="cards">
       <div class="third  p-4 text-center" style="background-color:#043e7d">
-        <img src="assets/img/refresh.png" height="60px"><br>
+        <img src="assets/img/rejected.png" height="60px"><br>
         <p>Total Rejected Requests</p>
         <p class="line3">{{totalRejectedCount}}</p>
       </div>
@@ -221,7 +165,7 @@
 <!--  </div>-->
 <div class="container-fluid">
   <div style="width: 600px; height: 500px; margin-top:30px;">
-    <h5 style="font-size:22px;">Total Bookings</h5>
+    <h5 style="font-size:22px;">Number of Active Resources</h5>
     <div class="tablestyle">
       <canvas id="myChart"></canvas>
     </div>
