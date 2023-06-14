@@ -47,20 +47,20 @@
   </div>
 
 
-  <div class="col-md-2">
-    <div class="cards">
-      <div class="third  p-4 text-center" style="background-color:#043e7d">
-        <img src="assets/img/clock.png" height="60px"/><br>
-        <p>Upcoming meeting in</p>
-        <p class="line3">60</p>
-      </div>
-    </div>
-  </div>
+<!--  <div class="col-md-2">-->
+<!--    <div class="cards">-->
+<!--      <div class="third  p-4 text-center" style="background-color:#043e7d">-->
+<!--        <img src="assets/img/clock.png" height="60px"/><br>-->
+<!--        <p>Upcoming meeting in</p>-->
+<!--        <p class="line3">60</p>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
  </div>
 
 <div class="container-fluid">
   <div style="width: 600px; height: 500px; margin-top:30px;">
-    <h5 style="font-size:22px;">My Bookings</h5>
+    <h5 style="font-size:22px;">Company vise Total Active Resource Allocation</h5>
     <div class="tablestyle">
       <canvas id="myChart"></canvas>
     </div>
@@ -81,15 +81,14 @@
 
       <tbody>
       <tr *ngFor="let req of bookingReqList| slice:0:5">
+
         <td scope="row">{{req.id}}</td>
-        <!--          <td>{{req["requesterUserId"]}}</td>-->
         <td>{{req.companyId}}</td>
         <td>{{req.resourceId}}</td>
-        <!--          <td>{{req.requestersManagersUserId}}</td>-->
         <td>{{req.requiredDate}}</td>
         <td>{{req.startTime}}</td>
         <td>{{req.endTime}} </td>
-        <!--          <td ><p style="color: rgb(173,142,0)" >{{req.status}}</p></td>-->
+
       </tr>
 
       </tbody>
