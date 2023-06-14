@@ -165,6 +165,20 @@
 <!--            <mat-error *ngIf="password.invalid && (password.dirty || password.touched) && password.errors?.['pattern']" class="alert">must have one uppercase,one lowercase letter, and be between 8-16 characters long.</mat-error>-->
               </mat-form-field>&nbsp;
 
+              <!--ADDRESS-->
+              <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
+                <mat-label>Address</mat-label>
+                <input
+                  matInput
+                  name="address"
+                  id="address"
+                  [(ngModel)]="user.address"
+                  #address="ngModel"
+                  class="field"
+                  required/>
+                <mat-error *ngIf="address.invalid && (address.dirty || address.touched) && address.errors?.['required']" class="alert">Address is required.</mat-error>
+              </mat-form-field>&nbsp;
+
               <!--MANAGEREID-->
               <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
                 <mat-label>ManagerEId</mat-label>
@@ -183,19 +197,7 @@
               </mat-form-field>
 
 
-              <!--ADDRESS-->
-              <mat-form-field  class="add" floatlabel="auto" appearance="outline">
-                <mat-label>Address</mat-label>
-                <input
-                  matInput
-                  name="address"
-                  id="address"
-                  [(ngModel)]="user.address"
-                  #address="ngModel"
-                  class="field"
-                  required/>
-                <mat-error *ngIf="address.invalid && (address.dirty || address.touched) && address.errors?.['required']" class="alert">Address is required.</mat-error>
-              </mat-form-field>
+
 
               <!--IMAGE-->
               <div class="mb-2">
