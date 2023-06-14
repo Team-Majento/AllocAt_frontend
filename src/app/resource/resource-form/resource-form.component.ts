@@ -41,6 +41,8 @@ export class ResourceFormComponent extends FormControlUtil implements OnInit {
     this.resource.imgUrl=this.url;
   }
 
+  IdPattern = "^[1-9][0-9]*$"
+
   addResource() {
     if (this.isFormValid(this.inputForm)) {
       let url_image:string="";
