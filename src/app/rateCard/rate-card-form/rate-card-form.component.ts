@@ -31,6 +31,8 @@ export class RateCardFormComponent extends FormControlUtil {
     super();
   }
 
+  IdPattern = "^[1-9][0-9]*$"
+
 
   submit(InputForm: NgForm) {
 

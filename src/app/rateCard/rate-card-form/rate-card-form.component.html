@@ -5,7 +5,17 @@
 
       <div>
         <label class="mb-2 mt-2"   for="hourRate">Hour Rate:</label>
-        <input class="form-control" [(ngModel)]="rateCard.hourRate" id="hourRate" name="hourRate" type="number"  required >
+        <input
+          class="form-control"
+          [(ngModel)]="rateCard.hourRate"
+          [pattern]="IdPattern"
+          id="hourRate"
+          name="hourRate"
+          #hourRate="ngModel"
+          type="number"
+          required >
+        <mat-error *ngIf="hourRate.invalid && (hourRate.dirty || hourRate.touched) && hourRate.errors?.['required']" class="alert">Userid is required and must be a number.</mat-error>
+        <mat-error *ngIf="hourRate.invalid && (hourRate.dirty || hourRate.touched) && hourRate.errors?.['pattern']" class="alert">Only the numbers greater than 0</mat-error>
       </div>
 <!--      <div *ngIf="(rate.touched || InputForm.submitted) && (rate.errors?.['required'] )" class="alert alert-danger">-->
 
@@ -17,7 +27,17 @@
 
       <div>
         <label class="mb-2 mt-2" for="extraHourRate">Extra hour rate:</label>
-        <input class="form-control" [(ngModel)]="rateCard.extraHourRate" id="extraHourRate" name="extraHourRate" type="number"   required >
+        <input
+          class="form-control"
+          [(ngModel)]="rateCard.extraHourRate"
+          [pattern]="IdPattern"
+          #extraHourRate="ngModel"
+          id="extraHourRate"
+          name="extraHourRate"
+          type="number"
+          required >
+        <mat-error *ngIf="extraHourRate.invalid && (extraHourRate.dirty || extraHourRate.touched) && extraHourRate.errors?.['required']" class="alert">Userid is required and must be a number.</mat-error>
+        <mat-error *ngIf="extraHourRate.invalid && (extraHourRate.dirty || extraHourRate.touched) && extraHourRate.errors?.['pattern']" class="alert">Only the numbers greater than 0</mat-error>
       </div>
 <!--      <div *ngIf="ehRate.invalid && (ehRate.dirty || ehRate.touched || InputForm.submitted)"  class="alert alert-danger">-->
 
@@ -28,7 +48,17 @@
 
       <div>
         <label class="mb-2 mt-2" for="unit">Unit:</label>
-        <input class="form-control" [(ngModel)]="rateCard.unit" id="unit" name="unit" type="number"   required >
+        <input
+          class="form-control"
+          [(ngModel)]="rateCard.unit"
+          [pattern]="IdPattern"
+          #unit="ngModel"
+          id="unit"
+          name="unit"
+          type="number"
+          required >
+        <mat-error *ngIf="unit.invalid && (unit.dirty || unit.touched) && unit.errors?.['required']" class="alert">Userid is required and must be a number.</mat-error>
+        <mat-error *ngIf="unit.invalid && (unit.dirty || unit.touched) && unit.errors?.['pattern']" class="alert">Only the numbers greater than 0</mat-error>
       </div>
 
 
