@@ -25,6 +25,17 @@ export class CompanyService {
     return  this.httpClient.post<number>(this.apiUrl,company,requestOptions);
   }
 
+  unlistCompany(companyId:string){
+    const tokenParse = localStorage.getItem('jwtToken')+'';
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${tokenParse}`);
+    console.log(tokenParse);
+    const requestOptions = { headers };
+    let unlistCom:string=`http://localhost:8082/companies/${companyId}`;
+    return this.httpClient.delete<boolean>(unlistCom,requestOptions);
+  }
+
+
+
   uploadImg(formData: FormData) {
     let url7:string=`http://localhost:8082/file`;
 

@@ -237,7 +237,7 @@ export class RmDashboardComponent implements OnInit{
         // console.log("#####")
 
         new Chart("myChart", {
-          type: 'bar',
+          type: 'pie',
 
           data: {
 
@@ -260,11 +260,11 @@ export class RmDashboardComponent implements OnInit{
           options: {
             scales: {
               xAxes:[{
-                display:true
+                display:false
 
               }],
               yAxes: [{
-                display:true
+                display:false
                 //  beginAtZero: true
               }]
             }
