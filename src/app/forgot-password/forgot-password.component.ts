@@ -27,10 +27,10 @@ export class ForgotPasswordComponent {
     const templateParams = {
       username: this.emailTo,
       // todo
-      //password: password,
+      // password: password,
     };
 
-    emailjs.send('service_fgfrip8', 'template_6eprlya', templateParams, 'El6uFa2gZTKo5PV1g')
+    emailjs.send('service_rylh2ps', 'template_zjlmq9b', templateParams, 'dK25rP4rfTIYjwl5N')
       .then((response) => {
         console.log('Email sent!', response.status, response.text);
         location.reload();
