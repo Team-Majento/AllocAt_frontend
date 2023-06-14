@@ -1,4 +1,4 @@
-<body>
+
 <div class="greeting" >
   <h3 style="color: #003D64"><b>Welcome {{selectedUser.userName}}</b></h3>
 </div>
@@ -8,38 +8,39 @@
    <div class="col-md-2 border-right">
     <div class="cards">
       <div class="first p-4 text-center" style="background-color:#043e7d">
-        <img src="assets/img/booking.png" height="60px" /><br>
+        <img src="assets/img/man.png" height="60px" /><br>
         <p>Total System Users</p>
         <p class="line3">{{totalUsers}}</p>
       </div>
     </div>
    </div>
 
+   <div class="col-md-2">
+     <div class="cards">
+       <div class=" third p-4 text-center" style="background-color:#2a6f97">
+         <img src="assets/img/booking.png" height="60px" alt=""/>
+         <p>My Total Requests</p>
+         <p class="line3">{{bookingCountById}}</p>
+       </div>
+     </div>
+   </div>
+
    <div class="col-md-2 border-right">
     <div class="cards">
-      <div class=" second  p-4 text-center" style="background-color:#2a6f97">
+      <div class=" second  p-4 text-center" style="background-color:#043e7d">
         <img src="assets/img/refresh.png" height="60px"/><br>
-        <p>Pending Requests</p>
+        <p>My Pending Requests</p>
         <p class="line3">{{pendingCount}}</p>
       </div>
     </div>
    </div>
 
-   <div class="col-md-2">
-     <div class="cards">
-      <div class=" third p-4 text-center" style="background-color:#043e7d">
-        <img src="assets/img/budget.png" height="60px"/><br>
-        <p>My Total Requests</p>
-        <p class="line3">{{bookingCountById}}</p>
-      </div>
-    </div>
-  </div>
 
   <div class="col-md-2">
     <div class="cards">
       <div class="third  p-4 text-center" style="background-color:#2a6f97">
-        <img src="assets/img/office.png" height="60px"/><br>
-        <p>Rejected Requests</p>
+        <img src="assets/img/rejected.png" height="60px"><br>
+        <p>My Rejected Requests</p>
         <p class="line3">{{totalRejectedCount}}</p>
       </div>
     </div>
@@ -66,7 +67,7 @@
   </div>
   <div class="tbl">
     <h5>Up Coming Meetings</h5>
-    <table class="table table-bordered">
+    <table class="table table-bordered" style="background-color: azure;">
       <thead>
       <tr>
         <td scope="col" class="head">Meeting ID</td>
@@ -95,4 +96,4 @@
     </table>
   </div>
 </div>
-</body>
+

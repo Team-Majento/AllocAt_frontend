@@ -24,6 +24,7 @@
                 <mat-error *ngIf="id.invalid && (id.dirty || id.touched) && id.errors?.['pattern']" class="alert">Only the numbers greater than 0</mat-error>
               </mat-form-field>&nbsp;
 
+              <!--COMPANYID-->
               <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
                 <mat-label>CompanyId</mat-label>
                 <input matInput
@@ -55,7 +56,7 @@
                   required/>
                 <mat-error *ngIf="email.invalid && (email.dirty || email.touched) && email.errors?.['required']" class="alert">Email is required.</mat-error>
                 <mat-error *ngIf="email.invalid && (email.dirty || email.touched) && email.errors?.['pattern']" class="alert">Enter valid email.</mat-error>
-              </mat-form-field>
+              </mat-form-field>&nbsp;
 
               <!--FIRSTNAME-->
               <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
@@ -87,7 +88,7 @@
                   required/>
                 <mat-error *ngIf="contactNo.invalid && (contactNo.dirty || contactNo.touched) && contactNo.errors?.['required']" class="alert">Contact Number is required.</mat-error>
                 <mat-error *ngIf="contactNo.invalid && (contactNo.dirty || contactNo.touched) && contactNo.errors?.['pattern']" class="alert">Contact number must have 10 digits</mat-error>
-              </mat-form-field>
+              </mat-form-field>&nbsp;
 
               <!--MIDDLE NAME-->
               <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
@@ -121,20 +122,7 @@
                 <mat-error *ngIf="lastName.invalid && (lastName.dirty || lastName.touched) && lastName.errors?.['pattern']" class="alert">Last name must be string</mat-error>
               </mat-form-field>&nbsp;
 
-              <!--USER TYPE-->
-<!--              <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">-->
-<!--                <mat-label>User Type</mat-label>-->
-<!--                <input-->
-<!--                  matInput-->
-<!--                  name="userType"-->
-<!--                  id="userType"-->
-<!--                  [(ngModel)]="user.userType"-->
-<!--                  #userType="ngModel"-->
-<!--                  class="field"-->
-<!--                  required/>-->
-<!--                <mat-error *ngIf="userType.invalid && (userType.dirty || userType.touched) && userType.errors?.['required']" class="alert">user type is required.</mat-error>-->
-<!--              </mat-form-field>&nbsp;-->
-
+              <!--USERTYPE-->
               <mat-form-field class="justifier" floatlabel="auto" appearance="outline">
                 <mat-label>Job Role</mat-label>
                 <mat-select name="userType" id="userType" [(ngModel)]="user.userType" #userType="ngModel" class="field" required>
@@ -157,7 +145,7 @@
                   class="field"
                   required/>
                 <mat-error *ngIf="userName.invalid && (userName.dirty || userName.touched) && userName.errors?.['required']" class="alert">userName is required.</mat-error>
-              </mat-form-field>
+              </mat-form-field>&nbsp;
 
               <!--PASSWORD-->
               <mat-form-field  class="justifier"  appearance="outline">
@@ -192,7 +180,6 @@
                   required/>
                 <mat-error *ngIf="managersEID.invalid && (managersEID.dirty || managersEID.touched) && managersEID.errors?.['required']" class="alert">managersEID is required.</mat-error>
                 <mat-error *ngIf="managersEID.invalid && (managersEID.dirty || managersEID.touched) && managersEID.errors?.['pattern']" class="alert">Only the numbers greater than 0</mat-error>
-
               </mat-form-field>
 
 
