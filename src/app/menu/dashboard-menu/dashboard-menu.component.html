@@ -233,7 +233,7 @@
         </thead>
 
         <tbody>
-        <tr *ngFor="let req of bookingReqList" style="background-color: azure;">
+        <tr *ngFor="let req of bookingReqList| slice:0:5" style="background-color: azure;">
           <td scope="row">{{req.id}}</td>
 <!--          <td>{{req["requesterUserId"]}}</td>&ndash;&gt;-->
           <td>{{req.companyId}}</td>

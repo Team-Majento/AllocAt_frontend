@@ -25,7 +25,11 @@ export class UpdateBookingRequestComponent {
 
         this.bookingrequestService.getBookingRequestById(this.reqId).subscribe(
           (results) => {
+            console.log("top");
+
             console.log(results);
+            console.log("bottom");
+
             this.selectedBooking = <BookingRequest>results;
           }
           , (error) => {

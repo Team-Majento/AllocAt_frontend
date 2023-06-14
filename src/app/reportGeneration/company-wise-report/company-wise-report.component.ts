@@ -6,13 +6,14 @@ import {GenerateReportService} from "../../service/generate-report.service";
 import {MatDialog} from "@angular/material/dialog";
 import {DisplayMessageService} from "../../service/display-message.service";
 import {AcceptRejectBookingRequestService} from "../../service/accept-reject-booking-request.service";
+import {FormControlUtil} from "../../../utility/form-control-util";
 
 @Component({
   selector: 'app-company-wise-report',
   templateUrl: './company-wise-report.component.html',
   styleUrls: ['./company-wise-report.component.scss']
 })
-export class CompanyWiseReportComponent {
+export class CompanyWiseReportComponent extends FormControlUtil{
   @Output()
   companyList:any=[]; //***
 
@@ -28,6 +29,7 @@ export class CompanyWiseReportComponent {
   inputForm!: NgForm;
 
   constructor(private generateReportService: GenerateReportService,private dialogRef: MatDialog,private messageService:DisplayMessageService,private accept_reject_service:AcceptRejectBookingRequestService) {
+    super();
   }
 
 
@@ -48,16 +50,18 @@ export class CompanyWiseReportComponent {
 
 
   generateReport() {
-    this.generateReportService.generateCompanyWiseReport(this.companyWiseReportGeneration.companyId, this.companyWiseReportGeneration.fromDate, this.companyWiseReportGeneration.toDate)
-      .subscribe((compileResults) => {
-        console.log(compileResults);
-      }, error => {
-        console.log(error)
-      });
+    if (this.isFormValid(this.inputForm)) {
+      this.generateReportService.generateCompanyWiseReport(this.companyWiseReportGeneration.companyId, this.companyWiseReportGeneration.fromDate, this.companyWiseReportGeneration.toDate)
+        .subscribe((compileResults) => {
+          console.log(compileResults);
+        }, error => {
+          console.log(error)
+        });
 
-    this.inputForm.resetForm();
-    this.dialogRef.closeAll();
-    this.messageService.showSucessMessage("Report Generated Successfully");
+      this.inputForm.resetForm();
+      this.dialogRef.closeAll();
+      this.messageService.showSucessMessage("Report Generated Successfully");
+    }
   }
 
 

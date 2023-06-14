@@ -24,6 +24,21 @@
                 <mat-error *ngIf="id.invalid && (id.dirty || id.touched) && id.errors?.['pattern']" class="alert">Only the numbers greater than 0</mat-error>
               </mat-form-field>&nbsp;
 
+              <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
+                <mat-label>CompanyId</mat-label>
+                <input matInput
+                       name="companyId"
+                       id="companyId"
+                       type="number"
+                       [(ngModel)]="user.companyId"
+                       [pattern]="IdPattern"
+                       #companyId="ngModel"
+                       class="field"
+                       required/>
+                <mat-error *ngIf="companyId.invalid && (companyId.dirty || companyId.touched) && companyId.errors?.['required']" class="alert">company id is required and must be a number.</mat-error>
+                <mat-error *ngIf="companyId.invalid && (companyId.dirty || companyId.touched) && companyId.errors?.['pattern']" class="alert">Only the numbers greater than 0</mat-error>
+              </mat-form-field>&nbsp;
+
               <!--EMAIL-->
               <mat-form-field  class="justifier" floatlabel="auto" appearance="outline">
                 <mat-label>E-mail</mat-label>

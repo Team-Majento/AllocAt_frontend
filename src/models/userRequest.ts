@@ -1,6 +1,8 @@
 
 export interface UserRequest{
   userId: BigInt ;
+  companyId: number ;
+
   firstName: string;
   middleName: string ;
   lastName: string ;
